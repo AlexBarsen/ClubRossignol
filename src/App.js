@@ -1,8 +1,8 @@
 import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 
-import Home from "./pages";
-import RentalPage from "./pages/rental/rental.component";
+import Home from "./pages/Home/index";
+import RentalPage from "./pages/rental/index";
 
 const App = () => {
   return (
