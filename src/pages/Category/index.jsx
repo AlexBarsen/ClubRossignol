@@ -13,7 +13,7 @@ const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
 
   return (
-    <CategoryPageContainer>
+    <CategoryPageContainer key={categoryName}>
       <Title>{categoryName}</Title>
       <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (

@@ -1,14 +1,16 @@
 import React from "react";
 
-import { Category, Title, Icon } from "./SidebarElements";
+import { Category, Title, IconContainer, Icon } from "./SidebarElements";
 
 const RentalCategory = ({ category }) => {
   const { title, icon } = category;
   return (
     <>
-      <Category to={`/rental/${title.toLowerCase()}`}>
+      <Category>
         <Title>{title}</Title>
-        <Icon src={icon} alt={`${title}`}></Icon>
+        <IconContainer to={`/rental/${title.toLowerCase()}`}>
+          <Icon src={icon} alt={`${title}`} />
+        </IconContainer>
       </Category>
     </>
   );

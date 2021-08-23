@@ -15,9 +15,9 @@ const RentalItem = ({ item, specificCategory }) => {
   return (
     <>
       <RentalItemContainer specificCategory={specificCategory}>
-        <Title>{name}</Title>
+        <Title specificCategory={specificCategory}>{name}</Title>
         <Icon src={icon} alt="Icon" />
-        <Footer>
+        <Footer specificCategory={specificCategory}>
           <Price>{price} RON / ZI</Price>
           <RentalModal specificCategory={specificCategory} item={item} />
         </Footer>

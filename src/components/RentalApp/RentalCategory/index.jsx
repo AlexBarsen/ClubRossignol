@@ -13,7 +13,7 @@ const RentalCategory = ({ categoryName, products }) => {
     <>
       <RentalCategoryContainer>
         <CategoryTitle>{categoryName}</CategoryTitle>
-        <CategoryItems>
+        <CategoryItems type={categoryName}>
           {products.map((item) => (
             <RentalItem
               specificCategory={false}

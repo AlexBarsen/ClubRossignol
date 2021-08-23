@@ -7,20 +7,20 @@ export const RentalItemContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
 
-  height: ${({ specificCategory }) => (specificCategory ? "33rem" : "22rem")};
-  width: ${({ specificCategory }) => (specificCategory ? "40em" : "22rem")};
+  height: ${({ specificCategory }) => (specificCategory ? "30rem" : "30rem")};
+  width: ${({ specificCategory }) => (specificCategory ? "30rem" : "30rem")};
   background-color: rgba(#fff, 0.8);
   border: 0.3rem solid black;
   border-radius: 0.8rem;
   box-shadow: 0.2rem 0.2rem 0.5rem 0 #656565;
-  margin: 2rem 1.25rem 0 1.25rem;
+  /* margin: 2rem 1.5rem 0 1.5rem; */
+  transition: all 0.5s ease-in-out;
 `;
 
 export const Title = styled.h1`
-  padding: 0 0.5rem;
   text-align: center;
   font-size: ${({ specificCategory }) =>
-    specificCategory ? "2rem" : "1.6rem"};
+    specificCategory ? "2.2rem" : "2.2rem"};
 `;
 
 export const Icon = styled.img`
@@ -29,7 +29,7 @@ export const Icon = styled.img`
 
 export const Footer = styled.div`
   font-size: ${({ specificCategory }) =>
-    specificCategory ? "2rem" : "1.4rem"};
+    specificCategory ? "1.8rem" : "2rem"};
   width: 90%;
   display: flex;
   justify-content: space-between;

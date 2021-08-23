@@ -6,9 +6,9 @@ export const Button = styled(Link)`
   background: ${({ primary }) =>
     primary ? "rgb(77, 168, 218)" : "rgb(244, 217, 73)"};
   white-space: nowrap;
-  padding: 1rem 1.5rem;
-  font-size: ${({ specificCategory }) =>
-    specificCategory ? "2.4rem" : "1.6rem"};
+  padding: ${({ specificCategory }) =>
+    specificCategory ? "0.8rem 1.3rem" : "0.5rem 1rem"};
+  font-size: ${({ specificCategory }) => (specificCategory ? "2rem" : "1rem")};
   outline: none;
   border: none;
   cursor: pointer;
