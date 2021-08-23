@@ -80,12 +80,13 @@ export const addCollectionAndDocuments = async (
 export const convertRentalsSnapshotToMap = (rentals) => {
   const transformedRentals = rentals.docs.map((doc) => {
     // * destructe properties from the document
-    const { categoryName, products } = doc.data();
+    const { categoryName, products, icon } = doc.data();
 
     // * return final object with desired data
     return {
       routeName: encodeURI(categoryName.toLowerCase()),
       id: doc.id,
+      icon,
       categoryName,
       products,
     };

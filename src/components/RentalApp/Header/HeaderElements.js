@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
   height: 7rem;
-  background: green;
+  margin-left: 15%;
+  /* background: green; */
 `;
 
 export const HeaderOptions = styled.div`
@@ -14,5 +15,5 @@ export const HeaderOptions = styled.div`
 
 export const HeaderOption = styled.div`
   margin-right: 2rem;
-  font-size: 1.6rem;
+  font-size: 2rem;
 `;

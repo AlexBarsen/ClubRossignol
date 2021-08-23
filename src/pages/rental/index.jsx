@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 
 import { Route } from "react-router-dom";
 
-import { RentalPageContainer } from "./RentaPageElements";
-
-// import RentalOverview from "../../components/oldProj/RentalOverview/index";
+import {
+  RentalPageContainer,
+  RentalContent,
+  RentalCategories,
+} from "./RentaPageElements";
 
 import Header from "../../components/RentalApp/Header/index";
 
@@ -16,8 +18,11 @@ import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/RentalOverviewContainer";
 
 import CategoryPage from "../Category/index";
+import { createStructuredSelector } from "reselect";
+import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
+import RentalCategory from "../../components/RentalApp/Sidebar/index";
 
-const RentalPage = ({ fetchRentalsStart, match }) => {
+const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
     fetchRentalsStart();
   }, [fetchRentalsStart]);
@@ -28,20 +33,34 @@ const RentalPage = ({ fetchRentalsStart, match }) => {
     <RentalPageContainer>
       <Header />
       <Wrapper>
-        <Route
-          exact
-          path={`${match.path}`}
-          component={RentalOverviewContainer}
-        />
-        <Route path={`${match.path}/:categoryName`} component={CategoryPage} />
+        <RentalCategories>
+          {rentalCategories.map((category) => (
+            <RentalCategory key={category} category={category} />
+          ))}
+        </RentalCategories>
+        <RentalContent>
+          <Route
+            exact
+            path={`${match.path}`}
+            component={RentalOverviewContainer}
+          />
+          <Route
+            path={`${match.path}/:categoryName`}
+            component={CategoryPage}
+          />
+        </RentalContent>
       </Wrapper>
     </RentalPageContainer>
   );
 };
+
+const mapStateToProps = createStructuredSelector({
+  rentalCategories: selectRentalsCategories,
+});
 
 // * dispatch actions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   fetchRentalsStart: () => dispatch(fetchRentalsStart()),
 });
 
-export default connect(null, mapDispatchToProps)(RentalPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RentalPage);

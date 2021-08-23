@@ -15,7 +15,11 @@ const RentalCategory = ({ categoryName, products }) => {
         <CategoryTitle>{categoryName}</CategoryTitle>
         <CategoryItems>
           {products.map((item) => (
-            <RentalItem key={item.productID} item={item} />
+            <RentalItem
+              specificCategory={false}
+              key={item.productID}
+              item={item}
+            />
           ))}
         </CategoryItems>
       </RentalCategoryContainer>

@@ -25,7 +25,7 @@ import { addItem } from "../../../redux/cart/cart.actions";
 import FormInput from "../FormInput/index";
 import { Button } from "../../Landing/Button/ButtonElement";
 
-const RentalModal = ({ addItem, item }) => {
+const RentalModal = ({ addItem, item, specificCategory }) => {
   const { name, price, productType } = item;
 
   const [modalInputs, setModalInputs] = useState({
@@ -145,7 +145,9 @@ const RentalModal = ({ addItem, item }) => {
 
   return (
     <>
-      <Button onClick={toggleModal}>ALEGE</Button>
+      <Button onClick={toggleModal} specificCategory={specificCategory}>
+        ALEGE
+      </Button>
 
       {/* render Modal depending on the state */}
       {modalVisibility && (

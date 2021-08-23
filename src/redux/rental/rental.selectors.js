@@ -24,7 +24,11 @@ export const selectRentalsArray = createSelector([selectRentals], (rentals) =>
 
 export const selectRentalsCategories = createSelector(
   [selectRentalsArray],
-  (rentalsArray) => rentalsArray.map((rentals) => rentals.categoryName)
+  (rentalsArray) =>
+    rentalsArray.map((rentals) => ({
+      title: rentals.categoryName,
+      icon: rentals.icon,
+    }))
 );
 
 export const selectRentalCategory = (rentalUrlParam) =>

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const RentalItemContainer = styled.div`
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 32rem;
-  width: 32rem;
+
+  height: ${({ specificCategory }) => (specificCategory ? "33rem" : "22rem")};
+  width: ${({ specificCategory }) => (specificCategory ? "40em" : "22rem")};
   background-color: rgba(#fff, 0.8);
   border: 0.3rem solid black;
   border-radius: 0.8rem;
@@ -17,14 +19,21 @@ export const RentalItemContainer = styled.div`
 export const Title = styled.h1`
   padding: 0 0.5rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: ${({ specificCategory }) =>
+    specificCategory ? "2rem" : "1.6rem"};
+`;
+
+export const Icon = styled.img`
+  width: 45%;
 `;
 
 export const Footer = styled.div`
-  font-size: 2rem;
+  font-size: ${({ specificCategory }) =>
+    specificCategory ? "2rem" : "1.4rem"};
   width: 90%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `;
 
 export const Price = styled.div``;

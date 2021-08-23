@@ -1,27 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
 import RentalItem from "../../components/RentalApp/RentalItem/index";
-import {
-  selectRentalCategory,
-  selectRentals,
-} from "../../redux/rental/rental.selectors";
+import { selectRentalCategory } from "../../redux/rental/rental.selectors";
 
 import {
   CategoryPageContainer,
   Title,
   CategoryProductsContainer,
-} from "./CategoryElements";
+} from "./CategoryElements.js";
 
-const CategoryPage = ({ category, rentals }) => {
-  console.log(category);
+const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
-  console.log(categoryName, products);
+
   return (
     <CategoryPageContainer>
-      <Title></Title>
-      <CategoryProductsContainer>
+      <Title>{categoryName}</Title>
+      <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (
-          <RentalItem key={product.id} item={product} />
+          <RentalItem specificCategory={true} key={product.id} item={product} />
         ))}
       </CategoryProductsContainer>
     </CategoryPageContainer>
@@ -30,7 +26,6 @@ const CategoryPage = ({ category, rentals }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   category: selectRentalCategory(ownProps.match.params.categoryName)(state),
-  rentals: selectRentals,
 });
 
 export default connect(mapStateToProps)(CategoryPage);

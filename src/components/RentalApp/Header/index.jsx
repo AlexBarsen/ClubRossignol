@@ -11,6 +11,7 @@ const Header = () => {
           <HeaderOption>Prices</HeaderOption>
           <HeaderOption>Login</HeaderOption>
           <HeaderOption>Register</HeaderOption>
+          <HeaderOption>Contact</HeaderOption>
         </HeaderOptions>
       </HeaderContainer>
     </>

@@ -8,8 +8,7 @@ import { RentalOverviewContainer } from "./RentalOverviewElements";
 
 import RentalCategory from "../RentalCategory/index";
 
-const RentalOverview = ({ rentalsArray, match }) => {
-  console.log(match);
+const RentalOverview = ({ rentalsArray }) => {
   return (
     <>
       <RentalOverviewContainer>

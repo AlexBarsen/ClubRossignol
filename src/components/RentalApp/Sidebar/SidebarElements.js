@@ -5,9 +5,7 @@ export const Category = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  width: 20rem;
-  height: 25rem;
+  height: 32%;
   margin: 1rem;
   background: yellowgreen;
 `;
@@ -16,7 +14,7 @@ export const Title = styled.div`
   font-size: 2rem;
 `;
 
-export const Icon = styled.div`
+export const Icon = styled.img`
   background: lightblue;
   height: 100%;
   margin: 1rem;

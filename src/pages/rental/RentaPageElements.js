@@ -2,31 +2,22 @@ import styled from "styled-components";
 
 export const RentalPageContainer = styled.div`
   border-radius: 5rem;
-  height: 95vh;
+  height: 900px;
   background: lightblue;
 `;
 
-// export const Header = styled.div`
-//   border-top-left-radius: 5rem;
-//   border-top-right-radius: 5rem;
-//   height: 70px;
-//   background: red;
-// `;
-
 export const Wrapper = styled.div`
+  /* padding: 1rem; */
   display: flex;
   height: 80rem;
   background: lightgreen;
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 `;
 
-// export const Categories = styled.div`
-//   height: 80rem;
-//   background: blue;
-//   width: 15%;
-// `;
+export const RentalCategories = styled.div``;
 
-// export const Content = styled.div`
-//   height: 80rem;
-//   background: green;
-//   width: 85%;
-// `;
+export const RentalContent = styled.div`
+  width: 100%;
+  height: 100%;
+`;
