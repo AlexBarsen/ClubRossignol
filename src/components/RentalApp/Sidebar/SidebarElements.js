@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Category = styled.div`
-  /* height: 100%; */
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

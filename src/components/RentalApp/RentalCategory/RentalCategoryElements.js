@@ -16,6 +16,7 @@ const fadeIn = keyframes`
   }`;
 
 export const RentalCategoryContainer = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

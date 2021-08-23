@@ -15,7 +15,7 @@ export const RentalCategories = styled.div`
   flex-direction: column;
   padding-top: 2rem;
   background: #1b9ce5;
-  border-bottom-left-radius: 2rem;
+  /* border-bottom-left-radius: 2rem; */
 `;
 
 export const RentalContent = styled.div`

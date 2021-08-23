@@ -22,6 +22,8 @@ import { createStructuredSelector } from "reselect";
 import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
 import RentalCategory from "../../components/RentalApp/Sidebar/index";
 
+import Footer from "../../components/RentalApp/Footer/index";
+
 const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
     fetchRentalsStart();
@@ -50,6 +52,7 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
           />
         </RentalContent>
       </Wrapper>
+      <Footer />
     </RentalPageContainer>
   );
 };
