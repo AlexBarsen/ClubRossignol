@@ -6,27 +6,27 @@ export const RentalPageContainer = styled.div`
   background: lightblue;
 `;
 
-export const Header = styled.div`
-  border-top-left-radius: 5rem;
-  border-top-right-radius: 5rem;
-  height: 70px;
-  background: red;
-`;
+// export const Header = styled.div`
+//   border-top-left-radius: 5rem;
+//   border-top-right-radius: 5rem;
+//   height: 70px;
+//   background: red;
+// `;
 
 export const Wrapper = styled.div`
   display: flex;
   height: 80rem;
-  background: green;
+  background: lightgreen;
 `;
 
-export const Categories = styled.div`
-  height: 80rem;
-  background: blue;
-  width: 15%;
-`;
+// export const Categories = styled.div`
+//   height: 80rem;
+//   background: blue;
+//   width: 15%;
+// `;
 
-export const Content = styled.div`
-  height: 80rem;
-  background: green;
-  width: 85%;
-`;
+// export const Content = styled.div`
+//   height: 80rem;
+//   background: green;
+//   width: 85%;
+// `;

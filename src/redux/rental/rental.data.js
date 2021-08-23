@@ -1,10 +1,10 @@
-import SkiIcon from "../../assets/svg/shop-icons/ski.svg";
-import SkiBootsIcon from "../../assets/svg/shop-icons/ski-boots.svg";
-import SkierIcon from "../../assets/svg/shop-icons/skier.svg";
-import SnowboardIcon from "../../assets/svg/shop-icons/snowboard.svg";
-import SnowboardBootsIcon from "../../assets/svg/shop-icons/snowboard-boot.svg";
-import SnowboarderIcon from "../../assets/svg/shop-icons/snowboarder-kid.svg";
-// import HelmetIcon from "../../assets/svg/shop-icons/helemet.svg";
+// import SkiIcon from "../../assets/svg/shop-icons/ski.svg";
+// import SkiBootsIcon from "../../assets/svg/shop-icons/ski-boots.svg";
+// import SkierIcon from "../../assets/svg/shop-icons/skier.svg";
+// import SnowboardIcon from "../../assets/svg/shop-icons/snowboard.svg";
+// import SnowboardBootsIcon from "../../assets/svg/shop-icons/snowboard-boot.svg";
+// import SnowboarderIcon from "../../assets/svg/shop-icons/snowboarder-kid.svg";
+// // import HelmetIcon from "../../assets/svg/shop-icons/helemet.svg";
 
 const RENTAL_DATA = [
   {
@@ -15,42 +15,37 @@ const RENTAL_DATA = [
         productID: 1,
         name: "Skiuri Adulti",
         price: "40",
-        icon: SkiIcon,
         productType: "skiSnow",
       },
       {
         productID: 2,
         name: "Bocanci Adulti",
         price: "20",
-        icon: SkiBootsIcon,
         productType: "boots",
       },
       {
         productID: 3,
         name: "Echipament Complet Ski Adulti",
         price: "50",
-        icon: SkierIcon,
         productType: "equipment",
       },
       {
         productID: 4,
         name: "Skiuri Copii",
         price: "35",
-        icon: SkiIcon,
+
         productType: "skiSnow",
       },
       {
         productID: 5,
         name: "Bocanci Copil",
         price: "15",
-        icon: SkiBootsIcon,
         productType: "boots",
       },
       {
         productID: 6,
         name: "Echipament Complet Copil",
         price: "40",
-        icon: SkierIcon,
         productType: "equipment",
       },
     ],
@@ -60,45 +55,39 @@ const RENTAL_DATA = [
     categoryName: "Snowboard",
     products: [
       {
-        productID: 1,
+        productID: 7,
         name: "Snowboard Adulti",
         price: "40",
-        icon: SnowboardIcon,
         productType: "skiSnow",
       },
       {
-        productID: 2,
+        productID: 8,
         name: "Boots Adulti",
         price: "20",
-        icon: SnowboardBootsIcon,
         productType: "boots",
       },
       {
-        productID: 3,
+        productID: 9,
         name: "Echipament Complet Snowboard Adulti",
         price: "50",
-        icon: SnowboarderIcon,
         productType: "equipment",
       },
       {
-        productID: 4,
+        productID: 10,
         name: "Snowboard Copil",
         price: "35",
-        icon: SnowboardIcon,
         productType: "skiSnow",
       },
       {
-        productID: 5,
+        productID: 11,
         name: "Boots Snowboard Copil",
         price: "15",
-        icon: SnowboardBootsIcon,
         productType: "boots",
       },
       {
-        productID: 6,
+        productID: 12,
         name: "Echipament Complet Snowboard Copil",
         price: "40",
-        icon: SnowboarderIcon,
         productType: "equipment",
       },
     ],
@@ -106,7 +95,28 @@ const RENTAL_DATA = [
   {
     categoryID: 3,
     categoryName: "Bike",
-    products: [],
+    products: [
+      {
+        productID: 13,
+        name: "E-Bike Adult",
+        productType: "bike",
+      },
+      {
+        productID: 14,
+        name: "E-Bike Copil",
+        productType: "bike",
+      },
+      {
+        productID: 15,
+        name: "Bicicleta Adult",
+        productType: "bike",
+      },
+      {
+        productID: 16,
+        name: "Bicicleta Copil",
+        productType: "bike",
+      },
+    ],
   },
 ];
 

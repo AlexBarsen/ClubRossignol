@@ -1,7 +1,7 @@
-import RestaurantImage from "../components/feature-images/restaurant.jpg";
-import RentalImage from "../components/feature-images/rental.JPG";
+import RestaurantImage from "../components/Landing/feature-images/restaurant.jpg";
+import RentalImage from "../components/Landing/feature-images/rental.JPG";
 import HotelImage from "../images/room1.jpg";
-import ShopImage from "../components/feature-images/shop.jpg";
+import ShopImage from "../components/Landing/feature-images/shop.jpg";
 
 export const restaurantSection = {
   id: "restaurant",

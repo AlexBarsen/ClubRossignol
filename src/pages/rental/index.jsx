@@ -1,15 +1,23 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import { Route } from "react-router-dom";
+
 import { RentalPageContainer } from "./RentaPageElements";
 
-import RentalOverviewContainer from "../../components/oldProj/rental-overview/RentalOverviewContainer";
+// import RentalOverview from "../../components/oldProj/RentalOverview/index";
 
-import { Header, Wrapper, Categories, Content } from "./RentaPageElements";
+import Header from "../../components/RentalApp/Header/index";
+
+import { Wrapper } from "./RentaPageElements";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
-const RentalPage = ({ fetchRentalsStart }) => {
+import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/RentalOverviewContainer";
+
+import CategoryPage from "../Category/index";
+
+const RentalPage = ({ fetchRentalsStart, match }) => {
   useEffect(() => {
     fetchRentalsStart();
   }, [fetchRentalsStart]);
@@ -20,10 +28,13 @@ const RentalPage = ({ fetchRentalsStart }) => {
     <RentalPageContainer>
       <Header />
       <Wrapper>
-        <Categories></Categories>
-        <Content></Content>
+        <Route
+          exact
+          path={`${match.path}`}
+          component={RentalOverviewContainer}
+        />
+        <Route path={`${match.path}/:categoryName`} component={CategoryPage} />
       </Wrapper>
-      {/* <RentalOverviewContainer /> */}
     </RentalPageContainer>
   );
 };

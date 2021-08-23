@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image from "../../images/view-big.jpg";
+import image from "../../../images/view-big.jpg";
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
 
 export const HeroContainer = styled.div`

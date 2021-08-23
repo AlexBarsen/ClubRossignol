@@ -84,6 +84,7 @@ export const convertRentalsSnapshotToMap = (rentals) => {
 
     // * return final object with desired data
     return {
+      routeName: encodeURI(categoryName.toLowerCase()),
       id: doc.id,
       categoryName,
       products,

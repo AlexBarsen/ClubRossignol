@@ -7,4 +7,6 @@ export const CategoryTitle = styled.h1`
   justify-content: center;
 `;
 
-export const CategoryItems = styled.div``;
+export const CategoryItems = styled.div`
+  display: flex;
+`;

@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 
-import Logo from "../../svg/logo.svg";
+import Logo from "../../../svg/logo.svg";
 import {
   Nav,
   NavbarContainer,

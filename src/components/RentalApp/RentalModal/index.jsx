@@ -22,8 +22,8 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 
 import { addItem } from "../../../redux/cart/cart.actions";
 
-import FormInput from "../form-input/index";
-import { Button } from "../../Button/ButtonElement";
+import FormInput from "../FormInput/index";
+import { Button } from "../../Landing/Button/ButtonElement";
 
 const RentalModal = ({ addItem, item }) => {
   const { name, price, productType } = item;

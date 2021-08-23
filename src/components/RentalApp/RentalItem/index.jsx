@@ -10,6 +10,7 @@ import {
 import RentalModal from "../RentalModal";
 
 const RentalItem = ({ item }) => {
+  console.log(item);
   const { name, price } = item;
   return (
     <>

@@ -1,4 +1,5 @@
 import { createSelector } from "reselect";
+// import rental from "../../pages/rental";
 
 // * select just rental from state
 // * -> { rental: { rentals: [ { id, categoryName, products: [] }, { ... } ] } }
@@ -20,6 +21,16 @@ export const selectRentals = createSelector(
 export const selectRentalsArray = createSelector([selectRentals], (rentals) =>
   rentals ? Object.keys(rentals).map((key) => rentals[key]) : []
 );
+
+export const selectRentalsCategories = createSelector(
+  [selectRentalsArray],
+  (rentalsArray) => rentalsArray.map((rentals) => rentals.categoryName)
+);
+
+export const selectRentalCategory = (rentalUrlParam) =>
+  createSelector([selectRentals], (rental) =>
+    rental ? rental[rentalUrlParam] : null
+  );
 
 // * select isFetching from rental
 export const isRentalFetching = createSelector(

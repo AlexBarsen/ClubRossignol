@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Navbar } from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
-import HeroSection from "../../components/HeroSection";
-import AboutSection from "../../components/AboutSection";
-import InfoSection from "../../components/InfoSection";
+import { Navbar } from "../../components/Landing/Navbar";
+import Sidebar from "../../components/Landing/Sidebar";
+import HeroSection from "../../components/Landing/HeroSection";
+import AboutSection from "../../components/Landing/AboutSection";
+import InfoSection from "../../components/Landing/InfoSection";
 import {
   restaurantSection,
   rentalSection,
