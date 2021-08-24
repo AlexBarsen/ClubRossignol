@@ -11,6 +11,8 @@ import {
   shopSection,
 } from "../../components/sections";
 
+import { HomeContainer } from "./HomeElements";
+
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,14 +22,16 @@ const Home = () => {
 
   return (
     <>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
-      <HeroSection />
-      <AboutSection />
-      <InfoSection section={restaurantSection} imgStart={false} />
-      <InfoSection section={rentalSection} imgStart={true} />
-      <InfoSection section={hotelSection} imgStart={false} />
-      <InfoSection section={shopSection} imgStart={true} />
+      <HomeContainer>
+        <Sidebar isOpen={isOpen} toggle={toggle} />
+        <Navbar toggle={toggle} />
+        <HeroSection />
+        <AboutSection />
+        <InfoSection section={restaurantSection} imgStart={false} />
+        <InfoSection section={rentalSection} imgStart={true} />
+        <InfoSection section={hotelSection} imgStart={false} />
+        <InfoSection section={shopSection} imgStart={true} />
+      </HomeContainer>
     </>
   );
 };

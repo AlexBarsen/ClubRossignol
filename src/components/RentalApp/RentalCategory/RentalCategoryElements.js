@@ -16,7 +16,7 @@ const fadeIn = keyframes`
   }`;
 
 export const RentalCategoryContainer = styled.div`
-  height: 100%;
+  margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,4 +36,13 @@ export const CategoryItems = styled.div`
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;

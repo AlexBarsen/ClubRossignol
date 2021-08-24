@@ -2,28 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import Scroll from "react-scroll";
-
 import { selectRentalsArray } from "../../../redux/rental/rental.selectors";
 
-import { RentalOverviewContainer } from "./RentalOverviewElements";
+import { RentalOverviewContainer, Element } from "./RentalOverviewElements";
 
 import RentalCategory from "../RentalCategory/index";
 
 const RentalOverview = ({ rentalsArray }) => {
-  const Element = Scroll.Element;
-
   return (
     <>
       <RentalOverviewContainer>
-        <Element
-          style={{
-            height: "670px",
-            overflow: "scroll",
-            margin: "1.5rem",
-            overflowX: "hidden",
-          }}
-        >
+        <Element>
           {rentalsArray.map(({ id, categoryName, products }) => (
             <RentalCategory
               key={id}

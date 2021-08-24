@@ -7,6 +7,7 @@ import {
   CategoryPageContainer,
   Title,
   CategoryProductsContainer,
+  Element,
 } from "./CategoryElements.js";
 
 const CategoryPage = ({ category }) => {
@@ -15,11 +16,17 @@ const CategoryPage = ({ category }) => {
   return (
     <CategoryPageContainer key={categoryName}>
       <Title>{categoryName}</Title>
-      <CategoryProductsContainer type={categoryName}>
-        {products.map((product) => (
-          <RentalItem specificCategory={true} key={product.id} item={product} />
-        ))}
-      </CategoryProductsContainer>
+      <Element>
+        <CategoryProductsContainer type={categoryName}>
+          {products.map((product) => (
+            <RentalItem
+              specificCategory={true}
+              key={product.id}
+              item={product}
+            />
+          ))}
+        </CategoryProductsContainer>
+      </Element>
     </CategoryPageContainer>
   );
 };

@@ -6,7 +6,7 @@ export const Category = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 export const Title = styled.div`
@@ -19,6 +19,16 @@ export const IconContainer = styled(Link)`
   padding: 1rem;
   height: 20rem;
   width: 18rem;
+
+  @media screen and (max-width: 1050px) {
+    height: 19rem;
+    width: 17rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    height: 18rem;
+    width: 16rem;
+  }
 `;
 
 export const Icon = styled.img`

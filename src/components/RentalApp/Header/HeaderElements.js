@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  height: 7rem;
+  height: 5%;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   padding-left: 25rem;
