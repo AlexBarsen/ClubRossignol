@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8%;
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;
   padding-left: 25rem;

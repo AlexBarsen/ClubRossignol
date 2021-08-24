@@ -1,8 +1,9 @@
 import React from "react";
 
-import { Category, Title, IconContainer, Icon } from "./SidebarElements";
+import { Category, Title, IconContainer, Icon } from "./TopbarElements";
 
-const Sidebar = ({ category }) => {
+const Topbar = ({ category }) => {
+  console.log(category);
   const { title, icon } = category;
   return (
     <>
@@ -15,5 +16,4 @@ const Sidebar = ({ category }) => {
     </>
   );
 };
-
-export default Sidebar;
+export default Topbar;

@@ -27,20 +27,19 @@ export const RentalItemContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    height: 380px;
-    width: 380px;
+    height: 35rem;
+    width: 35rem;
   }
 
   @media screen and (max-width: 480px) {
-    height: 320px;
-    width: 320px;
+    height: 32rem;
+    width: 32rem;
   }
 `;
 
 export const Title = styled.h1`
   text-align: center;
-  font-size: ${({ specificCategory }) =>
-    specificCategory ? "2.2rem" : "2.2rem"};
+  font-size: 2.2rem;
 `;
 
 export const Icon = styled.img`
@@ -48,8 +47,7 @@ export const Icon = styled.img`
 `;
 
 export const Footer = styled.div`
-  font-size: ${({ specificCategory }) =>
-    specificCategory ? "1.8rem" : "2rem"};
+  font-size: 2rem;
   width: 90%;
   display: flex;
   justify-content: space-between;

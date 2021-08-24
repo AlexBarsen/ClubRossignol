@@ -10,16 +10,16 @@ import {
 
 import RentalModal from "../RentalModal";
 
-const RentalItem = ({ item, specificCategory }) => {
+const RentalItem = ({ item }) => {
   const { name, price, icon } = item;
   return (
     <>
-      <RentalItemContainer specificCategory={specificCategory}>
-        <Title specificCategory={specificCategory}>{name}</Title>
+      <RentalItemContainer>
+        <Title>{name}</Title>
         <Icon src={icon} alt="Icon" />
-        <Footer specificCategory={specificCategory}>
+        <Footer>
           <Price>{price} RON / ZI</Price>
-          <RentalModal specificCategory={specificCategory} item={item} />
+          <RentalModal item={item} />
         </Footer>
       </RentalItemContainer>
     </>

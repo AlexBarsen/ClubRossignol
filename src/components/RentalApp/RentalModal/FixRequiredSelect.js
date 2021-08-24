@@ -43,7 +43,7 @@ class FixRequiredSelect extends React.Component {
             autoComplete="off"
             style={{
               opacity: 0,
-              width: "35%",
+              width: "30%",
               height: 0,
               position: "absolute",
             }}

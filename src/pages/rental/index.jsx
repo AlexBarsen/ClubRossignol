@@ -7,6 +7,7 @@ import {
   RentalPageContainer,
   RentalContent,
   RentalCategories,
+  RentalCategories1,
 } from "./RentaPageElements";
 
 import Header from "../../components/RentalApp/Header/index";
@@ -20,9 +21,11 @@ import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/R
 import CategoryPage from "../Category/index";
 import { createStructuredSelector } from "reselect";
 import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
-import RentalCategory from "../../components/RentalApp/Sidebar/index";
+import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import Footer from "../../components/RentalApp/Footer/index";
+
+import Topbar from "../../components/RentalApp/Topbar/index";
 
 const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
@@ -34,12 +37,18 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   return (
     <RentalPageContainer>
       <Header />
+      <RentalCategories1>
+        {rentalCategories.map((category) => (
+          <Topbar key={category.title} category={category} />
+        ))}
+      </RentalCategories1>
       <Wrapper>
         <RentalCategories>
           {rentalCategories.map((category) => (
-            <RentalCategory key={category} category={category} />
+            <Sidebar key={category.title} category={category} />
           ))}
         </RentalCategories>
+
         <RentalContent>
           <Route
             exact

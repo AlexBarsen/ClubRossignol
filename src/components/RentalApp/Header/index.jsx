@@ -1,5 +1,7 @@
 import React from "react";
 
+import CartIcon from "../CartIcon/index";
+
 import { HeaderContainer, HeaderOptions, HeaderOption } from "./HeaderElements";
 
 const Header = () => {
@@ -13,6 +15,7 @@ const Header = () => {
           <HeaderOption>Register</HeaderOption>
           <HeaderOption>Contact</HeaderOption>
         </HeaderOptions>
+        <CartIcon />
       </HeaderContainer>
     </>
   );

@@ -40,9 +40,4 @@ export const CategoryItems = styled.div`
   @media screen and (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-  }
 `;

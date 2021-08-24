@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const RentalModalInfoContainer = styled.div``;
+export const RentalModalInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Message = styled.p`
   font-size: 1.6rem;

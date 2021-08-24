@@ -1,7 +1,7 @@
 import React from "react";
 
-import FixRequiredSelect from "../RentalModal/FixRequiredSelect";
-import BaseSelect from "react-select";
+import { CustomSelect } from "./RentalModalSelectTypesElements";
+
 import {
   sexOptions,
   shoeSizeOptions,
@@ -9,10 +9,6 @@ import {
   weightOptions,
   experienceOptions,
 } from "../RentalModal/options";
-
-const Select = (props) => (
-  <FixRequiredSelect {...props} SelectComponent={BaseSelect} />
-);
 
 const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
   // * <Select> custom styles
@@ -32,7 +28,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
     case "boots":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Marime Picior"
             name="shoeSize"
             onChange={onChangeInput}
@@ -41,7 +37,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             onChange={onChangeInput}
@@ -54,7 +50,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
     case "skiSnow":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Inaltime (CM)"
             name="height"
             styles={customStyles}
@@ -63,7 +59,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Greutate (KG)"
             name="weight"
             styles={customStyles}
@@ -72,7 +68,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Nivel Experienta"
             name="experience"
             styles={customStyles}
@@ -81,7 +77,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             styles={customStyles}
@@ -94,7 +90,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
     case "equipment":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Inaltime (CM)"
             name="height"
             styles={customStyles}
@@ -103,7 +99,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Greutate (KG)"
             name="weight"
             styles={customStyles}
@@ -112,7 +108,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Marime Picior"
             name="shoeSize"
             styles={customStyles}
@@ -121,7 +117,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Nivel Experienta"
             name="experience"
             styles={customStyles}
@@ -130,7 +126,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             styles={customStyles}

@@ -19,11 +19,7 @@ const CategoryPage = ({ category }) => {
       <Element>
         <CategoryProductsContainer type={categoryName}>
           {products.map((product) => (
-            <RentalItem
-              specificCategory={true}
-              key={product.id}
-              item={product}
-            />
+            <RentalItem key={product.id} item={product} />
           ))}
         </CategoryProductsContainer>
       </Element>
