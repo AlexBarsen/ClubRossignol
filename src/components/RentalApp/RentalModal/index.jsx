@@ -29,7 +29,7 @@ import FormInput from "../FormInput/index";
 import { Button } from "../Button/ButtonElement";
 
 const RentalModal = ({ addItem, item }) => {
-  const { name, price, productType } = item;
+  const { name, price, productType, icon } = item;
 
   const [modalInputs, setModalInputs] = useState({
     firstName: "",
@@ -89,6 +89,7 @@ const RentalModal = ({ addItem, item }) => {
 
     // * pass state into item
     const orderItem = {
+      icon: icon,
       name: name,
       price: price,
       id: uuid(),

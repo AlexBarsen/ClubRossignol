@@ -14,9 +14,7 @@ export const Container = styled.div`
   );
 `;
 
-export const CollapsibleContainer = styled.div`
-  /* transition: width ease 0.8s; */
-`;
+export const CollapsibleContainer = styled.div``;
 
 export const Content = styled.div`
   transition: width ease 0.8s;

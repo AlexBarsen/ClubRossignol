@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CartIconContainer = styled.div`
   position: relative;
   margin-right: 40px;
+  cursor: pointer;
 `;
 
 export const IconContainer = styled.div`

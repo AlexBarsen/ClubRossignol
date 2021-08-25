@@ -3,7 +3,6 @@ import React from "react";
 import { Category, Title, IconContainer, Icon } from "./TopbarElements";
 
 const Topbar = ({ category }) => {
-  console.log(category);
   const { title, icon } = category;
   return (
     <>
