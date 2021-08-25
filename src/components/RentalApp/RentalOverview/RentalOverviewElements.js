@@ -11,15 +11,4 @@ export const Element = styled(Scroll.Element)`
   overflow: scroll;
   margin: 1.5rem;
   overflow-x: hidden;
-
-  @media screen and (max-width: 1000px) {
-    /* display: flex; */
-    overflow-y: visible;
-  }
-`;
-
-export const ElementContainer = styled.div`
-  /* display: flex;
-  flex-flow: wrap;
-  height: 100%; */
 `;

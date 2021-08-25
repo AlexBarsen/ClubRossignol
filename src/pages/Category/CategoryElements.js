@@ -18,7 +18,6 @@ const fadeIn = keyframes`
 `;
 
 export const CategoryPageContainer = styled.div`
-  /* margin: auto; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -43,11 +42,6 @@ export const CategoryProductsContainer = styled.div`
   @media screen and (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 export const Element = styled(Scroll.Element)`
@@ -55,24 +49,4 @@ export const Element = styled(Scroll.Element)`
   overflow: scroll;
   margin: 1.5rem;
   overflow-x: hidden;
-  overflow-y: hidden;
-
-  @media screen and (max-width: 1000px) {
-    overflow-y: visible;
-  }
-
-  @media screen and (max-width: 768px) {
-    height: 500px;
-    overflow-y: visible;
-  }
-
-  @media screen and (max-width: 600px) {
-    height: 525px;
-    overflow-y: visible;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 550px;
-    overflow-y: visible;
-  }
 `;

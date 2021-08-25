@@ -14,3 +14,8 @@ export const selectUserSignInHidden = createSelector(
   [selectUser],
   (user) => user.userSignInHidden
 );
+
+export const selectUserSignUpHidden = createSelector(
+  [selectUser],
+  (user) => user.userSignUpHidden
+);

@@ -10,6 +10,10 @@ export const toggleUserSignInHidden = () => ({
   type: UserActionTypes.TOGGLE_USER_SIGN_IN_HIDDEN,
 });
 
+export const toggleUserSignUpHidden = () => ({
+  type: UserActionTypes.TOGGLE_USER_SIGN_UP_HIDDEN,
+});
+
 export const checkUserSession = () => ({
   type: UserActionTypes.CHECK_USER_SESSION,
 });

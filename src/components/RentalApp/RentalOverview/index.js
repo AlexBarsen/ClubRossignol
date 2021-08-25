@@ -4,11 +4,7 @@ import { createStructuredSelector } from "reselect";
 
 import { selectRentalsArray } from "../../../redux/rental/rental.selectors";
 
-import {
-  RentalOverviewContainer,
-  Element,
-  ElementContainer,
-} from "./RentalOverviewElements";
+import { RentalOverviewContainer, Element } from "./RentalOverviewElements";
 
 import RentalCategory from "../RentalCategory/index";
 

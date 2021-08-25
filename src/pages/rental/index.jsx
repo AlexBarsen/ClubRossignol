@@ -27,6 +27,8 @@ import Footer from "../../components/RentalApp/Footer/index";
 
 import Topbar from "../../components/RentalApp/Topbar/index";
 
+import Sign from "../Sign";
+
 const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
     fetchRentalsStart();
@@ -55,10 +57,11 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             path={`${match.path}`}
             component={RentalOverviewContainer}
           />
-          <Route
+          {/* <Route
             path={`${match.path}/:categoryName`}
             component={CategoryPage}
-          />
+          /> */}
+          <Route exact path="/rental/sign" component={Sign} />
         </RentalContent>
       </Wrapper>
       <Footer />

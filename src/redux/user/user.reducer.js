@@ -3,6 +3,7 @@ import { UserActionTypes } from "./user.types";
 const INITIAL_STATE = {
   currentUser: null,
   userSignInHidden: true,
+  userSignUpHidden: false,
   error: null,
 };
 
@@ -20,6 +21,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         userSignInHidden: !state.userSignInHidden,
+      };
+    case UserActionTypes.TOGGLE_USER_SIGN_UP_HIDDEN:
+      return {
+        ...state,
+        userSignUpHidden: !state.userSignUpHidden,
       };
     case UserActionTypes.SIGN_OUT_SUCCESS:
       return {

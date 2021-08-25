@@ -44,7 +44,7 @@ export const RentalCategories1 = styled.div`
   display: none;
 
   @media screen and (max-width: 768px) {
-    height: 50px;
+    height: 70px;
     display: flex;
     width: 100%;
     background: red;
