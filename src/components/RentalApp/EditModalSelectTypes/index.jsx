@@ -8,7 +8,7 @@ import {
   heightOptions,
   weightOptions,
   experienceOptions,
-} from "../rental-modal/options";
+} from "../RentalModal/options";
 
 const EditModalSelectTypes = ({
   productType,

@@ -5,11 +5,6 @@
   font-family: "ENcode Sans Expanded", sans-serif;
 }
 
-body,
-html {
-  height: 100vh;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -22,25 +17,13 @@ html {
 
 @media only screen and (max-width: 1100px) {
   html {
-    font-size: 55%;
-  }
-}
-
-// @media only screen and (max-width: 960px) {
-//   html {
-//     font-size: 50%;
-//   }
-// }
-
-@media only screen and (max-width: 820px) {
-  html {
     font-size: 50%;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   html {
-    font-size: 45%;
+    // font-size: 55%;
   }
 }
 
@@ -50,19 +33,13 @@ html {
   }
 }
 
-// @media only screen and (max-width: 550px) {
-//   html {
-//     font-size: 35%;
-//   }
-// }
-
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 450px) {
   html {
     font-size: 35%;
   }
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 400px) {
   html {
     font-size: 30%;
   }

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  height: 7%;
-  border-bottom-right-radius: inherit;
-  border-bottom-left-radius: inherit;
+  height: 8rem;
+  width: 100%;
+  /* border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit; */
   background: black;
 `;
 

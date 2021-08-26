@@ -1,35 +1,27 @@
 import styled from "styled-components";
 
 export const RentalPageContainer = styled.div`
-  position: absolute;
-  top: 1%;
-  left: 1%;
-  margin: auto;
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
   background: #0074e1;
-  height: 98%;
-  width: 98%;
-`;
+  /* max-width: 2000px; */
 
-export const Wrapper = styled.div`
-  height: 85%;
-  display: flex;
-
-  @media screen and (max-width: 768px) {
-    /* flex-direction: column; */
-
-    /* z-index: -5; */
-  }
+  /* margin: auto; */
 `;
 
 export const RentalCategories = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   background: #1b9ce5;
 
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+export const Wrapper = styled.div`
+  height: 100%;
+  display: flex;
 `;
 
 export const RentalContent = styled.div`

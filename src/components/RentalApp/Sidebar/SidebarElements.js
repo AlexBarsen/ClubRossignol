@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Category = styled.div`
-  height: 33%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,9 +19,10 @@ export const Title = styled.div`
 export const IconContainer = styled(Link)`
   display: flex;
   justify-content: center;
+
   padding: 1rem;
-  height: 85%;
-  width: 100%;
+  height: 20rem;
+  width: 15rem;
 `;
 
 export const Icon = styled.img`

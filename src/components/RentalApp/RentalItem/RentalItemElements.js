@@ -13,33 +13,21 @@ export const RentalItemContainer = styled.div`
   border: 0.3rem solid black;
   border-radius: 0.8rem;
   box-shadow: 0.2rem 0.2rem 0.5rem 0 #656565;
-  /* margin: 2rem 1.5rem 0 1.5rem; */
   transition: all 0.5s ease-in-out;
 
-  @media screen and (max-width: 1050px) {
-    height: 28.5rem;
-    width: 28.5rem;
-  }
-
-  @media screen and (max-width: 1000px) {
-    height: 35rem;
-    width: 35rem;
-  }
-
-  @media screen and (max-width: 768px) {
-    height: 35rem;
-    width: 35rem;
-  }
-
-  @media screen and (max-width: 480px) {
-    height: 32rem;
-    width: 32rem;
+  @media screen and (max-width: 600px) {
+    height: 45rem;
+    width: 45rem;
   }
 `;
 
 export const Title = styled.h1`
   text-align: center;
   font-size: 2.2rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.8rem;
+  }
 `;
 
 export const Icon = styled.img`
@@ -52,6 +40,10 @@ export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.6rem;
+  }
 `;
 
 export const Price = styled.div``;

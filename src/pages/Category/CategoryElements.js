@@ -18,12 +18,6 @@ const fadeIn = keyframes`
 `;
 
 export const CategoryPageContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   animation: ${fadeIn} 2s ease-in-out;
 `;
 
@@ -39,7 +33,7 @@ export const CategoryProductsContainer = styled.div`
   grid-template-rows: repeat(2, 1fr);
   gap: 3rem;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

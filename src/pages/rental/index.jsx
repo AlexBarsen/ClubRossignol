@@ -19,6 +19,7 @@ import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/RentalOverviewContainer";
 
 import CategoryPage from "../Category/index";
+import CheckoutPage from "../Checkout/index";
 import { createStructuredSelector } from "reselect";
 import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
 import Sidebar from "../../components/RentalApp/Sidebar/index";
@@ -62,6 +63,7 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             component={CategoryPage}
           /> */}
           <Route exact path="/rental/sign" component={Sign} />
+          <Route exact path="/rental/checkout" component={CheckoutPage} />
         </RentalContent>
       </Wrapper>
       <Footer />

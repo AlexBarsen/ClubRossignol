@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 
-import { editItem } from "../../redux/cart/cart.actions";
+import { editItem } from "../../../redux/cart/cart.actions";
 
-import EditModalSelectTypes from "../EditModalSelectTypes/edit-modal-selectTypes.component";
+import EditModalSelectTypes from "../EditModalSelectTypes/index";
 
 import RentalModalInfo from "../RentalModalInfo/index";
 
@@ -18,7 +18,7 @@ import {
   ModalInputs,
 } from "./EditModalElements";
 
-import Button from "../../Button/ButtonElement";
+import { Button } from "../Button/ButtonElement";
 
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // * main css file

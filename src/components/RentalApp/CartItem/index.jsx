@@ -7,10 +7,10 @@ import { clearItemFromCart } from "../../../redux/cart/cart.actions";
 import { Button } from "../Button/ButtonElement";
 
 import {
-  CartItemContainer,
+  Data,
+  Row,
   IconContainer,
   Icon,
-  ItemDetails,
   Person,
   ItemName,
   Price,
@@ -21,21 +21,35 @@ const CartItem = ({ item, clearItemFromCart }) => {
 
   return (
     <>
-      <CartItemContainer>
-        <IconContainer>
-          <Icon src={icon} />
-        </IconContainer>
-        <ItemDetails>
+      <Row>
+        <Data>
+          <IconContainer>
+            <Icon src={icon} />
+          </IconContainer>
+        </Data>
+
+        <Data>
+          <ItemName>{name}</ItemName>
+        </Data>
+
+        <Data>
           <Person>
             {firstName} {lastName}
           </Person>
-          <ItemName>{name}</ItemName>
+        </Data>
+
+        <Data>
           <Price>
             {price} RON x {days} zile = {price * days} RON
           </Price>
-        </ItemDetails>
-        <Button onClick={() => clearItemFromCart(item)}>sterge</Button>
-      </CartItemContainer>
+        </Data>
+
+        <Data>
+          {" "}
+          <Button onClick={() => clearItemFromCart(item)}>sterge</Button>
+          <Button onClick={() => clearItemFromCart(item)}>Edit</Button>
+        </Data>
+      </Row>
     </>
   );
 };

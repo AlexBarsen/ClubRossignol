@@ -6,9 +6,11 @@ import { withRouter } from "react-router-dom";
 import { Button } from "../Button/ButtonElement";
 
 import {
-  Titles,
+  Table,
+  Body,
+  Row,
+  Heading,
   CartDropdownContainer,
-  Items,
   Message,
   Footer,
   Total,
@@ -27,31 +29,37 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => {
   return (
     <>
       <CartDropdownContainer>
-        <Titles>
-          <h1>1</h1>
-          <h1>2</h1>
-          <h1>3</h1>
-          <h1>4</h1>
-        </Titles>
-        <Items>
-          {cartItems.length ? (
-            cartItems.map((cartItem) => (
-              <CartItem key={cartItem.id} item={cartItem} />
-            ))
-          ) : (
-            <Message>Nu exista nimic in cos momentan</Message>
-          )}
-        </Items>
+        <Table>
+          <Body>
+            <Row>
+              <Heading>Product</Heading>
+              <Heading>Name</Heading>
+              <Heading>Person</Heading>
+              <Heading>Price</Heading>
+              <Heading></Heading>
+            </Row>
+
+            {cartItems.length ? (
+              cartItems.map((cartItem) => (
+                <CartItem key={cartItem.id} item={cartItem} />
+              ))
+            ) : (
+              <Message>Nu exista nimic in cos momentan</Message>
+            )}
+          </Body>
+        </Table>
+
         <Footer>
+          <Total>Total: {total}</Total>
+
           <Button
             onClick={() => {
-              history.push("/checkout");
+              history.push("/rental/checkout");
               dispatch(toggleCartHidden());
             }}
           >
             Go to Checkout
           </Button>
-          <Total>Total: {total}</Total>
         </Footer>
       </CartDropdownContainer>
     </>

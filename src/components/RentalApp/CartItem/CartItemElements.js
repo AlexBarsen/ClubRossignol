@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
-export const CartItemContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 2rem;
+export const Row = styled.tr`
+  border-bottom: 2px solid black;
+  border-spacing: 30px;
+`;
+
+export const Data = styled.td`
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 1rem;
 `;
 
 export const IconContainer = styled.div`
@@ -13,12 +17,8 @@ export const IconContainer = styled.div`
 `;
 
 export const Icon = styled.img`
+  padding: 0.6rem;
   width: 100%;
-`;
-
-export const ItemDetails = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 `;
 
 export const Person = styled.div``;
