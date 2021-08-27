@@ -3,7 +3,9 @@ import React from "react";
 import {
   RentalItemContainer,
   Title,
+  IconContainer,
   Icon,
+  Wrapper,
   Footer,
   Price,
 } from "./RentalItemElements";
@@ -15,12 +17,17 @@ const RentalItem = ({ item }) => {
   return (
     <>
       <RentalItemContainer>
-        <Title>{name}</Title>
-        <Icon src={icon} alt="Icon" />
-        <Footer>
-          <Price>{price} RON / ZI</Price>
-          <RentalModal item={item} />
-        </Footer>
+        <IconContainer>
+          <Icon src={icon} alt="Icon" />
+        </IconContainer>
+
+        <Wrapper>
+          <Title>{name}</Title>
+          <Footer>
+            <Price>{price} RON / ZI</Price>
+            <RentalModal item={item} />
+          </Footer>
+        </Wrapper>
       </RentalItemContainer>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import { Route } from "react-router-dom";
@@ -6,8 +6,7 @@ import { Route } from "react-router-dom";
 import {
   RentalPageContainer,
   RentalContent,
-  RentalCategories,
-  RentalCategories1,
+  RentalCategoriesContainer,
 } from "./RentaPageElements";
 
 import Header from "../../components/RentalApp/Header/index";
@@ -18,39 +17,52 @@ import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
 import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/RentalOverviewContainer";
 
-import CategoryPage from "../Category/index";
-import CheckoutPage from "../Checkout/index";
+import CategoryPageContainer from "../Category/CategoryPageContainer";
+
 import { createStructuredSelector } from "reselect";
-import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
-import Sidebar from "../../components/RentalApp/Sidebar/index";
+import {
+  selectRentalsCategories,
+  selectIsCategoriesLoaded,
+} from "../../redux/rental/rental.selectors";
+import RentalCategories from "../../components/RentalApp/RentalCategories/index";
 
 import Footer from "../../components/RentalApp/Footer/index";
 
-import Topbar from "../../components/RentalApp/Topbar/index";
+import Sidebar from "../../components/RentalApp/Sidebar/index";
 
-import Sign from "../Sign";
+import CheckoutPage from "../Checkout/index";
 
-const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
+import SignPage from "../Sign/index";
+
+const RentalPage = ({
+  fetchRentalsStart,
+  match,
+  rentalCategories,
+  selectIsCategoriesLoaded,
+}) => {
   useEffect(() => {
     fetchRentalsStart();
   }, [fetchRentalsStart]);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
     <RentalPageContainer>
-      <Header />
-      <RentalCategories1>
-        {rentalCategories.map((category) => (
-          <Topbar key={category.title} category={category} />
-        ))}
-      </RentalCategories1>
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Header toggle={toggle} />
+
       <Wrapper>
-        <RentalCategories>
+        <RentalCategoriesContainer>
           {rentalCategories.map((category) => (
-            <Sidebar key={category.title} category={category} />
+            <RentalCategories key={category.title} category={category} />
           ))}
-        </RentalCategories>
+        </RentalCategoriesContainer>
 
         <RentalContent>
           <Route
@@ -58,12 +70,17 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             path={`${match.path}`}
             component={RentalOverviewContainer}
           />
-          {/* <Route
-            path={`${match.path}/:categoryName`}
-            component={CategoryPage}
-          /> */}
-          <Route exact path="/rental/sign" component={Sign} />
-          <Route exact path="/rental/checkout" component={CheckoutPage} />
+          <Route
+            exact
+            path={`${match.path}/category/:categoryName`}
+            component={CategoryPageContainer}
+          />
+          <Route exact path={`${match.path}/sign`} component={SignPage} />
+          <Route
+            exact
+            path={`${match.path}/checkout`}
+            component={CheckoutPage}
+          />
         </RentalContent>
       </Wrapper>
       <Footer />
@@ -78,6 +95,7 @@ const mapStateToProps = createStructuredSelector({
 // * dispatch actions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   fetchRentalsStart: () => dispatch(fetchRentalsStart()),
+  isRentalsLoaded: selectIsCategoriesLoaded,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RentalPage);

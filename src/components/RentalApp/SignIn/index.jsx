@@ -57,6 +57,7 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
 
         <Form onSubmit={handleSubmit}>
           <FormInput
+            sign
             name="email"
             type="email"
             handleChange={handleChange}
@@ -66,6 +67,7 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
           />
 
           <FormInput
+            sign
             name="password"
             type="password"
             value={password}

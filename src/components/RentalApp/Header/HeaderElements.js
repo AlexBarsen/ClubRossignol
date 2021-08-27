@@ -3,24 +3,44 @@ import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 5.5rem;
-  /* border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem; */
-  padding-left: 25rem;
-  background: #1b9ce5;
-  border-bottom: 2px solid black; ;
+  height: 6rem;
+  background: black;
+  border-bottom: 2px solid black;
+
+  @media screen and (max-width: 600px) {
+    height: 10rem;
+  }
 `;
 
 export const HeaderOptions = styled.div`
+  width: 100%;
   display: flex;
-  height: 100%;
-  /* justify-content: center; */
+  justify-content: flex-end;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const HeaderOption = styled(Link)`
+  color: white;
+  text-decoration: none;
   margin-right: 2rem;
   font-size: 2rem;
+`;
+
+export const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 3.2rem;
+    cursor: pointer;
+    color: #fff;
+  }
 `;

@@ -1,43 +1,85 @@
 import styled from "styled-components";
+import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export const Category = styled.div`
-  display: flex;
-  flex-direction: column;
+export const SidebarContainer = styled.aside`
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: #0d0d0d;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  top: 0;
+  left: 0;
+  transition: 0.3s ease-in-out;
+  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+`;
 
-  @media screen and (max-width: 768px) {
-    height: 100%;
+export const CloseIcon = styled(FaTimes)`
+  color: #fff;
+`;
+
+export const Icon = styled.div`
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  background: transparent;
+  /* cursor: pointer; */
+  outline: none;
+`;
+
+export const SidebarWrapper = styled.div`
+  color: #fff;
+`;
+
+export const SidebarMenu = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 80px);
+  text-align: center;
+
+  @media screen and (max-wdith: 480px) {
+    grid-auto-rows: repeat(6, 60px);
   }
 `;
 
-export const Title = styled.div`
-  font-size: 2rem;
+export const SidebarLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  text-decoration: none;
+  list-style: none;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+  color: #fff;
+  /* cursor: pointer; */
 `;
 
-export const IconContainer = styled(Link)`
+export const SideBtnWrap = styled.div`
   display: flex;
   justify-content: center;
-
-  padding: 1rem;
-  height: 20rem;
-  width: 15rem;
 `;
 
-export const Icon = styled.img`
-  width: 90%;
-  border-radius: 2.5rem;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(108, 218, 238, 0.3),
-    rgba(108, 218, 238, 0.8)
-  );
-
-  box-shadow: 1rem 1rem 1.5rem rgba(114, 82, 82, 0.7);
+export const SidebarRoute = styled(Link)`
+  border-radius: 50px;
+  background: rgb(244, 217, 73);
+  white-space: nowrap;
+  padding: 1.6rem 6.4rem;
+  color: #010606;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  /* cursor: pointer; */
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 
   &:hover {
-    transform: scale(1.07);
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
   }
 `;

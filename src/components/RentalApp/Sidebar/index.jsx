@@ -1,18 +1,28 @@
 import React from "react";
+import {
+  SidebarContainer,
+  Icon,
+  CloseIcon,
+  SidebarWrapper,
+  SidebarMenu,
+  SidebarLink,
+} from "./SidebarElements";
 
-import { Category, Title, IconContainer, Icon } from "./SidebarElements";
-
-const Sidebar = ({ category }) => {
-  const { title, icon } = category;
+const Sidebar = ({ isOpen, toggle }) => {
   return (
-    <>
-      <Category>
-        <Title>{title}</Title>
-        <IconContainer to={`/rental/${title.toLowerCase()}`}>
-          <Icon src={icon} alt={`${title}`} />
-        </IconContainer>
-      </Category>
-    </>
+    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+      <Icon onClick={toggle}>
+        <CloseIcon />
+      </Icon>
+      <SidebarWrapper>
+        <SidebarMenu>
+          <SidebarLink to="/">Back to Website</SidebarLink>
+          <SidebarLink to="/rental/about">About</SidebarLink>
+          <SidebarLink to="/rental/about">Account</SidebarLink>
+          <SidebarLink to="/rental/contact">Contact</SidebarLink>
+        </SidebarMenu>
+      </SidebarWrapper>
+    </SidebarContainer>
   );
 };
 

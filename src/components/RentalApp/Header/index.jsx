@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import { connect } from "react-redux";
+
+import { FaBars } from "react-icons/fa";
 
 import CartDropdown from "../CartDropdown/index";
 
@@ -19,7 +21,12 @@ import {
   signOutStart,
 } from "../../../redux/user/user.actions";
 
-import { HeaderContainer, HeaderOptions, HeaderOption } from "./HeaderElements";
+import {
+  HeaderContainer,
+  HeaderOptions,
+  HeaderOption,
+  MobileIcon,
+} from "./HeaderElements";
 
 const Header = ({
   currentUser,
@@ -27,20 +34,21 @@ const Header = ({
   cartHidden,
   toggleUserSignInHidden,
   signOutStart,
+  toggle,
 }) => {
-  const parentRef = useRef();
-  console.log(parentRef);
   return (
     <>
       <HeaderContainer>
+        <MobileIcon onClick={toggle}>
+          <FaBars />
+        </MobileIcon>
         <HeaderOptions>
+          <HeaderOption to="/">Back to Website</HeaderOption>
           <HeaderOption to="/rental/">About</HeaderOption>
-          <HeaderOption to="/rental/">Prices</HeaderOption>
           <HeaderOption to="/rental/sign">Account</HeaderOption>
           <HeaderOption to="/rental/">Contact</HeaderOption>
+          <CartIcon />
         </HeaderOptions>
-
-        <CartIcon />
 
         {cartHidden ? <CartDropdown /> : null}
       </HeaderContainer>

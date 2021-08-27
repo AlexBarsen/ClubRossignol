@@ -25,7 +25,7 @@ export const ButtonsContainer = styled.div`
 
 export const Paragraph = styled.p`
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   display: flex;
   justify-content: flex-end;
 `;

@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import Scroll from "react-scroll";
 
 const fadeIn = keyframes`
  {
@@ -36,11 +35,9 @@ export const CategoryProductsContainer = styled.div`
   @media screen and (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
-`;
 
-export const Element = styled(Scroll.Element)`
-  height: fit-content;
-  overflow: scroll;
-  margin: 1.5rem;
-  overflow-x: hidden;
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;

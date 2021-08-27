@@ -4,26 +4,16 @@ export const Group = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0;
-
-  /* margin-top: 1.5rem;
-  padding: 0.5rem 0;
-  position: relative; */
 `;
 
-// export const Label = styled.label`
-//   position: absolute;
-//   font-size: 1.6rem;
-//   color: #cccccc;
-//   pointer-events: none;
-//   top: 0.9rem;
-//   left: 1.2rem;
-//   transition: all 0.35s ease;
-// `;
-
 export const Label = styled.label`
-  font-size: 2rem;
-  color: #fff;
+  font-size: 2.2rem;
+  color: ${({ sign }) => (sign ? "white" : "black")};
   margin-bottom: 0.5rem;
+
+  @media screen and (max-width: 600px) {
+    height: 5rem;
+  }
 `;
 
 export const Input = styled.input`
@@ -35,12 +25,7 @@ export const Input = styled.input`
   border-radius: 0.5rem;
   outline: none;
 
-  /* &:focus ~ ${Label}, &:not(:focus):valid ~ ${Label} {
-    top: -2.2rem;
-    bottom: 0;
-    left: 0;
-    font-size: 1.6rem;
-    opacity: 1;
-    color: #404040;
-  } */
+  @media screen and (max-width: 600px) {
+    height: 5rem;
+  }
 `;

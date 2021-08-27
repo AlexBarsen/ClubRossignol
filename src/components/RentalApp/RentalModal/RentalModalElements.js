@@ -42,8 +42,9 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1.5rem;
-  max-width: 80vw;
-  min-width: 70vw;
+  max-height: 120rem;
+  max-width: 150rem;
+  min-width: 55rem;
 `;
 
 export const ContentWrapper = styled.div`
@@ -57,7 +58,11 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const DateRangeWrapper = styled.div``;
+export const DateRangeWrapper = styled.div`
+  @media screen and (max-width: 600px) {
+    /* display: none; */
+  }
+`;
 
 export const ModalInputs = styled.div`
   display: grid;

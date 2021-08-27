@@ -64,6 +64,7 @@ const SignUp = ({ emailSignUpStart }) => {
         </HeadingSecondary>
         <Form onSubmit={handleSubmit}>
           <FormInput
+            sign
             type="text"
             name="firstName"
             value={firstName}
@@ -72,6 +73,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <FormInput
+            sign
             type="text"
             name="lastName"
             value={lastName}
@@ -80,6 +82,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <FormInput
+            sign
             type="email"
             name="email"
             value={email}
@@ -88,6 +91,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <FormInput
+            sign
             type="tel"
             name="phone"
             value={phone}
@@ -96,6 +100,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <FormInput
+            sign
             type="password"
             name="password"
             value={password}
@@ -104,6 +109,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <FormInput
+            sign
             type="password"
             name="confirmPassword"
             value={confirmPassword}

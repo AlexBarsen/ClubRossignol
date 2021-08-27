@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const SignContainer = styled.div``;
+export const SignContainer = styled.div`
+  padding: 3rem;
+`;
 
 export const Container = styled.div`
   display: flex;

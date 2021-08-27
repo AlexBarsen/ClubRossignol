@@ -54,7 +54,7 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => {
 
           <Button
             onClick={() => {
-              history.push("/rental/checkout");
+              history.push("rental/checkout");
               dispatch(toggleCartHidden());
             }}
           >

@@ -7,22 +7,20 @@ import {
   CategoryPageContainer,
   Title,
   CategoryProductsContainer,
-  Element,
 } from "./CategoryElements.js";
 
 const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
-
+  console.log(category);
   return (
-    <CategoryPageContainer key={categoryName}>
+    <CategoryPageContainer>
       <Title>{categoryName}</Title>
-      <Element>
-        <CategoryProductsContainer type={categoryName}>
-          {products.map((product) => (
-            <RentalItem key={product.id} item={product} />
-          ))}
-        </CategoryProductsContainer>
-      </Element>
+
+      <CategoryProductsContainer type={categoryName}>
+        {products.map((product) => (
+          <RentalItem key={product.productID} item={product} />
+        ))}
+      </CategoryProductsContainer>
     </CategoryPageContainer>
   );
 };

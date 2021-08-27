@@ -32,12 +32,17 @@ export const selectRentalsCategories = createSelector(
 );
 
 export const selectRentalCategory = (rentalUrlParam) =>
-  createSelector([selectRentals], (rental) =>
-    rental ? rental[rentalUrlParam] : null
+  createSelector([selectRentals], (rentals) =>
+    rentals ? rentals[rentalUrlParam] : null
   );
 
 // * select isFetching from rental
 export const isRentalFetching = createSelector(
   [selectRental],
   (rental) => rental.isFetching
+);
+
+export const selectIsCategoriesLoaded = createSelector(
+  [selectRental],
+  (rental) => !!rental.rentals
 );

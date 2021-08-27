@@ -1,9 +1,6 @@
 {
   "name": "landing-clubrossignol",
   "version": "0.1.0",
-  "engines": {
-    "node": "14.x"
-  },
   "dependencies": {
     "@date-io/date-fns": "^2.11.0",
     "@testing-library/jest-dom": "^5.11.4",

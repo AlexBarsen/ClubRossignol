@@ -15,11 +15,12 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      fontSize: "1.4rem",
+      fontSize: "2rem",
+      textAlin: "center",
     }),
     menu: (provided, state) => ({
       ...provided,
-      fontSize: "1.4rem",
+      fontSize: "2rem",
       textAlign: "center",
     }),
   };
