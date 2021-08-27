@@ -11,7 +11,7 @@ export const Table = styled.table`
 `;
 
 export const Body = styled.tbody`
-  background: red;
+  background: lightgray;
 `;
 
 export const Row = styled.tr``;
@@ -20,4 +20,9 @@ export const Heading = styled.th`
   font-size: 2.6rem;
 `;
 
-export const Message = styled.div``;
+export const Message = styled.h1`
+  margin-top: 5rem;
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: center;
+`;

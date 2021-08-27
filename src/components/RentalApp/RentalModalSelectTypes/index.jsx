@@ -35,6 +35,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             onChange={onChangeInput}
             options={shoeSizeOptions}
             styles={customStyles}
+            isSearchable={false}
             required
           />
 
@@ -44,6 +45,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             onChange={onChangeInput}
             options={sexOptions}
             styles={customStyles}
+            isSearchable={false}
             required
           />
         </>
@@ -57,6 +59,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={heightOptions}
+            isSearchable={false}
             required
           />
 
@@ -66,6 +69,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={weightOptions}
+            isSearchable={false}
             required
           />
 
@@ -75,6 +79,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={experienceOptions}
+            isSearchable={false}
             required
           />
 
@@ -84,6 +89,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={sexOptions}
+            isSearchable={false}
             required
           />
         </>
@@ -97,6 +103,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={heightOptions}
+            isSearchable={false}
             required
           />
 
@@ -106,6 +113,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={weightOptions}
+            isSearchable={false}
             required
           />
 
@@ -115,6 +123,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={shoeSizeOptions}
+            isSearchable={false}
             required
           />
 
@@ -124,6 +133,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={experienceOptions}
+            isSearchable={false}
             required
           />
 
@@ -133,6 +143,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={sexOptions}
+            isSearchable={false}
             required
           />
         </>

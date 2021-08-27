@@ -33,15 +33,16 @@ const CheckoutPage = ({ cartItems, total }) => {
               <Heading>Actions</Heading>
             </Row>
 
-            {cartItems.length ? (
-              cartItems.map((cartItem) => (
-                <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-              ))
-            ) : (
-              <Message>Nu exista nimic in cos momentan</Message>
-            )}
+            {cartItems.length
+              ? cartItems.map((cartItem) => (
+                  <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                ))
+              : null}
           </Body>
         </Table>
+        {cartItems.length ? null : (
+          <Message>Nu exista nimic in cos momentan</Message>
+        )}
       </CheckoutPageContainer>
     </>
   );

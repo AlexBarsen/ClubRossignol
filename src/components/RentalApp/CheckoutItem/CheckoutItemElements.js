@@ -16,18 +16,28 @@ export const Icon = styled.img`
   width: 100%;
 `;
 
-export const ItemName = styled.div``;
+export const DataText = styled.div`
+  font-size: 2rem;
+`;
 
-export const Person = styled.div``;
+export const DataDetails = styled.td`
+  text-align: center;
+`;
 
-export const Sex = styled.div``;
+export const DataSpan = styled.span`
+  font-weight: bold;
+`;
 
-export const Weight = styled.div``;
+export const Actions = styled.div`
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
-export const Height = styled.div``;
+  @media screen and (max-width: 768px) {
+    height: 18rem;
+  }
+`;
 
-export const ShoeSize = styled.div``;
-
-export const Experience = styled.div``;
-
-export const Price = styled.div``;
+export const ButtonContainer = styled.div``;

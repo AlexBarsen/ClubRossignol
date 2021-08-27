@@ -7,6 +7,7 @@ import {
   RentalModalContainer,
   ModalOverlay,
   ModalContent,
+  Title,
   Element,
   DateRangeWrapper,
   ContentWrapper,
@@ -157,7 +158,7 @@ const RentalModal = ({ addItem, item }) => {
           <ModalOverlay></ModalOverlay>
 
           <ModalContent>
-            <h2>{item.name}</h2>
+            <Title>{item.name}</Title>
             <Element>
               <Form onSubmit={handleSubmit}>
                 <ContentWrapper>

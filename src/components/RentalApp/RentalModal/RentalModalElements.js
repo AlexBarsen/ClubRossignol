@@ -47,6 +47,18 @@ export const ModalContent = styled.div`
   min-width: 55rem;
 `;
 
+export const Title = styled.h1`
+  font-size: 2.6rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 4rem;
+  }
+`;
+
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;

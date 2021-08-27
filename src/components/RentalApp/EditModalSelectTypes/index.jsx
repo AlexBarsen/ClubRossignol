@@ -1,6 +1,6 @@
 import React from "react";
 
-import Select from "react-select";
+import { CustomSelect } from "./EditModalSelectTypesElements";
 
 import {
   sexOptions,
@@ -32,7 +32,7 @@ const EditModalSelectTypes = ({
     case "boots":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Marime Picior"
             name="shoeSize"
             defaultValue={
@@ -46,10 +46,11 @@ const EditModalSelectTypes = ({
             onChange={onChangeInput}
             options={shoeSizeOptions}
             styles={customStyles}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             defaultValue={
@@ -63,6 +64,7 @@ const EditModalSelectTypes = ({
             onChange={onChangeInput}
             options={sexOptions}
             styles={customStyles}
+            isSearchable={false}
             required
           />
         </>
@@ -70,7 +72,7 @@ const EditModalSelectTypes = ({
     case "skiSnow":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Inaltime (CM)"
             name="height"
             defaultValue={
@@ -84,10 +86,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={heightOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Greutate (KG)"
             name="weight"
             defaultValue={
@@ -101,10 +104,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={weightOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Nivel Experienta"
             name="experience"
             defaultValue={
@@ -118,10 +122,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={experienceOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             defaultValue={
@@ -135,6 +140,7 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={sexOptions}
+            isSearchable={false}
             required
           />
         </>
@@ -142,7 +148,7 @@ const EditModalSelectTypes = ({
     case "equipment":
       return (
         <>
-          <Select
+          <CustomSelect
             placeholder="Inaltime (CM)"
             name="height"
             defaultValue={
@@ -156,10 +162,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={heightOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Greutate (KG)"
             name="weight"
             defaultValue={
@@ -173,10 +180,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={weightOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Marime Picior"
             name="shoeSize"
             defaultValue={
@@ -190,10 +198,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={shoeSizeOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Nivel Experienta"
             name="experience"
             defaultValue={
@@ -207,10 +216,11 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={experienceOptions}
+            isSearchable={false}
             required
           />
 
-          <Select
+          <CustomSelect
             placeholder="Sex"
             name="sex"
             defaultValue={
@@ -224,6 +234,7 @@ const EditModalSelectTypes = ({
             styles={customStyles}
             onChange={onChangeInput}
             options={sexOptions}
+            isSearchable={false}
             required
           />
         </>

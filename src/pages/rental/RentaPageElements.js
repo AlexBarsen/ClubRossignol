@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
-export const RentalPageContainer = styled.div`
-  max-width: 180rem;
-  margin: auto;
-`;
+export const RentalPageContainer = styled.div``;
 
 export const RentalCategoriesContainer = styled.div`
   height: 6rem;
   display: flex;
   justify-content: space-evenly;
-  background: lightgray;
+  background: #fa2742;
 
   @media screen and (max-width: 768px) {
     height: 7rem;
@@ -21,7 +18,8 @@ export const RentalCategoriesContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  background: #eae9e9;
+  background: #e8eae3;
+  min-height: 826px;
 `;
 
 export const RentalContent = styled.div`

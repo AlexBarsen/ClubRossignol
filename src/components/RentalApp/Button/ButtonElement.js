@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   /* border-radius: ${({ signIn }) => (signIn ? "0.5rem" : "5rem")}; */
-  border-radius: 0.3rem;
-  background: lightgray;
+  border-radius: 1rem;
+  background: #001730;
   white-space: nowrap;
   padding: ${({ signIn }) => (signIn ? "0.6rem" : "0.8rem 1.3rem")};
 
@@ -15,7 +15,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 

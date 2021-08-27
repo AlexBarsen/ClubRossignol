@@ -29,7 +29,7 @@ export const Title = styled.h1`
 `;
 
 export const IconContainer = styled.div`
-  background: rgba(22, 43, 50, 0.1);
+  background: #fff;
   display: flex;
   justify-content: center;
   height: 25rem;
@@ -51,7 +51,7 @@ export const Icon = styled.img`
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: #ff4838;
+  background: #fdee30;
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 `;

@@ -12,10 +12,14 @@ import {
   EditModalContainer,
   ModalOverlay,
   ModalContent,
+  Title,
+  Element,
+  DateRangeWrapper,
   ContentWrapper,
-  Form,
   WrapperRight,
   ModalInputs,
+  Form,
+  CloseButtonContainer,
 } from "./EditModalElements";
 
 import { Button } from "../Button/ButtonElement";
@@ -25,6 +29,8 @@ import "react-date-range/dist/styles.css"; // * main css file
 import "react-date-range/dist/theme/default.css"; // * theme css file
 
 import FormInput from "../FormInput/index";
+
+import { FiEdit } from "react-icons/fi";
 
 const EditModal = ({ cartItem, editItem }) => {
   const [item, setItem] = useState(cartItem);
@@ -142,68 +148,74 @@ const EditModal = ({ cartItem, editItem }) => {
 
   return (
     <>
-      <Button onClick={toggleModal}>EDIT</Button>
+      <FiEdit onClick={toggleModal} size={25} />
 
       {/* render Modal depending on the state */}
       {modalVisibility && (
         <EditModalContainer>
           <ModalOverlay></ModalOverlay>
           <ModalContent>
-            <h2>{item.name}</h2>
+            <Title>{item.name}</Title>
 
-            <Form onSubmit={handleSubmit}>
-              <ContentWrapper>
-                <DateRange
-                  className="modal__date-range"
-                  editableDateInputs={false}
-                  onInit={handleRangeChange}
-                  ranges={[dateRange]}
-                  onChange={handleRangeChange}
-                  minDate={
-                    new Date(new Date().setDate(new Date().getDate() + 1))
-                  }
-                  showDateDisplay={true}
-                />
-
-                <WrapperRight>
-                  <ModalInputs>
-                    <FormInput
-                      className="modal__rental-info--input"
-                      name="firstName"
-                      type="text"
-                      label="Nume"
-                      value={item.firstName}
-                      onChange={handleChange}
-                      required
+            <Element>
+              <Form onSubmit={handleSubmit}>
+                <ContentWrapper>
+                  <DateRangeWrapper>
+                    <DateRange
+                      className="modal__date-range"
+                      editableDateInputs={false}
+                      onInit={handleRangeChange}
+                      ranges={[dateRange]}
+                      onChange={handleRangeChange}
+                      minDate={
+                        new Date(new Date().setDate(new Date().getDate() + 1))
+                      }
+                      showDateDisplay={true}
                     />
-                    <FormInput
-                      className="modal__rental-info--input"
-                      name="lastName"
-                      type="text"
-                      label="Prenume"
-                      value={item.lastName}
-                      onChange={handleChange}
-                      required
+                  </DateRangeWrapper>
+
+                  <WrapperRight>
+                    <ModalInputs>
+                      <FormInput
+                        className="modal__rental-info--input"
+                        name="firstName"
+                        type="text"
+                        label="Nume"
+                        value={item.firstName}
+                        onChange={handleChange}
+                        required
+                      />
+                      <FormInput
+                        className="modal__rental-info--input"
+                        name="lastName"
+                        type="text"
+                        label="Prenume"
+                        value={item.lastName}
+                        onChange={handleChange}
+                        required
+                      />
+
+                      <EditModalSelectTypes
+                        defaultValues={defaultValues}
+                        productType={cartItem.productType}
+                        onChangeInput={onChangeInput.bind(this)}
+                      />
+                    </ModalInputs>
+
+                    <RentalModalInfo
+                      startDate={newStartDateShort}
+                      endDate={newEndDateShort}
+                      days={days}
                     />
 
-                    <EditModalSelectTypes
-                      defaultValues={defaultValues}
-                      productType={cartItem.productType}
-                      onChangeInput={onChangeInput.bind(this)}
-                    />
-                  </ModalInputs>
-
-                  <RentalModalInfo
-                    startDate={newStartDateShort}
-                    endDate={newEndDateShort}
-                    days={days}
-                  />
-
-                  <Button type="submit">EDITEAZA</Button>
-                </WrapperRight>
-              </ContentWrapper>
-            </Form>
-            <Button onClick={toggleModal}>❌</Button>
+                    <Button type="submit">EDITEAZA</Button>
+                  </WrapperRight>
+                </ContentWrapper>
+              </Form>
+            </Element>
+            <CloseButtonContainer>
+              <Button onClick={toggleModal}>❌</Button>
+            </CloseButtonContainer>
           </ModalContent>
         </EditModalContainer>
       )}

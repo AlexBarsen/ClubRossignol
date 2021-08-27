@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 export const Category = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.07);
+  }
 
   @media screen and (max-width: 768px) {
     height: 100%;
@@ -12,9 +17,10 @@ export const Category = styled.div`
 `;
 
 export const Title = styled(Link)`
-  font-size: 3rem;
+  border-radius: 2rem;
+  font-size: 2.6rem;
   padding: 1rem;
-  pointer: cursor;
+
   color: black;
   text-decoration: none;
 `;

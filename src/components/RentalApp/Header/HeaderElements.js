@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const HeaderContainer = styled.div`
   display: flex;
   height: 6rem;
-  background: black;
+  background: #373833;
   border-bottom: 2px solid black;
 
   @media screen and (max-width: 600px) {
