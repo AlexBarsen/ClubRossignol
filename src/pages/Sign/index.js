@@ -22,24 +22,8 @@ const Sign = ({ userSignUpHidden }) => {
   return (
     <>
       <SignContainer>
-        <Container>
-          <SignIn />
-
-          <CollapsibleContainer>
-            <Content
-              ref={parentRef}
-              style={
-                userSignUpHidden
-                  ? {
-                      width: parentRef.current.scrollHeight + "px",
-                    }
-                  : { width: "0px" }
-              }
-            >
-              <SignUp />
-            </Content>
-          </CollapsibleContainer>
-        </Container>
+        <SignUp />
+        {/* <SignIn /> */}
       </SignContainer>
     </>
   );

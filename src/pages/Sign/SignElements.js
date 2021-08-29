@@ -1,19 +1,16 @@
 import styled from "styled-components";
 
 export const SignContainer = styled.div`
-  padding: 3rem;
-`;
-
-export const Container = styled.div`
+  width: 80%;
+  height: inherit;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 
-  background: radial-gradient(
-    ellipse at left bottom,
-    rgba(24, 24, 47, 1) 0%,
-    rgba(38, 20, 72, 0.9) 59%,
-    rgba(17, 27, 75, 0.9) 100%
-  );
+  @media screen and (max-width: 870px) {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 export const CollapsibleContainer = styled.div``;

@@ -18,6 +18,7 @@ const fadeIn = keyframes`
 
 export const CategoryPageContainer = styled.div`
   animation: ${fadeIn} 2s ease-in-out;
+  position: relative;
 `;
 
 export const Title = styled.div`

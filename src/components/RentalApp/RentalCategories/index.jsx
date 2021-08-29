@@ -8,8 +8,8 @@ const RentalCategories = ({ category }) => {
 
   return (
     <>
-      <Category>
-        <Title to={`/rental/category/${title.toLowerCase()}`}>{title}</Title>
+      <Category to={`/rental/category/${title.toLowerCase()}`}>
+        <Title>{title}</Title>
         <FaArrowDown size={20} />
       </Category>
     </>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SignInContainer = styled.div`
+  background: #fa2742;
+  border: 3px solid black;
   padding: 5rem;
   border-radius: 1rem;
   display: flex;
@@ -8,13 +10,14 @@ export const SignInContainer = styled.div`
 `;
 
 export const Form = styled.form`
+  /* color: black; */
   padding: 2rem;
   width: 100%;
 `;
 
 export const Heading = styled.h1`
   margin-bottom: 2rem;
-  color: #fff;
+  color: black;
 `;
 
 export const ButtonsContainer = styled.div`

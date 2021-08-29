@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const RentalItemContainer = styled.div`
-  border-radius: 1rem;
+  border: 5px solid black;
+  border-radius: 0.5rem;
   height: 35rem;
   width: 30rem;
   display: flex;
@@ -29,18 +30,22 @@ export const Title = styled.h1`
 `;
 
 export const IconContainer = styled.div`
-  background: #fff;
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 213, 64, 1),
+    rgba(250, 39, 66, 1)
+  ); */
+
   display: flex;
   justify-content: center;
-  height: 25rem;
-  width: 30rem;
+  height: 23rem;
   border-bottom: 3px solid black;
-  border-top-left-radius: inherit;
-  border-top-right-radius: inherit;
+  /* border-top-left-radius: inherit;
+  border-top-right-radius: inherit; */
 
   @media screen and (max-width: 600px) {
     height: 42rem;
-    width: 50rem;
+    /* width: 50rem; */
   }
 `;
 
@@ -51,9 +56,14 @@ export const Icon = styled.img`
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: #fdee30;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
+  background: rgba(255, 213, 64, 1);
+  /* background-image: linear-gradient(
+    to right top,
+    rgba(255, 213, 64, 1),
+    rgba(250, 39, 66, 1)
+  ); */
+  /* border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit; */
 `;
 
 export const Footer = styled.div`

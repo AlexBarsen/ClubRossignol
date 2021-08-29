@@ -8,11 +8,12 @@ export const Group = styled.div`
 
 export const Label = styled.label`
   font-size: 2.2rem;
-  color: ${({ sign }) => (sign ? "white" : "black")};
+  color: black;
+  font-weight: bold;
   margin-bottom: 0.5rem;
 
-  @media screen and (max-width: 600px) {
-    height: 5rem;
+  @media screen and (max-width: 768px) {
+    font-size: 3.2rem;
   }
 `;
 
@@ -25,7 +26,8 @@ export const Input = styled.input`
   border-radius: 0.5rem;
   outline: none;
 
-  @media screen and (max-width: 600px) {
-    height: 5rem;
+  @media screen and (max-width: 768px) {
+    height: 6rem;
+    font-size: 3rem;
   }
 `;

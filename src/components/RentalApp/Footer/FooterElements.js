@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterContainer = styled.div`
   height: 9rem;
-  background: #162b32;
+  background: #373833;
 `;
 
 export const LogoContainer = styled.div`

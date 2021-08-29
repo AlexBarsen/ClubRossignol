@@ -10,9 +10,12 @@ export const IconContainer = styled.div`
   width: 40px;
 `;
 
-export const Icon = styled.img``;
+export const Icon = styled.img`
+  filter: invert(100%);
+`;
 
 export const ItemCount = styled.span`
+  color: #fff;
   position: absolute;
   top: 17px;
   right: 15px;

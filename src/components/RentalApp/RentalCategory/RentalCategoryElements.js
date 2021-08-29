@@ -37,6 +37,7 @@ export const CategoryItems = styled.div`
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
+  justify-items: center;
 
   @media screen and (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);

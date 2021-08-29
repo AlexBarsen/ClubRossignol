@@ -56,6 +56,7 @@ export const DataText = styled.div`
 `;
 
 export const DataDetails = styled.td`
+  padding: 1rem 0;
   text-align: center;
 
   @media screen and (max-width: 768px) {

@@ -17,6 +17,9 @@ import {
   Heading,
   Message,
   Total,
+  TotalPrice,
+  TotalItems,
+  TotalSpan,
 } from "./CheckoutElements";
 
 const CheckoutPage = ({ cartItems, total }) => {
@@ -48,8 +51,13 @@ const CheckoutPage = ({ cartItems, total }) => {
 
         {total ? (
           <Total>
-            {" "}
-            Total: {total}RON {cartItems.length} products in cart{" "}
+            <TotalPrice>
+              <TotalSpan>Total:</TotalSpan> {total} RON
+            </TotalPrice>
+            <TotalItems>
+              There are <TotalSpan>{cartItems.length}</TotalSpan> products in
+              your cart
+            </TotalItems>
           </Total>
         ) : null}
       </CheckoutPageContainer>

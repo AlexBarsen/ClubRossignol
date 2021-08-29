@@ -19,13 +19,13 @@ export const RentalCategoriesContainer = styled.div`
 
 export const Wrapper = styled.div`
   background: #e8eae3;
-  min-height: 826px;
+  /* min-height: 826px; */
 `;
 
 export const RentalContent = styled.div`
+  min-height: 79vh;
   display: flex;
-  flex: 1;
   justify-content: center;
-  align-items: center;
+
   padding-bottom: 2rem;
 `;

@@ -59,27 +59,27 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
           <Wrapper>
             {sex ? (
               <DataText>
-                Sex: <DataSpan>{sex}</DataSpan>
+                <DataSpan>Sex:</DataSpan> {sex}
               </DataText>
             ) : null}
             {weight ? (
               <DataText>
-                Weight: <DataSpan>{weight} kg</DataSpan>{" "}
+                <DataSpan>Weight:</DataSpan> {weight}
               </DataText>
             ) : null}
             {height ? (
               <DataText>
-                Height: <DataSpan>{height} cm</DataSpan>
+                <DataSpan>Height:</DataSpan> {height}
               </DataText>
             ) : null}
             {shoeSize ? (
               <DataText>
-                Shoe size: <DataSpan>{shoeSize}</DataSpan>
+                <DataSpan>Shoe size:</DataSpan> {shoeSize}
               </DataText>
             ) : null}
             {experience ? (
               <DataText>
-                Experience: <DataSpan>{experience}</DataSpan>
+                <DataSpan>Expeirence:</DataSpan> {experience}
               </DataText>
             ) : null}
           </Wrapper>
@@ -88,20 +88,20 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
         <DataDetails data-label="Period:">
           <Wrapper>
             <DataText>
-              From: <DataSpan>{startDateShort}</DataSpan>
+              <DataSpan>From:</DataSpan> {startDateShort}
             </DataText>
             <DataText>
-              To: <DataSpan>{startDateShort}</DataSpan>
+              <DataSpan>To:</DataSpan> {endDateShort}
             </DataText>
             <DataText>
-              Days: <DataSpan>{days}</DataSpan>
+              <DataSpan>Days:</DataSpan> {days}
             </DataText>
           </Wrapper>
         </DataDetails>
 
         <Data data-label="Price:">
           <DataText>
-            {price}RON x {days} days = {price * days} RON
+            {price} RON x {days} days = <DataSpan>{price * days} RON</DataSpan>
           </DataText>
         </Data>
 

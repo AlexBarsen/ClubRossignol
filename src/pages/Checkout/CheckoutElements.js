@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const CheckoutPageContainer = styled.div`
   width: 100%;
   height: 100%;
+  padding: 3rem;
 
   @media screen and (max-width: 768px) {
     width: 80%;
@@ -10,8 +11,12 @@ export const CheckoutPageContainer = styled.div`
 `;
 
 export const Table = styled.table`
-  padding: 2rem;
   width: 100%;
+  margin-bottom: 4rem;
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 0rem;
+  }
 `;
 
 export const Body = styled.tbody`
@@ -39,4 +44,22 @@ export const Message = styled.h1`
   justify-content: center;
 `;
 
-export const Total = styled.div``;
+export const Total = styled.div`
+  font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.8rem;
+  }
+`;
+
+export const TotalPrice = styled.div``;
+
+export const TotalItems = styled.div``;
+
+export const TotalSpan = styled.span`
+  font-weight: bold;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
+`;
