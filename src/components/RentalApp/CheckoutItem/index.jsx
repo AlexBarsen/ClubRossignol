@@ -13,13 +13,9 @@ import {
   Wrapper,
   DataSpan,
   Actions,
-  ButtonContainer,
 } from "./CheckoutItemElements";
 
 import { FaTrashAlt } from "react-icons/fa";
-import { FiEdit } from "react-icons/fi";
-
-import { Button } from "../Button/ButtonElement";
 
 import EditModal from "../EditModal/index";
 
@@ -36,80 +32,83 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
     price,
     experience,
     days,
-    // startDateShort,
-    // endDateShort,
-    // days,
+    startDateShort,
+    endDateShort,
   } = cartItem;
-
-  const style = {
-    // Adding media querry..
-    "@media (max-width: 768px)": {
-      size: "20px",
-    },
-  };
 
   return (
     <>
       <Row>
-        <Data>
+        <Data data-label="Product:">
           <IconContainer>
             <Icon src={icon} />
           </IconContainer>
         </Data>
 
-        <Data>
+        <Data data-label="Name:">
           <DataText>{name}</DataText>
         </Data>
 
-        <Data>
+        <Data data-label="Person:">
           <DataText>
             {firstName} {lastName}{" "}
           </DataText>
         </Data>
 
-        <DataDetails>
-          {sex ? (
-            <DataText>
-              Sex: <DataSpan>{sex}</DataSpan>
-            </DataText>
-          ) : null}
-          {weight ? (
-            <DataText>
-              Weight: <DataSpan>{weight} kg</DataSpan>{" "}
-            </DataText>
-          ) : null}
-          {height ? (
-            <DataText>
-              Height: <DataSpan>{height} cm</DataSpan>
-            </DataText>
-          ) : null}
-          {shoeSize ? (
-            <DataText>
-              Shoe size: <DataSpan>{shoeSize}</DataSpan>
-            </DataText>
-          ) : null}
-          {experience ? (
-            <DataText>
-              Experience: <DataSpan>{experience}</DataSpan>
-            </DataText>
-          ) : null}
+        <DataDetails data-label="Details:">
+          <Wrapper>
+            {sex ? (
+              <DataText>
+                Sex: <DataSpan>{sex}</DataSpan>
+              </DataText>
+            ) : null}
+            {weight ? (
+              <DataText>
+                Weight: <DataSpan>{weight} kg</DataSpan>{" "}
+              </DataText>
+            ) : null}
+            {height ? (
+              <DataText>
+                Height: <DataSpan>{height} cm</DataSpan>
+              </DataText>
+            ) : null}
+            {shoeSize ? (
+              <DataText>
+                Shoe size: <DataSpan>{shoeSize}</DataSpan>
+              </DataText>
+            ) : null}
+            {experience ? (
+              <DataText>
+                Experience: <DataSpan>{experience}</DataSpan>
+              </DataText>
+            ) : null}
+          </Wrapper>
         </DataDetails>
 
-        <Data>
+        <DataDetails data-label="Period:">
+          <Wrapper>
+            <DataText>
+              From: <DataSpan>{startDateShort}</DataSpan>
+            </DataText>
+            <DataText>
+              To: <DataSpan>{startDateShort}</DataSpan>
+            </DataText>
+            <DataText>
+              Days: <DataSpan>{days}</DataSpan>
+            </DataText>
+          </Wrapper>
+        </DataDetails>
+
+        <Data data-label="Price:">
           <DataText>
             {price}RON x {days} days = {price * days} RON
           </DataText>
         </Data>
 
-        <Data>
+        <Data data-label="Actions:">
           <Actions>
-            <ButtonContainer>
-              <FaTrashAlt
-                size={25}
-                style={style}
-                onClick={() => clearItemFromCart(cartItem)}
-              />
-            </ButtonContainer>
+            <FaTrashAlt size={25} onClick={() => clearItemFromCart(cartItem)} />
+
             <EditModal cartItem={cartItem} />
           </Actions>
         </Data>

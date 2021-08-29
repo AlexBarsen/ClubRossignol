@@ -16,6 +16,7 @@ import {
   Row,
   Heading,
   Message,
+  Total,
 } from "./CheckoutElements";
 
 const CheckoutPage = ({ cartItems, total }) => {
@@ -29,6 +30,7 @@ const CheckoutPage = ({ cartItems, total }) => {
               <Heading>Name</Heading>
               <Heading>Person</Heading>
               <Heading>Details</Heading>
+              <Heading>Period</Heading>
               <Heading>Price</Heading>
               <Heading>Actions</Heading>
             </Row>
@@ -43,6 +45,13 @@ const CheckoutPage = ({ cartItems, total }) => {
         {cartItems.length ? null : (
           <Message>Nu exista nimic in cos momentan</Message>
         )}
+
+        {total ? (
+          <Total>
+            {" "}
+            Total: {total}RON {cartItems.length} products in cart{" "}
+          </Total>
+        ) : null}
       </CheckoutPageContainer>
     </>
   );
