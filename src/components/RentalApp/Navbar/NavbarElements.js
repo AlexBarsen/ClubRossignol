@@ -12,6 +12,8 @@ export const HeaderContainer = styled.div`
   }
 `;
 
+export const User = styled.div``;
+
 export const HeaderOptions = styled.div`
   width: 100%;
   display: flex;
@@ -24,6 +26,7 @@ export const HeaderOptions = styled.div`
 `;
 
 export const HeaderOption = styled(Link)`
+  display: flex;
   color: white;
   text-decoration: none;
   margin-right: 2rem;
@@ -43,4 +46,11 @@ export const MobileIcon = styled.div`
     cursor: pointer;
     color: #fff;
   }
+`;
+
+export const Flag = styled.div`
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem;
+  cursor: pointer;
 `;

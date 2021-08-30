@@ -50,7 +50,6 @@ export const ModalContent = styled.div`
   border-radius: 1.5rem;
   max-height: 120rem;
   max-width: 150rem;
-  /* min-width: 55rem; */
 `;
 
 export const Title = styled.h1`

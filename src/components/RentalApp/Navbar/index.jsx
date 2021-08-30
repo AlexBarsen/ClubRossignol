@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUserCircle } from "react-icons/fa";
 
 import CartDropdown from "../Cart-Checkout/CartDropdown/index";
 
@@ -24,8 +24,13 @@ import {
   signOutStart,
 } from "../../../redux/user/user.actions";
 
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+
 import {
   HeaderContainer,
+  Flag,
+  User,
   HeaderOptions,
   HeaderOption,
   MobileIcon,
@@ -39,20 +44,51 @@ const Navbar = ({
   signOutStart,
   toggle,
 }) => {
+  const { t } = useTranslation();
+
+  const languages = [
+    {
+      code: "ro",
+      name: "Romania",
+      country_code: "ro",
+    },
+    {
+      code: "en",
+      name: "English",
+      country_code: "en",
+    },
+  ];
+
   return (
     <>
       <HeaderContainer>
         <MobileIcon onClick={toggle}>
           <FaBars />
         </MobileIcon>
+
         <HeaderOptions>
-          <HeaderOption to="/">Back to Website</HeaderOption>
-          <HeaderOption to="/rental/">About</HeaderOption>
+          <HeaderOption to="/">{t("back_to_website")}</HeaderOption>
+          {languages.map(({ code, name, country_code }) => (
+            <Flag
+              key={country_code}
+              onClick={() => i18next.changeLanguage(code)}
+            >
+              {" "}
+              {name}{" "}
+            </Flag>
+          ))}
+
           {/* <HeaderOption to="/rental/account">Account</HeaderOption> */}
-          <SignInModal />
-          <SignUpModal />
-          <HeaderOption to="/rental/sign">Register</HeaderOption>
-          <HeaderOption to="/rental/">Contact</HeaderOption>
+          {currentUser ? null : <SignInModal />}
+          {currentUser ? null : <SignUpModal />}
+          {currentUser ? (
+            <HeaderOption>
+              <FaUserCircle size={20} />
+              {currentUser.firstName + " " + currentUser.lastName}{" "}
+            </HeaderOption>
+          ) : null}
+          <HeaderOption to="/rental/">{t("about")}</HeaderOption>
+          <HeaderOption to="/rental/">{t("contact")}</HeaderOption>
           <CartIcon />
         </HeaderOptions>
 

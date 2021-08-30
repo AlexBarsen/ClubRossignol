@@ -7,6 +7,8 @@ import { persistor, store } from "./redux/store";
 import App from "./App";
 import { PersistGate } from "redux-persist/integration/react";
 
+import "./i18n";
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

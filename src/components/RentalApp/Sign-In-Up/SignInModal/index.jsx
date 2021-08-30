@@ -23,7 +23,7 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
   const toggleModal = () => {
     toggleUserSignInHidden();
 
-    if (userSignInHidden) {
+    if (!userSignInHidden) {
       document.body.style.overflow = "unset";
     } else {
       document.body.style.overflow = "hidden";

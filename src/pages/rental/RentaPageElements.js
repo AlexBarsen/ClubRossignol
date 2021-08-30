@@ -23,7 +23,6 @@ export const Wrapper = styled.div`
 `;
 
 export const RentalContent = styled.div`
-  min-height: 79vh;
   display: flex;
   justify-content: center;
 

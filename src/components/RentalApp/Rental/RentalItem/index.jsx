@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   RentalItemContainer,
@@ -13,6 +14,7 @@ import {
 import RentalModal from "../RentalModal";
 
 const RentalItem = ({ item }) => {
+  const { t } = useTranslation();
   const { name, price, icon } = item;
   return (
     <>
@@ -22,9 +24,11 @@ const RentalItem = ({ item }) => {
         </IconContainer>
 
         <Wrapper>
-          <Title>{name}</Title>
+          <Title>{t(name)}</Title>
           <Footer>
-            <Price>{price} RON / ZI</Price>
+            <Price>
+              {price} {t("ron_day")}
+            </Price>
             <RentalModal item={item} />
           </Footer>
         </Wrapper>
