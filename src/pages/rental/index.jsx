@@ -9,13 +9,13 @@ import {
   RentalCategoriesContainer,
 } from "./RentaPageElements";
 
-import Header from "../../components/RentalApp/Header/index";
+import Navbar from "../../components/RentalApp/Navbar/index";
 
 import { Wrapper } from "./RentaPageElements";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
-import RentalOverviewContainer from "../../components/RentalApp/RentalOverview/RentalOverviewContainer";
+import RentalOverviewContainer from "../../components/RentalApp/Rental/RentalOverview/RentalOverviewContainer";
 
 import CategoryPageContainer from "../Category/CategoryPageContainer";
 
@@ -24,15 +24,14 @@ import {
   selectRentalsCategories,
   selectIsCategoriesLoaded,
 } from "../../redux/rental/rental.selectors";
-import RentalCategories from "../../components/RentalApp/RentalCategories/index";
+
+import RentalCategories from "../../components/RentalApp/Rental/RentalCategories/index";
 
 import Footer from "../../components/RentalApp/Footer/index";
 
 import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import CheckoutPage from "../Checkout/index";
-
-import SignPage from "../Sign/index";
 
 const RentalPage = ({
   fetchRentalsStart,
@@ -55,7 +54,7 @@ const RentalPage = ({
   return (
     <RentalPageContainer>
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Header toggle={toggle} />
+      <Navbar toggle={toggle} />
 
       <Wrapper>
         <RentalCategoriesContainer>
@@ -75,7 +74,7 @@ const RentalPage = ({
             path={`${match.path}/category/:categoryName`}
             component={CategoryPageContainer}
           />
-          <Route exact path={`${match.path}/sign`} component={SignPage} />
+          {/* <Route exact path={`${match.path}/sign`} component={SignPage} /> */}
           <Route
             exact
             path={`${match.path}/checkout`}

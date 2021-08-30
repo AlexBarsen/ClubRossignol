@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import RentalItem from "../../components/RentalApp/RentalItem/index";
+import RentalItem from "../../components/RentalApp/Rental/RentalItem/index";
 import { selectRentalCategory } from "../../redux/rental/rental.selectors";
 
 import {
