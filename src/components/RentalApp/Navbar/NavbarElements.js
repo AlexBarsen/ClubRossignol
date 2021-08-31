@@ -19,18 +19,24 @@ export const HeaderOptions = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const HeaderOption = styled(Link)`
-  display: flex;
   color: white;
   text-decoration: none;
   margin-right: 2rem;
   font-size: 2rem;
+
+  &:first-child {
+    padding: 0 2rem;
+    margin-right: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
 `;
 
 export const MobileIcon = styled.div`
@@ -48,7 +54,11 @@ export const MobileIcon = styled.div`
   }
 `;
 
-export const Flag = styled.div`
+export const LanguageList = styled.ul`
+  list-style: none;
+`;
+
+export const Flag = styled.li`
   color: #fff;
   font-size: 2rem;
   padding: 1rem;
