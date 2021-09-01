@@ -3,6 +3,8 @@ import {
   auth,
   createUserProfileDocument,
   getCurrentUser,
+  firestore,
+  convertOrdersSnapshotToMap,
 } from "../../firebase/firebase.utils";
 
 import {
@@ -12,6 +14,8 @@ import {
   signOutFailure,
   signUpFailure,
   signUpSuccess,
+  fetchOrdersSuccess,
+  fetchOrdersFailure,
 } from "./user.actions";
 import { UserActionTypes } from "./user.types";
 
@@ -106,6 +110,28 @@ export function* onSignUpStart() {
 export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
+// * Orders sagas
+
+export function* fetchOrdersAsync({ payload: { email } }) {
+  console.log(email);
+  try {
+    const ordersRef = firestore.collection("orders");
+
+    const ordersSnapshot = yield ordersRef.where("email", "==", email).get();
+
+    const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
+
+    console.log(ordersMap);
+
+    yield put(fetchOrdersSuccess());
+  } catch (error) {
+    yield put(fetchOrdersFailure(error));
+  }
+}
+
+export function* fetchOrdersStart() {
+  yield takeLatest(UserActionTypes.FETCH_ORDERS_START, fetchOrdersAsync);
+}
 
 // * export userSagas functions()
 export function* userSagas() {
@@ -115,5 +141,6 @@ export function* userSagas() {
     call(onSignOutStart),
     call(onSignUpStart),
     call(onSignUpSuccess),
+    call(fetchOrdersStart),
   ]);
 }

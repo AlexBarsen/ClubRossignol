@@ -111,4 +111,21 @@ export const getCurrentUser = () => {
   });
 };
 
+// * converts Snapshot object
+export const convertOrdersSnapshotToMap = (orders) => {
+  console.log(orders);
+  const transformedOrders = orders.docs.map((doc) => {
+    // * destructe properties from the document
+    const { email, orderedItems } = doc.data();
+
+    // * return final object with desired data
+    return {
+      orderID: doc.id,
+      email: email,
+      orderedItems: orderedItems,
+    };
+  });
+  return transformedOrders.map((order) => order);
+};
+
 export default firebase;

@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   userSignInHidden: true,
   userSignUpHidden: true,
   error: null,
+  orders: null,
 };
 
 // * reducers take in a current state + action -> return a new state
@@ -39,6 +40,23 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         error: action.payload,
+      };
+    case UserActionTypes.FETCH_ORDERS_START:
+      return {
+        ...state,
+        isFetching: true,
+      };
+    case UserActionTypes.FETCH_ORDERS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        orders: action.payload,
+      };
+    case UserActionTypes.FETCH_ORDERS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload,
       };
     default:
       return state;

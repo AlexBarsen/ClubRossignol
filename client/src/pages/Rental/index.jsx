@@ -32,6 +32,7 @@ import Footer from "../../components/RentalApp/Footer/index";
 import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import CheckoutPage from "../Checkout/index";
+import DashboardPage from "../Dashboard";
 
 const RentalPage = ({
   fetchRentalsStart,
@@ -80,6 +81,11 @@ const RentalPage = ({
             path={`${match.path}/checkout`}
             component={CheckoutPage}
           />
+          <Route
+            exact
+            path={`${match.path}/dashboard`}
+            component={DashboardPage}
+          />{" "}
         </RentalContent>
       </Wrapper>
       <Footer />
