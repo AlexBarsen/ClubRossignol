@@ -32,6 +32,7 @@ import { useTranslation } from "react-i18next";
 import {
   HeaderContainer,
   HeaderOptions,
+  HeaderOptionLink,
   HeaderOption,
   MobileIcon,
 } from "./NavbarElements";
@@ -57,14 +58,14 @@ const Navbar = ({
           <HeaderOption>
             <LanguagesDropdown />
           </HeaderOption>
-          <HeaderOption to="/">{t("back_to_website")}</HeaderOption>
+          <HeaderOptionLink to="/">{t("back_to_website")}</HeaderOptionLink>
 
           {/* <HeaderOption to="/rental/account">Account</HeaderOption> */}
           {currentUser ? null : <SignInModal />}
           {currentUser ? null : <SignUpModal />}
 
-          <HeaderOption to="/rental/">{t("about")}</HeaderOption>
-          <HeaderOption to="/rental/">{t("contact")}</HeaderOption>
+          <HeaderOptionLink to="/rental/">{t("about")}</HeaderOptionLink>
+          <HeaderOptionLink to="/rental/">{t("contact")}</HeaderOptionLink>
 
           {currentUser ? (
             <HeaderOption>

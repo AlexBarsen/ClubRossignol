@@ -112,21 +112,23 @@ export function* onSignUpSuccess() {
 }
 // * Orders sagas
 
-export function* fetchOrdersAsync({ payload: { email } }) {
-  console.log(email);
-  try {
-    const ordersRef = firestore.collection("orders");
+export function* fetchOrdersAsync({ payload: { currentUser } }) {
+  if (currentUser) {
+    const userID = currentUser.id;
+    try {
+      const ordersRef = firestore.collection("orders");
 
-    const ordersSnapshot = yield ordersRef.where("email", "==", email).get();
+      const ordersSnapshot = yield ordersRef
+        .where("userID", "==", userID)
+        .get();
 
-    const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
+      const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
 
-    console.log(ordersMap);
-
-    yield put(fetchOrdersSuccess());
-  } catch (error) {
-    yield put(fetchOrdersFailure(error));
-  }
+      yield put(fetchOrdersSuccess(ordersMap));
+    } catch (error) {
+      yield put(fetchOrdersFailure(error));
+    }
+  } else return;
 }
 
 export function* fetchOrdersStart() {

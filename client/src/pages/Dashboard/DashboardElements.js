@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const DashboardPageContainer = styled.div``;
+export const DashboardPageContainer = styled.div`
+  display: flex;
+`;

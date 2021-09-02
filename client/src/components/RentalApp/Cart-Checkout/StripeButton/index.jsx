@@ -5,11 +5,13 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 
 import { clearCart } from "../../../../redux/cart/cart.actions";
+import { selectCurrentUser } from "../../../../redux/user/user.selectors";
 
 import { addCollectionAndDocuments } from "../../../../firebase/firebase.utils";
+import { createStructuredSelector } from "reselect";
 
 // * pass properties into Component
-const StripeCheckoutButton = ({ price, clearCart, cartItems }) => {
+const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
   // * Stripe configuration
   const priceForStripe = price * 100;
   const publishableKey =
@@ -29,15 +31,16 @@ const StripeCheckoutButton = ({ price, clearCart, cartItems }) => {
         alert("Payment successful");
         const order = [
           {
-            client_ip: token.client_ip,
-            email: token.email,
-            status: "unfulfilled",
+            order_ip: token.client_ip,
+            userID: currentUser.id,
+            fulfilled: false,
             orderedItems: cartItems,
             total: priceForStripe / 100,
           },
         ];
 
         addCollectionAndDocuments("orders", order);
+        clearCart();
       })
       .catch((error) => {
         console.log("Payment error: ", error);
@@ -64,9 +67,16 @@ const StripeCheckoutButton = ({ price, clearCart, cartItems }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
 // * dispatch functions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   clearCart: () => dispatch(clearCart()),
 });
 
-export default connect(null, mapDispatchToProps)(StripeCheckoutButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StripeCheckoutButton);

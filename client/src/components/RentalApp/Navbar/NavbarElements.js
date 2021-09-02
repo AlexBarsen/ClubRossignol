@@ -21,7 +21,25 @@ export const HeaderOptions = styled.div`
   align-items: center;
 `;
 
-export const HeaderOption = styled(Link)`
+export const HeaderOptionLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-size: 2rem;
+
+  &:first-child {
+    padding: 0 2rem;
+    margin-right: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+`;
+
+export const HeaderOption = styled.div`
   color: white;
   text-decoration: none;
   margin-right: 2rem;

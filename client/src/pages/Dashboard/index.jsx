@@ -1,25 +1,39 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import { createStructuredSelector } from "reselect";
+
 import { fetchOrdersStart } from "../../redux/user/user.actions";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { DashboardPageContainer } from "./DashboardElements";
 
-const DashboardPage = ({ fetchOrdersStart }) => {
-  const email = "ion@test.com";
+import OrdersContainer from "../../components/RentalApp/Orders/OrdersContainer";
+
+import UserInformation from "../../components/RentalApp/UserInformation/index";
+
+const DashboardPage = ({ currentUser, fetchOrdersStart }) => {
   useEffect(() => {
-    fetchOrdersStart(email);
-  });
+    fetchOrdersStart(currentUser);
+  }, [fetchOrdersStart, currentUser]);
 
   return (
     <>
-      <DashboardPageContainer></DashboardPageContainer>
+      <DashboardPageContainer>
+        <UserInformation />
+        <OrdersContainer />
+      </DashboardPageContainer>
     </>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchOrdersStart: (email) => dispatch(fetchOrdersStart({ email })),
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
 });
 
-export default connect(null, mapDispatchToProps)(DashboardPage);
+const mapDispatchToProps = (dispatch) => ({
+  fetchOrdersStart: (currentUser) =>
+    dispatch(fetchOrdersStart({ currentUser })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

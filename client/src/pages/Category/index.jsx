@@ -11,7 +11,6 @@ import {
 
 const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
-  console.log(category);
   return (
     <CategoryPageContainer>
       <Title>{categoryName}</Title>
