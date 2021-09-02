@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const OrdersContainer = styled.div`
   margin-top: 2rem;
-  width: 100%;
+  margin-left: 2rem;
 `;
 
 export const OrderContainer = styled.div`
   margin-bottom: 2rem;
-  background: lightgreen;
-  /* background: #fa2742; */
-  /* display: flex; */
+  /* background: lightgreen; */
+  /* border: 2px solid black; */
+  border-bottom: 1px solid black;
 `;
 
 export const OrderID = styled.div`
@@ -22,6 +22,7 @@ export const OrderID = styled.div`
 export const Table = styled.table`
   width: 100%;
   text-align: center;
+  margin-bottom: 1rem;
 `;
 
 export const Body = styled.tbody``;
@@ -32,8 +33,7 @@ export const Heading = styled.th`
   font-size: 2rem;
 `;
 
-export const UserInformation = styled.div`
-  height: 20rem;
-  width: 20rem;
-  background: #fa2742;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
 `;

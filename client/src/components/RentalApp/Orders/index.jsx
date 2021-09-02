@@ -6,7 +6,7 @@ import { selectUserOrders } from "../../../redux/user/user.selectors";
 
 import {
   OrdersContainer,
-  UserInformation,
+  Wrapper,
   OrderContainer,
   OrderID,
   Table,
@@ -21,9 +21,11 @@ const Orders = ({ userOrders }) => {
   return (
     <>
       <OrdersContainer>
+        <h1>Order History:</h1>
         {userOrders.map((order) => (
           <OrderContainer>
             <OrderID>Order ID: {order.orderID}</OrderID>
+            {/* <OrderID>Ordered at: {order.orderedAt}</OrderID> */}
             <Table>
               <Body>
                 <Row>
@@ -38,11 +40,15 @@ const Orders = ({ userOrders }) => {
                 <Order key={order.orderID} order={order} />
               </Body>
             </Table>
-            <OrderID>Number of items: {order.orderedItems.length}</OrderID>
-            <OrderID>
-              Status: {order.status ? "fulfilled" : "not fulfilled"}
-            </OrderID>
-            <OrderID>Total: {order.total}RON</OrderID>
+            <Wrapper>
+              <OrderID>Number of items: {order.orderedItems.length}</OrderID>
+
+              <OrderID>Total: {order.total}RON</OrderID>
+
+              <OrderID>
+                Status: {order.status ? "fulfilled" : "not fulfilled"}
+              </OrderID>
+            </Wrapper>
           </OrderContainer>
         ))}
       </OrdersContainer>

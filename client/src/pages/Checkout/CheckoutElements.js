@@ -14,13 +14,15 @@ export const Table = styled.table`
   width: 100%;
   margin-bottom: 4rem;
 
+  border: collapse;
+
   @media screen and (max-width: 768px) {
     margin-bottom: 0rem;
   }
 `;
 
 export const Body = styled.tbody`
-  background: lightgray;
+  /* background: lightgray; */
 
   @media screen and (max-width: 768px) {
     background: none;

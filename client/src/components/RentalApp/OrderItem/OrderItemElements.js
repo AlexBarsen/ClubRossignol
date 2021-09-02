@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Row = styled.tr`
-  background: lightblue;
+  /* background: lightblue; */
 `;
 
 export const DataDetails = styled.td`

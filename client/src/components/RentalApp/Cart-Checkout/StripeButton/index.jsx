@@ -36,6 +36,7 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
             fulfilled: false,
             orderedItems: cartItems,
             total: priceForStripe / 100,
+            orderedAt: new Date(),
           },
         ];
 
