@@ -34,12 +34,7 @@ import Sidebar from "../../components/RentalApp/Sidebar/index";
 import CheckoutPage from "../Checkout/index";
 import DashboardPage from "../Dashboard";
 
-const RentalPage = ({
-  fetchRentalsStart,
-  match,
-  rentalCategories,
-  selectIsCategoriesLoaded,
-}) => {
+const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
     fetchRentalsStart();
   }, [fetchRentalsStart]);
@@ -100,7 +95,7 @@ const mapStateToProps = createStructuredSelector({
 // * dispatch actions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   fetchRentalsStart: () => dispatch(fetchRentalsStart()),
-  isRentalsLoaded: selectIsCategoriesLoaded,
+  // isRentalsLoaded: selectIsCategoriesLoaded,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RentalPage);

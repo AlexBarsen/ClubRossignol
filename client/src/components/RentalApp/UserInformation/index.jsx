@@ -1,10 +1,10 @@
 import React from "react";
 
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
-import { createStructuredSelector } from "reselect";
+// import { createStructuredSelector } from "reselect";
 
-import { selectCurrentUser } from "../../../redux/user/user.selectors";
+// import { selectCurrentUser } from "../../../redux/user/user.selectors";
 
 import {
   UserInformationContainer,
@@ -29,8 +29,8 @@ const UserInformation = ({ currentUser }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-});
+// const mapStateToProps = createStructuredSelector({
+//   currentUser: selectCurrentUser,
+// });
 
-export default connect(mapStateToProps)(UserInformation);
+export default UserInformation;

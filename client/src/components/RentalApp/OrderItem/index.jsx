@@ -1,13 +1,16 @@
 import React from "react";
 
+import { useTranslation } from "react-i18next";
+
 import {
-  Row,
-  Data,
-  IconContainer,
-  Icon,
-  DataSpan,
-  DataDetails,
-  DataText,
+  OrderItemsContainer,
+  OrderItemContainer,
+  Title,
+  DetailsContainer,
+  Details,
+  Detail,
+  DetailSpan,
+  TotalDetails,
 } from "./OrderItemElements";
 
 const OrderItem = ({ item }) => {
@@ -26,64 +29,88 @@ const OrderItem = ({ item }) => {
     startDate,
     weight,
   } = item;
+
+  const { t } = useTranslation();
   return (
     <>
-      <Row>
-        <Data>
-          <IconContainer>
-            <Icon src={icon} />
-          </IconContainer>
-        </Data>
-        <Data>{name}</Data>
-        <Data>
-          {firstName} {lastName}
-        </Data>
-        <DataDetails>
-          {sex ? (
-            <DataText>
-              <DataSpan>Sex:</DataSpan> {sex}
-            </DataText>
-          ) : null}
-          {weight ? (
-            <DataText>
-              <DataSpan>Weight:</DataSpan> {weight}
-            </DataText>
-          ) : null}
-          {height ? (
-            <DataText>
-              <DataSpan>Height:</DataSpan> {height}
-            </DataText>
-          ) : null}
-          {shoeSize ? (
-            <DataText>
-              <DataSpan>Shoe size:</DataSpan> {shoeSize}
-            </DataText>
-          ) : null}
-          {experience ? (
-            <DataText>
-              <DataSpan>Expeirence:</DataSpan> {experience}
-            </DataText>
-          ) : null}
-        </DataDetails>
+      <OrderItemsContainer>
+        <OrderItemContainer>
+          {/* <IconContainer>
+          <Icon src={icon} />
+        </IconContainer> */}
 
-        <DataDetails>
-          <DataText>
-            <DataSpan>From:</DataSpan>
-            {startDate}
-          </DataText>
-          <DataText>
-            <DataSpan>To:</DataSpan> {endDate}
-          </DataText>
-          <DataText>
-            <DataSpan>Days:</DataSpan>
-            {days}
-          </DataText>
-        </DataDetails>
+          {/* <DetailsContainer> */}
+          <Title>
+            <DetailSpan>{t(name)} </DetailSpan>
 
-        <Data>
-          {days} days x {price}RON = <DataSpan>{days * price}RON</DataSpan>
-        </Data>
-      </Row>
+            <Detail>
+              {firstName} {lastName}
+            </Detail>
+          </Title>
+
+          <DetailsContainer>
+            <Details>
+              {sex ? (
+                <Detail>
+                  <DetailSpan>Sex: </DetailSpan> {sex}
+                </Detail>
+              ) : null}
+              {weight ? (
+                <Detail>
+                  <DetailSpan>Weight: </DetailSpan> {weight}
+                </Detail>
+              ) : null}
+              {height ? (
+                <Detail>
+                  <DetailSpan>Height: </DetailSpan> {height}
+                </Detail>
+              ) : null}
+              {shoeSize ? (
+                <Detail>
+                  <DetailSpan>ShoeSize: </DetailSpan> {shoeSize}
+                </Detail>
+              ) : null}
+              {experience ? (
+                <Detail>
+                  <DetailSpan>Experience: </DetailSpan> {experience}
+                </Detail>
+              ) : null}
+            </Details>
+
+            <Details>
+              <Detail>
+                <DetailSpan>From: </DetailSpan>
+                {startDate}
+              </Detail>
+              <Detail>
+                <DetailSpan>To: </DetailSpan>
+                {endDate}
+              </Detail>
+              <Detail>
+                <DetailSpan>Days: </DetailSpan>
+                {days}
+              </Detail>
+            </Details>
+
+            {/* <Details>
+            <Detail>
+              {days} days x {price} RON
+            </Detail>
+            <Detail>
+              Total:
+              <DetailSpan> {days * price} RON</DetailSpan>
+            </Detail>
+          </Details> */}
+          </DetailsContainer>
+
+          <TotalDetails>
+            <Detail>
+              {days} days x {price} RON ={" "}
+              <DetailSpan> {days * price} RON</DetailSpan>
+            </Detail>
+          </TotalDetails>
+        </OrderItemContainer>
+      </OrderItemsContainer>
     </>
   );
 };

@@ -1,35 +1,53 @@
 import styled from "styled-components";
 
-export const Row = styled.tr`
-  /* background: lightblue; */
+export const OrderItemsContainer = styled.div`
+  &:first-child {
+    margin-top: 1rem;
+  }
 `;
 
-export const DataDetails = styled.td`
+export const OrderItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  border-bottom: 1px solid black;
+`;
+
+export const Title = styled.div`
   font-size: 1.6rem;
-  padding: 2rem;
+  margin-bottom: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
-export const Data = styled.td`
+export const DetailsContainer = styled.div`
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+`;
+
+export const Details = styled.div``;
+
+export const Detail = styled.div`
   font-size: 1.6rem;
-  padding: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.6rem;
+  }
 `;
 
-export const DataText = styled.div``;
-
-export const OrderItemContainer = styled.div``;
-
-export const IconContainer = styled.div`
-  margin: auto;
-  width: 5rem;
-  height: 5rem;
-`;
-
-export const Icon = styled.img`
-  width: 100%;
-`;
-
-export const Text = styled.div``;
-
-export const DataSpan = styled.span`
+export const DetailSpan = styled.span`
   font-weight: bold;
+`;
+
+export const TotalDetails = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;

@@ -30,6 +30,11 @@ export const selectIsUserOrdersLoaded = createSelector(
   (user) => !!user.orders
 );
 
+export const selectIsUserLoaded = createSelector(
+  [selectUser],
+  (user) => !!user.currentUser
+);
+
 export const selectUserOrders = createSelector(
   [selectUser],
   (user) => user.orders

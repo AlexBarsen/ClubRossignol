@@ -10,7 +10,7 @@ import { DashboardPageContainer } from "./DashboardElements";
 
 import OrdersContainer from "../../components/RentalApp/Orders/OrdersContainer";
 
-import UserInformation from "../../components/RentalApp/UserInformation/index";
+import UserInformationContainer from "../../components/RentalApp/UserInformation/UserIonformationContainer";
 
 const DashboardPage = ({ currentUser, fetchOrdersStart }) => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const DashboardPage = ({ currentUser, fetchOrdersStart }) => {
   return (
     <>
       <DashboardPageContainer>
-        <UserInformation />
+        <UserInformationContainer currentUser={currentUser} />
         <OrdersContainer />
       </DashboardPageContainer>
     </>

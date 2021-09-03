@@ -23,8 +23,9 @@ export const Wrapper = styled.div`
 `;
 
 export const RentalContent = styled.div`
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  width: 100%;
 
   padding-bottom: 2rem;
 `;
