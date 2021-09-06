@@ -35,15 +35,23 @@ export const OrderInfoSpan = styled.span`
 `;
 
 export const OrderInfoStatusSpan = styled.span`
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: bold;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.8rem;
+  }
 `;
 
 export const OrderInfoStatus = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 10rem;
+  width: 11rem;
+
+  @media screen and (max-width: 768px) {
+    width: 15rem;
+  }
 `;
 
 export const Wrapper2 = styled.div`

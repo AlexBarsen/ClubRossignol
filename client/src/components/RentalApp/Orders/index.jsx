@@ -9,7 +9,6 @@ import { OrdersContainer, OrderContainer } from "./OrdersElements";
 import Order from "../Order/index";
 
 const Orders = ({ userOrders }) => {
-  console.log(userOrders);
   return (
     <>
       <OrdersContainer>

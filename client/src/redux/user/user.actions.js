@@ -66,17 +66,17 @@ export const signOutFailure = (error) => ({
 
 // * Orders
 
-export const fetchOrdersStart = (email) => ({
-  type: UserActionTypes.FETCH_ORDERS_START,
+export const fetchUserOrdersStart = (email) => ({
+  type: UserActionTypes.FETCH_USER_ORDERS_START,
   payload: email,
 });
 
-export const fetchOrdersSuccess = (ordersMap) => ({
-  type: UserActionTypes.FETCH_ORDERS_SUCCESS,
+export const fetchUserOrdersSuccess = (ordersMap) => ({
+  type: UserActionTypes.FETCH_USER_ORDERS_SUCCESS,
   payload: ordersMap,
 });
 
-export const fetchOrdersFailure = (errorMessage) => ({
-  type: UserActionTypes.FETCH_ORDERS_FAILURE,
+export const fetchUserOrdersFailure = (errorMessage) => ({
+  type: UserActionTypes.FETCH_USER_ORDERS_FAILURE,
   payload: errorMessage,
 });

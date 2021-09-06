@@ -41,18 +41,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         error: action.payload,
       };
-    case UserActionTypes.FETCH_ORDERS_START:
+    case UserActionTypes.FETCH_USER_ORDERS_START:
       return {
         ...state,
         isFetching: true,
       };
-    case UserActionTypes.FETCH_ORDERS_SUCCESS:
+    case UserActionTypes.FETCH_USER_ORDERS_SUCCESS:
       return {
         ...state,
         isFetching: false,
         orders: action.payload,
       };
-    case UserActionTypes.FETCH_ORDERS_FAILURE:
+    case UserActionTypes.FETCH_USER_ORDERS_FAILURE:
       return {
         ...state,
         isFetching: false,

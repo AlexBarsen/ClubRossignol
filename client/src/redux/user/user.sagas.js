@@ -14,8 +14,8 @@ import {
   signOutFailure,
   signUpFailure,
   signUpSuccess,
-  fetchOrdersSuccess,
-  fetchOrdersFailure,
+  fetchUserOrdersSuccess,
+  fetchUserOrdersFailure,
 } from "./user.actions";
 import { UserActionTypes } from "./user.types";
 
@@ -112,7 +112,7 @@ export function* onSignUpSuccess() {
 }
 // * Orders sagas
 
-export function* fetchOrdersAsync({ payload: { currentUser } }) {
+export function* fetchUserOrdersAsync({ payload: { currentUser } }) {
   if (currentUser) {
     const userID = currentUser.id;
     try {
@@ -124,15 +124,18 @@ export function* fetchOrdersAsync({ payload: { currentUser } }) {
 
       const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
 
-      yield put(fetchOrdersSuccess(ordersMap));
+      yield put(fetchUserOrdersSuccess(ordersMap));
     } catch (error) {
-      yield put(fetchOrdersFailure(error));
+      yield put(fetchUserOrdersFailure(error));
     }
   } else return;
 }
 
-export function* fetchOrdersStart() {
-  yield takeLatest(UserActionTypes.FETCH_ORDERS_START, fetchOrdersAsync);
+export function* fetchUserOrdersStart() {
+  yield takeLatest(
+    UserActionTypes.FETCH_USER_ORDERS_START,
+    fetchUserOrdersAsync
+  );
 }
 
 // * export userSagas functions()
@@ -143,6 +146,6 @@ export function* userSagas() {
     call(onSignOutStart),
     call(onSignUpStart),
     call(onSignUpSuccess),
-    call(fetchOrdersStart),
+    call(fetchUserOrdersStart),
   ]);
 }

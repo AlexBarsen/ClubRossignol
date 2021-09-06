@@ -1,0 +1,7 @@
+const OrderActionTypes = {
+  FETCH_ORDERS_START: "FETCH_ORDERS_START",
+  FETCH_ORDERS_SUCCESS: "FETCH_ORDERS_SUCCESS",
+  FETCH_ORDERS_FAILURE: "FETCH_ORDER_FAILURE",
+};
+
+export default OrderActionTypes;

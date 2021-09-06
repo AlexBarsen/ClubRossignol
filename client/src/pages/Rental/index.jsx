@@ -20,10 +20,7 @@ import RentalOverviewContainer from "../../components/RentalApp/Rental/RentalOve
 import CategoryPageContainer from "../Category/CategoryPageContainer";
 
 import { createStructuredSelector } from "reselect";
-import {
-  selectRentalsCategories,
-  selectIsCategoriesLoaded,
-} from "../../redux/rental/rental.selectors";
+import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
 
 import RentalCategories from "../../components/RentalApp/Rental/RentalCategories/index";
 
@@ -33,6 +30,7 @@ import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import CheckoutPage from "../Checkout/index";
 import DashboardPage from "../Dashboard";
+import AdminDashboardPage from "../AdminDashboard/index";
 
 const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   useEffect(() => {
@@ -81,6 +79,11 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             path={`${match.path}/dashboard`}
             component={DashboardPage}
           />{" "}
+          <Route
+            exact
+            path={`${match.path}/admin`}
+            component={AdminDashboardPage}
+          />
         </RentalContent>
       </Wrapper>
       <Footer />

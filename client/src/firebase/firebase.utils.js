@@ -36,12 +36,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!snapShot.exists) {
     const { email } = userAuth;
     const createdAt = new Date();
+    const role = "user";
 
     try {
       //*  create document with user data in the userRef(“/users”) collection
       await userRef.set({
         email,
         createdAt,
+        role,
         ...additionalData,
       });
     } catch (error) {
@@ -57,7 +59,6 @@ export const addCollectionAndDocuments = async (
   CollectionKey,
   objectsToAdd
 ) => {
-  console.log(objectsToAdd);
   // * firestore collection reference
   const collectionRef = firestore.collection(CollectionKey);
 

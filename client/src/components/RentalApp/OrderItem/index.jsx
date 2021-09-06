@@ -20,7 +20,6 @@ const OrderItem = ({ item }) => {
     experience,
     firstName,
     height,
-    icon,
     lastName,
     name,
     price,
@@ -35,11 +34,6 @@ const OrderItem = ({ item }) => {
     <>
       <OrderItemsContainer>
         <OrderItemContainer>
-          {/* <IconContainer>
-          <Icon src={icon} />
-        </IconContainer> */}
-
-          {/* <DetailsContainer> */}
           <Title>
             <DetailSpan>{t(name)} </DetailSpan>
 

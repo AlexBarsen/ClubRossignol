@@ -24,6 +24,16 @@ const Order = ({ order }) => {
   const { orderedItems, total } = order;
   const [isOpen, setIsOpen] = useState(false);
 
+  // * get date in DD/MM/YYYY format
+  const transformDate = (date) => {
+    const startDay = new Date(date).getDate();
+    const startMonth = new Date(date).getMonth() + 1;
+    const startYear = new Date(date).getFullYear();
+    return startDay + "/" + startMonth + "/" + startYear;
+  };
+
+  const orderDate = transformDate(order.orderedAt.toDate());
+
   return (
     <>
       <OrderContainer>
@@ -34,7 +44,7 @@ const Order = ({ order }) => {
               {order.orderID}
             </OrderInfo>
             <OrderInfo>
-              <OrderInfoSpan>Order Date: </OrderInfoSpan>
+              <OrderInfoSpan>Order Date: </OrderInfoSpan> {orderDate}
             </OrderInfo>
             <OrderInfo>
               <OrderInfoSpan>Items ordered: </OrderInfoSpan>{" "}

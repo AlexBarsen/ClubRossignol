@@ -5,6 +5,7 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./user/user.reducer";
 import cartReducer from "./cart/cart.reducer";
 import rentalReducer from "./rental/rental.reducer";
+import orderReducer from "./order/order.reducer";
 
 // * pesist configuration
 // * whitelist = what should be saved in storage
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
   rental: rentalReducer,
+  order: orderReducer,
 });
 
 // * export modifed version of rootReducer with persistance capabilities
