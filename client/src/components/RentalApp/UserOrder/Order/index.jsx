@@ -14,7 +14,7 @@ import {
 
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 
-import { Button } from "../Button/ButtonElement";
+import { Button } from "../../Button/ButtonElement";
 
 import OrderItem from "../OrderItem/index";
 
@@ -26,10 +26,12 @@ const Order = ({ order }) => {
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
-    const startDay = new Date(date).getDate();
-    const startMonth = new Date(date).getMonth() + 1;
-    const startYear = new Date(date).getFullYear();
-    return startDay + "/" + startMonth + "/" + startYear;
+    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+    const month = (date.getMonth() < 10 ? "0" : "") + date.getMonth();
+    const year = date.getFullYear();
+    const hour = (date.getHours() < 10 ? "0" : "") + date.getHours();
+    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+    return day + "/" + month + "/" + year + " " + hour + ":" + minutes;
   };
 
   const orderDate = transformDate(order.orderedAt.toDate());

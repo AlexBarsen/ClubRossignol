@@ -2,7 +2,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectUserOrders } from "../../../redux/user/user.selectors";
+import { selectUserOrders } from "../../../../redux/user/user.selectors";
 
 import { OrdersContainer, OrderContainer } from "./OrdersElements";
 

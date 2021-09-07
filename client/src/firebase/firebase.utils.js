@@ -116,7 +116,7 @@ export const getCurrentUser = () => {
 export const convertOrdersSnapshotToMap = (orders) => {
   const transformedOrders = orders.docs.map((doc) => {
     // * destructe properties from the document
-    const { userID, orderedItems, total, orderedAt } = doc.data();
+    const { userID, orderedItems, total, orderedAt, status } = doc.data();
 
     // * return final object with desired data
     return {
@@ -125,9 +125,17 @@ export const convertOrdersSnapshotToMap = (orders) => {
       orderedItems: orderedItems,
       total: total,
       orderedAt: orderedAt,
+      status: status,
     };
   });
   return transformedOrders.map((order) => order);
 };
+
+// export const updateOrderStatus = async (orderID, status) => {
+//   const userRef = firestore.doc(`users/${orderID}`);
+
+//   // * get snapShot of the userRef
+//   const snapShot = await userRef.get();
+// };
 
 export default firebase;

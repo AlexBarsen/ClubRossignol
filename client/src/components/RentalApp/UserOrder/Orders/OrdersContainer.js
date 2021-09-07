@@ -2,8 +2,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 
-import { selectIsUserOrdersLoaded } from "../../../redux/user/user.selectors";
-import WithSpinner from "../WithSpinner/index";
+import { selectIsUserOrdersLoaded } from "../../../../redux/user/user.selectors";
+import WithSpinner from "../../WithSpinner/index";
 import Orders from "./index";
 
 // * connect to Redux state

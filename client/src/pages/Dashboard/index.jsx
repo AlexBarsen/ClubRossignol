@@ -8,7 +8,7 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { DashboardPageContainer } from "./DashboardElements";
 
-import OrdersContainer from "../../components/RentalApp/Orders/OrdersContainer";
+import OrdersContainer from "../../components/RentalApp/UserOrder/Orders/OrdersContainer";
 
 import UserInformationContainer from "../../components/RentalApp/UserInformation/UserIonformationContainer";
 

@@ -29,7 +29,11 @@ const UserDropdown = ({ user, signOut }) => {
 
         {isOpen ? (
           <OptionsList>
-            <OptionLink to="/rental/dashboard">Dashboard</OptionLink>
+            <OptionLink
+              to={user.role === "rental/admin" ? "/admin" : "rental/dashboard"}
+            >
+              Dashboard
+            </OptionLink>
             <Option onClick={() => signOut()}>Sign out</Option>
           </OptionsList>
         ) : null}

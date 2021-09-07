@@ -67,17 +67,17 @@ const Navbar = ({
           <HeaderOptionLink to="/rental/">{t("about")}</HeaderOptionLink>
           <HeaderOptionLink to="/rental/">{t("contact")}</HeaderOptionLink>
 
-          {currentUser && currentUser.role === "user" ? (
+          {currentUser ? (
             <HeaderOption>
               <UserDropdown user={currentUser} />
             </HeaderOption>
           ) : null}
 
-          {currentUser && currentUser.role === "admin" ? (
+          {/* {currentUser && currentUser.role === "admin" ? (
             <HeaderOptionLink to="/rental/admin">
               Admin Dashbooard
             </HeaderOptionLink>
-          ) : null}
+          ) : null} */}
           <CartIcon />
         </HeaderOptions>
 

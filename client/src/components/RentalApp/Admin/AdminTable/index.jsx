@@ -1,10 +1,24 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useTable, useExpanded } from "react-table";
-import AdminOrderItem from "../AdminOrderItem";
+import AdminOrderItem from "../AdminOrderItem/index";
+import Select from "react-select";
+import { connect } from "react-redux";
 
-import { Table, Head, Heading, Row, Data, Body } from "./TableElements";
+import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
 
-const AdminTable = ({ data }) => {
+import {
+  Table,
+  Head,
+  Heading,
+  Row,
+  Data,
+  Body,
+  Wrapper,
+  AdminOrderedItems,
+  SelectContainer,
+} from "./AdminTableElements";
+
+const AdminTable = ({ data, updateOrderStatusStart }) => {
   const columns = useMemo(
     () => [
       {
@@ -34,10 +48,11 @@ const AdminTable = ({ data }) => {
         columns: [
           {
             Header: "Order Date",
+            accessor: "orderedAt",
           },
           {
             Header: "Number of Items",
-            // accessor: "orderedItems",
+            accessor: "numberOfItems",
           },
           {
             Header: "Total",
@@ -69,22 +84,71 @@ const AdminTable = ({ data }) => {
     visibleColumns,
   } = tableInstance;
 
-  const renderRowSubComponent = React.useCallback(
-    ({ row }) => (
-      <pre
-        style={{
-          fontSize: "15px",
-        }}
-      >
-        <code>
-          {row.original.orderedItems.map((item) => (
-            <AdminOrderItem key={item.id} item={item} />
-          ))}
-        </code>
-      </pre>
-    ),
-    []
+  const [status, setStatus] = useState(null);
+
+  const handleStatusChange = (selected, props) => {
+    setStatus(selected.value);
+  };
+
+  const handleStatusUpdate = (orderID, status) => {
+    updateOrderStatusStart(orderID, status);
+  };
+
+  const options = [
+    { value: "recevied", label: "received" },
+    { value: "prepared", label: "prepared" },
+    { value: "complete", label: "complete" },
+  ];
+
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      fontSize: "2rem",
+      textAlin: "center",
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      fontSize: "2rem",
+      textAlign: "center",
+    }),
+  };
+
+  const renderRowSubComponent = ({ row }) => (
+    <Wrapper>
+      <AdminOrderedItems>
+        {row.original.orderedItems.map((item) => (
+          <>
+            <AdminOrderItem
+              key={item.id}
+              item={item}
+              status={row.original.status}
+            />
+          </>
+        ))}
+      </AdminOrderedItems>
+
+      <SelectContainer>
+        {row.original.status !== "complete" ? (
+          <Select
+            defaultValue={{
+              value: row.original.status,
+              label: row.original.status,
+            }}
+            onChange={handleStatusChange}
+            styles={customStyles}
+            options={options}
+          />
+        ) : null}
+
+        <button
+          onClick={() => handleStatusUpdate(row.original.orderID, status)}
+        >
+          Change Status
+        </button>
+      </SelectContainer>
+    </Wrapper>
   );
+
   return (
     <>
       <Table {...getTableProps()}>
@@ -130,4 +194,9 @@ const AdminTable = ({ data }) => {
   );
 };
 
-export default AdminTable;
+const mapDispatchToProps = (dispatch) => ({
+  updateOrderStatusStart: (orderID, status) =>
+    dispatch(updateOrderStatusStart({ orderID, status })),
+});
+
+export default connect(null, mapDispatchToProps)(AdminTable);

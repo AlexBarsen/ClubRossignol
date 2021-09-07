@@ -8,7 +8,7 @@ import { fetchOrdersStart } from "../../redux/order/order.actions";
 
 import { AdminDashboardPageContainer, Title } from "./AdminDashboardElements";
 
-import AdminOrderContainer from "../../components/RentalApp/AdminOrders/AdminOrderContainer.js";
+import AdminOrderContainer from "../../components/RentalApp/Admin/AdminOrders/AdminOrderContainer.js";
 
 const AdminDashboardPage = ({ fetchOrdersStart }) => {
   useEffect(() => {

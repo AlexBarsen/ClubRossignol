@@ -5,7 +5,12 @@ import {
   convertOrdersSnapshotToMap,
 } from "../../firebase/firebase.utils";
 
-import { fetchOrdersSuccess, fetchOrdersFailure } from "./order.actions";
+import {
+  fetchOrdersSuccess,
+  fetchOrdersFailure,
+  updateOrderStatusFailure,
+  updateOrderStatusSuccess,
+} from "./order.actions";
 
 import OrderActionTypes from "./order.types";
 
@@ -27,6 +32,32 @@ export function* fetchOrdersStart() {
   yield takeLatest(OrderActionTypes.FETCH_ORDERS_START, fetchOrdersAsync);
 }
 
+export function* updateOrderStatusAsync({ payload: { orderID, status } }) {
+  try {
+    const orderRef = yield firestore.doc(`orders/${orderID}`);
+
+    const orderSnapshot = yield orderRef.get();
+
+    const orderData = orderSnapshot.data();
+
+    yield orderRef.set({
+      ...orderData,
+      status: status,
+    });
+
+    yield put(updateOrderStatusSuccess());
+  } catch (error) {
+    yield put(updateOrderStatusFailure(error));
+  }
+}
+
+export function* updateOrderStatusStart() {
+  yield takeLatest(
+    OrderActionTypes.UPDATE_ORDER_STATUS_START,
+    updateOrderStatusAsync
+  );
+}
+
 export function* orderSagas() {
-  yield all([call(fetchOrdersStart)]);
+  yield all([call(fetchOrdersStart), call(updateOrderStatusStart)]);
 }
