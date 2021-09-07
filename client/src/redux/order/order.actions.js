@@ -19,8 +19,9 @@ export const updateOrderStatusStart = (orderIDAndStatus) => ({
   payload: orderIDAndStatus,
 });
 
-export const updateOrderStatusSuccess = () => ({
+export const updateOrderStatusSuccess = (orderIDAndStatus) => ({
   type: OrderActionTypes.UPDATE_ORDER_STATUS_SUCCESS,
+  payload: orderIDAndStatus,
 });
 
 export const updateOrderStatusFailure = (errorMessage) => ({

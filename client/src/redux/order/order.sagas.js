@@ -32,7 +32,7 @@ export function* fetchOrdersStart() {
   yield takeLatest(OrderActionTypes.FETCH_ORDERS_START, fetchOrdersAsync);
 }
 
-export function* updateOrderStatusAsync({ payload: { orderID, status } }) {
+export function* updateOrderStatusAsync({ payload: { orderID, orderStatus } }) {
   try {
     const orderRef = yield firestore.doc(`orders/${orderID}`);
 
@@ -42,10 +42,12 @@ export function* updateOrderStatusAsync({ payload: { orderID, status } }) {
 
     yield orderRef.set({
       ...orderData,
-      status: status,
+      status: orderStatus,
     });
 
-    yield put(updateOrderStatusSuccess());
+    // const orderIDAndStatus = { orderID: orderID, status: status };
+
+    yield put(updateOrderStatusSuccess({ orderID, orderStatus }));
   } catch (error) {
     yield put(updateOrderStatusFailure(error));
   }

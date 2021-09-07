@@ -27,7 +27,9 @@ const AdminOrderItem = ({ item, status }) => {
     startDate,
   } = item;
 
-  const currentStatus = status === "received" ? false : true;
+  console.log(status);
+
+  const currentStatus = status === "recevied" ? false : true;
 
   return (
     <>
@@ -50,12 +52,14 @@ const AdminOrderItem = ({ item, status }) => {
             <Detail>Days: {days}</Detail>
           </DetailsContainer>
 
-          <Checkbox
-            size={25}
-            name={id}
-            checked={currentStatus}
-            label="Pregatita"
-          />
+          {status === "complete" ? null : (
+            <Checkbox
+              size={25}
+              name={id}
+              checked={currentStatus}
+              label="Pregatita"
+            />
+          )}
         </Wrapper>
         <PriceDetail>
           Price: {days} x {price}RON = {days * price}RON

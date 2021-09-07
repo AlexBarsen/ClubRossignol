@@ -1,24 +1,11 @@
-import React, { useMemo, useState } from "react";
-import { useTable, useExpanded } from "react-table";
-import AdminOrderItem from "../AdminOrderItem/index";
-import Select from "react-select";
-import { connect } from "react-redux";
+import React, { useMemo } from "react";
+import { useTable, useExpanded, useSortBy } from "react-table";
 
-import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
+import RowSubComponent from "./RowSubComponent";
 
-import {
-  Table,
-  Head,
-  Heading,
-  Row,
-  Data,
-  Body,
-  Wrapper,
-  AdminOrderedItems,
-  SelectContainer,
-} from "./AdminTableElements";
+import { Table, Head, Heading, Row, Data, Body } from "./AdminTableElements";
 
-const AdminTable = ({ data, updateOrderStatusStart }) => {
+const AdminTable = ({ data }) => {
   const columns = useMemo(
     () => [
       {
@@ -72,6 +59,7 @@ const AdminTable = ({ data, updateOrderStatusStart }) => {
       columns,
       data,
     },
+    useSortBy,
     useExpanded
   );
 
@@ -84,71 +72,6 @@ const AdminTable = ({ data, updateOrderStatusStart }) => {
     visibleColumns,
   } = tableInstance;
 
-  const [status, setStatus] = useState(null);
-
-  const handleStatusChange = (selected, props) => {
-    setStatus(selected.value);
-  };
-
-  const handleStatusUpdate = (orderID, status) => {
-    updateOrderStatusStart(orderID, status);
-  };
-
-  const options = [
-    { value: "recevied", label: "received" },
-    { value: "prepared", label: "prepared" },
-    { value: "complete", label: "complete" },
-  ];
-
-  const customStyles = {
-    control: (provided, state) => ({
-      ...provided,
-      fontSize: "2rem",
-      textAlin: "center",
-    }),
-    menu: (provided, state) => ({
-      ...provided,
-      fontSize: "2rem",
-      textAlign: "center",
-    }),
-  };
-
-  const renderRowSubComponent = ({ row }) => (
-    <Wrapper>
-      <AdminOrderedItems>
-        {row.original.orderedItems.map((item) => (
-          <>
-            <AdminOrderItem
-              key={item.id}
-              item={item}
-              status={row.original.status}
-            />
-          </>
-        ))}
-      </AdminOrderedItems>
-
-      <SelectContainer>
-        {row.original.status !== "complete" ? (
-          <Select
-            defaultValue={{
-              value: row.original.status,
-              label: row.original.status,
-            }}
-            onChange={handleStatusChange}
-            styles={customStyles}
-            options={options}
-          />
-        ) : null}
-
-        <button
-          onClick={() => handleStatusUpdate(row.original.orderID, status)}
-        >
-          Change Status
-        </button>
-      </SelectContainer>
-    </Wrapper>
-  );
-
   return (
     <>
       <Table {...getTableProps()}>
@@ -156,8 +79,17 @@ const AdminTable = ({ data, updateOrderStatusStart }) => {
           {headerGroups.map((headerGroup) => (
             <Row {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <Heading {...column.getHeaderProps()}>
+                <Heading
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                >
                   {column.render("Header")}
+                  <span>
+                    {column.isSorted
+                      ? column.isSortedDesc
+                        ? " 🔽"
+                        : " 🔼"
+                      : ""}
+                  </span>
                 </Heading>
               ))}
             </Row>
@@ -181,7 +113,7 @@ const AdminTable = ({ data, updateOrderStatusStart }) => {
                 {row.isExpanded ? (
                   <Row>
                     <Data colSpan={visibleColumns.length}>
-                      {renderRowSubComponent({ row })}
+                      <RowSubComponent row={row} />
                     </Data>
                   </Row>
                 ) : null}
@@ -194,9 +126,4 @@ const AdminTable = ({ data, updateOrderStatusStart }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  updateOrderStatusStart: (orderID, status) =>
-    dispatch(updateOrderStatusStart({ orderID, status })),
-});
-
-export default connect(null, mapDispatchToProps)(AdminTable);
+export default AdminTable;
