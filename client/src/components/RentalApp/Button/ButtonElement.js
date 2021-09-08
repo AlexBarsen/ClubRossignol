@@ -1,14 +1,122 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  /* border-radius: ${({ signIn }) => (signIn ? "0.5rem" : "5rem")}; */
-  border-radius: 1rem;
-  background: #001730;
-  white-space: nowrap;
-  padding: ${({ signIn }) => (signIn ? "0.6rem" : "0.8rem 1.3rem")};
+const handleFontSizeType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "1.6rem";
+    case "checkout":
+      return "2rem";
+    case "signIn":
+      return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "2rem";
+    case "modal":
+      return "2rem";
+    default:
+      break;
+  }
+};
 
-  width: ${({ signIn }) => (signIn ? "100%" : "auto")};
-  font-size: ${({ signIn }) => (signIn ? "2rem" : "2rem")};
+const handleFontSizeQueryType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "3.2rem";
+    case "checkout":
+      return "2rem";
+    case "signIn":
+      return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "2rem";
+    case "modal":
+      return "4.4rem";
+    default:
+      break;
+  }
+};
+
+const handleColorType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "#001730";
+    case "checkout":
+      return "#001730";
+    case "signIn":
+      return "#001730";
+    case "signOut":
+      return "#001730";
+    case "close":
+      return "#001730";
+    case "modal":
+      return "#001730";
+    default:
+      break;
+  }
+};
+
+const handlePaddingType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "1rem 1rem";
+    case "checkout":
+      return "2rem";
+    case "signIn":
+      return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "2rem";
+    case "modal":
+      return "1rem";
+    default:
+      break;
+  }
+};
+
+const handleWidthType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "12rem";
+    case "checkout":
+      return "2rem";
+    case "signIn":
+      return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "2rem";
+    case "modal":
+      return "30rem";
+    default:
+      break;
+  }
+};
+
+const handleWidthQueryType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "14rem";
+    case "checkout":
+      return "2rem";
+    case "signIn":
+      return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "2rem";
+    case "modal":
+      return "45rem";
+    default:
+      break;
+  }
+};
+
+export const Button = styled.button`
+  border-radius: 1rem;
+  white-space: nowrap;
   outline: none;
   border: none;
   cursor: pointer;
@@ -19,6 +127,10 @@ export const Button = styled.button`
   box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
   transition: 0.2s ease-in-out;
 
+  padding: ${({ buttonType }) => handlePaddingType(buttonType)};
+  width: ${({ buttonType }) => handleWidthType(buttonType)};
+  font-size: ${({ buttonType }) => handleFontSizeType(buttonType)};
+  background: ${({ buttonType }) => handleColorType(buttonType)};
   &:hover {
     transform: scale(1.1);
   }
@@ -27,11 +139,8 @@ export const Button = styled.button`
     transform: scale(1);
   }
 
-  @media screen and (max-width: 768px) {
-    font-size: 2.4rem;
-  }
-
   @media screen and (max-width: 600px) {
-    font-size: 4.4rem;
+    font-size: ${({ buttonType }) => handleFontSizeQueryType(buttonType)};
+    width: ${({ buttonType }) => handleWidthQueryType(buttonType)};
   }
 `;

@@ -1,19 +1,40 @@
 import React from "react";
 
 import { FaArrowDown } from "react-icons/fa";
-import { Category, Title } from "./RentalCategoriesElements";
+import {
+  RentalCategoriesContainer,
+  Wrapper,
+  Category,
+  Title,
+} from "./RentalCategoriesElements";
 
-const RentalCategories = ({ category }) => {
-  const { title } = category;
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectRentalsCategories } from "../../../../redux/rental/rental.selectors";
 
+const RentalCategories = ({ categories }) => {
+  console.log(categories);
   return (
     <>
-      <Category to={`/rental/category/${title.toLowerCase()}`}>
-        <Title>{title}</Title>
-        <FaArrowDown size={20} />
-      </Category>
+      <RentalCategoriesContainer>
+        <Wrapper>
+          {categories.map((category) => (
+            <Category
+              key={category.title}
+              to={`/rental/category/${category.title.toLowerCase()}`}
+            >
+              <Title>{category.title}</Title>
+              <FaArrowDown size={20} />
+            </Category>
+          ))}
+        </Wrapper>
+      </RentalCategoriesContainer>
     </>
   );
 };
 
-export default RentalCategories;
+const mapStateToProps = createStructuredSelector({
+  categories: selectRentalsCategories,
+});
+
+export default connect(mapStateToProps)(RentalCategories);

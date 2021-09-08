@@ -42,7 +42,7 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
             <SignIn />
 
             <CloseButtonContainer>
-              <Button closeModal onClick={toggleModal}>
+              <Button buttonType="close" onClick={toggleModal}>
                 ❌
               </Button>
             </CloseButtonContainer>

@@ -3,11 +3,7 @@ import { connect } from "react-redux";
 
 import { Route } from "react-router-dom";
 
-import {
-  RentalPageContainer,
-  RentalContent,
-  RentalCategoriesContainer,
-} from "./RentaPageElements";
+import { RentalPageContainer, RentalContent } from "./RentaPageElements";
 
 import Navbar from "../../components/RentalApp/Navbar/index";
 
@@ -18,9 +14,6 @@ import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 import RentalOverviewContainer from "../../components/RentalApp/Rental/RentalOverview/RentalOverviewContainer";
 
 import CategoryPageContainer from "../Category/CategoryPageContainer";
-
-import { createStructuredSelector } from "reselect";
-import { selectRentalsCategories } from "../../redux/rental/rental.selectors";
 
 import RentalCategories from "../../components/RentalApp/Rental/RentalCategories/index";
 
@@ -51,11 +44,7 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
       <Navbar toggle={toggle} />
 
       <Wrapper>
-        <RentalCategoriesContainer>
-          {rentalCategories.map((category) => (
-            <RentalCategories key={category.title} category={category} />
-          ))}
-        </RentalCategoriesContainer>
+        <RentalCategories />
 
         <RentalContent>
           <Route
@@ -91,14 +80,10 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  rentalCategories: selectRentalsCategories,
-});
-
 // * dispatch actions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   fetchRentalsStart: () => dispatch(fetchRentalsStart()),
   // isRentalsLoaded: selectIsCategoriesLoaded,
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RentalPage);
+export default connect(null, mapDispatchToProps)(RentalPage);

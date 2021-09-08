@@ -12,6 +12,7 @@ import {
   DateRangeWrapper,
   ContentWrapper,
   WrapperRight,
+  ButtonContainer,
   ModalInputs,
   Form,
   CloseButtonContainer,
@@ -138,7 +139,9 @@ const RentalModal = ({ addItem, item }) => {
 
   return (
     <>
-      <Button onClick={toggleModal}>ALEGE</Button>
+      <Button onClick={toggleModal} buttonType="rentalItem">
+        ALEGE
+      </Button>
 
       {/* render Modal depending on the state */}
       {modalVisibility && (
@@ -197,15 +200,17 @@ const RentalModal = ({ addItem, item }) => {
                       days={days}
                     />
 
-                    <Button addToCart type="submit">
-                      ADAUGA IN COS
-                    </Button>
+                    <ButtonContainer>
+                      <Button buttonType="modal" type="submit">
+                        ADAUGA IN COS
+                      </Button>
+                    </ButtonContainer>
                   </WrapperRight>
                 </ContentWrapper>
               </Form>
             </Element>
             <CloseButtonContainer>
-              <Button closeModal onClick={toggleModal}>
+              <Button buttonType="close" onClick={toggleModal}>
                 ❌
               </Button>
             </CloseButtonContainer>

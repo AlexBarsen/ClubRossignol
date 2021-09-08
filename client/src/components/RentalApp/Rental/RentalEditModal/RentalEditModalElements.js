@@ -25,18 +25,6 @@ export const ModalOverlay = styled.div`
   background: rgba(49, 49, 49, 0.8);
 `;
 
-export const Title = styled.h1`
-  font-size: 2.6rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;
-  }
-`;
-
 export const Form = styled.form`
   position: relative;
 `;
@@ -54,15 +42,25 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1.5rem;
-  max-height: 120rem;
-  max-width: 150rem;
-  min-width: 55rem;
+  max-height: 180rem;
+  max-width: 130rem;
+  min-width: 50rem;
+`;
+
+export const Title = styled.h1`
+  font-size: 2.6rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 4rem;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
 
   @media screen and (max-width: 1000px) {
     flex-direction: column;
@@ -70,11 +68,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const DateRangeWrapper = styled.div`
-  @media screen and (max-width: 600px) {
-    /* display: none; */
-  }
-`;
+export const DateRangeWrapper = styled.div``;
 
 export const ModalInputs = styled.div`
   display: grid;
@@ -95,6 +89,11 @@ export const WrapperRight = styled.div`
     margin: 0;
     width: 100%;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const Element = styled(Scroll.Element)`

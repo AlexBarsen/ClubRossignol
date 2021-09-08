@@ -6,8 +6,8 @@ import {
   Title,
   IconContainer,
   Icon,
-  Wrapper,
   Footer,
+  Wrapper,
   Price,
 } from "./RentalItemElements";
 
@@ -23,15 +23,16 @@ const RentalItem = ({ item }) => {
           <Icon src={icon} alt="Icon" />
         </IconContainer>
 
-        <Wrapper>
+        <Footer>
           <Title>{t(name)}</Title>
-          <Footer>
+
+          <Wrapper>
             <Price>
               {price} {t("ron_day")}
             </Price>
             <RentalModal item={item} />
-          </Footer>
-        </Wrapper>
+          </Wrapper>
+        </Footer>
       </RentalItemContainer>
     </>
   );

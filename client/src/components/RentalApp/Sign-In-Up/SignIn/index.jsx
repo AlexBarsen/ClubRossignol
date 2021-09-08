@@ -76,7 +76,7 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
           />
 
           <ButtonsContainer>
-            <Button type="submit" signIn>
+            <Button type="submit" buttonType="signIn">
               Sign In
             </Button>
             <Paragraph>Don't have an account?</Paragraph>

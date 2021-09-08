@@ -16,12 +16,28 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
     control: (provided, state) => ({
       ...provided,
       fontSize: "2rem",
-      textAlin: "center",
+      display: "flex",
+      "@media screen and (max-width: 600px)": {
+        ...provided,
+        fontSize: "2.6rem",
+      },
+      "@media screen and (max-width: 450px)": {
+        ...provided,
+        fontSize: "3.6rem",
+      },
     }),
     menu: (provided, state) => ({
       ...provided,
       fontSize: "2rem",
       textAlign: "center",
+      "@media screen and (max-width: 600px)": {
+        ...provided,
+        fontSize: "2.6rem",
+      },
+      "@media screen and (max-width: 450px)": {
+        ...provided,
+        fontSize: "3.6rem",
+      },
     }),
   };
 

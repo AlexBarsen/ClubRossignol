@@ -18,7 +18,7 @@ import {
 
 const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const { status, orderedItems, orderID } = row.original;
-  console.log(status);
+
   const [orderStatus, setOrderStatus] = useState(status);
 
   const handleStatusChange = (selected, props) => {
@@ -48,41 +48,37 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
     }),
   };
   return (
-    <>
-      <Wrapper>
-        <AdminOrderedItems>
-          {orderedItems.map((item) => (
-            <>
-              <AdminOrderItem
-                key={item.id}
-                item={item}
-                status={row.original.status}
-              />
-            </>
-          ))}
-        </AdminOrderedItems>
+    <Wrapper>
+      <AdminOrderedItems>
+        {orderedItems.map((item) => (
+          <AdminOrderItem
+            key={item.id}
+            item={item}
+            status={row.original.status}
+          />
+        ))}
+      </AdminOrderedItems>
 
-        <SelectContainer>
-          {status !== "complete" ? (
-            <>
-              <Select
-                defaultValue={{
-                  value: orderStatus,
-                  label: orderStatus,
-                }}
-                onChange={handleStatusChange}
-                styles={customStyles}
-                options={options}
-                isSearchable={false}
-              />
-              <Button onClick={() => handleStatusUpdate(orderID, orderStatus)}>
-                Change Status
-              </Button>
-            </>
-          ) : null}
-        </SelectContainer>
-      </Wrapper>
-    </>
+      <SelectContainer>
+        {status !== "complete" ? (
+          <>
+            <Select
+              defaultValue={{
+                value: orderStatus,
+                label: orderStatus,
+              }}
+              onChange={handleStatusChange}
+              styles={customStyles}
+              options={options}
+              isSearchable={false}
+            />
+            <Button onClick={() => handleStatusUpdate(orderID, orderStatus)}>
+              Change Status
+            </Button>
+          </>
+        ) : null}
+      </SelectContainer>
+    </Wrapper>
   );
 };
 

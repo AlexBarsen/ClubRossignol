@@ -5,6 +5,7 @@ import {
   Message,
   Dates,
   DateContent,
+  BoldSpan,
 } from "./RentalModalInfoElements";
 
 const RentalModalInfo = ({ startDate, endDate, days }) => {
@@ -16,10 +17,17 @@ const RentalModalInfo = ({ startDate, endDate, days }) => {
           {startDate}. Va rugam sa fiti atenti la completarea datelor!
         </Message>
         <Dates>
-          <DateContent>Din data de: {startDate}</DateContent>
-          <DateContent>Pana in data de: {endDate}</DateContent>
           <DateContent>
-            Durata inchiriere: {days} {days === 1 ? "zi" : "zile"}
+            Din data de: <BoldSpan>{startDate}</BoldSpan>
+          </DateContent>
+          <DateContent>
+            Pana in data de: <BoldSpan>{endDate}</BoldSpan>
+          </DateContent>
+          <DateContent>
+            Durata inchiriere:{" "}
+            <BoldSpan>
+              {days} {days === 1 ? "zi" : "zile"}
+            </BoldSpan>
           </DateContent>
         </Dates>
       </RentalModalInfoContainer>

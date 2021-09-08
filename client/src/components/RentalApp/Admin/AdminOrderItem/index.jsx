@@ -27,8 +27,6 @@ const AdminOrderItem = ({ item, status }) => {
     startDate,
   } = item;
 
-  console.log(status);
-
   const currentStatus = status === "recevied" ? false : true;
 
   return (

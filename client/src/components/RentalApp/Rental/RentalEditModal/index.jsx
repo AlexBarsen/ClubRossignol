@@ -19,6 +19,7 @@ import {
   WrapperRight,
   ModalInputs,
   Form,
+  ButtonContainer,
   CloseButtonContainer,
 } from "./RentalEditModalElements";
 
@@ -207,13 +208,19 @@ const EditModal = ({ cartItem, editItem }) => {
                       days={days}
                     />
 
-                    <Button type="submit">EDITEAZA</Button>
+                    <ButtonContainer>
+                      <Button type="submit" buttonType="modal">
+                        EDITEAZA
+                      </Button>
+                    </ButtonContainer>
                   </WrapperRight>
                 </ContentWrapper>
               </Form>
             </Element>
             <CloseButtonContainer>
-              <Button onClick={toggleModal}>❌</Button>
+              <Button onClick={toggleModal} buttonType="close">
+                ❌
+              </Button>
             </CloseButtonContainer>
           </ModalContent>
         </EditModalContainer>

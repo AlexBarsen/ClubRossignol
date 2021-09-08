@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useTable, useExpanded, useSortBy } from "react-table";
 
-import RowSubComponent from "./RowSubComponent";
+import RowSubComponent from "../RowSubComponent/index";
 
 import { Table, Head, Heading, Row, Data, Body } from "./AdminTableElements";
 
@@ -54,6 +54,7 @@ const AdminTable = ({ data }) => {
     ],
     []
   );
+
   const tableInstance = useTable(
     {
       columns,
@@ -99,7 +100,7 @@ const AdminTable = ({ data }) => {
           {rows.map((row) => {
             prepareRow(row);
             return (
-              <React.Fragment>
+              <React.Fragment key={row.original.orderID}>
                 <Row {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
