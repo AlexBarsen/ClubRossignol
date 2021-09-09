@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-
 export const User = styled.div`
   display: flex;
+  cursor: pointer;
 `;
 
 export const UserDropdownContainer = styled.div`
   position: relative;
+  z-index: 5;
 `;
 
 export const OptionsList = styled.ul`
@@ -21,9 +21,6 @@ export const OptionsList = styled.ul`
   padding: 0.5rem 1rem;
 `;
 
-export const Option = styled.li``;
-
-export const OptionLink = styled(Link)`
-  text-decoration: none;
-  color: black;
+export const Option = styled.li`
+  cursor: pointer;
 `;

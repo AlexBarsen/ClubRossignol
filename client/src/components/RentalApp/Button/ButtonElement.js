@@ -24,13 +24,13 @@ const handleFontSizeQueryType = (buttonType) => {
     case "rentalItem":
       return "3.2rem";
     case "checkout":
-      return "2rem";
+      return "4rem";
     case "signIn":
       return "2rem";
     case "signOut":
       return "2rem";
     case "close":
-      return "2rem";
+      return "4rem";
     case "modal":
       return "4.4rem";
     default:
@@ -62,13 +62,32 @@ const handlePaddingType = (buttonType) => {
     case "rentalItem":
       return "1rem 1rem";
     case "checkout":
-      return "2rem";
+      return "1rem";
     case "signIn":
       return "2rem";
     case "signOut":
       return "2rem";
     case "close":
+      return "0.5rem 2rem";
+    case "modal":
+      return "1rem";
+    default:
+      break;
+  }
+};
+
+const handlePaddingQueryType = (buttonType) => {
+  switch (buttonType) {
+    case "rentalItem":
+      return "1rem 1rem";
+    case "checkout":
+      return "1rem 2rem";
+    case "signIn":
       return "2rem";
+    case "signOut":
+      return "2rem";
+    case "close":
+      return "1rem 4rem";
     case "modal":
       return "1rem";
     default:
@@ -81,13 +100,13 @@ const handleWidthType = (buttonType) => {
     case "rentalItem":
       return "12rem";
     case "checkout":
-      return "2rem";
+      return "20rem";
     case "signIn":
       return "2rem";
     case "signOut":
       return "2rem";
     case "close":
-      return "2rem";
+      return "4rem";
     case "modal":
       return "30rem";
     default:
@@ -100,13 +119,13 @@ const handleWidthQueryType = (buttonType) => {
     case "rentalItem":
       return "14rem";
     case "checkout":
-      return "2rem";
+      return "35rem";
     case "signIn":
       return "2rem";
     case "signOut":
       return "2rem";
     case "close":
-      return "2rem";
+      return "4rem";
     case "modal":
       return "45rem";
     default:
@@ -142,5 +161,6 @@ export const Button = styled.button`
   @media screen and (max-width: 600px) {
     font-size: ${({ buttonType }) => handleFontSizeQueryType(buttonType)};
     width: ${({ buttonType }) => handleWidthQueryType(buttonType)};
+    padding: ${({ buttonType }) => handlePaddingQueryType(buttonType)};
   }
 `;

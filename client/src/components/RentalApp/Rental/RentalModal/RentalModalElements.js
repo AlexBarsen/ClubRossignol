@@ -98,6 +98,7 @@ export const ButtonContainer = styled.div`
 
 export const Element = styled(Scroll.Element)`
   @media screen and (max-width: 760px) {
+    margin-top: 4rem;
     overflow: scroll;
     position: relative;
     height: 600px;

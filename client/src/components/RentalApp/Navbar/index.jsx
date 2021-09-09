@@ -51,7 +51,7 @@ const Navbar = ({
     <>
       <HeaderContainer>
         <MobileIcon onClick={toggle}>
-          <FaBars />
+          <FaBars size={30} />
         </MobileIcon>
 
         <HeaderOptions>
@@ -61,8 +61,14 @@ const Navbar = ({
           <HeaderOptionLink to="/">{t("back_to_website")}</HeaderOptionLink>
 
           {/* <HeaderOption to="/rental/account">Account</HeaderOption> */}
-          {currentUser ? null : <SignInModal />}
-          {currentUser ? null : <SignUpModal />}
+
+          {currentUser ? null : (
+            <>
+              <SignInModal />
+
+              <SignUpModal />
+            </>
+          )}
 
           <HeaderOptionLink to="/rental/">{t("about")}</HeaderOptionLink>
           <HeaderOptionLink to="/rental/">{t("contact")}</HeaderOptionLink>

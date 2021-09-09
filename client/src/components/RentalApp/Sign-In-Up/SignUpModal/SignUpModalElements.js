@@ -1,10 +1,24 @@
 import styled from "styled-components";
 
 export const HeaderOption = styled.div`
-  color: green;
+  color: #fff;
   text-decoration: none;
   margin-right: 2rem;
   font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.4rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 3rem;
+    margin-right: 3rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 4rem;
+    margin-right: 4rem;
+  }
 `;
 
 export const SignUpModalContanier = styled.div`

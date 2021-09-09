@@ -13,7 +13,6 @@ import { createStructuredSelector } from "reselect";
 import { selectRentalsCategories } from "../../../../redux/rental/rental.selectors";
 
 const RentalCategories = ({ categories }) => {
-  console.log(categories);
   return (
     <>
       <RentalCategoriesContainer>

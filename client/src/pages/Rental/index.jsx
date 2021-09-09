@@ -25,7 +25,13 @@ import CheckoutPage from "../Checkout/index";
 import DashboardPage from "../Dashboard";
 import AdminDashboardPage from "../AdminDashboard/index";
 
-const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
+import ProtectedRoute from "../../components/Routes/ProtectedRoute";
+import PrivateRoute from "../../components/Routes/PrivateRoute";
+
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
+
+const RentalPage = ({ fetchRentalsStart, match, currentUser }) => {
   useEffect(() => {
     fetchRentalsStart();
   }, [fetchRentalsStart]);
@@ -34,6 +40,12 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
 
   const toggle = () => {
     setIsOpen(!isOpen);
+
+    if (isOpen) {
+      document.body.style.overflow = "unset";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
   };
 
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
@@ -63,7 +75,7 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             path={`${match.path}/checkout`}
             component={CheckoutPage}
           />
-          <Route
+          {/* <Route
             exact
             path={`${match.path}/dashboard`}
             component={DashboardPage}
@@ -72,6 +84,20 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
             exact
             path={`${match.path}/admin`}
             component={AdminDashboardPage}
+          /> */}
+
+          <ProtectedRoute
+            exact
+            path={`${match.path}/dashboard`}
+            component={DashboardPage}
+            isAuth={currentUser}
+          />
+
+          <PrivateRoute
+            exact
+            path={`${match.path}/admin`}
+            component={AdminDashboardPage}
+            isAuth={currentUser}
           />
         </RentalContent>
       </Wrapper>
@@ -80,10 +106,14 @@ const RentalPage = ({ fetchRentalsStart, match, rentalCategories }) => {
   );
 };
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
 // * dispatch actions to Redux store
 const mapDispatchToProps = (dispatch) => ({
   fetchRentalsStart: () => dispatch(fetchRentalsStart()),
   // isRentalsLoaded: selectIsCategoriesLoaded,
 });
 
-export default connect(null, mapDispatchToProps)(RentalPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RentalPage);

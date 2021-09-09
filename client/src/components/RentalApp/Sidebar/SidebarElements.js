@@ -23,11 +23,11 @@ export const CloseIcon = styled(FaTimes)`
 
 export const Icon = styled.div`
   position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  font-size: 2rem;
+  top: 10rem;
+  right: 10rem;
+  font-size: 7rem;
   background: transparent;
-  /* cursor: pointer; */
+  cursor: pointer;
   outline: none;
 `;
 
@@ -36,6 +36,7 @@ export const SidebarWrapper = styled.div`
 `;
 
 export const SidebarMenu = styled.ul`
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(6, 80px);

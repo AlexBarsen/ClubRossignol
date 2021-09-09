@@ -17,9 +17,9 @@ const Sidebar = ({ isOpen, toggle }) => {
       <SidebarWrapper>
         <SidebarMenu>
           <SidebarLink to="/">Back to Website</SidebarLink>
-          <SidebarLink to="/rental/about">About</SidebarLink>
-          <SidebarLink to="/rental/checkout">Cart</SidebarLink>
-          <SidebarLink to="/rental/about">Account</SidebarLink>
+
+          <SidebarLink to="/rental/checkout">Checkout</SidebarLink>
+          <SidebarLink to="/rental/dashboard">Account</SidebarLink>
           <SidebarLink to="/rental/contact">Contact</SidebarLink>
         </SidebarMenu>
       </SidebarWrapper>

@@ -4,39 +4,28 @@ export const CartDropdownContainer = styled.div`
   border-radius: 1.5rem;
   padding: 1.5rem;
   position: absolute;
-  height: 45rem;
-  width: 75rem;
-  background: orangered;
+  height: 41rem;
+  width: 45rem;
+  background: lightblue;
   right: 10px;
   top: 80px;
+  z-index: 2;
+
+  @media screen and (max-width: 768px) {
+    height: 70rem;
+    width: 65rem;
+  }
 `;
 
-export const Table = styled.table`
-  padding: 3rem;
-  width: 100%;
-  /* height: inherit; */
-  /* border: 3px solid black; */
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
-  overflow: scroll;
-`;
-
-export const Body = styled.tbody`
-  display: block;
-  height: 35rem;
+export const CartItemsContainer = styled.div`
+  margin-bottom: 3rem;
   overflow-y: scroll;
-  overflow-x: hidden;
-  background: lightgray;
-`;
+  height: 30rem;
+  padding: 1rem;
 
-export const Row = styled.tr`
-  position: sticky;
-  top: 0;
-  background: gray;
-`;
-
-export const Heading = styled.th`
-  font-size: 2.6rem;
+  @media screen and (max-width: 768px) {
+    height: 55rem;
+  }
 `;
 
 export const Message = styled.p``;
@@ -48,4 +37,8 @@ export const Footer = styled.div`
 
 export const Total = styled.div`
   font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 4rem;
+  }
 `;

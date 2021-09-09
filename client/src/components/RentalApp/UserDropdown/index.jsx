@@ -4,17 +4,18 @@ import { FaUserCircle } from "react-icons/fa";
 
 import { connect } from "react-redux";
 
+import { withRouter } from "react-router-dom";
+
 import { signOutStart } from "../../../redux/user/user.actions";
 
 import {
   User,
   UserDropdownContainer,
   OptionsList,
-  OptionLink,
   Option,
 } from "./UserDropdownElements";
 
-const UserDropdown = ({ user, signOut }) => {
+const UserDropdown = ({ user, signOut, history }) => {
   const { firstName, lastName } = user;
 
   const [isOpen, setIsOpen] = useState(false);
@@ -29,11 +30,21 @@ const UserDropdown = ({ user, signOut }) => {
 
         {isOpen ? (
           <OptionsList>
-            <OptionLink
-              to={user.role === "rental/admin" ? "/admin" : "rental/dashboard"}
+            <Option
+              onClick={
+                user.role === "admin"
+                  ? () => {
+                      history.replace("/rental/admin");
+                      setIsOpen(!isOpen);
+                    }
+                  : () => {
+                      history.replace("/rental/dashboard");
+                      setIsOpen(!isOpen);
+                    }
+              }
             >
               Dashboard
-            </OptionLink>
+            </Option>
             <Option onClick={() => signOut()}>Sign out</Option>
           </OptionsList>
         ) : null}
@@ -46,4 +57,4 @@ const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
 });
 
-export default connect(null, mapDispatchToProps)(UserDropdown);
+export default withRouter(connect(null, mapDispatchToProps)(UserDropdown));

@@ -1,28 +1,46 @@
 import styled from "styled-components";
 
-export const Row = styled.tr`
-  border-bottom: 2px solid black;
-  border-spacing: 30px;
-`;
+export const CartItemContainer = styled.div`
+  background: #fff;
+  border-radius: 1rem;
 
-export const Data = styled.td`
-  font-size: 1.8rem;
-  text-align: center;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const IconContainer = styled.div`
-  height: 8rem;
-  width: 8rem;
+  width: 5rem;
+
+  @media screen and (max-width: 768px) {
+    width: 8rem;
+  }
 `;
 
 export const Icon = styled.img`
-  padding: 0.6rem;
   width: 100%;
 `;
 
-export const Person = styled.div``;
+export const Wrapper = styled.div`
+  padding: 1rem;
+  width: 27rem;
 
-export const ItemName = styled.div``;
+  @media screen and (max-width: 768px) {
+    width: 42rem;
+  }
+`;
 
-export const Price = styled.div``;
+export const Detail = styled.div`
+  font-size: 1.6rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  justify-self: flex-start;
+`;
