@@ -20,7 +20,7 @@ export const RentalItemContainer = styled.div`
   animation: ${fadeIn} 2s ease-in-out;
   border: 2px solid black;
   border-radius: 0.5rem;
-  height: 29rem;
+  height: 29.5rem;
   width: 25rem;
   display: flex;
   flex-direction: column;

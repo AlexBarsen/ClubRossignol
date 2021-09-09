@@ -36,6 +36,10 @@ export const Wrapper = styled.div`
 export const Detail = styled.div`
   font-size: 1.6rem;
 
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
   @media screen and (max-width: 768px) {
     font-size: 3rem;
   }

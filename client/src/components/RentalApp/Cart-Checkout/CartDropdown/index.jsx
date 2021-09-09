@@ -27,11 +27,10 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => {
     <>
       <CartDropdownContainer>
         <CartItemsContainer>
-          {cartItems.length ? (
-            cartItems.map((cartItem) => (
-              <CartItem key={cartItem.id} item={cartItem} />
-            ))
-          ) : (
+          {cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} item={cartItem} />
+          ))}
+          {cartItems.length ? null : (
             <Message>Nu exista nimic in cos momentan</Message>
           )}
         </CartItemsContainer>

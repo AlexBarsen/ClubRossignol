@@ -26,11 +26,11 @@ const CartItem = ({ item, clearItemFromCart }) => {
         </IconContainer>
 
         <Wrapper>
-          <Detail>{name}</Detail>
-
           <Detail>
             {firstName} {lastName}
           </Detail>
+
+          <Detail>{name}</Detail>
 
           <Detail>
             {days} x {price}RON = {days * price}RON

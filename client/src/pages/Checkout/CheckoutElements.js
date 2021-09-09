@@ -4,17 +4,13 @@ export const CheckoutPageContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 3rem;
-
-  @media screen and (max-width: 768px) {
-    width: 80%;
-  }
 `;
 
 export const Table = styled.table`
   width: 100%;
   margin-bottom: 4rem;
 
-  border: collapse;
+  background: black;
 
   @media screen and (max-width: 768px) {
     margin-bottom: 0rem;
@@ -22,16 +18,17 @@ export const Table = styled.table`
 `;
 
 export const Body = styled.tbody`
-  /* background: lightgray; */
-
   @media screen and (max-width: 768px) {
     background: none;
   }
 `;
 
-export const Row = styled.tr``;
+export const Row = styled.tr`
+  background: lightgreen;
+`;
 
 export const Heading = styled.th`
+  padding: 1rem;
   font-size: 2.6rem;
 
   @media screen and (max-width: 768px) {
@@ -48,9 +45,11 @@ export const Message = styled.h1`
 
 export const Total = styled.div`
   font-size: 2rem;
+  margin-bottom: 1rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 2.8rem;
+    font-size: 3.4rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -62,6 +61,6 @@ export const TotalSpan = styled.span`
   font-weight: bold;
 
   @media screen and (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 `;
