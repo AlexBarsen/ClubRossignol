@@ -118,7 +118,7 @@ const SignUp = ({ emailSignUpStart }) => {
             required
           />
           <ButtonContainer>
-            <Button buttonType="signOut" type="submit">
+            <Button buttonType="signUp" type="submit">
               SIGN UP
             </Button>
           </ButtonContainer>

@@ -15,10 +15,13 @@ export const Label = styled.label`
   @media screen and (max-width: 768px) {
     font-size: 3.2rem;
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 4rem;
+  }
 `;
 
 export const Input = styled.input`
-  /* width: 25rem; */
   height: 3.5rem;
   font-size: 2rem;
   padding: 0 1rem;
@@ -29,5 +32,10 @@ export const Input = styled.input`
   @media screen and (max-width: 768px) {
     height: 6rem;
     font-size: 3rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 3.4rem;
+    height: 7rem;
   }
 `;

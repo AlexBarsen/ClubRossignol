@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const SignInContainer = styled.div`
-  /* background: #fa2742; */
-  /* border: 3px solid black; */
-  /* padding: 5rem; */
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
 `;
 
 export const Form = styled.form`
-  /* color: black; */
   padding: 2rem;
   width: 100%;
 `;
@@ -18,6 +14,14 @@ export const Form = styled.form`
 export const Heading = styled.h1`
   margin-bottom: 2rem;
   color: black;
+
+  @media screen and (max-width: 900px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 3.2rem;
+  }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -30,5 +34,15 @@ export const Paragraph = styled.p`
   color: black;
   font-size: 1.6rem;
   display: flex;
-  justify-content: flex-end;
+  margin: 1rem 0;
+
+  /* justify-content: flex-end; */
+
+  @media screen and (max-width: 900px) {
+    font-size: 2.6rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 3rem;
+  }
 `;

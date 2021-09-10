@@ -5,6 +5,7 @@ export const HeaderOption = styled.div`
   text-decoration: none;
   font-size: 2rem;
   margin-right: 2rem;
+  cursor: pointer;
 
   @media screen and (max-width: 768px) {
     font-size: 2.4rem;
@@ -62,8 +63,14 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1.5rem;
+  min-width: 50rem;
   max-height: 120rem;
   max-width: 150rem;
+
+  @media screen and (max-width: 600px) {
+    top: 35%;
+    width: 72rem;
+  }
 `;
 
 export const Title = styled.h1`
@@ -72,5 +79,5 @@ export const Title = styled.h1`
 
 export const CloseButtonContainer = styled.div`
   position: absolute;
-  right: 3rem;
+  right: 2rem;
 `;

@@ -5,6 +5,7 @@ export const HeaderOption = styled.div`
   text-decoration: none;
   margin-right: 2rem;
   font-size: 2rem;
+  cursor: pointer;
 
   @media screen and (max-width: 768px) {
     font-size: 2.4rem;
@@ -62,9 +63,13 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1.5rem;
-  max-height: 120rem;
+  max-height: 150rem;
   max-width: 150rem;
-  /* min-width: 55rem; */
+
+  @media screen and (max-width: 900px) {
+    top: 45%;
+    width: 75rem;
+  }
 `;
 
 export const Title = styled.h1`

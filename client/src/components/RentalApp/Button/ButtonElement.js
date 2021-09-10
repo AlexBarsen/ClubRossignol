@@ -8,7 +8,7 @@ const handleFontSizeType = (buttonType) => {
       return "2rem";
     case "signIn":
       return "2rem";
-    case "signOut":
+    case "signUp":
       return "2rem";
     case "close":
       return "2rem";
@@ -26,9 +26,9 @@ const handleFontSizeQueryType = (buttonType) => {
     case "checkout":
       return "4rem";
     case "signIn":
-      return "2rem";
-    case "signOut":
-      return "2rem";
+      return "3.2rem";
+    case "signUp":
+      return "3.2rem";
     case "close":
       return "4rem";
     case "modal":
@@ -46,7 +46,7 @@ const handleColorType = (buttonType) => {
       return "#001730";
     case "signIn":
       return "#001730";
-    case "signOut":
+    case "signUp":
       return "#001730";
     case "close":
       return "#001730";
@@ -64,9 +64,9 @@ const handlePaddingType = (buttonType) => {
     case "checkout":
       return "1rem";
     case "signIn":
-      return "2rem";
-    case "signOut":
-      return "2rem";
+      return "1rem";
+    case "signUp":
+      return "1rem";
     case "close":
       return "0.5rem 2rem";
     case "modal":
@@ -83,9 +83,9 @@ const handlePaddingQueryType = (buttonType) => {
     case "checkout":
       return "1rem 2rem";
     case "signIn":
-      return "2rem";
-    case "signOut":
-      return "2rem";
+      return "1.5rem";
+    case "signUp":
+      return "1.5rem";
     case "close":
       return "1rem 4rem";
     case "modal":
@@ -102,9 +102,9 @@ const handleWidthType = (buttonType) => {
     case "checkout":
       return "20rem";
     case "signIn":
-      return "2rem";
-    case "signOut":
-      return "2rem";
+      return "15rem";
+    case "signUp":
+      return "15rem";
     case "close":
       return "4rem";
     case "modal":
@@ -121,9 +121,9 @@ const handleWidthQueryType = (buttonType) => {
     case "checkout":
       return "35rem";
     case "signIn":
-      return "2rem";
-    case "signOut":
-      return "2rem";
+      return "25rem";
+    case "signUp":
+      return "25rem";
     case "close":
       return "4rem";
     case "modal":

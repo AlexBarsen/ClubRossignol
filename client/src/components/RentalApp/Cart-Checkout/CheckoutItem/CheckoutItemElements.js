@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
 export const Row = styled.tr`
-  background: lightgray;
+  border: 1px solid black;
 
   @media screen and (max-width: 768px) {
     display: block;
 
     &:not(:last-child) {
-      border-bottom: 2px solid black;
+      /* border-bottom: 2px solid black; */
+      margin-bottom: 2rem;
     }
   }
 `;
 
 export const Data = styled.td`
+  border: 1px solid black;
   text-align: center;
   padding: 1rem;
 
@@ -59,6 +61,7 @@ export const DataText = styled.div`
 `;
 
 export const DataDetails = styled.td`
+  border: 1px solid black;
   padding: 1rem 0;
   text-align: center;
 
@@ -100,10 +103,12 @@ export const Actions = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.div``;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
+`;
+
+export const ButtonContainer = styled.div`
+  cursor: pointer;
 `;

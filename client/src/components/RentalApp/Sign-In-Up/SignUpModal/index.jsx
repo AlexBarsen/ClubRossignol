@@ -11,11 +11,11 @@ import {
 } from "../../../../redux/user/user.selectors";
 
 import {
-  HeaderOption,
   SignUpModalContanier,
   ModalOverlay,
   ModalContent,
   CloseButtonContainer,
+  HeaderOption,
 } from "./SignUpModalElements";
 
 import { Button } from "../../Button/ButtonElement";
@@ -27,6 +27,7 @@ const SignUpModal = ({
   userSignInHidden,
   toggleUserSignUpHidden,
   toggleUserSignInHidden,
+  type,
 }) => {
   // * toggle visible OR hidden Modal depeding on the state
   const toggleModal = () => {
@@ -41,7 +42,15 @@ const SignUpModal = ({
   };
   return (
     <>
-      <HeaderOption onClick={toggleModal}>Sign Up</HeaderOption>
+      {type === "button" ? (
+        <Button buttonType="signUp" onClick={toggleModal}>
+          Sign Up
+        </Button>
+      ) : (
+        <HeaderOption buttonType="signUp" onClick={toggleModal}>
+          Sign Up
+        </HeaderOption>
+      )}
 
       {/* render Modal depending on the state */}
       {!userSignUpHidden && (

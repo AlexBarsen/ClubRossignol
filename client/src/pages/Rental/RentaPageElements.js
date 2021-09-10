@@ -7,6 +7,5 @@ export const RentalPageContainer = styled.div`
 export const Wrapper = styled.div``;
 
 export const RentalContent = styled.div`
-  width: 100%;
-  padding-bottom: 2rem;
+  margin-bottom: 3rem;
 `;

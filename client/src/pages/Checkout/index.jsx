@@ -12,6 +12,7 @@ import {
 } from "../../redux/cart/cart.selectors";
 
 import {
+  Title,
   CheckoutPageContainer,
   Table,
   Body,
@@ -28,6 +29,7 @@ const CheckoutPage = ({ cartItems, total }) => {
   return (
     <>
       <CheckoutPageContainer>
+        <Title>Cart Items:</Title>
         <Table>
           <Body>
             <Row>

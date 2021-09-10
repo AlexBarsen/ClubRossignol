@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const CartDropdownContainer = styled.div`
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid black;
   padding: 1.5rem;
   position: absolute;
   height: 41rem;
   width: 45rem;
-  background: lightblue;
+  background: #fff;
   right: 10px;
   top: 80px;
   z-index: 2;
@@ -24,6 +25,7 @@ export const CartDropdownContainer = styled.div`
 
 export const CartItemsContainer = styled.div`
   margin-bottom: 3rem;
+
   overflow-y: scroll;
   height: 30rem;
   padding: 1rem;

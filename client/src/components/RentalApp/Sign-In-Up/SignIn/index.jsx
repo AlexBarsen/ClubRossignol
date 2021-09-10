@@ -80,10 +80,9 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
               Sign In
             </Button>
             <Paragraph>Don't have an account?</Paragraph>
+            <SignUpModal type="button" />
           </ButtonsContainer>
         </Form>
-
-        <SignUpModal />
       </SignInContainer>
     </>
   );

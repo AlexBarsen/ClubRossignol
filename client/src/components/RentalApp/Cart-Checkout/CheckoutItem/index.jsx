@@ -13,6 +13,7 @@ import {
   Wrapper,
   DataSpan,
   Actions,
+  ButtonContainer,
 } from "./CheckoutItemElements";
 
 import { FaTrashAlt } from "react-icons/fa";
@@ -107,9 +108,16 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
 
         <Data data-label="Actions:">
           <Actions>
-            <FaTrashAlt size={25} onClick={() => clearItemFromCart(cartItem)} />
+            <ButtonContainer>
+              <FaTrashAlt
+                size={25}
+                onClick={() => clearItemFromCart(cartItem)}
+              />
+            </ButtonContainer>
 
-            <EditModal cartItem={cartItem} />
+            <ButtonContainer>
+              <EditModal cartItem={cartItem} />
+            </ButtonContainer>
           </Actions>
         </Data>
       </Row>

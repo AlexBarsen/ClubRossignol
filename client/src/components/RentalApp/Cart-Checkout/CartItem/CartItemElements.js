@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const CartItemContainer = styled.div`
   background: #fff;
-  border-radius: 1rem;
 
   display: flex;
   align-items: center;
+  border-bottom: 1px solid black;
 
   &:not(:last-child) {
     margin-bottom: 2rem;

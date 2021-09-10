@@ -6,14 +6,19 @@ export const CheckoutPageContainer = styled.div`
   padding: 3rem;
 `;
 
+export const Title = styled.h1`
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+`;
+
 export const Table = styled.table`
   width: 100%;
   margin-bottom: 4rem;
 
-  background: black;
+  border-collapse: collapse;
 
   @media screen and (max-width: 768px) {
-    margin-bottom: 0rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -24,10 +29,12 @@ export const Body = styled.tbody`
 `;
 
 export const Row = styled.tr`
+  border: 1px solid black;
   background: lightgreen;
 `;
 
 export const Heading = styled.th`
+  border: 1px solid black;
   padding: 1rem;
   font-size: 2.6rem;
 
