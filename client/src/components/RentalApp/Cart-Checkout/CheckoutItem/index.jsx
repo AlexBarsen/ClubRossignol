@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
+import { useTranslation } from "react-i18next";
+
 import {
   Row,
   Data,
@@ -20,7 +22,7 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import EditModal from "../../Rental/RentalEditModal/index";
 
-const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
+const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const {
     name,
     firstName,
@@ -37,76 +39,78 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, editItem }) => {
     endDate,
   } = cartItem;
 
+  const { t } = useTranslation();
+
   return (
     <>
       <Row>
-        <Data data-label="Product:">
+        <Data data-label={t("product") + ":"}>
           <IconContainer>
             <Icon src={icon} />
           </IconContainer>
         </Data>
 
-        <Data data-label="Name:">
-          <DataText>{name}</DataText>
+        <Data data-label={t("product_name") + ":"}>
+          <DataText>{t(name)}</DataText>
         </Data>
 
-        <Data data-label="Person:">
+        <Data data-label={t("person") + ":"}>
           <DataText>
             {firstName} {lastName}{" "}
           </DataText>
         </Data>
 
-        <DataDetails data-label="Details:">
+        <DataDetails data-label={t("details") + ":"}>
           <Wrapper>
             {sex ? (
               <DataText>
-                <DataSpan>Sex:</DataSpan> {sex}
+                <DataSpan>{t("sex")}:</DataSpan> {sex}
               </DataText>
             ) : null}
             {weight ? (
               <DataText>
-                <DataSpan>Weight:</DataSpan> {weight}
+                <DataSpan>{t("weight")}:</DataSpan> {weight}
               </DataText>
             ) : null}
             {height ? (
               <DataText>
-                <DataSpan>Height:</DataSpan> {height}
+                <DataSpan>{t("height")}:</DataSpan> {height}
               </DataText>
             ) : null}
             {shoeSize ? (
               <DataText>
-                <DataSpan>Shoe size:</DataSpan> {shoeSize}
+                <DataSpan>{t("shoeSize")}:</DataSpan> {shoeSize}
               </DataText>
             ) : null}
             {experience ? (
               <DataText>
-                <DataSpan>Expeirence:</DataSpan> {experience}
+                <DataSpan>{t("experience")} :</DataSpan> {experience}
               </DataText>
             ) : null}
           </Wrapper>
         </DataDetails>
 
-        <DataDetails data-label="Period:">
+        <DataDetails data-label={t("period") + ":"}>
           <Wrapper>
             <DataText>
-              <DataSpan>From:</DataSpan> {startDate}
+              <DataSpan>{t("from")}:</DataSpan> {startDate}
             </DataText>
             <DataText>
-              <DataSpan>To:</DataSpan> {endDate}
+              <DataSpan>{t("to")}:</DataSpan> {endDate}
             </DataText>
             <DataText>
-              <DataSpan>Days:</DataSpan> {days}
+              <DataSpan>{t("days")}:</DataSpan> {days}
             </DataText>
           </Wrapper>
         </DataDetails>
 
-        <Data data-label="Price:">
+        <Data data-label={t("price") + ":"}>
           <DataText>
             {price} RON x {days} days = <DataSpan>{price * days} RON</DataSpan>
           </DataText>
         </Data>
 
-        <Data data-label="Actions:">
+        <Data data-label={t("actions") + ":"}>
           <Actions>
             <ButtonContainer>
               <FaTrashAlt

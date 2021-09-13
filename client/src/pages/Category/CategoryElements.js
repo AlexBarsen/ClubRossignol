@@ -9,7 +9,7 @@ export const CategoryPageContainer = styled.div`
 export const Title = styled.h1`
   display: flex;
   justify-content: center;
-  padding: 2.5rem;
+  margin-bottom: 3rem;
   font-size: 3.5rem;
 
   @media screen and (max-width: 1000px) {

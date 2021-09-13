@@ -4,14 +4,16 @@ export const OrderItemsContainer = styled.div`
   &:first-child {
     margin-top: 1rem;
   }
+
+  &:not(:last-child) {
+    border-bottom: 2px solid black;
+  }
 `;
 
 export const OrderItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-
-  border-bottom: 1px solid black;
 `;
 
 export const Title = styled.div`
@@ -24,9 +26,6 @@ export const Title = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center; */
   display: flex;
   justify-content: space-between;
   align-items: center;

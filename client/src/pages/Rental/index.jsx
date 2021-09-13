@@ -17,8 +17,6 @@ import CategoryPageContainer from "../Category/CategoryPageContainer";
 
 import RentalCategories from "../../components/RentalApp/Rental/RentalCategories/index";
 
-import Footer from "../../components/RentalApp/Footer/index";
-
 import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import CheckoutPage from "../Checkout/index";
@@ -101,7 +99,6 @@ const RentalPage = ({ fetchRentalsStart, match, currentUser }) => {
           />
         </RentalContent>
       </Wrapper>
-      <Footer />
     </RentalPageContainer>
   );
 };

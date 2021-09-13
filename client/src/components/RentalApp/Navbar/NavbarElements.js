@@ -6,6 +6,7 @@ export const HeaderContainer = styled.div`
   height: 6rem;
   background: #373833;
   border-bottom: 2px solid black;
+  width: 100%;
 
   @media screen and (max-width: 600px) {
     height: 10rem;
@@ -54,7 +55,7 @@ export const HeaderOption = styled.div`
     margin-right: auto;
   }
 
-  @media screen and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     &:not(:first-child) {
       display: none;
     }
@@ -64,7 +65,7 @@ export const HeaderOption = styled.div`
 export const MobileIcon = styled.div`
   display: none;
 
-  @media screen and (max-width: 768px) {
+  @media all and (max-width: 768px) {
     display: block;
     position: absolute;
     top: -10px;
@@ -75,19 +76,19 @@ export const MobileIcon = styled.div`
     color: #fff;
   }
 
-  @media screen and (max-width: 600px) {
+  @media all and (max-width: 600px) {
     top: 2px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media all and (max-width: 500px) {
     top: -2px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media all and (max-width: 450px) {
     top: 0px;
   }
 
-  @media screen and (max-width: 400px) {
+  @media all and (max-width: 400px) {
     top: -10px;
   }
 `;

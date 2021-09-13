@@ -3,12 +3,19 @@ import styled from "styled-components";
 export const CheckoutPageContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 3rem;
+  margin-bottom: 3rem;
+  padding: 0 5rem;
 `;
 
 export const Title = styled.h1`
   font-size: 2.4rem;
   margin-bottom: 2rem;
+  width: fit-content;
+  border-bottom: 2px solid black;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3.6rem;
+  }
 `;
 
 export const Table = styled.table`
@@ -29,8 +36,7 @@ export const Body = styled.tbody`
 `;
 
 export const Row = styled.tr`
-  border: 1px solid black;
-  background: lightgreen;
+  background: rgba(255, 213, 64, 1);
 `;
 
 export const Heading = styled.th`

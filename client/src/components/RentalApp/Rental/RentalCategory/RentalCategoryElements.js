@@ -10,7 +10,7 @@ export const RentalCategoryContainer = styled.div`
 export const CategoryTitle = styled.h1`
   display: flex;
   justify-content: center;
-  padding: 2.5rem;
+  margin-bottom: 3rem;
   font-size: 3.5rem;
 
   @media screen and (max-width: 1000px) {
@@ -26,6 +26,7 @@ export const CategoryItems = styled.div`
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
   justify-items: center;
+  margin-bottom: 3rem;
 
   @media screen and (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);

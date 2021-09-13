@@ -6,6 +6,8 @@ import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
 import { Button } from "../../Button/ButtonElement";
 
+import { useTranslation } from "react-i18next";
+
 import {
   CartItemContainer,
   IconContainer,
@@ -17,6 +19,8 @@ import {
 
 const CartItem = ({ item, clearItemFromCart }) => {
   const { icon, price, name, firstName, lastName, days } = item;
+
+  const { t } = useTranslation();
 
   return (
     <>
@@ -30,7 +34,7 @@ const CartItem = ({ item, clearItemFromCart }) => {
             {firstName} {lastName}
           </Detail>
 
-          <Detail>{name}</Detail>
+          <Detail>{t(name)}</Detail>
 
           <Detail>
             {days} x {price}RON = {days * price}RON

@@ -7,12 +7,8 @@ import {
   Wrapper,
   OrderInfo,
   OrderInfoSpan,
-  OrderInfoStatus,
-  OrderInfoStatusSpan,
   Wrapper2,
 } from "./OrderElements";
-
-import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 
 import { Button } from "../../Button/ButtonElement";
 
@@ -20,9 +16,13 @@ import OrderItem from "../OrderItem/index";
 
 import Collapsible from "react-collapsible";
 
+import { useTranslation } from "react-i18next";
+
 const Order = ({ order }) => {
   const { orderedItems, total } = order;
   const [isOpen, setIsOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -42,44 +42,33 @@ const Order = ({ order }) => {
         <Container isOpen={isOpen}>
           <Wrapper>
             <OrderInfo>
-              <OrderInfoSpan>Order ID: </OrderInfoSpan>
+              <OrderInfoSpan>{t("order_id")}: </OrderInfoSpan>
               {order.orderID}
             </OrderInfo>
             <OrderInfo>
-              <OrderInfoSpan>Order Date: </OrderInfoSpan> {orderDate}
+              <OrderInfoSpan>{t("order_date")}: </OrderInfoSpan> {orderDate}
             </OrderInfo>
             <OrderInfo>
-              <OrderInfoSpan>Items ordered: </OrderInfoSpan>{" "}
+              <OrderInfoSpan>{t("items_ordered")}: </OrderInfoSpan>{" "}
               {orderedItems.length}
             </OrderInfo>
             <OrderInfo>
-              <OrderInfoSpan>Order total: </OrderInfoSpan> {order.total}RON
+              <OrderInfoSpan>{t("order_total")}: </OrderInfoSpan> {order.total}
+              RON
             </OrderInfo>
           </Wrapper>
 
           <Wrapper2>
-            <OrderInfoStatus>
-              <OrderInfo>
-                <OrderInfoStatusSpan>Status: </OrderInfoStatusSpan>
-              </OrderInfo>
-              {order.status ? (
-                <AiFillCheckCircle
-                  style={{
-                    filter:
-                      "invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);}} size={25}",
-                  }}
-                />
-              ) : (
-                <AiFillCloseCircle
-                  style={{
-                    filter:
-                      "invert(13%) sepia(96%) saturate(6523%) hue-rotate(359deg) brightness(107%) contrast(109%)",
-                  }}
-                  size={25}
-                />
-              )}
-            </OrderInfoStatus>
-            <Button onClick={() => setIsOpen(!isOpen)}>Details</Button>
+            <OrderInfo>
+              <OrderInfoSpan>Status: </OrderInfoSpan>{" "}
+              {order.status === "received" ? `📩 (${t(order.status)})` : null}
+              {order.status === "prepared" ? `☑️ (${t(order.status)})` : null}
+              {order.status === "complete" ? `✅ (${t(order.status)})` : null}
+            </OrderInfo>
+
+            <Button buttonType="order" onClick={() => setIsOpen(!isOpen)}>
+              Details &#x2193;
+            </Button>
           </Wrapper2>
         </Container>
         <Collapsible open={isOpen}>

@@ -46,42 +46,42 @@ const OrderItem = ({ item }) => {
             <Details>
               {sex ? (
                 <Detail>
-                  <DetailSpan>Sex: </DetailSpan> {sex}
+                  <DetailSpan>{t("sex")}: </DetailSpan> {sex}
                 </Detail>
               ) : null}
               {weight ? (
                 <Detail>
-                  <DetailSpan>Weight: </DetailSpan> {weight}
+                  <DetailSpan>{t("weight")}: </DetailSpan> {weight}
                 </Detail>
               ) : null}
               {height ? (
                 <Detail>
-                  <DetailSpan>Height: </DetailSpan> {height}
+                  <DetailSpan>{t("height")}: </DetailSpan> {height}
                 </Detail>
               ) : null}
               {shoeSize ? (
                 <Detail>
-                  <DetailSpan>ShoeSize: </DetailSpan> {shoeSize}
+                  <DetailSpan>{t("shoeSize")}: </DetailSpan> {shoeSize}
                 </Detail>
               ) : null}
               {experience ? (
                 <Detail>
-                  <DetailSpan>Experience: </DetailSpan> {experience}
+                  <DetailSpan>{t("experience")}: </DetailSpan> {experience}
                 </Detail>
               ) : null}
             </Details>
 
             <Details>
               <Detail>
-                <DetailSpan>From: </DetailSpan>
+                <DetailSpan>{t("from")}: </DetailSpan>
                 {startDate}
               </Detail>
               <Detail>
-                <DetailSpan>To: </DetailSpan>
+                <DetailSpan>{t("to")}: </DetailSpan>
                 {endDate}
               </Detail>
               <Detail>
-                <DetailSpan>Days: </DetailSpan>
+                <DetailSpan>{t("days")}: </DetailSpan>
                 {days}
               </Detail>
             </Details>

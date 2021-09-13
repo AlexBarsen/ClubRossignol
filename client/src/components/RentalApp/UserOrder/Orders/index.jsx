@@ -4,15 +4,18 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectUserOrders } from "../../../../redux/user/user.selectors";
 
-import { OrdersContainer, OrderContainer } from "./OrdersElements";
+import { OrdersContainer, OrderContainer, Title } from "./OrdersElements";
+
+import { useTranslation } from "react-i18next";
 
 import Order from "../Order/index";
 
 const Orders = ({ userOrders }) => {
+  const { t } = useTranslation();
   return (
     <>
       <OrdersContainer>
-        <h1>Order History:</h1>
+        <Title>{t("order_history")}:</Title>
         <OrderContainer>
           {userOrders.map((order) => (
             <Order key={order.orderID} order={order} />

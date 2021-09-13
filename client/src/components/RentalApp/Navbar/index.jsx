@@ -60,8 +60,6 @@ const Navbar = ({
           </HeaderOption>
           <HeaderOptionLink to="/">{t("back_to_website")}</HeaderOptionLink>
 
-          {/* <HeaderOption to="/rental/account">Account</HeaderOption> */}
-
           {currentUser ? null : (
             <>
               <SignInModal />
@@ -69,9 +67,6 @@ const Navbar = ({
               <SignUpModal />
             </>
           )}
-
-          <HeaderOptionLink to="/rental/">{t("about")}</HeaderOptionLink>
-          <HeaderOptionLink to="/rental/">{t("contact")}</HeaderOptionLink>
 
           {currentUser ? (
             <HeaderOption>

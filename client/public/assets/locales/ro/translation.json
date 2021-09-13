@@ -4,6 +4,7 @@
   "sign_up": "Inregistrează-te",
   "about": "Despre",
   "contact": "Contact",
+
   "ski_adult": "Schiuri Adult",
   "ski_boots_adult": "Bocanci Adult",
   "ski_equipment_adult": "Echipament Schi Adult",
@@ -20,5 +21,39 @@
   "bike_adult": "Mountainbike Adult",
   "ebike_child": "E-Bike Copil",
   "bike_child": "Mountainbike Copil",
-  "ron_day": "RON / ZI"
+  "ron_day": "RON / ZI",
+
+  "product": "Produs",
+  "product_name": "Nume Produs",
+  "person": "Persoană",
+  "details": "Detalii",
+  "period": "Perioadă",
+  "price": "Preț",
+  "actions": "Acțiuni",
+
+  "cart_items": "Articole în coș",
+  "sex": "Sex",
+  "shoeSize": "Mărime picior",
+  "weight": "Greutate",
+  "height": "Înălțime",
+  "experience": "Experiență",
+  "from": "De la",
+  "to": "Pană",
+  "days": "Zile",
+  "day": "zi",
+
+  "name": "Nume",
+  "surname": "Prenume",
+  "email": "E-Mail",
+  "phone": "Număr telefon",
+
+  "order_history": "Istoric comenzi",
+  "order_id": "Numar comandă",
+  "order_date": "Data comenzii",
+  "items_ordered": "Produs comandate",
+  "order_total": "Total comandă",
+
+  "received": "primită",
+  "prepared": "pregatită",
+  "complete": "predată"
 }

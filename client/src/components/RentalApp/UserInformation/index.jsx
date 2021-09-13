@@ -1,28 +1,38 @@
 import React from "react";
 
-// import { connect } from "react-redux";
-
-// import { createStructuredSelector } from "reselect";
-
-// import { selectCurrentUser } from "../../../redux/user/user.selectors";
+import { useTranslation } from "react-i18next";
 
 import {
   UserInformationContainer,
   UserDetails,
   Detail,
+  DetailSpan,
 } from "./UserInformationElements";
 
 const UserInformation = ({ currentUser }) => {
   const { firstName, lastName, email, phone } = currentUser;
 
+  const { t } = useTranslation();
   return (
     <>
       <UserInformationContainer>
         <UserDetails>
-          <Detail>Name: {firstName}</Detail>
-          <Detail>Surname: {lastName}</Detail>
-          <Detail>E-Mail: {email}</Detail>
-          <Detail>Phone: {phone}</Detail>
+          <Detail>
+            <DetailSpan>{t("name")}: </DetailSpan>
+            {firstName}
+          </Detail>
+          <Detail>
+            <DetailSpan> {t("surname")}: </DetailSpan>
+            {lastName}
+          </Detail>
+          <Detail>
+            <DetailSpan> {t("email")}: </DetailSpan>
+            {email}
+          </Detail>
+          <Detail>
+            <DetailSpan> {t("phone")}: </DetailSpan>
+            {phone}
+          </Detail>
         </UserDetails>
       </UserInformationContainer>
     </>

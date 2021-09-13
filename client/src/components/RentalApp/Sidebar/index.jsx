@@ -1,4 +1,7 @@
 import React from "react";
+
+import { connect } from "react-redux";
+
 import {
   SidebarContainer,
   Icon,
@@ -8,7 +11,9 @@ import {
   SidebarLink,
 } from "./SidebarElements";
 
-const Sidebar = ({ isOpen, toggle }) => {
+import { signOutStart } from "../../../redux/user/user.actions";
+
+const Sidebar = ({ isOpen, toggle, signOut }) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -20,11 +25,17 @@ const Sidebar = ({ isOpen, toggle }) => {
 
           <SidebarLink to="/rental/checkout">Checkout</SidebarLink>
           <SidebarLink to="/rental/dashboard">Account</SidebarLink>
-          <SidebarLink to="/rental/contact">Contact</SidebarLink>
+          <SidebarLink onClick={() => signOut()} to="/rental/">
+            Sign Out
+          </SidebarLink>
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>
   );
 };
 
-export default Sidebar;
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+});
+
+export default connect(null, mapDispatchToProps)(Sidebar);

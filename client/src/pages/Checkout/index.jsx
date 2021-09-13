@@ -25,21 +25,24 @@ import {
   TotalSpan,
 } from "./CheckoutElements";
 
+import { useTranslation } from "react-i18next";
+
 const CheckoutPage = ({ cartItems, total }) => {
+  const { t } = useTranslation();
   return (
     <>
       <CheckoutPageContainer>
-        <Title>Cart Items:</Title>
+        <Title>{t("cart_items")}:</Title>
         <Table>
           <Body>
             <Row>
-              <Heading>Product</Heading>
-              <Heading>Name</Heading>
-              <Heading>Person</Heading>
-              <Heading>Details</Heading>
-              <Heading>Period</Heading>
-              <Heading>Price</Heading>
-              <Heading>Actions</Heading>
+              <Heading>{t("product")}</Heading>
+              <Heading>{t("product_name")}</Heading>
+              <Heading>{t("person")}</Heading>
+              <Heading>{t("details")}</Heading>
+              <Heading>{t("period")}</Heading>
+              <Heading>{t("price")}</Heading>
+              <Heading>{t("actions")}</Heading>
             </Row>
 
             {cartItems.length

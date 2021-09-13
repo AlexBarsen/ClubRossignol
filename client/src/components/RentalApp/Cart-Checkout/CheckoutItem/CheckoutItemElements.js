@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Row = styled.tr`
   border: 1px solid black;
+  border-radius: 1rem;
 
   @media screen and (max-width: 768px) {
     display: block;
+    background: rgba(255, 213, 64, 1);
 
     &:not(:last-child) {
-      /* border-bottom: 2px solid black; */
       margin-bottom: 2rem;
     }
   }
@@ -19,19 +20,23 @@ export const Data = styled.td`
   padding: 1rem;
 
   @media screen and (max-width: 768px) {
+    border: none;
+    border-bottom: 1px solid black;
     display: flex;
     padding: 1rem 0;
     align-items: center;
 
-    / &:last-child {
+    &:last-child {
       border: none;
     }
 
     &:before {
       content: attr(data-label);
-      font-size: 3.4rem;
+      font-size: 3.6rem;
       font-weight: bold;
-      width: 20rem;
+      width: 27rem;
+      text-align: left;
+      margin-left: 3rem;
     }
   }
 `;
@@ -61,7 +66,7 @@ export const DataText = styled.div`
 `;
 
 export const DataDetails = styled.td`
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   padding: 1rem 0;
   text-align: center;
 
@@ -74,11 +79,12 @@ export const DataDetails = styled.td`
 
     &:before {
       content: attr(data-label);
-      font-size: 3rem;
+      font-size: 3.6rem;
       font-weight: bold;
-      width: 20rem;
+      width: 27rem;
+      text-align: left;
+      margin-left: 3rem;
       display: flex;
-      justify-content: center;
       align-items: center;
     }
   }

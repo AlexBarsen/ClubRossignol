@@ -3,20 +3,25 @@ import styled from "styled-components";
 export const OrderContainer = styled.div`
   background: #fff;
   margin-bottom: 2rem;
-  padding: 2rem;
-  border-radius: 1rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+
   width: 60rem;
 `;
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: ${({ isOpen }) => (isOpen ? "1px solid black" : "none")};
+  border-bottom: ${({ isOpen }) => (isOpen ? "3px solid black" : "none")};
+  background: rgba(255, 213, 64, 1);
+  padding: 1rem;
 `;
 
 export const OrderedItems = styled.div`
   display: flex;
   flex-direction: column;
+  background: rgba(255, 213, 64, 0.3);
+  padding: 1rem;
 `;
 
 export const Wrapper = styled.div``;
@@ -26,31 +31,16 @@ export const OrderInfo = styled.div`
   padding: 0.25rem 0;
 
   @media screen and (max-width: 768px) {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 `;
 
 export const OrderInfoSpan = styled.span`
-  font-weight: bold;
-`;
-
-export const OrderInfoStatusSpan = styled.span`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
 
   @media screen and (max-width: 768px) {
-    font-size: 2.8rem;
-  }
-`;
-
-export const OrderInfoStatus = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 11rem;
-
-  @media screen and (max-width: 768px) {
-    width: 15rem;
+    font-size: 2.6rem;
   }
 `;
 
@@ -58,4 +48,5 @@ export const Wrapper2 = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 1rem;
 `;
