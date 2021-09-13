@@ -1,120 +1,115 @@
 import styled from "styled-components";
 
-export const Row = styled.tr`
-  border: 1px solid black;
-  border-radius: 1rem;
-
-  @media screen and (max-width: 768px) {
-    display: block;
-    background: rgba(255, 213, 64, 1);
-
-    &:not(:last-child) {
-      margin-bottom: 2rem;
-    }
-  }
-`;
-
-export const Data = styled.td`
-  border: 1px solid black;
-  text-align: center;
+export const CheckoutItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 85rem;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+  margin-bottom: 2rem;
   padding: 1rem;
 
   @media screen and (max-width: 768px) {
-    border: none;
-    border-bottom: 1px solid black;
-    display: flex;
-    padding: 1rem 0;
-    align-items: center;
+    width: 70rem;
+    justify-content: space-between;
+  }
 
-    &:last-child {
-      border: none;
-    }
-
-    &:before {
-      content: attr(data-label);
-      font-size: 3.6rem;
-      font-weight: bold;
-      width: 27rem;
-      text-align: left;
-      margin-left: 3rem;
-    }
+  @media screen and (max-width: 558px) {
+    /* display: block; */
   }
 `;
 
 export const IconContainer = styled.div`
-  margin: auto;
-  height: 10rem;
-  width: 10rem;
+  height: 7rem;
+  width: 10%;
 
-  @media screen and (max-width: 768px) {
-    margin: 0;
-    height: 8rem;
-    width: 8rem;
+  @media screen and (max-width: 550px) {
+    width: 5rem;
   }
 `;
 
 export const Icon = styled.img`
-  width: 100%;
+  height: 100%;
 `;
 
-export const DataText = styled.div`
-  font-size: 2rem;
+export const Container = styled.div`
+  width: 90%;
+  display: flex;
 
   @media screen and (max-width: 768px) {
-    font-size: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5rem;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    width: 60%;
   }
 `;
 
-export const DataDetails = styled.td`
-  border-bottom: 1px solid black;
-  padding: 1rem 0;
-  text-align: center;
-
-  @media screen and (max-width: 768px) {
-    display: flex;
-
-    padding: 1rem 0;
-
-    text-align: left;
-
-    &:before {
-      content: attr(data-label);
-      font-size: 3.6rem;
-      font-weight: bold;
-      width: 27rem;
-      text-align: left;
-      margin-left: 3rem;
-      display: flex;
-      align-items: center;
-    }
-  }
-`;
-
-export const DataSpan = styled.span`
-  font-weight: bold;
-`;
-
-export const Actions = styled.div`
-  height: 10rem;
+export const WrapperNames = styled.div`
+  width: 28%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
 
   @media screen and (max-width: 768px) {
-    flex-direction: row;
-    width: 30%;
-    justify-content: space-between;
-    height: auto;
+    width: auto;
+    grid-area: 1 / 1 / 2 / 2;
   }
 `;
 
-export const Wrapper = styled.div`
+export const WrapperDetails = styled.div`
+  width: 27%;
   display: flex;
   flex-direction: column;
-  align-items: left;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+    grid-area: 1 / 2 / 2 / 3;
+  }
 `;
 
-export const ButtonContainer = styled.div`
-  cursor: pointer;
+export const WrapperDates = styled.div`
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+    grid-area: 2 / 1 / 3 / 2;
+  }
 `;
+
+export const WrapperPrice = styled.div`
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+    grid-area: 2 / 2 / 3 / 3;
+  }
+`;
+
+export const WrapperActions = styled.div`
+  width: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 768px) {
+    width: auto;
+    grid-area: 1 / 3 / 3 / 4;
+    width: fit-content;
+  }
+`;
+
+export const Detail = styled.div`
+  font-size: 1.6rem;
+`;
+
+export const DetailSpan = styled.span`
+  font-weight: bold;
+`;
+
+export const ButtonContainer = styled.div``;

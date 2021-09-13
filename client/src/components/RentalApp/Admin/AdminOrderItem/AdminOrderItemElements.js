@@ -12,9 +12,7 @@ export const AdminOrderItemContainer = styled.div`
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-
   align-items: center;
-  /* text-align: left; */
 `;
 
 export const DetailsContainer = styled.div`

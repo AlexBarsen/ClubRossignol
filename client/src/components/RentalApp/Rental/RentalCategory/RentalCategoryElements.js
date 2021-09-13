@@ -11,11 +11,7 @@ export const CategoryTitle = styled.h1`
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
-  font-size: 3.5rem;
-
-  @media screen and (max-width: 1000px) {
-    font-size: 4.5rem;
-  }
+  font-size: 3.4rem;
 `;
 
 export const CategoryItems = styled.div`
@@ -25,6 +21,7 @@ export const CategoryItems = styled.div`
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
+
   justify-items: center;
   margin-bottom: 3rem;
 

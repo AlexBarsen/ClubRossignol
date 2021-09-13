@@ -17,21 +17,15 @@ const fadeIn = keyframes`
 `;
 
 export const RentalItemContainer = styled.div`
-  animation: ${fadeIn} 2s ease-in-out;
-  border: 2px solid black;
-  border-radius: 0.5rem;
-  height: 29.5rem;
-  width: 25rem;
   display: flex;
   flex-direction: column;
-
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  width: 26rem;
   box-shadow: 0.3rem 0.3rem 1rem #656565;
-  transition: all 0.5s ease-in-out;
 
-  @media screen and (max-width: 600px) {
-    height: 47rem;
-    width: 32rem;
-  }
+  animation: ${fadeIn} 2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 `;
 
 export const IconContainer = styled.div`
@@ -39,10 +33,6 @@ export const IconContainer = styled.div`
   justify-content: center;
   height: 18rem;
   border-bottom: 3px solid black;
-
-  @media screen and (max-width: 600px) {
-    height: 30rem;
-  }
 `;
 
 export const Icon = styled.img`
@@ -51,15 +41,16 @@ export const Icon = styled.img`
 `;
 
 export const Footer = styled.div`
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
   height: 100%;
   font-size: 1.6rem;
+  padding: 1rem;
   background: rgba(255, 213, 64, 1);
-  position: relative;
+`;
+
+export const ProductName = styled.h1`
+  font-size: 1.8rem;
 `;
 
 export const Wrapper = styled.div`
@@ -69,21 +60,6 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Title = styled.h1`
-  width: 100%;
-
-  font-size: 1.8rem;
-
-  @media screen and (max-width: 600px) {
-    font-size: 3rem;
-  }
-`;
-
 export const Price = styled.div`
-  /* margin-top: 2rem; */
   font-weight: bold;
-
-  @media screen and (max-width: 600px) {
-    font-size: 2.4rem;
-  }
 `;

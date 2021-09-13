@@ -6,6 +6,4 @@ const Select = (props) => (
   <FixRequiredSelect {...props} SelectComponent={BaseSelect} />
 );
 
-export const CustomSelect = styled(Select)`
-  width: auto;
-`;
+export const CustomSelect = styled(Select)``;

@@ -12,14 +12,9 @@ export const CartDropdownContainer = styled.div`
   top: 80px;
   z-index: 2;
 
-  @media screen and (max-width: 1100px) {
-    height: 51rem;
-    width: 46rem;
-  }
-
   @media screen and (max-width: 768px) {
     height: 70rem;
-    width: 65rem;
+    width: 60rem;
   }
 `;
 
@@ -30,10 +25,6 @@ export const CartItemsContainer = styled.div`
   height: 30rem;
   padding: 1rem;
 
-  @media screen and (max-width: 1100px) {
-    height: 40rem;
-  }
-
   @media screen and (max-width: 768px) {
     height: 55rem;
   }
@@ -41,6 +32,10 @@ export const CartItemsContainer = styled.div`
 
 export const Message = styled.div`
   font-size: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Footer = styled.div`
@@ -52,6 +47,6 @@ export const Total = styled.div`
   font-size: 2rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 4rem;
+    font-size: 3.4rem;
   }
 `;

@@ -14,15 +14,13 @@ import {
 import {
   Title,
   CheckoutPageContainer,
-  Table,
-  Body,
-  Row,
-  Heading,
+  CheckoutPageContent,
+  CheckoutItemsContainer,
   Message,
   Total,
   TotalPrice,
-  TotalItems,
   TotalSpan,
+  TotalItems,
 } from "./CheckoutElements";
 
 import { useTranslation } from "react-i18next";
@@ -32,43 +30,37 @@ const CheckoutPage = ({ cartItems, total }) => {
   return (
     <>
       <CheckoutPageContainer>
-        <Title>{t("cart_items")}:</Title>
-        <Table>
-          <Body>
-            <Row>
-              <Heading>{t("product")}</Heading>
-              <Heading>{t("product_name")}</Heading>
-              <Heading>{t("person")}</Heading>
-              <Heading>{t("details")}</Heading>
-              <Heading>{t("period")}</Heading>
-              <Heading>{t("price")}</Heading>
-              <Heading>{t("actions")}</Heading>
-            </Row>
+        <CheckoutPageContent>
+          <Title>{t("cart_items")}:</Title>
 
-            {cartItems.length
-              ? cartItems.map((cartItem) => (
-                  <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                ))
-              : null}
-          </Body>
-        </Table>
-        {cartItems.length ? null : (
-          <Message>Nu exista nimic in cos momentan</Message>
-        )}
+          <CheckoutItemsContainer>
+            {cartItems.map((cartItem, index) => (
+              <CheckoutItem
+                key={cartItem.id}
+                cartItem={cartItem}
+                number={index + 1}
+              />
+            ))}
+          </CheckoutItemsContainer>
 
-        {total ? (
-          <Total>
-            <TotalPrice>
-              <TotalSpan>Total:</TotalSpan> {total} RON
-            </TotalPrice>
-            <TotalItems>
-              There are <TotalSpan>{cartItems.length}</TotalSpan> products in
-              your cart
-            </TotalItems>
-          </Total>
-        ) : null}
+          {cartItems.length ? null : (
+            <Message>Nu exista nimic in cos momentan</Message>
+          )}
 
-        <StripeCheckoutButton price={total} cartItems={cartItems} />
+          {total ? (
+            <Total>
+              <TotalPrice>
+                <TotalSpan>Total:</TotalSpan> {total} RON
+              </TotalPrice>
+              <TotalItems>
+                There are <TotalSpan>{cartItems.length}</TotalSpan> products in
+                your cart
+              </TotalItems>
+            </Total>
+          ) : null}
+
+          <StripeCheckoutButton price={total} cartItems={cartItems} />
+        </CheckoutPageContent>
       </CheckoutPageContainer>
     </>
   );

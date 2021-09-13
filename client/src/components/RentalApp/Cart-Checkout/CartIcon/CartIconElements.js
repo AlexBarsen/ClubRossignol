@@ -30,26 +30,8 @@ export const ItemCount = styled.span`
   font-size: 1.6rem;
   font-weight: bold;
 
-  @media screen and (max-width: 1100px) {
-    top: 18px;
-    right: 16px;
-    font-size: 1.8rem;
-  }
-
   @media screen and (max-width: 768px) {
     font-size: 2rem;
-    top: 15px;
-    right: 13px;
-  }
-
-  @media screen and (max-width: 450px) {
-    font-size: 3rem;
-    top: 13px;
-    right: 13px;
-  }
-
-  @media screen and (max-width: 400px) {
-    font-size: 3.4rem;
     top: 16px;
     right: 14px;
   }

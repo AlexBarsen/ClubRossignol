@@ -12,7 +12,6 @@ const RentalOverview = ({ rentalsArray }) => {
   return (
     <>
       <RentalOverviewContainer>
-        {/* <Element> */}
         {rentalsArray.map(({ id, categoryName, products }) => (
           <RentalCategory
             key={id}
@@ -20,7 +19,6 @@ const RentalOverview = ({ rentalsArray }) => {
             categoryName={categoryName}
           />
         ))}
-        {/* </Element> */}
       </RentalOverviewContainer>
     </>
   );

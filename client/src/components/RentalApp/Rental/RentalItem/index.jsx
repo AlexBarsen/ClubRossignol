@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import {
   RentalItemContainer,
-  Title,
+  ProductName,
   IconContainer,
   Icon,
   Footer,
@@ -24,7 +24,7 @@ const RentalItem = ({ item }) => {
         </IconContainer>
 
         <Footer>
-          <Title>{t(name)}</Title>
+          <ProductName>{t(name)}</ProductName>
 
           <Wrapper>
             <Price>

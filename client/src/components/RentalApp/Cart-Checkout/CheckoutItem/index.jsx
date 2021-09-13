@@ -6,23 +6,25 @@ import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 import { useTranslation } from "react-i18next";
 
 import {
-  Row,
-  Data,
   IconContainer,
   Icon,
-  DataText,
-  DataDetails,
-  Wrapper,
-  DataSpan,
-  Actions,
+  Container,
+  Detail,
+  DetailSpan,
+  WrapperNames,
+  WrapperDetails,
+  WrapperDates,
+  WrapperPrice,
+  WrapperActions,
   ButtonContainer,
+  CheckoutItemContainer,
 } from "./CheckoutItemElements";
 
 import { FaTrashAlt } from "react-icons/fa";
 
 import EditModal from "../../Rental/RentalEditModal/index";
 
-const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
+const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
   const {
     name,
     firstName,
@@ -43,75 +45,77 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
 
   return (
     <>
-      <Row>
-        <Data data-label={t("product") + ":"}>
-          <IconContainer>
-            <Icon src={icon} />
-          </IconContainer>
-        </Data>
+      <CheckoutItemContainer>
+        <Detail>
+          <DetailSpan>{number}.</DetailSpan>
+        </Detail>
+        <IconContainer>
+          <Icon src={icon} />
+        </IconContainer>
 
-        <Data data-label={t("product_name") + ":"}>
-          <DataText>{t(name)}</DataText>
-        </Data>
+        <Container>
+          <WrapperNames>
+            <DetailSpan>
+              <Detail>{t(name)}</Detail>
+            </DetailSpan>
 
-        <Data data-label={t("person") + ":"}>
-          <DataText>
-            {firstName} {lastName}{" "}
-          </DataText>
-        </Data>
+            <Detail>
+              {firstName} {lastName}
+            </Detail>
+          </WrapperNames>
 
-        <DataDetails data-label={t("details") + ":"}>
-          <Wrapper>
+          <WrapperDetails>
             {sex ? (
-              <DataText>
-                <DataSpan>{t("sex")}:</DataSpan> {sex}
-              </DataText>
+              <Detail>
+                <DetailSpan>{t("sex")}:</DetailSpan> {sex}
+              </Detail>
             ) : null}
             {weight ? (
-              <DataText>
-                <DataSpan>{t("weight")}:</DataSpan> {weight}
-              </DataText>
+              <Detail>
+                <DetailSpan>{t("weight")}:</DetailSpan> {weight}
+              </Detail>
             ) : null}
             {height ? (
-              <DataText>
-                <DataSpan>{t("height")}:</DataSpan> {height}
-              </DataText>
+              <Detail>
+                <DetailSpan>{t("height")}:</DetailSpan> {height}
+              </Detail>
             ) : null}
             {shoeSize ? (
-              <DataText>
-                <DataSpan>{t("shoeSize")}:</DataSpan> {shoeSize}
-              </DataText>
+              <Detail>
+                <DetailSpan>{t("shoeSize")}:</DetailSpan> {shoeSize}
+              </Detail>
             ) : null}
             {experience ? (
-              <DataText>
-                <DataSpan>{t("experience")} :</DataSpan> {experience}
-              </DataText>
+              <Detail>
+                <DetailSpan>{t("experience")} :</DetailSpan> {experience}
+              </Detail>
             ) : null}
-          </Wrapper>
-        </DataDetails>
+          </WrapperDetails>
 
-        <DataDetails data-label={t("period") + ":"}>
-          <Wrapper>
-            <DataText>
-              <DataSpan>{t("from")}:</DataSpan> {startDate}
-            </DataText>
-            <DataText>
-              <DataSpan>{t("to")}:</DataSpan> {endDate}
-            </DataText>
-            <DataText>
-              <DataSpan>{t("days")}:</DataSpan> {days}
-            </DataText>
-          </Wrapper>
-        </DataDetails>
+          <WrapperDates>
+            <Detail>
+              <DetailSpan>{t("from")}:</DetailSpan> {startDate}
+            </Detail>
+            <Detail>
+              <DetailSpan>{t("to")}:</DetailSpan> {endDate}
+            </Detail>
+            <Detail>
+              <DetailSpan>{t("days")}:</DetailSpan> {days}
+            </Detail>
+          </WrapperDates>
 
-        <Data data-label={t("price") + ":"}>
-          <DataText>
-            {price} RON x {days} days = <DataSpan>{price * days} RON</DataSpan>
-          </DataText>
-        </Data>
+          <WrapperPrice>
+            <Detail>
+              <DetailSpan>{price}</DetailSpan> RON x{" "}
+              <DetailSpan>{days}</DetailSpan> days
+            </Detail>
+            <Detail>
+              <DetailSpan>Total: </DetailSpan>
+              {price * days} RON
+            </Detail>
+          </WrapperPrice>
 
-        <Data data-label={t("actions") + ":"}>
-          <Actions>
+          <WrapperActions>
             <ButtonContainer>
               <FaTrashAlt
                 size={25}
@@ -122,9 +126,9 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
             <ButtonContainer>
               <EditModal cartItem={cartItem} />
             </ButtonContainer>
-          </Actions>
-        </Data>
-      </Row>
+          </WrapperActions>
+        </Container>
+      </CheckoutItemContainer>
     </>
   );
 };

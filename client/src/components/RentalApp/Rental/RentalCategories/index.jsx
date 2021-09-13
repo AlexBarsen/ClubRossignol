@@ -5,7 +5,7 @@ import {
   RentalCategoriesContainer,
   Wrapper,
   Category,
-  Title,
+  CategoryTitle,
 } from "./RentalCategoriesElements";
 
 import { connect } from "react-redux";
@@ -22,7 +22,7 @@ const RentalCategories = ({ categories }) => {
               key={category.title}
               to={`/rental/category/${category.title.toLowerCase()}`}
             >
-              <Title>{category.title}</Title>
+              <CategoryTitle>{category.title}</CategoryTitle>
               <FaArrowDown size={20} />
             </Category>
           ))}

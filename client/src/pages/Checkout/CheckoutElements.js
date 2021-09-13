@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const CheckoutPageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-bottom: 3rem;
-  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
+export const CheckoutPageContent = styled.div``;
 
 export const Title = styled.h1`
   font-size: 2.4rem;
-  margin-bottom: 2rem;
   width: fit-content;
+  margin-bottom: 2rem;
   border-bottom: 2px solid black;
 
   @media screen and (max-width: 768px) {
@@ -21,32 +22,13 @@ export const Title = styled.h1`
 export const Table = styled.table`
   width: 100%;
   margin-bottom: 4rem;
-
   border-collapse: collapse;
-
-  @media screen and (max-width: 768px) {
-    margin-bottom: 4rem;
-  }
 `;
 
-export const Body = styled.tbody`
-  @media screen and (max-width: 768px) {
-    background: none;
-  }
-`;
-
-export const Row = styled.tr`
-  background: rgba(255, 213, 64, 1);
-`;
-
-export const Heading = styled.th`
-  border: 1px solid black;
-  padding: 1rem;
-  font-size: 2.6rem;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+export const CheckoutItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
 export const Message = styled.h1`
