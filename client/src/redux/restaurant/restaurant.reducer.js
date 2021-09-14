@@ -7,18 +7,18 @@ const INITIAL_STATE = {
 
 const restaurantReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case RestaurantActionTypes.FETCH_USER_ORDERS_START:
+    case RestaurantActionTypes.FETCH_RESTAURANT_MENU_START:
       return {
         ...state,
         isFetching: true,
       };
-    case RestaurantActionTypes.FETCH_USER_ORDERS_SUCCESS:
+    case RestaurantActionTypes.FETCH_RESTAURANT_MENU_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        orders: action.payload,
+        menu: action.payload,
       };
-    case RestaurantActionTypes.FETCH_USER_ORDERS_FAILURE:
+    case RestaurantActionTypes.FETCH_RESTAURANT_MENU_FAILURE:
       return {
         ...state,
         isFetching: false,

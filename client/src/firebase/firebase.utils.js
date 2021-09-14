@@ -100,6 +100,36 @@ export const convertRentalsSnapshotToMap = (rentals) => {
   }, {});
 };
 
+export const convertRestaurantMenuSnapshotToMap = (menu) => {
+  const transformedMenu = menu.docs.map((doc) => {
+    const { categoryID, categoryName, products } = doc.data();
+
+    return {
+      id: doc.id,
+      categoryID: categoryID,
+      categoryName,
+      products,
+    };
+  });
+
+  return transformedMenu.reduce((accumulator, menu) => {
+    accumulator[menu.categoryName.toLowerCase()] = menu;
+    return accumulator;
+  }, {});
+};
+
+export const orderRestaurantMenuCollection = async () => {
+  try {
+    const restaurantMenuRef = firestore.collection("restaurantMenu");
+
+    const orderedMenu = await restaurantMenuRef.orderBy("categoryID").get();
+
+    console.log(orderedMenu);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // * function which get's the current signed in user
 // * 1. returns user object if singed in
 // * 2. returns null(reject) if used isn't signed in
