@@ -46,7 +46,7 @@ export const Footer = styled.div`
   height: 100%;
   font-size: 1.6rem;
   padding: 1rem;
-  background: rgba(255, 213, 64, 1);
+  background: #ffd540;
 `;
 
 export const ProductName = styled.h1`

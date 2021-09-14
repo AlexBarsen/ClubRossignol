@@ -14,7 +14,7 @@ import {
   InfoImage,
 } from "./InfoElements";
 
-import { Button } from "../Button/ButtonElement";
+import { ButtonLink } from "../Button/ButtonElement";
 
 const InfoSection = ({ section, imgStart }) => {
   const {
@@ -25,12 +25,14 @@ const InfoSection = ({ section, imgStart }) => {
     description2,
     buttonLabel,
     image,
-    primary,
+    route,
+    link,
   } = section;
+
   return (
     <>
-      <InfoContainer id={id} primary={primary}>
-        <InfoWrapper primary={primary}>
+      <InfoContainer id={id}>
+        <InfoWrapper>
           <InfoRow imgStart={imgStart}>
             <Column1>
               <TextWrapper>
@@ -39,14 +41,18 @@ const InfoSection = ({ section, imgStart }) => {
                 <Subtitle>{description1}</Subtitle>
                 <Subtitle>{description2}</Subtitle>
                 <ButtonWrapper>
-                  <Button to="/" primary={primary}>
-                    {buttonLabel}
-                  </Button>
+                  {route ? (
+                    <ButtonLink to={`/${route}`}>{buttonLabel}</ButtonLink>
+                  ) : (
+                    <ButtonLink to={{ pathname: link }} target="_blank">
+                      {buttonLabel}
+                    </ButtonLink>
+                  )}
                 </ButtonWrapper>
               </TextWrapper>
             </Column1>
             <Column2>
-              <ImageWrapper primary={primary}>
+              <ImageWrapper>
                 <InfoImage src={image} />
               </ImageWrapper>
             </Column2>

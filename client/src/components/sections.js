@@ -13,7 +13,7 @@ export const restaurantSection = {
     "In meniul nostru se regasesc mancaruri precum supe, ciorbe, salate, mancaruri gatite cat si pizza pe cuptor cu lemne.",
   buttonLabel: "Meniu",
   image: RestaurantImage,
-  primary: true,
+  route: "menu",
 };
 
 export const rentalSection = {
@@ -26,7 +26,7 @@ export const rentalSection = {
     "Pentru a evita asteptarea indelungata pentru a inchiria echipamente va incurajam sa folositi aplicatia noastra de rental pentru a rezervare un echipament direct online",
   buttonLabel: "Aplicatie Rental",
   image: RentalImage,
-  primary: false,
+  route: "rental",
 };
 
 export const hotelSection = {
@@ -38,7 +38,7 @@ export const hotelSection = {
   description2: "Micul dejun este inclus in pret",
   buttonLabel: "Catre Booking",
   image: HotelImage,
-  primary: true,
+  link: "https://bit.ly/3k9qaRd",
 };
 
 export const shopSection = {
@@ -50,5 +50,5 @@ export const shopSection = {
   description2: "Produsele se pot comanda si online de pe siteul nostru.",
   buttonLabel: "Magazin online",
   image: ShopImage,
-  primary: false,
+  link: "https://bit.ly/394Zfj0",
 };

@@ -13,7 +13,7 @@ import {
   ArrowRight,
 } from "./HeroElements";
 
-import { Button } from "../Button/ButtonElement";
+import { ButtonScroll } from "../Button/ButtonElement";
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
@@ -31,14 +31,14 @@ const HeroSection = () => {
           In Poiana Brasov la baza partiei din anul 1999.
         </HeroHeading>
         <HeroBtnWrapper>
-          <Button
+          <ButtonScroll
             to="about"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary={false}
           >
             Descopera locatia {hover ? <ArrowForward /> : <ArrowRight />}
-          </Button>
+          </ButtonScroll>
         </HeroBtnWrapper>
       </HeroContent>
     </HeroContainer>

@@ -16,20 +16,6 @@ import {
 } from "./NavbarElements";
 
 export const Navbar = ({ toggle }) => {
-  // const [scrollNav, setScrollNav] = useState(false);
-
-  // const changeNav = () => {
-  //   if (window.scrollY >= 80) {
-  //     setScrollNav(true);
-  //   } else {
-  //     setScrollNav(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", changeNav);
-  // }, []);
-
   return (
     <>
       <Nav>
@@ -47,7 +33,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-85}
+                // offset={-85}
               >
                 About
               </NavLinks>
@@ -58,7 +44,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-85}
+                offset={82}
               >
                 Restaurant
               </NavLinks>
@@ -69,7 +55,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-85}
+                offset={82}
               >
                 Rental
               </NavLinks>
@@ -80,7 +66,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-75}
+                offset={82}
               >
                 Shop
               </NavLinks>
@@ -91,7 +77,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-85}
+                offset={82}
               >
                 Hotel
               </NavLinks>
@@ -102,7 +88,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-85}
+                offset={82}
               >
                 Contact
               </NavLinks>

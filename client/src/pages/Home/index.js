@@ -11,6 +11,8 @@ import {
   shopSection,
 } from "../../components/sections";
 
+import Footer from "../../components/RentalApp/Footer/index";
+
 import { HomeContainer } from "./HomeElements";
 
 const Home = () => {
@@ -31,6 +33,7 @@ const Home = () => {
         <InfoSection section={rentalSection} imgStart={true} />
         <InfoSection section={hotelSection} imgStart={false} />
         <InfoSection section={shopSection} imgStart={true} />
+        <Footer />
       </HomeContainer>
     </>
   );
