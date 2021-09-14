@@ -16,6 +16,8 @@ const handleFontSizeType = (buttonType) => {
       return "2rem";
     case "order":
       return "2rem";
+    case "status":
+      return "2rem";
     default:
       break;
   }
@@ -37,6 +39,8 @@ const handleFontSizeQueryType = (buttonType) => {
       return "4.4rem";
     case "order":
       return "3.4rem";
+    case "status":
+      return "3.2rem";
     default:
       break;
   }
@@ -57,6 +61,8 @@ const handleColorType = (buttonType) => {
     case "modal":
       return "#001730";
     case "order":
+      return "#001730";
+    case "status":
       return "#001730";
     default:
       break;
@@ -79,6 +85,8 @@ const handlePaddingType = (buttonType) => {
       return "1rem";
     case "order":
       return "0.5rem";
+    case "status":
+      return ".7rem";
     default:
       break;
   }
@@ -100,6 +108,8 @@ const handlePaddingQueryType = (buttonType) => {
       return "1rem";
     case "order":
       return "0.5rem";
+    case "status":
+      return "1.5rem";
     default:
       break;
   }
@@ -121,6 +131,8 @@ const handleWidthType = (buttonType) => {
       return "30rem";
     case "order":
       return "12rem";
+    case "status":
+      return "15rem";
     default:
       break;
   }
@@ -142,6 +154,8 @@ const handleWidthQueryType = (buttonType) => {
       return "45rem";
     case "order":
       return "20rem";
+    case "status":
+      return "25rem";
     default:
       break;
   }

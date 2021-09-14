@@ -6,9 +6,11 @@ import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 import { useTranslation } from "react-i18next";
 
 import {
+  CheckoutItemContainer,
   IconContainer,
   Icon,
   Container,
+  DetailNumber,
   Detail,
   DetailSpan,
   WrapperNames,
@@ -17,7 +19,6 @@ import {
   WrapperPrice,
   WrapperActions,
   ButtonContainer,
-  CheckoutItemContainer,
 } from "./CheckoutItemElements";
 
 import { FaTrashAlt } from "react-icons/fa";
@@ -46,9 +47,9 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
   return (
     <>
       <CheckoutItemContainer>
-        <Detail>
+        <DetailNumber>
           <DetailSpan>{number}.</DetailSpan>
-        </Detail>
+        </DetailNumber>
         <IconContainer>
           <Icon src={icon} />
         </IconContainer>

@@ -33,6 +33,7 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
           {
             order_ip: token.client_ip,
             userID: currentUser.id,
+            userEmail: currentUser.email,
             status: "received",
             orderedItems: cartItems,
             total: priceForStripe / 100,

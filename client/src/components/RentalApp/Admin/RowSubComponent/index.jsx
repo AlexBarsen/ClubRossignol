@@ -14,6 +14,7 @@ import {
   Wrapper,
   AdminOrderedItems,
   SelectContainer,
+  ButtonContainer,
 } from "./RowSubComponentElements";
 
 const RowSubComponent = ({ row, updateOrderStatusStart }) => {
@@ -40,6 +41,7 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
       ...provided,
       fontSize: "2rem",
       textAlin: "center",
+      width: 150,
     }),
     menu: (provided, state) => ({
       ...provided,
@@ -72,9 +74,14 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
               options={options}
               isSearchable={false}
             />
-            <Button onClick={() => handleStatusUpdate(orderID, orderStatus)}>
-              Change Status
-            </Button>
+            <ButtonContainer>
+              <Button
+                buttonType="status"
+                onClick={() => handleStatusUpdate(orderID, orderStatus)}
+              >
+                Change Status
+              </Button>
+            </ButtonContainer>
           </>
         ) : null}
       </SelectContainer>

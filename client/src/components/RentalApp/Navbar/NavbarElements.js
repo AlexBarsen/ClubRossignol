@@ -3,18 +3,10 @@ import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  height: 6rem;
+  height: 60px;
   background: #373833;
   border-bottom: 2px solid black;
   width: 100%;
-
-  @media screen and (max-width: 600px) {
-    height: 10rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    height: 12rem;
-  }
 `;
 
 export const User = styled.div``;
@@ -65,31 +57,15 @@ export const HeaderOption = styled.div`
 export const MobileIcon = styled.div`
   display: none;
 
-  @media all and (max-width: 768px) {
-    display: block;
+  @media screen and (max-width: 768px) {
+    display: flex;
     position: absolute;
-    top: -10px;
+    top: -2px;
     right: -20px;
     transform: translate(-100%, 60%);
     font-size: 3.2rem;
     cursor: pointer;
     color: #fff;
-  }
-
-  @media all and (max-width: 600px) {
-    top: 2px;
-  }
-
-  @media all and (max-width: 500px) {
-    top: -2px;
-  }
-
-  @media all and (max-width: 450px) {
-    top: 0px;
-  }
-
-  @media all and (max-width: 400px) {
-    top: -10px;
   }
 `;
 

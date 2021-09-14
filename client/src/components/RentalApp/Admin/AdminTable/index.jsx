@@ -13,7 +13,7 @@ const AdminTable = ({ data }) => {
         id: "expander",
         Cell: ({ row }) => (
           <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? "-" : "+"}
+            {row.isExpanded ? "👆🏻" : "👇🏻"}
           </span>
         ),
       },
@@ -25,8 +25,8 @@ const AdminTable = ({ data }) => {
             accessor: "orderID",
           },
           {
-            Header: "User ID",
-            accessor: "userID",
+            Header: "User Email",
+            accessor: "userEmail",
           },
         ],
       },

@@ -6,7 +6,11 @@ export const CheckoutPageContainer = styled.div`
   align-items: center;
 `;
 
-export const CheckoutPageContent = styled.div``;
+export const CheckoutPageContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
 
 export const Title = styled.h1`
   font-size: 2.4rem;
@@ -15,7 +19,7 @@ export const Title = styled.h1`
   border-bottom: 2px solid black;
 
   @media screen and (max-width: 768px) {
-    font-size: 3.6rem;
+    font-size: 3rem;
   }
 `;
 
@@ -25,17 +29,17 @@ export const Table = styled.table`
   border-collapse: collapse;
 `;
 
-export const CheckoutItemsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`;
+export const CheckoutItemsContainer = styled.div``;
 
 export const Message = styled.h1`
   margin-top: 5rem;
   font-size: 2.4rem;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Total = styled.div`
@@ -43,8 +47,7 @@ export const Total = styled.div`
   margin-bottom: 1rem;
 
   @media screen and (max-width: 768px) {
-    font-size: 3.4rem;
-    margin-bottom: 2rem;
+    font-size: 2.4rem;
   }
 `;
 
@@ -54,8 +57,4 @@ export const TotalItems = styled.div``;
 
 export const TotalSpan = styled.span`
   font-weight: bold;
-
-  @media screen and (max-width: 768px) {
-    font-size: 4rem;
-  }
 `;
