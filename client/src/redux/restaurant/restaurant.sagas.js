@@ -15,9 +15,9 @@ import { RestaurantActionTypes } from "./restaurant.types";
 // * function* = Generator function
 export function* fetchRestaurantMenuAsync() {
   try {
-    const restaurantRef = firestore.collection("restaurantMenu");
+    const restaurantRef = firestore.collection("restaurant");
 
-    const snapshot = yield restaurantRef.get();
+    const snapshot = yield restaurantRef.orderBy("categoryID").get();
 
     const menuMap = yield call(convertRestaurantMenuSnapshotToMap, snapshot);
 

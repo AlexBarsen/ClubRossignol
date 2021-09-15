@@ -2,11 +2,15 @@ import React from "react";
 
 import {
   RestaurantItemContainer,
+  Wrapper,
+  ContainerName,
   RestaurantItemNameRO,
   RestaurantItemNameENG,
   DetailSpan,
+  ContainerDescription,
   DescriptionRO,
   DescriptionENG,
+  ContainerDetails,
   Price,
   Quantity,
 } from "./RestaurantItemElements";
@@ -24,17 +28,25 @@ const RestaurantItem = ({ item }) => {
 
   return (
     <RestaurantItemContainer>
-      <RestaurantItemNameRO>
-        {nameRO} <DetailSpan>{alergens}</DetailSpan>
-      </RestaurantItemNameRO>
-      <RestaurantItemNameENG>
-        {nameENG ? `( ${nameENG} )` : null}
-      </RestaurantItemNameENG>
-      <DescriptionRO>{descriptionRO}</DescriptionRO>
-      <DescriptionENG>{descriptionENG}</DescriptionENG>
+      <Wrapper>
+        <ContainerName>
+          <RestaurantItemNameRO>{nameRO}</RestaurantItemNameRO>
+          <RestaurantItemNameENG>
+            {nameENG ? `( ${nameENG} )` : null}
+          </RestaurantItemNameENG>
+        </ContainerName>
 
-      <Price>{price} RON</Price>
-      <Quantity>{quantity}</Quantity>
+        <ContainerDescription>
+          <DescriptionRO>{descriptionRO}</DescriptionRO>
+          <DescriptionENG>{descriptionENG}</DescriptionENG>
+          <DetailSpan>{alergens}</DetailSpan>
+        </ContainerDescription>
+      </Wrapper>
+
+      <ContainerDetails>
+        <Price>{price} RON</Price>
+        <Quantity>{quantity}</Quantity>
+      </ContainerDetails>
     </RestaurantItemContainer>
   );
 };

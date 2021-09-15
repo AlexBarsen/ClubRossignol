@@ -65,6 +65,7 @@ export const addCollectionAndDocuments = async (
   // * groups all calls into a single object
   const batch = firestore.batch();
 
+  console.log(objectsToAdd);
   // * function which creates a document for each object (in data.js) in firestore
   objectsToAdd.forEach((obj) => {
     // * reference to document from the collection
@@ -118,18 +119,6 @@ export const convertRestaurantMenuSnapshotToMap = (menu) => {
   }, {});
 };
 
-export const orderRestaurantMenuCollection = async () => {
-  try {
-    const restaurantMenuRef = firestore.collection("restaurantMenu");
-
-    const orderedMenu = await restaurantMenuRef.orderBy("categoryID").get();
-
-    console.log(orderedMenu);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 // * function which get's the current signed in user
 // * 1. returns user object if singed in
 // * 2. returns null(reject) if used isn't signed in
@@ -162,12 +151,5 @@ export const convertOrdersSnapshotToMap = (orders) => {
   });
   return transformedOrders.map((order) => order);
 };
-
-// export const updateOrderStatus = async (orderID, status) => {
-//   const userRef = firestore.doc(`users/${orderID}`);
-
-//   // * get snapShot of the userRef
-//   const snapShot = await userRef.get();
-// };
 
 export default firebase;

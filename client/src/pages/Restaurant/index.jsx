@@ -2,19 +2,24 @@ import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 
-import RestaurantCategory from "../../components/Landing/RestaurantCategory/index";
-
 import { fetchRestaurantMenuStart } from "../../redux/restaurant/restaurant.actions";
 
-import { orderRestaurantMenuCollection } from "../../firebase/firebase.utils";
+import RestaurantMenuContainer from "../../components/Landing/RestaurantMenu/RestaurantMenuContainer";
+
+import { RestaurantPageContainer } from "./RestaurantElements";
 
 const RestaurantPage = ({ fetchRestaurantMenuStart }) => {
   useEffect(() => {
     fetchRestaurantMenuStart();
   }, [fetchRestaurantMenuStart]);
 
-  orderRestaurantMenuCollection();
-  return <> </>;
+  return (
+    <>
+      <RestaurantPageContainer>
+        <RestaurantMenuContainer />
+      </RestaurantPageContainer>
+    </>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({
