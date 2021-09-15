@@ -2,20 +2,18 @@ import React from "react";
 
 import {
   RestaurantCategoryContainer,
+  IconContainer,
+  Icon,
   CategoryTitle,
 } from "./RestaurantCategoryElements";
 
-const RestaurantCategory = ({
-  categoryName,
-  categoryIcon,
-  products,
-  filterMenu,
-}) => {
+const RestaurantCategory = ({ categoryName, icon, products, filterMenu }) => {
   return (
-    <RestaurantCategoryContainer>
-      <CategoryTitle onClick={() => filterMenu(products)}>
-        {categoryName.toUpperCase()}
-      </CategoryTitle>
+    <RestaurantCategoryContainer onClick={() => filterMenu(products)}>
+      <IconContainer>
+        <Icon src={icon} />
+      </IconContainer>
+      <CategoryTitle>{categoryName.toUpperCase()}</CategoryTitle>
     </RestaurantCategoryContainer>
   );
 };

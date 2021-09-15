@@ -13,7 +13,8 @@ export const restaurantSection = {
     "In meniul nostru se regasesc mancaruri precum supe, ciorbe, salate, mancaruri gatite cat si pizza pe cuptor cu lemne.",
   buttonLabel: "Meniu",
   image: RestaurantImage,
-  route: "menu",
+  // route: "menu",
+  modal: true,
 };
 
 export const rentalSection = {

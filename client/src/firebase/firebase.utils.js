@@ -103,11 +103,12 @@ export const convertRentalsSnapshotToMap = (rentals) => {
 
 export const convertRestaurantMenuSnapshotToMap = (menu) => {
   const transformedMenu = menu.docs.map((doc) => {
-    const { categoryID, categoryName, products } = doc.data();
+    const { categoryID, categoryName, categoryIcon, products } = doc.data();
 
     return {
       id: doc.id,
       categoryID: categoryID,
+      icon: categoryIcon,
       categoryName,
       products,
     };

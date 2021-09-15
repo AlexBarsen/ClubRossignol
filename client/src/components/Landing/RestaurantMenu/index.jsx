@@ -10,6 +10,8 @@ import {
   RestaurantMenuContainer,
   RestaurantCategories,
   MenuContainer,
+  Element,
+  Message,
 } from "./RestaurantMenuElements";
 import { createStructuredSelector } from "reselect";
 import { selectMenuArray } from "../../../redux/restaurant/restaurant.selectors";
@@ -21,7 +23,6 @@ const RestaurantMenu = ({ restaurantMenu }) => {
     setMenuItems(items);
   };
 
-  console.log(restaurantMenu);
   return (
     <>
       <RestaurantMenuContainer>
@@ -35,13 +36,18 @@ const RestaurantMenu = ({ restaurantMenu }) => {
           ))}
         </RestaurantCategories>
 
-        <MenuContainer>
-          {menuItems
-            ? menuItems.map((item) => (
-                <RestaurantItem key={item.productID} item={item} />
-              ))
-            : null}
-        </MenuContainer>
+        <Element>
+          <MenuContainer>
+            {menuItems
+              ? menuItems.map((item) => (
+                  <RestaurantItem key={item.productID} item={item} />
+                ))
+              : null}
+          </MenuContainer>
+          {menuItems ? null : (
+            <Message>Selectati categoria dorita pentru vedea produsele</Message>
+          )}
+        </Element>
       </RestaurantMenuContainer>
     </>
   );

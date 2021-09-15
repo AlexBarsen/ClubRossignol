@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   InfoContainer,
   InfoWrapper,
@@ -16,6 +17,8 @@ import {
 
 import { ButtonLink } from "../Button/ButtonElement";
 
+import RestaurantModal from "../RestaurantModal/index";
+
 const InfoSection = ({ section, imgStart }) => {
   const {
     id,
@@ -26,6 +29,7 @@ const InfoSection = ({ section, imgStart }) => {
     buttonLabel,
     image,
     route,
+    modal,
     link,
   } = section;
 
@@ -43,6 +47,8 @@ const InfoSection = ({ section, imgStart }) => {
                 <ButtonWrapper>
                   {route ? (
                     <ButtonLink to={`/${route}`}>{buttonLabel}</ButtonLink>
+                  ) : modal ? (
+                    <RestaurantModal />
                   ) : (
                     <ButtonLink to={{ pathname: link }} target="_blank">
                       {buttonLabel}
