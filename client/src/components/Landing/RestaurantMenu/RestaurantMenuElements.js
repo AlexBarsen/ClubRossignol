@@ -9,7 +9,7 @@ export const RestaurantCategories = styled.div`
   gap: 1rem;
 
   @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 

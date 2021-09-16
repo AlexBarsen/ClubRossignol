@@ -18,7 +18,7 @@ const RestaurantCategory = ({ categoryName, icon, products, filterMenu }) => {
       <IconContainer>
         <Icon src={icon} />
       </IconContainer>
-      <CategoryTitle>{t(categoryName).toUpperCase()}</CategoryTitle>
+      <CategoryTitle>{t(categoryName)}</CategoryTitle>
     </RestaurantCategoryContainer>
   );
 };
