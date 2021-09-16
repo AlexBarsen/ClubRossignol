@@ -15,30 +15,23 @@ import {
   Quantity,
 } from "./RestaurantItemElements";
 
+import { useTranslation, usetranslation } from "react-i18next";
+
 const RestaurantItem = ({ item }) => {
-  const {
-    nameRO,
-    nameENG,
-    alergens,
-    quantity,
-    price,
-    descriptionRO,
-    descriptionENG,
-  } = item;
+  const { name, description, alergens, quantity, price } = item;
+
+  const { t } = useTranslation();
 
   return (
     <RestaurantItemContainer>
       <Wrapper>
         <ContainerName>
-          <RestaurantItemNameRO>{nameRO}</RestaurantItemNameRO>
-          <RestaurantItemNameENG>
-            {nameENG ? `( ${nameENG} )` : null}
-          </RestaurantItemNameENG>
+          <RestaurantItemNameRO>{t(name)}</RestaurantItemNameRO>
         </ContainerName>
 
         <ContainerDescription>
-          <DescriptionRO>{descriptionRO}</DescriptionRO>
-          <DescriptionENG>{descriptionENG}</DescriptionENG>
+          <DescriptionRO>{t(description)}</DescriptionRO>
+
           <DetailSpan>{alergens}</DetailSpan>
         </ContainerDescription>
       </Wrapper>

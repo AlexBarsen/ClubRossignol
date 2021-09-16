@@ -5,6 +5,7 @@ import ReactCountryFlag from "react-country-flag";
 
 import {
   LanguagesListContainer,
+  IconContainer,
   LanguagesList,
   Flag,
 } from "./LanguagesDropdownElements";
@@ -33,11 +34,13 @@ const LanguagesDropdown = () => {
   return (
     <>
       <LanguagesListContainer>
-        <BiWorld
-          size={30}
-          style={{ position: "relative" }}
-          onClick={() => setIsOpen(!isOpen)}
-        />
+        <IconContainer>
+          <BiWorld
+            size={30}
+            style={{ position: "relative" }}
+            onClick={() => setIsOpen(!isOpen)}
+          />{" "}
+        </IconContainer>
         {isOpen ? (
           <LanguagesList>
             {languages.map(({ code, name, country_code }) => (
@@ -45,13 +48,13 @@ const LanguagesDropdown = () => {
                 <ReactCountryFlag
                   countryCode={country_code}
                   style={{
-                    width: "3rem",
-                    height: "3rem",
-                    margin: "0.5rem",
+                    width: "5rem",
+                    height: "5rem",
+                    padding: ".5rem",
                   }}
                   svg
                 />
-                {name}
+                {/* {name} */}
               </Flag>
             ))}
           </LanguagesList>

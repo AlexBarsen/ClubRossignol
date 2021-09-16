@@ -8,15 +8,20 @@ export const RestaurantCategoryContainer = styled.div`
 
 export const CategoryTitle = styled.div`
   font-size: 1.6rem;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const IconContainer = styled.div`
-  width: 5rem;
+  width: 4rem;
+  height: 4rem;
 `;
 
 export const Icon = styled.img`
-  width: 100%;
+  height: 100%;
 `;
 
 export const RestaurantCategoryPreview = styled.div``;

@@ -14,8 +14,8 @@ export const RestaurantMenuModalContainer = styled.div`
 
 export const ModalOverlay = styled.div`
   z-index: 1;
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
   top: 0;
   left: 0;
   right: 0;
@@ -37,6 +37,19 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1rem;
+  min-width: 80%;
+  min-height: 60%;
   max-height: 80%;
-  max-width: 90%;
+  max-width: 95%;
+
+  @media screen and (max-width: 768px) {
+    top: 50%;
+    min-height: 80%;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
 `;

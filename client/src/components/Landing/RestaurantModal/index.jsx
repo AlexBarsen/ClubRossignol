@@ -4,6 +4,7 @@ import {
   RestaurantMenuModalContainer,
   ModalOverlay,
   ModalContent,
+  ButtonContainer,
 } from "./RestaurantModalElements";
 
 import { Button } from "../Button/ButtonElement";
@@ -32,7 +33,9 @@ const RestaurantModal = () => {
 
           <ModalContent>
             <RestaurantPage />
-            <button onClick={toggleModal}>close</button>
+            <ButtonContainer>
+              <Button onClick={toggleModal}>close</Button>
+            </ButtonContainer>
           </ModalContent>
         </RestaurantMenuModalContainer>
       )}

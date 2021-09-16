@@ -2,11 +2,15 @@ import React from "react";
 import { FaBars } from "react-icons/fa";
 
 import Logo from "../../../svg/logo.svg";
+
+import LanguagesDropdown from "../../RentalApp/LanguageDropdown/index";
+
 import {
   Nav,
   NavbarContainer,
   NavLogo,
   NavLogoSvg,
+  LanguageContainer,
   MobileIcon,
   NavMenu,
   NavItem,
@@ -20,6 +24,10 @@ export const Navbar = ({ toggle }) => {
     <>
       <Nav>
         <NavbarContainer>
+          <LanguageContainer>
+            <LanguagesDropdown />
+          </LanguageContainer>
+
           <NavLogo to="/ ">
             <NavLogoSvg src={Logo}></NavLogoSvg>
           </NavLogo>

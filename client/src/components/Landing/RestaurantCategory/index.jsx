@@ -7,13 +7,18 @@ import {
   CategoryTitle,
 } from "./RestaurantCategoryElements";
 
+import { useTranslation } from "react-i18next";
+
 const RestaurantCategory = ({ categoryName, icon, products, filterMenu }) => {
+  const { t } = useTranslation();
   return (
-    <RestaurantCategoryContainer onClick={() => filterMenu(products)}>
+    <RestaurantCategoryContainer
+      onClick={() => filterMenu(categoryName, products)}
+    >
       <IconContainer>
         <Icon src={icon} />
       </IconContainer>
-      <CategoryTitle>{categoryName.toUpperCase()}</CategoryTitle>
+      <CategoryTitle>{t(categoryName).toUpperCase()}</CategoryTitle>
     </RestaurantCategoryContainer>
   );
 };

@@ -21,6 +21,19 @@ export const NavbarContainer = styled.div`
   justify-content: space-around;
   height: 8rem;
   z-index: 1;
+  position: relative;
+`;
+
+export const LanguageContainer = styled.div`
+  color: white;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
 `;
 
 export const NavLogo = styled(LinkR)`
@@ -62,9 +75,7 @@ export const NavMenu = styled.ul`
   }
 `;
 
-export const NavItem = styled.li`
-  height: 80px;
-`;
+export const NavItem = styled.li``;
 
 export const NavLinks = styled(LinkS)`
   color: #fff;
