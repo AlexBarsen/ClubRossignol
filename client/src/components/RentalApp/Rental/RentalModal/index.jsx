@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import uuid from "react-uuid";
 import { connect } from "react-redux";
-import { DateRange } from "react-date-range";
+import { DateRange, Calendar } from "react-date-range";
 
 import {
   RentalModalContainer,
@@ -31,11 +31,12 @@ import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
 const RentalModal = ({ addItem, item }) => {
-  const { name, price, productType, icon } = item;
+  const { name, price, productType, adult, eBike, icon } = item;
 
   const [modalInputs, setModalInputs] = useState({
     firstName: "",
     lastName: "",
+    durata: "",
   });
 
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -45,6 +46,8 @@ const RentalModal = ({ addItem, item }) => {
     endDate: new Date(new Date().setDate(new Date().getDate() + 1)),
     key: "selection",
   });
+
+  const [date, setDate] = useState(null);
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -84,25 +87,48 @@ const RentalModal = ({ addItem, item }) => {
 
     toggleModal();
 
-    // * pass state into item
-    const orderItem = {
-      icon: icon,
-      name: name,
-      price: price,
-      id: uuid(),
-      productType: productType,
-      ...modalInputs,
-      startDate: startDate,
-      endDate: endDate,
-      days: days,
-    };
+    if (productType === "bike") {
+      const orderItem = {
+        icon: icon,
+        name: name,
+        price: modalInputs.durata,
+        id: uuid(),
+        productType: productType,
+        adult: adult,
+        eBike: eBike ? eBike : null,
+        ...modalInputs,
+        startDate: startDate,
+        endDate: endDate,
+        days: `${days} (${modalInputs.durata})`,
+      };
 
-    addItem(orderItem);
+      addItem(orderItem);
 
-    setModalInputs({
-      firstName: "",
-      lastName: "",
-    });
+      setModalInputs({
+        firstName: "",
+        lastName: "",
+      });
+    } else {
+      const orderItem = {
+        icon: icon,
+        name: name,
+        price: price,
+        id: uuid(),
+        productType: productType,
+        adult: adult,
+        ...modalInputs,
+        startDate: startDate,
+        endDate: endDate,
+        days: days,
+      };
+
+      addItem(orderItem);
+
+      setModalInputs({
+        firstName: "",
+        lastName: "",
+      });
+    }
   };
 
   // * function which updates the state for the "react-select" <Select>
@@ -123,9 +149,16 @@ const RentalModal = ({ addItem, item }) => {
       case "sex":
         setModalInputs({ ...modalInputs, sex: selected.value });
         break;
+      case "durata":
+        setModalInputs({ ...modalInputs, durata: selected.value });
+        break;
       default:
         break;
     }
+  };
+
+  const handleSelect = (date) => {
+    setDate(date);
   };
 
   // * set the state regarding the selected dates by the user
@@ -154,17 +187,46 @@ const RentalModal = ({ addItem, item }) => {
               <Form onSubmit={handleSubmit}>
                 <ContentWrapper>
                   <DateRangeWrapper>
-                    <DateRange
-                      className="modal__date-range"
-                      editableDateInputs={false}
-                      onInit={handleRangeChange}
-                      ranges={[dateRange]}
-                      onChange={handleRangeChange}
-                      minDate={
-                        new Date(new Date().setDate(new Date().getDate() + 1))
-                      }
-                      showDateDisplay={true}
-                    />
+                    {productType === "bike" ? (
+                      modalInputs.durata === "1 Zi / Day" ? (
+                        <DateRange
+                          editableDateInputs={false}
+                          onInit={handleRangeChange}
+                          ranges={[dateRange]}
+                          onChange={handleRangeChange}
+                          minDate={
+                            new Date(
+                              new Date().setDate(new Date().getDate() + 1)
+                            )
+                          }
+                          showDateDisplay={false}
+                        />
+                      ) : (
+                        <Calendar
+                          onChange={handleSelect}
+                          editableDateInputs={false}
+                          date={date}
+                          minDate={
+                            new Date(
+                              new Date().setDate(new Date().getDate() + 1)
+                            )
+                          }
+                          showDateDisplay={false}
+                        />
+                      )
+                    ) : (
+                      <DateRange
+                        // className="modal__date-range"
+                        editableDateInputs={false}
+                        onInit={handleRangeChange}
+                        ranges={[dateRange]}
+                        onChange={handleRangeChange}
+                        minDate={
+                          new Date(new Date().setDate(new Date().getDate() + 1))
+                        }
+                        showDateDisplay={false}
+                      />
+                    )}
                   </DateRangeWrapper>
 
                   <WrapperRight>
@@ -190,6 +252,8 @@ const RentalModal = ({ addItem, item }) => {
 
                       <RentalModalSelectTypes
                         productType={productType}
+                        adult={adult}
+                        eBike={eBike}
                         onChangeInput={onChangeInput.bind(this)}
                       />
                     </ModalInputs>

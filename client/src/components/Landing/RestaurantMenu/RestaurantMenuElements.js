@@ -6,10 +6,12 @@ export const RestaurantMenuContainer = styled.div``;
 export const RestaurantCategories = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  grid-template-rows: repeat(2, 1fr);
 
   @media screen and (max-width: 768px) {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 `;
 

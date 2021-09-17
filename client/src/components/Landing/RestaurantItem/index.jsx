@@ -4,18 +4,16 @@ import {
   RestaurantItemContainer,
   Wrapper,
   ContainerName,
-  RestaurantItemNameRO,
-  RestaurantItemNameENG,
+  RestaurantItemName,
   DetailSpan,
   ContainerDescription,
-  DescriptionRO,
-  DescriptionENG,
+  Description,
   ContainerDetails,
   Price,
   Quantity,
 } from "./RestaurantItemElements";
 
-import { useTranslation, usetranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const RestaurantItem = ({ item }) => {
   const { name, description, alergens, quantity, price } = item;
@@ -26,11 +24,11 @@ const RestaurantItem = ({ item }) => {
     <RestaurantItemContainer>
       <Wrapper>
         <ContainerName>
-          <RestaurantItemNameRO>{t(name)}</RestaurantItemNameRO>
+          <RestaurantItemName>{t(name)}</RestaurantItemName>
         </ContainerName>
 
         <ContainerDescription>
-          <DescriptionRO>{t(description)}</DescriptionRO>
+          <Description>{t(description)}</Description>
 
           <DetailSpan>{alergens}</DetailSpan>
         </ContainerDescription>

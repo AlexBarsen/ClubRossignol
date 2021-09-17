@@ -3,14 +3,26 @@ import React from "react";
 import { CustomSelect } from "./RentalModalSelectTypesElements";
 
 import {
+  shoeSizeOptionsAdult,
+  heightOptionsAdult,
+  weightOptionsAdult,
+  shoeSizeOptionsChild,
+  heightOptionsChild,
+  weightOptionsChild,
   sexOptions,
-  shoeSizeOptions,
-  heightOptions,
-  weightOptions,
   experienceOptions,
+  bikeAdultPrice,
+  eBikeAdultPrice,
+  bikeChildPrice,
+  eBikeChildPrice,
 } from "../RentalModal/options";
 
-const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
+const RentalModalSelectTypes = ({
+  productType,
+  adult,
+  eBike,
+  onChangeInput,
+}) => {
   // * <Select> custom styles
   const customStyles = {
     control: (provided, state) => ({
@@ -49,7 +61,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             placeholder="Marime Picior"
             name="shoeSize"
             onChange={onChangeInput}
-            options={shoeSizeOptions}
+            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
             styles={customStyles}
             isSearchable={false}
             required
@@ -74,7 +86,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             name="height"
             styles={customStyles}
             onChange={onChangeInput}
-            options={heightOptions}
+            options={adult ? heightOptionsAdult : heightOptionsChild}
             isSearchable={false}
             required
           />
@@ -84,7 +96,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             name="weight"
             styles={customStyles}
             onChange={onChangeInput}
-            options={weightOptions}
+            options={adult ? weightOptionsAdult : weightOptionsChild}
             isSearchable={false}
             required
           />
@@ -118,7 +130,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             name="height"
             styles={customStyles}
             onChange={onChangeInput}
-            options={heightOptions}
+            options={adult ? heightOptionsAdult : heightOptionsChild}
             isSearchable={false}
             required
           />
@@ -128,7 +140,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             name="weight"
             styles={customStyles}
             onChange={onChangeInput}
-            options={weightOptions}
+            options={adult ? weightOptionsAdult : weightOptionsChild}
             isSearchable={false}
             required
           />
@@ -138,7 +150,7 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             name="shoeSize"
             styles={customStyles}
             onChange={onChangeInput}
-            options={shoeSizeOptions}
+            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
             isSearchable={false}
             required
           />
@@ -159,6 +171,29 @@ const RentalModalSelectTypes = ({ productType, onChangeInput }) => {
             styles={customStyles}
             onChange={onChangeInput}
             options={sexOptions}
+            isSearchable={false}
+            required
+          />
+        </>
+      );
+
+    case "bike":
+      return (
+        <>
+          <CustomSelect
+            placeholder="Durata"
+            name="durata"
+            styles={customStyles}
+            onChange={onChangeInput}
+            options={
+              adult
+                ? eBike
+                  ? eBikeAdultPrice
+                  : bikeAdultPrice
+                : eBike
+                ? eBikeChildPrice
+                : bikeChildPrice
+            }
             isSearchable={false}
             required
           />

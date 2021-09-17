@@ -197,6 +197,7 @@ const EditModal = ({ cartItem, editItem }) => {
 
                       <EditModalSelectTypes
                         defaultValues={defaultValues}
+                        adult={cartItem.adult}
                         productType={cartItem.productType}
                         onChangeInput={onChangeInput.bind(this)}
                       />

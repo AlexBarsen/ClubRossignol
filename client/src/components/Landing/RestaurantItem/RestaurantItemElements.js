@@ -18,21 +18,13 @@ export const ContainerName = styled.div`
   flex-direction: column;
 `;
 
-export const RestaurantItemNameRO = styled.div`
+export const RestaurantItemName = styled.div`
   font-size: 1.8rem;
 
   @media screen and (max-width: 768px) {
     font-size: 2rem;
   }
   font-weight: bold;
-`;
-
-export const RestaurantItemNameENG = styled.div`
-  font-size: 1.6rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.8rem;
-  }
 `;
 
 export const DetailSpan = styled.span`
@@ -44,15 +36,7 @@ export const ContainerDescription = styled.div`
   flex-direction: column;
 `;
 
-export const DescriptionRO = styled.div`
-  font-size: 1.4rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 1.6rem;
-  }
-`;
-
-export const DescriptionENG = styled.div`
+export const Description = styled.div`
   font-size: 1.4rem;
 
   @media screen and (max-width: 768px) {

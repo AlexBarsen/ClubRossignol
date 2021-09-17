@@ -3,15 +3,19 @@ import React from "react";
 import { CustomSelect } from "./RentalEditModalSelectTypesElements";
 
 import {
+  shoeSizeOptionsAdult,
+  heightOptionsAdult,
+  weightOptionsAdult,
+  shoeSizeOptionsChild,
+  heightOptionsChild,
+  weightOptionsChild,
   sexOptions,
-  shoeSizeOptions,
-  heightOptions,
-  weightOptions,
   experienceOptions,
 } from "../RentalModal/options";
 
 const EditModalSelectTypes = ({
   productType,
+  adult,
   onChangeInput,
   defaultValues,
 }) => {
@@ -60,7 +64,7 @@ const EditModalSelectTypes = ({
                 : null
             }
             onChange={onChangeInput}
-            options={shoeSizeOptions}
+            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
             styles={customStyles}
             isSearchable={false}
           />
@@ -99,7 +103,7 @@ const EditModalSelectTypes = ({
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={heightOptions}
+            options={adult ? heightOptionsAdult : heightOptionsChild}
             isSearchable={false}
           />
 
@@ -116,7 +120,7 @@ const EditModalSelectTypes = ({
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={weightOptions}
+            options={adult ? weightOptionsAdult : weightOptionsChild}
             isSearchable={false}
           />
 
@@ -171,7 +175,7 @@ const EditModalSelectTypes = ({
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={heightOptions}
+            options={adult ? heightOptionsAdult : heightOptionsChild}
             isSearchable={false}
           />
 
@@ -188,7 +192,7 @@ const EditModalSelectTypes = ({
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={weightOptions}
+            options={adult ? weightOptionsAdult : weightOptionsChild}
             isSearchable={false}
           />
 
@@ -205,7 +209,7 @@ const EditModalSelectTypes = ({
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={shoeSizeOptions}
+            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
             isSearchable={false}
           />
 

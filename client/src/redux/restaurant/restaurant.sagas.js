@@ -17,7 +17,10 @@ export function* fetchRestaurantMenuAsync() {
   try {
     const restaurantRef = firestore.collection("restaurant");
 
-    const snapshot = yield restaurantRef.orderBy("categoryID").get();
+    const snapshot = yield restaurantRef
+      .where("categoryName", "!=", "Extra")
+      // .orderBy("categoryID")
+      .get();
 
     const menuMap = yield call(convertRestaurantMenuSnapshotToMap, snapshot);
 
