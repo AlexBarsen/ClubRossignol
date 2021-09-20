@@ -5,7 +5,11 @@ import RowSubComponent from "../RowSubComponent/index";
 
 import { Table, Head, Heading, Row, Data, Body } from "./AdminTableElements";
 
+import { useTranslation } from "react-i18next";
+
 const AdminTable = ({ data }) => {
+  const { t } = useTranslation();
+
   const columns = useMemo(
     () => [
       {
@@ -21,11 +25,11 @@ const AdminTable = ({ data }) => {
         Header: "Order",
         columns: [
           {
-            Header: "Order ID",
+            Header: t("order_id"),
             accessor: "orderID",
           },
           {
-            Header: "User Email",
+            Header: t("email"),
             accessor: "userEmail",
           },
         ],
@@ -34,15 +38,15 @@ const AdminTable = ({ data }) => {
         Header: "Info",
         columns: [
           {
-            Header: "Order Date",
+            Header: t("order_date"),
             accessor: "orderedAt",
           },
           {
-            Header: "Number of Items",
+            Header: t("items_ordered"),
             accessor: "numberOfItems",
           },
           {
-            Header: "Total",
+            Header: t("order_total"),
             accessor: "total",
           },
           {
@@ -52,7 +56,7 @@ const AdminTable = ({ data }) => {
         ],
       },
     ],
-    []
+    [t]
   );
 
   const tableInstance = useTable(

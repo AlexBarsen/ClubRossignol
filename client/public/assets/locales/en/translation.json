@@ -22,6 +22,24 @@
   "ebike_child": "E-Bike Child",
   "bike_child": "Mountainbike Child",
 
+  "height_modal": "Height (CM)",
+  "weight_modal": "Weight (KG)",
+  "shoeSize_modal": "Shoe Size (EUR)",
+  "experience_modal": "Experience Level",
+  "sex_modal": "Sex",
+  "timePeriod_modal": "Time Period",
+
+  "2h": "2 Hours",
+  "4h": "4 Hours",
+  "per_day": "Per Day",
+
+  "beginner": "Beginner",
+  "medium": "Medium",
+  "experienced": "Experienced",
+
+  "man": "Man",
+  "woman": "Woman",
+
   "product": "Product",
   "product_name": "Product Name",
   "person": "Person",

@@ -2,6 +2,8 @@ import React from "react";
 
 import { CustomSelect } from "./RentalEditModalSelectTypesElements";
 
+import { useTranslation } from "react-i18next";
+
 import {
   shoeSizeOptionsAdult,
   heightOptionsAdult,
@@ -9,8 +11,12 @@ import {
   shoeSizeOptionsChild,
   heightOptionsChild,
   weightOptionsChild,
-  sexOptions,
-  experienceOptions,
+  sexOptionsRO,
+  experienceOptionsRO,
+  bikesTimePeriodRO,
+  sexOptionsENG,
+  experienceOptionsENG,
+  bikesTimePeriodENG,
 } from "../RentalModal/options";
 
 const EditModalSelectTypes = ({
@@ -48,18 +54,23 @@ const EditModalSelectTypes = ({
       },
     }),
   };
+
+  const { t } = useTranslation();
+
+  const language = useTranslation().i18n.language;
+
   switch (productType) {
     case "boots":
       return (
         <>
           <CustomSelect
-            placeholder="Marime Picior"
+            placeholder={t("shoeSize_modal")}
             name="shoeSize"
             defaultValue={
               defaultValues.shoeSize
                 ? {
                     value: defaultValues.shoeSize,
-                    label: defaultValues.shoeSize,
+                    label: defaultValues.shoeSize + " EUR",
                   }
                 : null
             }
@@ -70,18 +81,18 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
               defaultValues.sex
                 ? {
                     value: defaultValues.sex,
-                    label: defaultValues.sex,
+                    label: t(defaultValues.sex),
                   }
                 : null
             }
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             styles={customStyles}
             isSearchable={false}
           />
@@ -91,13 +102,13 @@ const EditModalSelectTypes = ({
       return (
         <>
           <CustomSelect
-            placeholder="Inaltime (CM)"
+            placeholder={t("height_modal")}
             name="height"
             defaultValue={
               defaultValues.height
                 ? {
                     value: defaultValues.height,
-                    label: defaultValues.height,
+                    label: defaultValues.height + " CM",
                   }
                 : null
             }
@@ -108,13 +119,13 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Greutate (KG)"
+            placeholder={t("weight_modal")}
             name="weight"
             defaultValue={
               defaultValues.weight
                 ? {
                     value: defaultValues.weight,
-                    label: defaultValues.weight,
+                    label: defaultValues.weight + " KG",
                   }
                 : null
             }
@@ -125,36 +136,38 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Nivel Experienta"
+            placeholder={t("experience_modal")}
             name="experience"
             defaultValue={
               defaultValues.experience
                 ? {
                     value: defaultValues.experience,
-                    label: defaultValues.experience,
+                    label: t(defaultValues.experience),
                   }
                 : null
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={experienceOptions}
+            options={
+              language === "ro" ? experienceOptionsRO : experienceOptionsENG
+            }
             isSearchable={false}
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
               defaultValues.sex
                 ? {
                     value: defaultValues.sex,
-                    label: defaultValues.sex,
+                    label: t(defaultValues.sex),
                   }
                 : null
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             isSearchable={false}
           />
         </>
@@ -163,13 +176,13 @@ const EditModalSelectTypes = ({
       return (
         <>
           <CustomSelect
-            placeholder="Inaltime (CM)"
+            placeholder={t("height_modal")}
             name="height"
             defaultValue={
               defaultValues.height
                 ? {
                     value: defaultValues.height,
-                    label: defaultValues.height,
+                    label: defaultValues.height + " CM",
                   }
                 : null
             }
@@ -180,13 +193,13 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Greutate (KG)"
+            placeholder={t("weight_modal")}
             name="weight"
             defaultValue={
               defaultValues.weight
                 ? {
                     value: defaultValues.weight,
-                    label: defaultValues.weight,
+                    label: defaultValues.weight + " KG",
                   }
                 : null
             }
@@ -197,13 +210,13 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Marime Picior"
+            placeholder={t("shoeSize_modal")}
             name="shoeSize"
             defaultValue={
               defaultValues.shoeSize
                 ? {
                     value: defaultValues.shoeSize,
-                    label: defaultValues.shoeSize,
+                    label: defaultValues.shoeSize + " EUR",
                   }
                 : null
             }
@@ -214,37 +227,66 @@ const EditModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Nivel Experienta"
+            placeholder={t("experience_modal")}
             name="experience"
             defaultValue={
               defaultValues.experience
                 ? {
                     value: defaultValues.experience,
-                    label: defaultValues.experience,
+                    label: t(defaultValues.experience),
                   }
                 : null
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={experienceOptions}
+            options={
+              language === "ro" ? experienceOptionsRO : experienceOptionsENG
+            }
             isSearchable={false}
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
               defaultValues.sex
                 ? {
                     value: defaultValues.sex,
-                    label: defaultValues.sex,
+                    label: t(defaultValues.sex),
                   }
                 : null
             }
             styles={customStyles}
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             isSearchable={false}
+          />
+        </>
+      );
+    case "bike":
+      return (
+        <>
+          <CustomSelect
+            placeholder={t("timePeriod_modal")}
+            name="timePeriod"
+            defaultValue={
+              defaultValues.timePeriod
+                ? {
+                    value: defaultValues.timePeriod,
+                    label:
+                      defaultValues.timePeriod === "per_day"
+                        ? `${t("per_day")}`
+                        : defaultValues.timePeriod === "2h"
+                        ? `${t("2h")}`
+                        : `${t("4h")}`,
+                  }
+                : null
+            }
+            styles={customStyles}
+            onChange={onChangeInput}
+            options={language === "ro" ? bikesTimePeriodRO : bikesTimePeriodENG}
+            isSearchable={false}
+            required
           />
         </>
       );

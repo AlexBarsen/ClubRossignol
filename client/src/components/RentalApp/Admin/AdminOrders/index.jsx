@@ -7,6 +7,8 @@ import AdminTable from "../AdminTable/index";
 
 import { AdminTableContainer } from "./AdminOrdersElements";
 
+import { useTranslation } from "react-i18next";
+
 const AdminOrders = ({ orders }) => {
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -18,10 +20,13 @@ const AdminOrders = ({ orders }) => {
     return day + "/" + month + "/" + year + " " + hour + ":" + minutes;
   };
 
+  const { t } = useTranslation();
+
   const transformedOrders = orders.map((order) => {
     const orderedAt = transformDate(order.orderedAt.toDate());
     return {
       ...order,
+      status: t(order.status),
       orderedAt: orderedAt,
       numberOfItems: order.orderedItems.length,
     };

@@ -28,7 +28,11 @@ const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
             <BoldSpan>
               {days} {days === 1 ? "zi" : "zile"}
             </BoldSpan>
-            {timePeriod ? ` (${timePeriod})` : null}
+            {timePeriod
+              ? timePeriod === "days"
+                ? null
+                : `(${timePeriod})`
+              : null}
           </DateContent>
         </Dates>
       </RentalModalInfoContainer>

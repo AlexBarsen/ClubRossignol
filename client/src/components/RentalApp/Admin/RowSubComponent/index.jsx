@@ -10,6 +10,8 @@ import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
 
 import AdminOrderItem from "../AdminOrderItem/index";
 
+import { useTranslation } from "react-i18next";
+
 import {
   Wrapper,
   AdminOrderedItems,
@@ -30,10 +32,12 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
     updateOrderStatusStart(orderID, orderStatus);
   };
 
+  const { t } = useTranslation();
+
   const options = [
-    { value: "recevied", label: "received" },
-    { value: "prepared", label: "prepared" },
-    { value: "complete", label: "complete" },
+    { value: "received", label: t("received") },
+    { value: "prepared", label: t("prepared") },
+    { value: "complete", label: t("complete") },
   ];
 
   const customStyles = {
@@ -67,7 +71,7 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
             <Select
               defaultValue={{
                 value: orderStatus,
-                label: orderStatus,
+                label: t(orderStatus),
               }}
               onChange={handleStatusChange}
               styles={customStyles}

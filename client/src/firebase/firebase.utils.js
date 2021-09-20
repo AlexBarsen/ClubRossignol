@@ -65,7 +65,6 @@ export const addCollectionAndDocuments = async (
   // * groups all calls into a single object
   const batch = firestore.batch();
 
-  console.log(objectsToAdd);
   // * function which creates a document for each object (in data.js) in firestore
   objectsToAdd.forEach((obj) => {
     // * reference to document from the collection

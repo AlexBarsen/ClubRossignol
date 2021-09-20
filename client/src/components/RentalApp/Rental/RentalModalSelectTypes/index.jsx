@@ -9,20 +9,17 @@ import {
   shoeSizeOptionsChild,
   heightOptionsChild,
   weightOptionsChild,
-  sexOptions,
-  experienceOptions,
-  bikeAdultPrice,
-  eBikeAdultPrice,
-  bikeChildPrice,
-  eBikeChildPrice,
+  sexOptionsRO,
+  experienceOptionsRO,
+  bikesTimePeriodRO,
+  sexOptionsENG,
+  experienceOptionsENG,
+  bikesTimePeriodENG,
 } from "../RentalModal/options";
 
-const RentalModalSelectTypes = ({
-  productType,
-  adult,
-  eBike,
-  onChangeInput,
-}) => {
+import { useTranslation } from "react-i18next";
+
+const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
   // * <Select> custom styles
   const customStyles = {
     control: (provided, state) => ({
@@ -53,12 +50,16 @@ const RentalModalSelectTypes = ({
     }),
   };
 
+  const { t } = useTranslation();
+
+  const language = useTranslation().i18n.language;
+
   switch (productType) {
     case "boots":
       return (
         <>
           <CustomSelect
-            placeholder="Marime Picior"
+            placeholder={t("shoeSize_modal")}
             name="shoeSize"
             onChange={onChangeInput}
             options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
@@ -68,10 +69,10 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             styles={customStyles}
             isSearchable={false}
             required
@@ -82,7 +83,7 @@ const RentalModalSelectTypes = ({
       return (
         <>
           <CustomSelect
-            placeholder="Inaltime (CM)"
+            placeholder={t("height_modal")}
             name="height"
             styles={customStyles}
             onChange={onChangeInput}
@@ -92,7 +93,7 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Greutate (KG)"
+            placeholder={t("weight_modal")}
             name="weight"
             styles={customStyles}
             onChange={onChangeInput}
@@ -102,21 +103,23 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Nivel Experienta"
+            placeholder={t("experience_modal")}
             name="experience"
             styles={customStyles}
             onChange={onChangeInput}
-            options={experienceOptions}
+            options={
+              language === "ro" ? experienceOptionsRO : experienceOptionsENG
+            }
             isSearchable={false}
             required
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             styles={customStyles}
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             isSearchable={false}
             required
           />
@@ -126,7 +129,7 @@ const RentalModalSelectTypes = ({
       return (
         <>
           <CustomSelect
-            placeholder="Inaltime (CM)"
+            placeholder={t("height_modal")}
             name="height"
             styles={customStyles}
             onChange={onChangeInput}
@@ -136,7 +139,7 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Greutate (KG)"
+            placeholder={t("weight_modal")}
             name="weight"
             styles={customStyles}
             onChange={onChangeInput}
@@ -146,7 +149,7 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Marime Picior"
+            placeholder={t("shoeSize_modal")}
             name="shoeSize"
             styles={customStyles}
             onChange={onChangeInput}
@@ -156,21 +159,23 @@ const RentalModalSelectTypes = ({
           />
 
           <CustomSelect
-            placeholder="Nivel Experienta"
+            placeholder={t("experience_modal")}
             name="experience"
             styles={customStyles}
             onChange={onChangeInput}
-            options={experienceOptions}
+            options={
+              language === "ro" ? experienceOptionsRO : experienceOptionsENG
+            }
             isSearchable={false}
             required
           />
 
           <CustomSelect
-            placeholder="Sex"
+            placeholder={t("sex_modal")}
             name="sex"
             styles={customStyles}
             onChange={onChangeInput}
-            options={sexOptions}
+            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
             isSearchable={false}
             required
           />
@@ -181,19 +186,11 @@ const RentalModalSelectTypes = ({
       return (
         <>
           <CustomSelect
-            placeholder="Durata"
+            placeholder={t("timePeriod_modal")}
             name="timePeriod"
             styles={customStyles}
             onChange={onChangeInput}
-            options={
-              adult
-                ? eBike
-                  ? eBikeAdultPrice
-                  : bikeAdultPrice
-                : eBike
-                ? eBikeChildPrice
-                : bikeChildPrice
-            }
+            options={language === "ro" ? bikesTimePeriodRO : bikesTimePeriodENG}
             isSearchable={false}
             required
           />

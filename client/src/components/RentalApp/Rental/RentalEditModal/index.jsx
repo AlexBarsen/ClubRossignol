@@ -25,7 +25,7 @@ import {
 
 import { Button } from "../../Button/ButtonElement";
 
-import { DateRange } from "react-date-range";
+import { DateRange, Calendar } from "react-date-range";
 import "react-date-range/dist/styles.css"; // * main css file
 import "react-date-range/dist/theme/default.css"; // * theme css file
 
@@ -34,11 +34,11 @@ import FormInput from "../../FormInput/index";
 import { FiEdit } from "react-icons/fi";
 
 const EditModal = ({ cartItem, editItem }) => {
-  const [item, setItem] = useState(cartItem);
-
   useEffect(() => {
     setItem(cartItem);
   }, [cartItem]);
+
+  const [item, setItem] = useState(cartItem);
 
   const [modalVisibility, setModalVisibility] = useState(false);
 
@@ -55,6 +55,8 @@ const EditModal = ({ cartItem, editItem }) => {
     endDate: initialEndDate,
     key: "selection",
   });
+
+  const [date, setDate] = useState(initialStartDate);
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -100,6 +102,9 @@ const EditModal = ({ cartItem, editItem }) => {
       case "sex":
         setItem({ ...item, sex: selected.value });
         break;
+      case "timePeriod":
+        setItem({ ...item, timePeriod: selected.value });
+        break;
       default:
         break;
     }
@@ -116,6 +121,11 @@ const EditModal = ({ cartItem, editItem }) => {
     const newRange = newRangeSelection.selection;
 
     setDateRange({ ...newRange });
+  };
+
+  const handleSelectDate = (date) => {
+    setDate(date);
+    setDateRange({ startDate: date, endDate: date, key: "selection" });
   };
 
   const handleSubmit = (event) => {
@@ -144,6 +154,7 @@ const EditModal = ({ cartItem, editItem }) => {
     sex: cartItem.sex,
     shoeSize: cartItem.shoeSize,
     weight: cartItem.weight,
+    timePeriod: cartItem.timePeriod,
   };
 
   return (
@@ -161,17 +172,45 @@ const EditModal = ({ cartItem, editItem }) => {
               <Form onSubmit={handleSubmit}>
                 <ContentWrapper>
                   <DateRangeWrapper>
-                    <DateRange
-                      className="modal__date-range"
-                      editableDateInputs={false}
-                      onInit={handleRangeChange}
-                      ranges={[dateRange]}
-                      onChange={handleRangeChange}
-                      minDate={
-                        new Date(new Date().setDate(new Date().getDate() + 1))
-                      }
-                      showDateDisplay={true}
-                    />
+                    {item.productType === "bike" ? (
+                      item.timePeriod === "days" ? (
+                        <DateRange
+                          editableDateInputs={false}
+                          onInit={handleRangeChange}
+                          ranges={[dateRange]}
+                          onChange={handleRangeChange}
+                          minDate={
+                            new Date(
+                              new Date().setDate(new Date().getDate() + 1)
+                            )
+                          }
+                          showDateDisplay={false}
+                        />
+                      ) : (
+                        <Calendar
+                          onChange={handleSelectDate}
+                          editableDateInputs={false}
+                          date={date}
+                          minDate={
+                            new Date(
+                              new Date().setDate(new Date().getDate() + 1)
+                            )
+                          }
+                          showDateDisplay={false}
+                        />
+                      )
+                    ) : (
+                      <DateRange
+                        editableDateInputs={false}
+                        onInit={handleRangeChange}
+                        ranges={[dateRange]}
+                        onChange={handleRangeChange}
+                        minDate={
+                          new Date(new Date().setDate(new Date().getDate() + 1))
+                        }
+                        showDateDisplay={false}
+                      />
+                    )}
                   </DateRangeWrapper>
 
                   <WrapperRight>

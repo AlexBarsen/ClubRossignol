@@ -31,7 +31,14 @@ import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
 const RentalModal = ({ addItem, item }) => {
-  const { name, price, productType, adult, eBike, icon, prices } = item;
+  const {
+    name,
+    price = null,
+    productType,
+    adult = null,
+    icon,
+    prices = null,
+  } = item;
 
   const [modalInputs, setModalInputs] = useState({
     firstName: "",
@@ -139,8 +146,6 @@ const RentalModal = ({ addItem, item }) => {
             : prices[2],
         id: uuid(),
         productType: productType,
-        adult: adult,
-        eBike: eBike ? eBike : null,
         ...modalInputs,
         startDate: startDate,
         endDate: endDate,
@@ -148,12 +153,6 @@ const RentalModal = ({ addItem, item }) => {
       };
 
       addItem(orderItem);
-
-      setModalInputs({
-        firstName: "",
-        lastName: "",
-        timePeriod: "",
-      });
     } else {
       const orderItem = {
         icon: icon,
@@ -161,22 +160,20 @@ const RentalModal = ({ addItem, item }) => {
         price: price,
         id: uuid(),
         productType: productType,
-        adult: adult,
-        firstName: modalInputs.firstName,
-        lastName: modalInputs.lastName,
+        ...modalInputs,
         startDate: startDate,
         endDate: endDate,
         days: days,
       };
 
       addItem(orderItem);
-
-      setModalInputs({
-        firstName: "",
-        lastName: "",
-        timePeriod: "",
-      });
     }
+
+    setModalInputs({
+      firstName: "",
+      lastName: "",
+      timePeriod: "",
+    });
   };
 
   return (
@@ -197,7 +194,7 @@ const RentalModal = ({ addItem, item }) => {
                 <ContentWrapper>
                   <DateRangeWrapper>
                     {productType === "bike" ? (
-                      modalInputs.timePeriod === "1d+" ? (
+                      modalInputs.timePeriod === "per_day" ? (
                         <DateRange
                           editableDateInputs={false}
                           onInit={handleRangeChange}
@@ -259,7 +256,6 @@ const RentalModal = ({ addItem, item }) => {
                       <RentalModalSelectTypes
                         productType={productType}
                         adult={adult}
-                        eBike={eBike}
                         onChangeInput={onChangeInput.bind(this)}
                       />
                     </ModalInputs>

@@ -69,27 +69,27 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
           <WrapperDetails>
             {sex ? (
               <Detail>
-                <DetailSpan>{t("sex")}:</DetailSpan> {sex}
+                <DetailSpan>{t("sex")}:</DetailSpan> {t(sex)}
               </Detail>
             ) : null}
             {weight ? (
               <Detail>
-                <DetailSpan>{t("weight")}:</DetailSpan> {weight}
+                <DetailSpan>{t("weight")}:</DetailSpan> {weight} (KG)
               </Detail>
             ) : null}
             {height ? (
               <Detail>
-                <DetailSpan>{t("height")}:</DetailSpan> {height}
+                <DetailSpan>{t("height")}:</DetailSpan> {height} (CM)
               </Detail>
             ) : null}
             {shoeSize ? (
               <Detail>
-                <DetailSpan>{t("shoeSize")}:</DetailSpan> {shoeSize}
+                <DetailSpan>{t("shoeSize")}:</DetailSpan> {shoeSize} (EUR)
               </Detail>
             ) : null}
             {experience ? (
               <Detail>
-                <DetailSpan>{t("experience")} :</DetailSpan> {experience}
+                <DetailSpan>{t("experience")} :</DetailSpan> {t(experience)}
               </Detail>
             ) : null}
           </WrapperDetails>
@@ -104,8 +104,8 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
             <Detail>
               <DetailSpan>{t("days")}:</DetailSpan> {days}{" "}
               {timePeriod
-                ? timePeriod !== "1d+"
-                  ? `(${timePeriod})`
+                ? timePeriod !== "per_day"
+                  ? `(${t(timePeriod)})`
                   : null
                 : null}
             </Detail>
@@ -116,7 +116,7 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
               <DetailSpan>{price}</DetailSpan> RON x{" "}
               <DetailSpan>
                 {timePeriod
-                  ? timePeriod !== "1d+"
+                  ? timePeriod !== "per_day"
                     ? `(${timePeriod})`
                     : `${days} ${t("days")}`
                   : `${days} ${t("days")}`}

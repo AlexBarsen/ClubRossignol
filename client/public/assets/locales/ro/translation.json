@@ -23,6 +23,24 @@
   "bike_child": "Mountainbike Copil",
   "ron_day": "RON / ZI",
 
+  "height_modal": "Înălțime (CM)",
+  "weight_modal": "Greutate (KG)",
+  "shoeSize_modal": "Mărime Picior (EUR)",
+  "experience_modal": "Nivel Experiență",
+  "sex_modal": "Sex",
+  "timePeriod_modal": "Durată",
+
+  "2h": "2 Ore",
+  "4h": "4 Ore",
+  "per_day": "Pe Zi",
+
+  "beginner": "Începător",
+  "medium": "Mediu",
+  "experienced": "Experimentat",
+
+  "man": "Bărbat",
+  "woman": "Femeie",
+
   "product": "Produs",
   "product_name": "Nume Produs",
   "person": "Persoană",

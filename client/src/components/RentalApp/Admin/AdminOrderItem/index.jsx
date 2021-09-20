@@ -2,6 +2,8 @@ import React from "react";
 
 import Checkbox from "../../Checkbox";
 
+import { useTranslation } from "react-i18next";
+
 import {
   AdminOrderItemContainer,
   Wrapper,
@@ -30,28 +32,54 @@ const AdminOrderItem = ({ item, status }) => {
 
   const currentStatus = status === "received" ? false : true;
 
+  const { t } = useTranslation();
+
   return (
     <>
       <AdminOrderItemContainer>
         <Wrapper>
-          <Detail>{name}</Detail>
+          <Detail>{t(name)}</Detail>
           <Detail>
             {firstName} {lastName}
           </Detail>
           <DetailsContainer>
-            {sex ? <Detail>Sex: {sex}</Detail> : null}
-            {shoeSize ? <Detail>Shoe Size: {shoeSize}</Detail> : null}
-            {weight ? <Detail>Weight: {weight}</Detail> : null}
-            {height ? <Detail>Height: {height}</Detail> : null}
-            {experience ? <Detail>Experience: {experience}</Detail> : null}
+            {sex ? (
+              <Detail>
+                {t("sex")}: {t(sex)}
+              </Detail>
+            ) : null}
+            {shoeSize ? (
+              <Detail>
+                {t("shoeSize")}: {shoeSize}
+              </Detail>
+            ) : null}
+            {weight ? (
+              <Detail>
+                {t("weight")}: {weight}
+              </Detail>
+            ) : null}
+            {height ? (
+              <Detail>
+                {t("height")}: {height}
+              </Detail>
+            ) : null}
+            {experience ? (
+              <Detail>
+                {t("experience")}: {t(experience)}
+              </Detail>
+            ) : null}
           </DetailsContainer>
           <DetailsContainer>
-            <Detail>From: {startDate}</Detail>
-            <Detail>To: {endDate}</Detail>
             <Detail>
-              Days:{" "}
+              {t("from")}: {startDate}
+            </Detail>
+            <Detail>
+              {t("to")}: {endDate}
+            </Detail>
+            <Detail>
+              {t("days")}:{" "}
               {timePeriod
-                ? timePeriod !== "1d+"
+                ? timePeriod !== "days"
                   ? `${days} (${timePeriod})`
                   : `${days} days`
                 : `${days} days`}
@@ -63,12 +91,12 @@ const AdminOrderItem = ({ item, status }) => {
               size={25}
               name={id}
               checked={currentStatus}
-              label="Pregatita"
+              label={t("prepared")}
             />
           )}
         </Wrapper>
         <PriceDetail>
-          Price: {days} x {price}RON = {days * price}RON
+          {t("price")}: {days} x {price}RON = {days * price}RON
         </PriceDetail>
       </AdminOrderItemContainer>
     </>
