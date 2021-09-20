@@ -8,7 +8,7 @@ import {
   BoldSpan,
 } from "./RentalModalInfoElements";
 
-const RentalModalInfo = ({ startDate, endDate, days }) => {
+const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
   return (
     <>
       <RentalModalInfoContainer>
@@ -24,10 +24,11 @@ const RentalModalInfo = ({ startDate, endDate, days }) => {
             Pana in data de: <BoldSpan>{endDate}</BoldSpan>
           </DateContent>
           <DateContent>
-            Durata inchiriere:{" "}
+            Durata inchiriere:
             <BoldSpan>
               {days} {days === 1 ? "zi" : "zile"}
             </BoldSpan>
+            {timePeriod ? ` (${timePeriod})` : null}
           </DateContent>
         </Dates>
       </RentalModalInfoContainer>

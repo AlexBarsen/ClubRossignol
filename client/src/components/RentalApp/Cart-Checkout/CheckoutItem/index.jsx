@@ -40,6 +40,7 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
     days,
     startDate,
     endDate,
+    timePeriod,
   } = cartItem;
 
   const { t } = useTranslation();
@@ -101,14 +102,25 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
               <DetailSpan>{t("to")}:</DetailSpan> {endDate}
             </Detail>
             <Detail>
-              <DetailSpan>{t("days")}:</DetailSpan> {days}
+              <DetailSpan>{t("days")}:</DetailSpan> {days}{" "}
+              {timePeriod
+                ? timePeriod !== "1d+"
+                  ? `(${timePeriod})`
+                  : null
+                : null}
             </Detail>
           </WrapperDates>
 
           <WrapperPrice>
             <Detail>
               <DetailSpan>{price}</DetailSpan> RON x{" "}
-              <DetailSpan>{days}</DetailSpan> days
+              <DetailSpan>
+                {timePeriod
+                  ? timePeriod !== "1d+"
+                    ? `(${timePeriod})`
+                    : `${days} ${t("days")}`
+                  : `${days} ${t("days")}`}
+              </DetailSpan>{" "}
             </Detail>
             <Detail>
               <DetailSpan>Total: </DetailSpan>

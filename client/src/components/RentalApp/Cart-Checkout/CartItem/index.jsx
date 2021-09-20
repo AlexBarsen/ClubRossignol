@@ -18,7 +18,8 @@ import {
 } from "./CartItemElements";
 
 const CartItem = ({ item, clearItemFromCart }) => {
-  const { icon, price, name, firstName, lastName, days } = item;
+  const { icon, price, name, firstName, lastName, days, timePeriod } = item;
+  console.log(timePeriod);
 
   const { t } = useTranslation();
 
@@ -37,7 +38,11 @@ const CartItem = ({ item, clearItemFromCart }) => {
           <Detail>{t(name)}</Detail>
 
           <Detail>
-            {days} x {price}RON = {days * price}RON
+            {timePeriod
+              ? timePeriod !== "1d+"
+                ? `${timePeriod} x ${price}RON = ${price}`
+                : `${days} days x ${price}RON = ${days * price}RON`
+              : `${days} days x ${price}RON = ${days * price}RON`}
           </Detail>
         </Wrapper>
 

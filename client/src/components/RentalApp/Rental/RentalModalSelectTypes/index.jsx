@@ -182,7 +182,7 @@ const RentalModalSelectTypes = ({
         <>
           <CustomSelect
             placeholder="Durata"
-            name="durata"
+            name="timePeriod"
             styles={customStyles}
             onChange={onChangeInput}
             options={

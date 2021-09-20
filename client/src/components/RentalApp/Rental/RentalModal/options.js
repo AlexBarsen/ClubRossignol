@@ -430,25 +430,25 @@ export const experienceOptions = [
 ];
 
 export const bikeAdultPrice = [
-  { value: "2 Ore / Hours", label: "2 Ore / Hours" },
-  { value: "2 Ore / Hours", label: "4 Ore" },
-  { value: "1 Zi / Day", label: "1 Zi / Day" },
+  { value: "2h", label: "2 Ore / Hours" },
+  { value: "4h", label: "4 Ore" },
+  { value: "1d+", label: "1 + Zile / Days" },
 ];
 
 export const eBikeAdultPrice = [
-  { value: "2 Ore / Hours", label: "2 Ore / Hours" },
-  { value: "2 Ore / Hours", label: "2 Ore / Hours" },
-  { value: "1 Zi / Day", label: "1 Zi / Day" },
+  { value: "2h", label: "2 Ore / Hours" },
+  { value: "4h", label: "4 Ore / Hours" },
+  { value: "1d+", label: "1 + Zile / Days" },
 ];
 
 export const bikeChildPrice = [
-  { value: "2 Ore / Hours", label: "2 Ore / Hours" },
-  { value: "2 Ore / Hours", label: "4 Ore / Hours" },
-  { value: "1 Zi / Day", label: "1 Zi / Day" },
+  { value: "2h", label: "2 Ore / Hours" },
+  { value: "4h", label: "4 Ore / Hours" },
+  { value: "1d+", label: "1 + Zile / Days" },
 ];
 
 export const eBikeChildPrice = [
-  { value: "2 Ore / Hours", label: "2 Ore / Hours" },
-  { value: "4 Ore / Hours", label: "4 Ore / Hours" },
-  { value: "1 Zi / Day", label: "1 Zi / Day" },
+  { value: "2h", label: "2 Ore / Hours" },
+  { value: "4h", label: "4 Ore / Hours" },
+  { value: "1d+", label: "1 + Zile / Days" },
 ];

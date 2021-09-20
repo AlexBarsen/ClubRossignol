@@ -31,12 +31,12 @@ import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
 const RentalModal = ({ addItem, item }) => {
-  const { name, price, productType, adult, eBike, icon } = item;
+  const { name, price, productType, adult, eBike, icon, prices } = item;
 
   const [modalInputs, setModalInputs] = useState({
     firstName: "",
     lastName: "",
-    durata: "",
+    timePeriod: "",
   });
 
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -47,7 +47,9 @@ const RentalModal = ({ addItem, item }) => {
     key: "selection",
   });
 
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState(
+    new Date(new Date().setDate(new Date().getDate() + 1))
+  );
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -82,55 +84,6 @@ const RentalModal = ({ addItem, item }) => {
     setModalInputs({ ...modalInputs, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    toggleModal();
-
-    if (productType === "bike") {
-      const orderItem = {
-        icon: icon,
-        name: name,
-        price: modalInputs.durata,
-        id: uuid(),
-        productType: productType,
-        adult: adult,
-        eBike: eBike ? eBike : null,
-        ...modalInputs,
-        startDate: startDate,
-        endDate: endDate,
-        days: `${days} (${modalInputs.durata})`,
-      };
-
-      addItem(orderItem);
-
-      setModalInputs({
-        firstName: "",
-        lastName: "",
-      });
-    } else {
-      const orderItem = {
-        icon: icon,
-        name: name,
-        price: price,
-        id: uuid(),
-        productType: productType,
-        adult: adult,
-        ...modalInputs,
-        startDate: startDate,
-        endDate: endDate,
-        days: days,
-      };
-
-      addItem(orderItem);
-
-      setModalInputs({
-        firstName: "",
-        lastName: "",
-      });
-    }
-  };
-
   // * function which updates the state for the "react-select" <Select>
   const onChangeInput = (selected, props) => {
     switch (props.name) {
@@ -149,16 +102,17 @@ const RentalModal = ({ addItem, item }) => {
       case "sex":
         setModalInputs({ ...modalInputs, sex: selected.value });
         break;
-      case "durata":
-        setModalInputs({ ...modalInputs, durata: selected.value });
+      case "timePeriod":
+        setModalInputs({ ...modalInputs, timePeriod: selected.value });
         break;
       default:
         break;
     }
   };
 
-  const handleSelect = (date) => {
+  const handleSelectDate = (date) => {
     setDate(date);
+    setDateRange({ startDate: date, endDate: date, key: "selection" });
   };
 
   // * set the state regarding the selected dates by the user
@@ -168,7 +122,62 @@ const RentalModal = ({ addItem, item }) => {
     setDateRange({ ...newRange });
   };
 
-  const { firstName, lastName } = modalInputs;
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    toggleModal();
+
+    if (productType === "bike") {
+      const orderItem = {
+        icon: icon,
+        name: name,
+        price:
+          modalInputs.timePeriod === "2h"
+            ? prices[0]
+            : modalInputs.timePeriod === "4h"
+            ? prices[1]
+            : prices[2],
+        id: uuid(),
+        productType: productType,
+        adult: adult,
+        eBike: eBike ? eBike : null,
+        ...modalInputs,
+        startDate: startDate,
+        endDate: endDate,
+        days: `${days}`,
+      };
+
+      addItem(orderItem);
+
+      setModalInputs({
+        firstName: "",
+        lastName: "",
+        timePeriod: "",
+      });
+    } else {
+      const orderItem = {
+        icon: icon,
+        name: name,
+        price: price,
+        id: uuid(),
+        productType: productType,
+        adult: adult,
+        firstName: modalInputs.firstName,
+        lastName: modalInputs.lastName,
+        startDate: startDate,
+        endDate: endDate,
+        days: days,
+      };
+
+      addItem(orderItem);
+
+      setModalInputs({
+        firstName: "",
+        lastName: "",
+        timePeriod: "",
+      });
+    }
+  };
 
   return (
     <>
@@ -188,7 +197,7 @@ const RentalModal = ({ addItem, item }) => {
                 <ContentWrapper>
                   <DateRangeWrapper>
                     {productType === "bike" ? (
-                      modalInputs.durata === "1 Zi / Day" ? (
+                      modalInputs.timePeriod === "1d+" ? (
                         <DateRange
                           editableDateInputs={false}
                           onInit={handleRangeChange}
@@ -203,7 +212,7 @@ const RentalModal = ({ addItem, item }) => {
                         />
                       ) : (
                         <Calendar
-                          onChange={handleSelect}
+                          onChange={handleSelectDate}
                           editableDateInputs={false}
                           date={date}
                           minDate={
@@ -216,7 +225,6 @@ const RentalModal = ({ addItem, item }) => {
                       )
                     ) : (
                       <DateRange
-                        // className="modal__date-range"
                         editableDateInputs={false}
                         onInit={handleRangeChange}
                         ranges={[dateRange]}
@@ -232,20 +240,18 @@ const RentalModal = ({ addItem, item }) => {
                   <WrapperRight>
                     <ModalInputs>
                       <FormInput
-                        className="modal__rental-info--input"
                         name="firstName"
                         type="text"
                         label="Nume"
-                        value={firstName}
+                        value={modalInputs.firstName}
                         onChange={handleChange}
                         required
                       />
                       <FormInput
-                        className="modal__rental-info--input"
                         name="lastName"
                         type="text"
                         label="Prenume"
-                        value={lastName}
+                        value={modalInputs.lastName}
                         onChange={handleChange}
                         required
                       />
@@ -262,6 +268,7 @@ const RentalModal = ({ addItem, item }) => {
                       startDate={startDate}
                       endDate={endDate}
                       days={days}
+                      timePeriod={modalInputs.timePeriod}
                     />
 
                     <ButtonContainer>

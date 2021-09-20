@@ -25,9 +25,10 @@ const AdminOrderItem = ({ item, status }) => {
     experience,
     shoeSize,
     startDate,
+    timePeriod,
   } = item;
 
-  const currentStatus = status === "recevied" ? false : true;
+  const currentStatus = status === "received" ? false : true;
 
   return (
     <>
@@ -47,7 +48,14 @@ const AdminOrderItem = ({ item, status }) => {
           <DetailsContainer>
             <Detail>From: {startDate}</Detail>
             <Detail>To: {endDate}</Detail>
-            <Detail>Days: {days}</Detail>
+            <Detail>
+              Days:{" "}
+              {timePeriod
+                ? timePeriod !== "1d+"
+                  ? `${days} (${timePeriod})`
+                  : `${days} days`
+                : `${days} days`}
+            </Detail>
           </DetailsContainer>
 
           {status === "complete" ? null : (

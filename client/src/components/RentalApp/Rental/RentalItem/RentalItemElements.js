@@ -24,8 +24,8 @@ export const RentalItemContainer = styled.div`
   width: 26rem;
   box-shadow: 0.3rem 0.3rem 1rem #656565;
 
-  animation: ${fadeIn} 2s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  /* animation: ${fadeIn} 2s ease-in-out;
+  transition: all 0.5s ease-in-out; */
 `;
 
 export const IconContainer = styled.div`
