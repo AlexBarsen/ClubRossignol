@@ -1,17 +1,22 @@
 import "./App.scss";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Home from "./pages/Home/index";
-import RentalPage from "./pages/Rental/index.jsx";
-import RestaurantPage from "./pages/Restaurant/index";
+import Spinner from "./components/Spinner/index";
+
+const Home = lazy(() => import("./pages/Home/index"));
+const RentalPage = lazy(() => import("./pages/Rental/index"));
+const RestaurantPage = lazy(() => import("./pages/Restaurant/index"));
 
 const App = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/rental" component={RentalPage} />
-        <Route exact path="/menu" component={RestaurantPage} />
+        <Suspense fallback={<Spinner />}>
+          <Route exact path="/" component={Home} />
+          <Route path="/rental" component={RentalPage} />
+          <Route exact path="/menu" component={RestaurantPage} />
+        </Suspense>
       </Switch>
     </div>
   );

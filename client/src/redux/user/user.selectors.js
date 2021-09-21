@@ -25,6 +25,11 @@ export const selectUserSignUpHidden = createSelector(
 //   (user) => user.isFetching
 // );
 
+export const selectDidCheckUserSession = createSelector(
+  [selectUser],
+  (user) => !!user.checkUserSession
+);
+
 export const selectIsUserOrdersLoaded = createSelector(
   [selectUser],
   (user) => !!user.orders

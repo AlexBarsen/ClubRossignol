@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   userSignUpHidden: true,
   error: null,
   orders: null,
+  checkUserSession: false,
 };
 
 // * reducers take in a current state + action -> return a new state
@@ -58,6 +59,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
         errorMessage: action.payload,
       };
+    case UserActionTypes.CHECK_USER_SESSION: {
+      return {
+        ...state,
+        checkUserSession: true,
+      };
+    }
     default:
       return state;
   }

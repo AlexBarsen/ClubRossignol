@@ -142,10 +142,10 @@ export function* fetchUserOrdersStart() {
 export function* userSagas() {
   yield all([
     call(onEmailSignInStart),
-    call(isUserAuthenticated),
     call(onSignOutStart),
     call(onSignUpStart),
     call(onSignUpSuccess),
+    call(onCheckUserSession),
     call(fetchUserOrdersStart),
   ]);
 }
