@@ -25,6 +25,8 @@ import { checkUserSession } from "../../redux/user/user.actions";
 
 import Spinner from "../../components/Spinner/index";
 
+import ErrorBoundary from "../../components/ErrorBoundary/index";
+
 const CheckoutPage = lazy(() => import("../Checkout/index"));
 const DashboardPage = lazy(() => import("../Dashboard/index"));
 const AdminDashboardPage = lazy(() => import("../AdminDashboard/index"));
@@ -72,41 +74,41 @@ const RentalPage = ({
 
         <RentalContent>
           <Switch>
-            <Suspense fallback={<Spinner />}>
-              <Route
-                exact
-                path={`${match.path}`}
-                component={RentalOverviewContainer}
-              />
+            <ErrorBoundary>
+              <Suspense fallback={<Spinner />}>
+                <Route
+                  exact
+                  path={`${match.path}`}
+                  component={RentalOverviewContainer}
+                />
 
-              <Route
-                exact
-                path={`${match.path}/category/:categoryName`}
-                component={CategoryPageContainer}
-              />
+                <Route
+                  exact
+                  path={`${match.path}/category/:categoryName`}
+                  component={CategoryPageContainer}
+                />
 
-              <Route
-                exact
-                path={`${match.path}/checkout`}
-                component={CheckoutPage}
-              />
+                <Route
+                  exact
+                  path={`${match.path}/checkout`}
+                  component={CheckoutPage}
+                />
 
-              <ProtectedRoute
-                exact
-                path={`${match.path}/dashboard`}
-                component={DashboardPage}
-                isAuth={currentUser}
-              />
+                <ProtectedRoute
+                  exact
+                  path={`${match.path}/dashboard`}
+                  component={DashboardPage}
+                  isAuth={currentUser}
+                />
 
-              <PrivateRoute
-                exact
-                path={`${match.path}/admin`}
-                component={AdminDashboardPage}
-                isAuth={currentUser}
-              />
-
-              <Route render={() => <Redirect to="/rental" />} />
-            </Suspense>
+                <PrivateRoute
+                  exact
+                  path={`${match.path}/admin`}
+                  component={AdminDashboardPage}
+                  isAuth={currentUser}
+                />
+              </Suspense>
+            </ErrorBoundary>
           </Switch>
         </RentalContent>
       </Wrapper>

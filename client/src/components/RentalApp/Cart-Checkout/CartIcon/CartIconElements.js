@@ -20,6 +20,13 @@ export const IconContainer = styled.div`
 
 export const Icon = styled.img`
   filter: invert(100%);
+  width: 40px;
+  height: 40px;
+
+  @media screen and (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 export const ItemCount = styled.span`

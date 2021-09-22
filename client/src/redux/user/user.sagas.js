@@ -55,8 +55,15 @@ export function* emailSignUp({
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
 
+    yield user.sendEmailVerification();
+
+    alert("Verfication Email has been sent");
+
     yield put(
-      signUpSuccess({ user, additionalData: { firstName, lastName, phone } })
+      signUpSuccess({
+        user,
+        additionalData: { firstName, lastName, phone },
+      })
     );
   } catch (error) {
     yield put(signUpFailure(error));

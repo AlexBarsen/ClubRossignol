@@ -10,7 +10,9 @@ import {
 } from "./CategoryElements.js";
 
 const CategoryPage = ({ category }) => {
+  if (!category) throw Error;
   const { categoryName, products } = category;
+
   return (
     <CategoryPageContainer>
       <Title>{categoryName}</Title>

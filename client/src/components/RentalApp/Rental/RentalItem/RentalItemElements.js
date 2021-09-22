@@ -32,12 +32,14 @@ export const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 18rem;
+
   border-bottom: 3px solid black;
 `;
 
 export const Icon = styled.img`
   padding: 2rem;
-  height: 100%;
+  height: 18rem;
+  width: 18rem;
 `;
 
 export const Footer = styled.div`
