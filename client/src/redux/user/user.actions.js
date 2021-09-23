@@ -64,6 +64,20 @@ export const signOutFailure = (error) => ({
   payload: error,
 });
 
+export const passwordResetStart = (email) => ({
+  type: UserActionTypes.PASSWORD_RESET_START,
+  payload: email,
+});
+
+export const passwordResetSuccess = () => ({
+  type: UserActionTypes.PASSWORD_RESET_SUCCESS,
+});
+
+export const passwordResetFailure = (error) => ({
+  type: UserActionTypes.PASSWORD_RESET_FAILURE,
+  payload: error,
+});
+
 // * Orders
 
 export const fetchUserOrdersStart = (email) => ({

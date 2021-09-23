@@ -16,6 +16,7 @@ import {
   Form,
   Heading,
   ButtonsContainer,
+  Wrapper,
   Paragraph,
 } from "./SignInElements";
 
@@ -76,9 +77,12 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
           />
 
           <ButtonsContainer>
-            <Button type="submit" buttonType="signIn">
-              Sign In
-            </Button>
+            <Wrapper>
+              <Button type="submit" buttonType="signIn">
+                Sign In
+              </Button>
+              <Button buttonType="signIn">Password ?</Button>
+            </Wrapper>
             <Paragraph>Don't have an account?</Paragraph>
             <SignUpModal type="button" />
           </ButtonsContainer>

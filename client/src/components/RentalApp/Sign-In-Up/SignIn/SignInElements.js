@@ -30,6 +30,10 @@ export const ButtonsContainer = styled.div`
   flex-direction: column;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
 export const Paragraph = styled.p`
   color: black;
   font-size: 1.6rem;

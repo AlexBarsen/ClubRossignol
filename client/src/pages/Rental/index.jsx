@@ -1,7 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { connect } from "react-redux";
 
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { RentalPageContainer, RentalContent } from "./RentaPageElements";
 
@@ -26,6 +26,8 @@ import { checkUserSession } from "../../redux/user/user.actions";
 import Spinner from "../../components/Spinner/index";
 
 import ErrorBoundary from "../../components/ErrorBoundary/index";
+
+import PasswordReset from "../../components/RentalApp/Sign-In-Up/PasswordReset/index";
 
 const CheckoutPage = lazy(() => import("../Checkout/index"));
 const DashboardPage = lazy(() => import("../Dashboard/index"));
@@ -86,6 +88,12 @@ const RentalPage = ({
                   exact
                   path={`${match.path}/category/:categoryName`}
                   component={CategoryPageContainer}
+                />
+
+                <Route
+                  exact
+                  path={`${match.path}/reset`}
+                  component={PasswordReset}
                 />
 
                 <Route

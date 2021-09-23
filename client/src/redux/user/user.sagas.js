@@ -16,6 +16,8 @@ import {
   signUpSuccess,
   fetchUserOrdersSuccess,
   fetchUserOrdersFailure,
+  passwordResetSuccess,
+  passwordResetFailure,
 } from "./user.actions";
 import { UserActionTypes } from "./user.types";
 
@@ -96,6 +98,18 @@ export function* signOut() {
   }
 }
 
+// *passwordReset
+export function* passwordReset({ payload: { email } }) {
+  console.log(email);
+  try {
+    yield auth.sendPasswordResetEmail(email);
+
+    yield put(passwordResetSuccess());
+  } catch (error) {
+    yield put(passwordResetFailure(error));
+  }
+}
+
 // * generator functions catch the dispatches and fire other functions*
 export function* onEmailSignInStart() {
   yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
@@ -117,6 +131,11 @@ export function* onSignUpStart() {
 export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
+
+export function* onPasswordResetStart() {
+  yield takeLatest(UserActionTypes.PASSWORD_RESET_START, passwordReset);
+}
+
 // * Orders sagas
 
 export function* fetchUserOrdersAsync({ payload: { currentUser } }) {
@@ -152,6 +171,7 @@ export function* userSagas() {
     call(onSignOutStart),
     call(onSignUpStart),
     call(onSignUpSuccess),
+    call(onPasswordResetStart),
     call(onCheckUserSession),
     call(fetchUserOrdersStart),
   ]);

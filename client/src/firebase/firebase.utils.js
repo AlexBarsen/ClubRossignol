@@ -26,8 +26,6 @@ export const firestore = firebase.firestore();
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
-  // console.log(userAuth);
-
   // * get a reference at /users/userAuth.uid (reference the user document)
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
@@ -36,7 +34,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   // * if the Snapshot doesn’t exist, then destructure the email of userAuth() and proceed with creating the user document
   if (!snapShot.exists) {
-    const { email } = userAuth;
+    const { email, emailVerified } = userAuth;
     const createdAt = new Date();
     const role = "user";
 
@@ -46,10 +44,27 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         email,
         createdAt,
         role,
+        emailVerified,
         ...additionalData,
       });
     } catch (error) {
       console.log("error creating user", error.message);
+    }
+  }
+
+  if (snapShot.exists) {
+    if (
+      snapShot.data().emailVerified === false &&
+      userAuth.emailVerified === true
+    ) {
+      try {
+        await userRef.set({
+          ...snapShot.data(),
+          emailVerified: userAuth.emailVerified,
+        });
+      } catch (error) {
+        console.log("error updating email verification", error);
+      }
     }
   }
 
