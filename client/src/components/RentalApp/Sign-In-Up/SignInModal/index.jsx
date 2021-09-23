@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectUserSignInHidden } from "../../../../redux/user/user.selectors";
@@ -15,13 +15,23 @@ import {
 import { Button } from "../../Button/ButtonElement";
 
 import SignIn from "../SignIn/index";
+import SignUp from "../SignUp/index";
+import PasswordReset from "../PasswordReset/index";
 
 const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
   // const [modalVisibility, setModalVisibility] = useState(userSignInHidden);
 
+  const [state, setState] = useState("sign");
+
+  const handleChange2 = (display) => {
+    setState(display);
+  };
+
   // * toggle visible OR hidden Modal depeding on the state
   const toggleModal = () => {
     toggleUserSignInHidden();
+
+    handleChange2("sign");
 
     if (!userSignInHidden) {
       document.body.style.overflow = "unset";
@@ -39,8 +49,18 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
           <ModalOverlay></ModalOverlay>
 
           <ModalContent>
-            <SignIn />
+            {/* <SignIn /> */}
+            {state === "sign" ? (
+              <SignIn handleChange2={handleChange2} />
+            ) : state === "signUp" ? (
+              <SignUp handleChange2={handleChange2} />
+            ) : (
+              <PasswordReset handleChange2={handleChange2} />
+            )}
 
+            {/* <SignUp /> */}
+
+            {/* <button onClick={() => setState("signUp")}>change</button> */}
             <CloseButtonContainer>
               <Button buttonType="close" onClick={toggleModal}>
                 ❌

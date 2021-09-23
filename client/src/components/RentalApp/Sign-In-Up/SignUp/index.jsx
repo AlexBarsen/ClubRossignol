@@ -14,7 +14,7 @@ import {
   ButtonContainer,
 } from "./SignUpElements";
 
-const SignUp = ({ emailSignUpStart }) => {
+const SignUp = ({ emailSignUpStart, handleChange2 }) => {
   const [userCredentials, setCredentials] = useState({
     firstName: "",
     lastName: "",
@@ -123,6 +123,8 @@ const SignUp = ({ emailSignUpStart }) => {
             </Button>
           </ButtonContainer>
         </Form>
+        <button onClick={() => handleChange2("reset")}> reset</button>
+        <button onClick={() => handleChange2("sign")}> Sign In</button>
       </SignUpContainer>
     </>
   );

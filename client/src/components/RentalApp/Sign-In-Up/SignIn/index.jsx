@@ -24,7 +24,11 @@ import SignUpModal from "../SignUpModal/index";
 
 import { connect } from "react-redux";
 
-const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
+const SignIn = ({
+  emailSignInStart,
+  toggleUserSignUpHidden,
+  handleChange2,
+}) => {
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -84,9 +88,11 @@ const SignIn = ({ emailSignInStart, toggleUserSignUpHidden }) => {
               <Button buttonType="signIn">Password ?</Button>
             </Wrapper>
             <Paragraph>Don't have an account?</Paragraph>
-            <SignUpModal type="button" />
+            {/* <SignUpModal type="button" /> */}
           </ButtonsContainer>
         </Form>
+        <button onClick={() => handleChange2("signUp")}>Sign Up</button>
+        <button onClick={() => handleChange2("reset")}>Reset</button>
       </SignInContainer>
     </>
   );

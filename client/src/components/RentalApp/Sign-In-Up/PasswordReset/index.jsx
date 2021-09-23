@@ -15,7 +15,7 @@ import { Button } from "../../Button/ButtonElement";
 
 import { PasswordResetContainer, Form, Heading } from "./PasswordResetElements";
 
-const ResetPassword = ({ passwordResetStart }) => {
+const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
   const [emails, setEmails] = useState({
     email: "",
     confirmEmail: "",
@@ -66,6 +66,8 @@ const ResetPassword = ({ passwordResetStart }) => {
 
         <button onClick={handleSubmit}>Reset</button>
       </Form>
+      <button onClick={() => handleChange2("signUp")}>Sign Up</button>
+      <button onClick={() => handleChange2("reset")}>Reset</button>
     </PasswordResetContainer>
   );
 };
