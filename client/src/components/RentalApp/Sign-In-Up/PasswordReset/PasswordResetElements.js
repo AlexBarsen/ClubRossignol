@@ -23,3 +23,8 @@ export const Heading = styled.h1`
     font-size: 3.2rem;
   }
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

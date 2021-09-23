@@ -10,7 +10,8 @@ import {
 } from "./UserInformationElements";
 
 const UserInformation = ({ currentUser }) => {
-  const { firstName, lastName, email, phone } = currentUser;
+  const { firstName, lastName, email, phone, dateOfBirth, verifiedEmail } =
+    currentUser;
 
   const { t } = useTranslation();
   return (
@@ -26,8 +27,16 @@ const UserInformation = ({ currentUser }) => {
             {lastName}
           </Detail>
           <Detail>
+            <Detail>
+              <DetailSpan> Date of birth: </DetailSpan>
+              {dateOfBirth}
+            </Detail>
             <DetailSpan> {t("email")}: </DetailSpan>
             {email}
+          </Detail>
+          <Detail>
+            <DetailSpan> E-Mail verified: </DetailSpan>
+            {verifiedEmail ? "true" : "false"}
           </Detail>
           <Detail>
             <DetailSpan> {t("phone")}: </DetailSpan>

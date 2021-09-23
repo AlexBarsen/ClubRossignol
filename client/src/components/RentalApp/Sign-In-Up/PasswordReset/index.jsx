@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 
-import { createStructuredSelector } from "reselect";
-
 import {
   toggleUserSignUpHidden,
   toggleUserSignInHidden,
@@ -13,7 +11,12 @@ import {
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
-import { PasswordResetContainer, Form, Heading } from "./PasswordResetElements";
+import {
+  PasswordResetContainer,
+  Form,
+  Heading,
+  ButtonsContainer,
+} from "./PasswordResetElements";
 
 const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
   const [emails, setEmails] = useState({
@@ -64,10 +67,20 @@ const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
           required
         />
 
-        <button onClick={handleSubmit}>Reset</button>
+        <Button buttonType="signIn" onClick={handleSubmit}>
+          Reset Password
+        </Button>
       </Form>
-      <button onClick={() => handleChange2("signUp")}>Sign Up</button>
-      <button onClick={() => handleChange2("reset")}>Reset</button>
+
+      <ButtonsContainer>
+        <Button buttonType="signIn" onClick={() => handleChange2("signUp")}>
+          Sign Up
+        </Button>
+
+        <Button buttonType="signIn" onClick={() => handleChange2("reset")}>
+          Reset
+        </Button>
+      </ButtonsContainer>
     </PasswordResetContainer>
   );
 };

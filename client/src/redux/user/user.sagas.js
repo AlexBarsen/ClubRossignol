@@ -52,7 +52,7 @@ export function* isUserAuthenticated() {
 
 // * signUp
 export function* emailSignUp({
-  payload: { email, password, firstName, lastName, phone },
+  payload: { email, password, firstName, lastName, phone, dateOfBirth },
 }) {
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
@@ -64,7 +64,7 @@ export function* emailSignUp({
     yield put(
       signUpSuccess({
         user,
-        additionalData: { firstName, lastName, phone },
+        additionalData: { firstName, lastName, phone, dateOfBirth },
       })
     );
   } catch (error) {
@@ -100,7 +100,6 @@ export function* signOut() {
 
 // *passwordReset
 export function* passwordReset({ payload: { email } }) {
-  console.log(email);
   try {
     yield auth.sendPasswordResetEmail(email);
 

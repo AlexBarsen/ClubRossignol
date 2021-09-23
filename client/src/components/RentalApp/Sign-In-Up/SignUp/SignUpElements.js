@@ -24,10 +24,17 @@ export const HeadingSecondary = styled.h2`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.form``;
+
+export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    justify-content: flex-end;
+  }
 
   @media screen and (max-width: 900px) {
     display: flex;
@@ -35,6 +42,8 @@ export const Form = styled.form`
   }
 `;
 
-export const ButtonContainer = styled.div`
-  margin-top: 2rem;
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 2rem; */
 `;

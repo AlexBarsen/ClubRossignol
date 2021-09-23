@@ -20,7 +20,7 @@ import {
   Paragraph,
 } from "./SignInElements";
 
-import SignUpModal from "../SignUpModal/index";
+import AccountModal from "../AccountModal/index";
 
 import { connect } from "react-redux";
 
@@ -85,14 +85,20 @@ const SignIn = ({
               <Button type="submit" buttonType="signIn">
                 Sign In
               </Button>
-              <Button buttonType="signIn">Password ?</Button>
+              {/* <Button buttonType="signIn">Password ?</Button> */}
+              <Button
+                buttonType="signIn"
+                onClick={() => handleChange2("reset")}
+              >
+                Reset Password
+              </Button>
             </Wrapper>
             <Paragraph>Don't have an account?</Paragraph>
-            {/* <SignUpModal type="button" /> */}
+            <Button buttonType="signIn" onClick={() => handleChange2("signUp")}>
+              Sign Up
+            </Button>
           </ButtonsContainer>
         </Form>
-        <button onClick={() => handleChange2("signUp")}>Sign Up</button>
-        <button onClick={() => handleChange2("reset")}>Reset</button>
       </SignInContainer>
     </>
   );

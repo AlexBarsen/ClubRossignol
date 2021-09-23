@@ -27,8 +27,6 @@ import Spinner from "../../components/Spinner/index";
 
 import ErrorBoundary from "../../components/ErrorBoundary/index";
 
-import PasswordReset from "../../components/RentalApp/Sign-In-Up/PasswordReset/index";
-
 const CheckoutPage = lazy(() => import("../Checkout/index"));
 const DashboardPage = lazy(() => import("../Dashboard/index"));
 const AdminDashboardPage = lazy(() => import("../AdminDashboard/index"));
@@ -88,12 +86,6 @@ const RentalPage = ({
                   exact
                   path={`${match.path}/category/:categoryName`}
                   component={CategoryPageContainer}
-                />
-
-                <Route
-                  exact
-                  path={`${match.path}/reset`}
-                  component={PasswordReset}
                 />
 
                 <Route

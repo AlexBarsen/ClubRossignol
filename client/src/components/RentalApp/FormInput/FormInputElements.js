@@ -22,6 +22,13 @@ export const Input = styled.input`
   border-radius: 0.5rem;
   outline: none;
 
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
   @media screen and (max-width: 768px) {
     height: 6rem;
     font-size: 3rem;

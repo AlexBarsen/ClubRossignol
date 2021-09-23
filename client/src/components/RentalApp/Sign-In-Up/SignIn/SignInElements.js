@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const SignInContainer = styled.div`
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
 `;
 
 export const Form = styled.form`
   padding: 2rem;
-  width: 100%;
+  width: 45rem;
 `;
 
 export const Heading = styled.h1`
@@ -32,6 +31,7 @@ export const ButtonsContainer = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const Paragraph = styled.p`

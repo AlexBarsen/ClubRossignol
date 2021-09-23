@@ -5,8 +5,8 @@ import { FaBars } from "react-icons/fa";
 
 import CartDropdown from "../Cart-Checkout/CartDropdown/index";
 
-import SignInModal from "../Sign-In-Up/SignInModal/index";
-import SignUpModal from "../Sign-In-Up/SignUpModal/index";
+import AccountModal from "../Sign-In-Up/AccountModal/index";
+// import SignUpModal from "../Sign-In-Up/SignUpModal/index";
 
 import { createStructuredSelector } from "reselect";
 
@@ -62,9 +62,9 @@ const Navbar = ({
 
           {currentUser ? null : (
             <>
-              <SignInModal />
+              <AccountModal />
 
-              <SignUpModal />
+              {/* <SignUpModal /> */}
             </>
           )}
 

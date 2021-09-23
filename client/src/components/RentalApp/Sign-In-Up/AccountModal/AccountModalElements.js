@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const HeaderOption = styled.div`
-  color: #fff;
+  color: white;
   text-decoration: none;
-  margin-right: 2rem;
   font-size: 2rem;
+  margin-right: 2rem;
   cursor: pointer;
 
   @media screen and (max-width: 768px) {
@@ -22,7 +22,7 @@ export const HeaderOption = styled.div`
   }
 `;
 
-export const SignUpModalContanier = styled.div`
+export const SignInModalContanier = styled.div`
   z-index: 1;
   width: 100vw;
   height: 100vh;
@@ -63,13 +63,21 @@ export const ModalContent = styled.div`
   background: #f1f1f1;
   padding: 2rem 4rem;
   border-radius: 1.5rem;
-  max-height: 150rem;
+  min-width: 50rem;
+  max-height: 120rem;
   max-width: 150rem;
 
-  @media screen and (max-width: 900px) {
-    top: 45%;
-    width: 75rem;
+  @media screen and (max-width: 600px) {
+    top: 35%;
+    width: 72rem;
   }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
 `;
 
 export const Title = styled.h1`
@@ -78,5 +86,5 @@ export const Title = styled.h1`
 
 export const CloseButtonContainer = styled.div`
   position: absolute;
-  right: 3rem;
+  right: 2rem;
 `;

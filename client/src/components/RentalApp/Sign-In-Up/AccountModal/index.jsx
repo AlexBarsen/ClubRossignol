@@ -9,8 +9,9 @@ import {
   SignInModalContanier,
   ModalOverlay,
   ModalContent,
+  Wrapper,
   CloseButtonContainer,
-} from "./SignInModalElements";
+} from "./AccountModalElements";
 
 import { Button } from "../../Button/ButtonElement";
 
@@ -18,7 +19,7 @@ import SignIn from "../SignIn/index";
 import SignUp from "../SignUp/index";
 import PasswordReset from "../PasswordReset/index";
 
-const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
+const AccountModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
   // const [modalVisibility, setModalVisibility] = useState(userSignInHidden);
 
   const [state, setState] = useState("sign");
@@ -41,7 +42,7 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
   };
   return (
     <>
-      <HeaderOption onClick={toggleModal}>Sign In</HeaderOption>
+      <HeaderOption onClick={toggleModal}>Account</HeaderOption>
 
       {/* render Modal depending on the state */}
       {!userSignInHidden && (
@@ -49,6 +50,7 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
           <ModalOverlay></ModalOverlay>
 
           <ModalContent>
+            {/* <Wrapper><h1>Sign In</h1> <h1>Sign Up</h1></Wrapper> */}
             {/* <SignIn /> */}
             {state === "sign" ? (
               <SignIn handleChange2={handleChange2} />
@@ -57,9 +59,7 @@ const SignInModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
             ) : (
               <PasswordReset handleChange2={handleChange2} />
             )}
-
             {/* <SignUp /> */}
-
             {/* <button onClick={() => setState("signUp")}>change</button> */}
             <CloseButtonContainer>
               <Button buttonType="close" onClick={toggleModal}>
@@ -83,4 +83,4 @@ const mapDispatchToProps = (dispatch) => ({
   toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInModal);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountModal);
