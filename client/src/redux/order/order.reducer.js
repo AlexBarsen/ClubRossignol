@@ -1,6 +1,7 @@
 import OrderActionTypes from "./order.types";
 import { updateOrderStatus } from "./order.utils";
 import { toast } from "react-toastify";
+import i18next from "i18next";
 
 const INITIAL_STATE = {
   orders: null,
@@ -33,15 +34,21 @@ const orderReducer = (state = INITIAL_STATE, action) => {
         isUpdating: true,
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_SUCCESS:
-      toast.success("Order status has been updated sucessfully");
+      toast.success(
+        i18next.language === "en"
+          ? "Order status has been successfully updated"
+          : "Statusul comenzii a fost actualizat cu succes"
+      );
       return {
         ...state,
         isUpdating: false,
         orders: updateOrderStatus(state.orders, action.payload),
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_FAILURE:
-      toast.error(
-        `Order status has failed to update. Error: ${action.payload.message} `
+      toast.success(
+        i18next.language === "en"
+          ? `Order status update has failed. Error: ${action.payload.message}`
+          : `Actualizarea statusului comenzii a eșuat. Error: ${action.payload.message}`
       );
       return {
         ...state,

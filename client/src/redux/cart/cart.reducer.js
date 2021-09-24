@@ -1,6 +1,7 @@
 import CartActionTypes from "./cart.types";
 import { toast } from "react-toastify";
 import { editItem } from "./cart.utils";
+import i18next from "i18next";
 
 const INITIAL_STATE = {
   cartHidden: true,
@@ -16,13 +17,21 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartHidden: !state.cartHidden,
       };
     case CartActionTypes.ADD_ITEM:
-      toast.success("Item has been added to your cart.");
+      toast.success(
+        i18next.language === "en"
+          ? "Item has been added to your cart."
+          : "Produsul a fost adăugat în coș."
+      );
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
       };
     case CartActionTypes.CLEAR_ITEM_FROM_CART:
-      toast.success("Item has been clear from your cart.");
+      toast.success(
+        i18next.language === "en"
+          ? "Item has been removed from your cart."
+          : "Produsul a fost eliminat din coș."
+      );
       return {
         ...state,
         cartItems: state.cartItems.filter(
@@ -30,13 +39,16 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ),
       };
     case CartActionTypes.EDIT_ITEM:
-      toast.success("Item has been successfully edited.");
+      toast.success(
+        i18next.language === "en"
+          ? "Item has been successfully edited."
+          : "Produsul a fost editat cu succes."
+      );
       return {
         ...state,
         cartItems: editItem(state.cartItems, action.payload),
       };
     case CartActionTypes.CLEAR_CART:
-      toast.success("Cart has been cleared.");
       return {
         ...state,
         cartItems: [],

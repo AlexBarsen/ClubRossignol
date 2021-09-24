@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
-
 import axios from "axios";
+import { toast } from "react-toastify";
+import i18next from "i18next";
 
 import { clearCart } from "../../../../redux/cart/cart.actions";
 import { selectCurrentUser } from "../../../../redux/user/user.selectors";
@@ -28,7 +29,11 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
       },
     })
       .then((response) => {
-        alert("Payment successful");
+        toast.success(
+          i18next.language === "en"
+            ? "Payment successful, your order has been placed."
+            : "Plată reușită, comanda dumneavoastră a fost plasată cu succes."
+        );
         const order = [
           {
             order_ip: token.client_ip,
@@ -45,9 +50,10 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
         clearCart();
       })
       .catch((error) => {
-        console.log("Payment error: ", error);
-        alert(
-          "There was an issue with your payment. Please make sure you use the provided credit card"
+        toast.error(
+          i18next.language === "en"
+            ? `Something went wrong with your payment. Error: ${error.message}`
+            : `A apărut o eroare cu plata dumneavoastră. Error: ${error.message}`
         );
       });
   };

@@ -1,5 +1,6 @@
 import { UserActionTypes } from "./user.types";
 import { toast } from "react-toastify";
+import i18next from "i18next";
 
 const INITIAL_STATE = {
   currentUser: null,
@@ -28,7 +29,9 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
     // * SIGN IN/OUT SUCESS
     case UserActionTypes.SIGN_IN_SUCCESS:
-      // toast.success("Sign in Sucesss"); // * not sure yet if to add
+      toast.success(
+        i18next.language === "en" ? "Signed in sucessfully." : "Logare reușită"
+      );
       return {
         ...state,
         currentUser: action.payload,
@@ -37,6 +40,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     case UserActionTypes.SIGN_OUT_SUCCESS:
+      toast.success(
+        i18next.language === "en"
+          ? "Signed out sucessfully."
+          : "Deconectare reușită."
+      );
       return {
         ...state,
         currentUser: null,
@@ -45,9 +53,29 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
     // * ACCOUNT FAILURES
     case UserActionTypes.SIGN_IN_FAILURE:
-      action.payload.code === "auth/wrong-password"
-        ? toast.error("The password is invalid.")
-        : toast.error("There is no user registred to this e-mail.");
+      switch (action.payload.code) {
+        case "auth/wrong-password":
+          toast.error(
+            i18next.language === "en"
+              ? "The password is invalid."
+              : "Parola este greșită."
+          );
+          break;
+        case "auth/user-not-found":
+          toast.error(
+            i18next.language === "en"
+              ? "There is no user registered with this Email."
+              : "Nu există un utilizator înregistrat cu acest Email."
+          );
+          break;
+        default:
+          toast.error(
+            i18next.language === "en"
+              ? `An error has occured. Error: ${action.payload.message}`
+              : `A apărut o eroare. Error: ${action.payload.message}`
+          );
+      }
+
       return {
         ...state,
         error: action.payload,
@@ -58,21 +86,42 @@ const userReducer = (state = INITIAL_STATE, action) => {
         error: action.payload,
       };
     case UserActionTypes.SIGN_UP_FAILURE:
-      action.payload.code === "auth/email-already-in-use"
-        ? toast.error("The email address is already in use by another account.")
-        : toast.error(action.payload.message);
+      switch (action.payload.code) {
+        case "auth/email-already-in-use":
+          toast.error(
+            "The email address is already in use by another account."
+          );
+          break;
+        default:
+          toast.error(`An error has occured. Error: ${action.payload.message}`);
+      }
+
       return {
         ...state,
         error: action.payload,
       };
     case UserActionTypes.PASSWORD_RESET_FAILURE:
-      action.payload.code === "auth/user-not-found"
-        ? toast.error("There is no user registered to this e-mail.")
-        : toast.error(action.payload.message);
+      switch (action.payload.code) {
+        case "auth/user-not-found":
+          toast.error(
+            i18next.language === "en"
+              ? "There is no user registered with this Email."
+              : "Nu există un utilizator înregistrat cu acest Email."
+          );
+          break;
+        default:
+          toast.error(
+            i18next.language === "en"
+              ? `An error has occured. Error: ${action.payload.message}`
+              : `A apărut o eroare. Error: ${action.payload.message}`
+          );
+      }
+
       return {
         ...state,
         error: action.payload,
       };
+
     // * FETCH ORDERS
     case UserActionTypes.FETCH_USER_ORDERS_START:
       return {

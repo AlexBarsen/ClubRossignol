@@ -18,7 +18,7 @@ const LanguagesDropdown = () => {
       country_code: "ro",
     },
     {
-      code: "gb",
+      code: "en",
       name: "english",
       country_code: "gb",
     },
@@ -43,7 +43,7 @@ const LanguagesDropdown = () => {
         </IconContainer>
         {isOpen ? (
           <LanguagesList>
-            {languages.map(({ code, name, country_code }) => (
+            {languages.map(({ code, country_code }) => (
               <Flag key={country_code} onClick={() => toggle(code)}>
                 <ReactCountryFlag
                   countryCode={country_code}

@@ -214,5 +214,27 @@
   "name_main_pork_ribbs": "Costiță de porc afumată cu iahnie de fasole",
   "description_main_pork_ribbs": "",
   "name_main_goulash": "Gulaș",
-  "description_main_goulash": ""
+  "description_main_goulash": "",
+
+  "item_add": "Produsul a fost adăugat în coș.",
+  "item_clear": "Produsul a fost eliminat din coș.",
+  "item_edit": "Produsul a fost editat cu succes.",
+  "cart_clear": "",
+
+  "update_order_success": "Statusul comenzii a fost actualizat cu succes",
+  "update_order_failure": "Actualizarea statusului comenzii a eșuat",
+
+  "sign_in_sucess": "Logare reușită",
+  "sign_in_failure_wrong_pass": "Parola este greșită.",
+  "sign_in_failure_no_user": "Emailul nu există",
+
+  "sign_up_failure_email_exist": "Emailul este deja inregsitrat.",
+  "sign-Up_failure_password_match": "Parolele nu corespund.",
+
+  "password_reset_no_user": "Nu există un utilizator înregistrat cu acest Email.",
+
+  "default_error": "A apărut o eroare.",
+
+  "payment_error": "Plată reușită, comanda dumneavoastră a fost plasată cu succes.",
+  "payment_sucessfull": "A apărut o eroare cu plata dumneavoastră."
 }

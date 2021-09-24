@@ -214,5 +214,26 @@
   "name_main_pork_ribbs": "Smoked Pork Ribs with baked beans",
   "description_main_pork_ribbs": "",
   "name_main_goulash": "Goulash",
-  "description_main_goulash": ""
+  "description_main_goulash": "",
+
+  "item_add": "Item has been added to your cart.",
+  "item_clear": "Item has been removed from your cart.",
+  "item_edit": "Item has been successfully edited.",
+
+  "update_order_success": "Order status has been successfully updated",
+  "update_order_failure": "Order status update has failed",
+
+  "sign_in_sucess": "Singed in sucessfully",
+  "sign_in_failure_wrong_pass": "The password is invalid.",
+  "sign_in_failure_no_user": "The Email is invalid ",
+
+  "sign_up_failure_email_exist": "The Email address in already in use.",
+  "sign-Up_failure_password_match": "Passwords don't match.",
+
+  "password_reset_no_user": "There is no user registered to this Email.",
+
+  "default_error": "An error has occured.",
+
+  "payment_error": "Payment successful, your order has been placed.",
+  "payment_sucessfull": "Something went wrong with your payment."
 }
