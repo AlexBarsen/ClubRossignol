@@ -6,12 +6,8 @@ export const setCurrentUser = (user) => ({
   payload: user,
 });
 
-export const toggleUserSignInHidden = () => ({
-  type: UserActionTypes.TOGGLE_USER_SIGN_IN_HIDDEN,
-});
-
-export const toggleUserSignUpHidden = () => ({
-  type: UserActionTypes.TOGGLE_USER_SIGN_UP_HIDDEN,
+export const toggleAcountModalHidden = () => ({
+  type: UserActionTypes.TOGGLE_ACCOUNT_MODAL_HIDDEN,
 });
 
 export const checkUserSession = () => ({
@@ -20,7 +16,7 @@ export const checkUserSession = () => ({
 
 // * SignUp
 export const emailSignUpStart = (userCredentials) => ({
-  type: UserActionTypes.EMAIL_SIGN_UP_START,
+  type: UserActionTypes.SIGN_UP_START,
   payload: userCredentials,
 });
 
@@ -36,7 +32,7 @@ export const signUpFailure = (error) => ({
 
 // * SignIn
 export const emailSignInStart = (emailAndPassword) => ({
-  type: UserActionTypes.EMAIL_SIGN_IN_START,
+  type: UserActionTypes.SIGN_IN_START,
   payload: emailAndPassword,
 });
 
@@ -90,7 +86,7 @@ export const fetchUserOrdersSuccess = (ordersMap) => ({
   payload: ordersMap,
 });
 
-export const fetchUserOrdersFailure = (errorMessage) => ({
+export const fetchUserOrdersFailure = (error) => ({
   type: UserActionTypes.FETCH_USER_ORDERS_FAILURE,
-  payload: errorMessage,
+  payload: error,
 });

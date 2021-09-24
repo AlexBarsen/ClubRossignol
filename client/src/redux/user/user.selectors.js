@@ -1,38 +1,16 @@
 import { createSelector } from "reselect";
 
-// * select user from state
 const selectUser = (state) => state.user;
 
-// * select currentUser from user
+export const selectAcountModalHidden = createSelector(
+  [selectUser],
+  (user) => user.accountModalHidden
+);
+
+// * CURRENT USER
 export const selectCurrentUser = createSelector(
   [selectUser],
   (user) => user.currentUser
-);
-
-// * select userSignInHidden from state
-export const selectUserSignInHidden = createSelector(
-  [selectUser],
-  (user) => user.userSignInHidden
-);
-
-export const selectUserSignUpHidden = createSelector(
-  [selectUser],
-  (user) => user.userSignUpHidden
-);
-
-// export const isOrdersFetching = createSelector(
-//   [selectUser],
-//   (user) => user.isFetching
-// );
-
-export const selectDidCheckUserSession = createSelector(
-  [selectUser],
-  (user) => !!user.checkUserSession
-);
-
-export const selectIsUserOrdersLoaded = createSelector(
-  [selectUser],
-  (user) => !!user.orders
 );
 
 export const selectIsUserLoaded = createSelector(
@@ -40,7 +18,18 @@ export const selectIsUserLoaded = createSelector(
   (user) => !!user.currentUser
 );
 
+// * USER ORDERS
 export const selectUserOrders = createSelector(
   [selectUser],
   (user) => user.orders
+);
+
+export const selectIsUserOrdersLoaded = createSelector(
+  [selectUser],
+  (user) => !!user.orders
+);
+
+export const selectUserOrdersError = createSelector(
+  [selectUser],
+  (user) => user.error
 );

@@ -21,7 +21,7 @@ import {
 } from "./user.actions";
 import { UserActionTypes } from "./user.types";
 
-// * other functionality
+// * OTHER FUNCTIONALITY
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
   try {
     const userRef = yield call(
@@ -50,7 +50,26 @@ export function* isUserAuthenticated() {
   }
 }
 
-// * signUp
+export function* fetchUserOrdersAsync({ payload: { currentUser } }) {
+  if (currentUser) {
+    const userID = currentUser.id;
+    try {
+      const ordersRef = firestore.collection("orders");
+
+      const ordersSnapshot = yield ordersRef
+        .where("userID", "==", userID)
+        .get();
+
+      const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
+
+      yield put(fetchUserOrdersSuccess(ordersMap));
+    } catch (error) {
+      yield put(fetchUserOrdersFailure(error));
+    }
+  } else return;
+}
+
+// * SIGN UP
 export function* emailSignUp({
   payload: { email, password, firstName, lastName, phone, dateOfBirth },
 }) {
@@ -76,7 +95,7 @@ export function* signInAfterSignUp({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData);
 }
 
-// * signIn
+// * SIGN IN
 export function* signInWithEmail({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
@@ -87,7 +106,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
   }
 }
 
-// *signOut
+// * SIGN OUT
 export function* signOut() {
   try {
     yield auth.signOut();
@@ -98,7 +117,7 @@ export function* signOut() {
   }
 }
 
-// *passwordReset
+// * PASSWORD RESET
 export function* passwordReset({ payload: { email } }) {
   try {
     yield auth.sendPasswordResetEmail(email);
@@ -109,51 +128,29 @@ export function* passwordReset({ payload: { email } }) {
   }
 }
 
-// * generator functions catch the dispatches and fire other functions*
-export function* onEmailSignInStart() {
-  yield takeLatest(UserActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
-}
-
+// * FUNCTIONS* which fire other FUNCTIONS* upon catch of dispatch
 export function* onCheckUserSession() {
   yield takeLatest(UserActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
+}
+
+export function* onSignUpStart() {
+  yield takeLatest(UserActionTypes.SIGN_UP_START, emailSignUp);
+}
+
+export function* onSignUpSuccess() {
+  yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(UserActionTypes.SIGN_IN_START, signInWithEmail);
 }
 
 export function* onSignOutStart() {
   yield takeLatest(UserActionTypes.SIGN_OUT_START, signOut);
 }
 
-export function* onSignUpStart() {
-  yield takeLatest(UserActionTypes.EMAIL_SIGN_UP_START, emailSignUp);
-}
-
-// * SignIn the user after SignUp
-export function* onSignUpSuccess() {
-  yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
-}
-
 export function* onPasswordResetStart() {
   yield takeLatest(UserActionTypes.PASSWORD_RESET_START, passwordReset);
-}
-
-// * Orders sagas
-
-export function* fetchUserOrdersAsync({ payload: { currentUser } }) {
-  if (currentUser) {
-    const userID = currentUser.id;
-    try {
-      const ordersRef = firestore.collection("orders");
-
-      const ordersSnapshot = yield ordersRef
-        .where("userID", "==", userID)
-        .get();
-
-      const ordersMap = yield call(convertOrdersSnapshotToMap, ordersSnapshot);
-
-      yield put(fetchUserOrdersSuccess(ordersMap));
-    } catch (error) {
-      yield put(fetchUserOrdersFailure(error));
-    }
-  } else return;
 }
 
 export function* fetchUserOrdersStart() {

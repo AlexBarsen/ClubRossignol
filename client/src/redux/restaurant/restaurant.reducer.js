@@ -3,6 +3,7 @@ import { RestaurantActionTypes } from "./restaurant.types";
 const INITIAL_STATE = {
   menu: null,
   error: null,
+  isFetching: false,
 };
 
 const restaurantReducer = (state = INITIAL_STATE, action) => {
@@ -22,7 +23,7 @@ const restaurantReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetching: false,
-        errorMessage: action.payload,
+        error: action.payload,
       };
     default:
       return state;

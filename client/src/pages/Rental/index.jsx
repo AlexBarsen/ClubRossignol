@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { Route, Switch } from "react-router-dom";
 
-import { RentalPageContainer, RentalContent } from "./RentaPageElements";
+import { RentalPageContainer, RentalContent, Toast } from "./RentaPageElements";
 
 import Navbar from "../../components/RentalApp/Navbar/index";
 
@@ -110,6 +110,17 @@ const RentalPage = ({
               </Suspense>
             </ErrorBoundary>
           </Switch>
+          <Toast
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </RentalContent>
       </Wrapper>
     </RentalPageContainer>

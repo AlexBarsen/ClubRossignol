@@ -1,8 +1,11 @@
 import OrderActionTypes from "./order.types";
 import { updateOrderStatus } from "./order.utils";
+import { toast } from "react-toastify";
 
 const INITIAL_STATE = {
   orders: null,
+  isFetching: false,
+  error: null,
 };
 
 const orderReducer = (state = INITIAL_STATE, action) => {
@@ -22,7 +25,7 @@ const orderReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetching: false,
-        errorMessage: action.payload,
+        error: action.payload,
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_START:
       return {
@@ -30,16 +33,20 @@ const orderReducer = (state = INITIAL_STATE, action) => {
         isUpdating: true,
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_SUCCESS:
+      toast.success("Order status has been updated sucessfully");
       return {
         ...state,
         isUpdating: false,
         orders: updateOrderStatus(state.orders, action.payload),
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_FAILURE:
+      toast.error(
+        `Order status has failed to update. Error: ${action.payload.message} `
+      );
       return {
         ...state,
         isUpdating: false,
-        errorMessage: action.payload,
+        error: action.payload,
       };
     default:
       return state;

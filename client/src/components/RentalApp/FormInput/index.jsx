@@ -8,7 +8,6 @@ const FormInput = ({ handleChange, label, ...otherProps }) => {
       <Group>
         <Label {...otherProps}>{label}</Label>
         <Input onChange={handleChange} {...otherProps} />
-        {/* {label ? <Label>{label}</Label> : null} */}
       </Group>
     </>
   );

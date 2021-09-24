@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectUserSignInHidden } from "../../../../redux/user/user.selectors";
-import { toggleUserSignInHidden } from "../../../../redux/user/user.actions";
+
+import { selectAcountModalHidden } from "../../../../redux/user/user.selectors";
+import { toggleAcountModalHidden } from "../../../../redux/user/user.actions";
 
 import {
   HeaderOption,
   SignInModalContanier,
   ModalOverlay,
   ModalContent,
-  Wrapper,
   CloseButtonContainer,
 } from "./AccountModalElements";
 
@@ -19,22 +19,20 @@ import SignIn from "../SignIn/index";
 import SignUp from "../SignUp/index";
 import PasswordReset from "../PasswordReset/index";
 
-const AccountModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
-  // const [modalVisibility, setModalVisibility] = useState(userSignInHidden);
+const AccountModal = ({ acountModalHidden, toggleAcountModalHidden }) => {
+  const [state, setState] = useState(null);
 
-  const [state, setState] = useState("sign");
-
-  const handleChange2 = (display) => {
+  const handleDisplay = (display) => {
     setState(display);
   };
 
   // * toggle visible OR hidden Modal depeding on the state
-  const toggleModal = () => {
-    toggleUserSignInHidden();
+  const toggleModal = (display) => {
+    toggleAcountModalHidden();
 
-    handleChange2("sign");
+    setState(display);
 
-    if (!userSignInHidden) {
+    if (!acountModalHidden) {
       document.body.style.overflow = "unset";
     } else {
       document.body.style.overflow = "hidden";
@@ -42,25 +40,23 @@ const AccountModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
   };
   return (
     <>
-      <HeaderOption onClick={toggleModal}>Account</HeaderOption>
+      <HeaderOption onClick={() => toggleModal("signIn")}>Sign In</HeaderOption>
+
+      <HeaderOption onClick={() => toggleModal("signUp")}>Sign Up</HeaderOption>
 
       {/* render Modal depending on the state */}
-      {!userSignInHidden && (
+      {!acountModalHidden && (
         <SignInModalContanier>
           <ModalOverlay></ModalOverlay>
 
           <ModalContent>
-            {/* <Wrapper><h1>Sign In</h1> <h1>Sign Up</h1></Wrapper> */}
-            {/* <SignIn /> */}
-            {state === "sign" ? (
-              <SignIn handleChange2={handleChange2} />
+            {state === "signIn" ? (
+              <SignIn handleDisplay={handleDisplay} />
             ) : state === "signUp" ? (
-              <SignUp handleChange2={handleChange2} />
+              <SignUp handleDisplay={handleDisplay} />
             ) : (
-              <PasswordReset handleChange2={handleChange2} />
+              <PasswordReset handleDisplay={handleDisplay} />
             )}
-            {/* <SignUp /> */}
-            {/* <button onClick={() => setState("signUp")}>change</button> */}
             <CloseButtonContainer>
               <Button buttonType="close" onClick={toggleModal}>
                 ❌
@@ -75,12 +71,12 @@ const AccountModal = ({ userSignInHidden, toggleUserSignInHidden }) => {
 
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({
-  userSignInHidden: selectUserSignInHidden,
+  acountModalHidden: selectAcountModalHidden,
 });
 
 // * dispatch function to Redux store
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
+  toggleAcountModalHidden: () => dispatch(toggleAcountModalHidden()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountModal);

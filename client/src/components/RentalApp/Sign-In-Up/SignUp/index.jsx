@@ -15,7 +15,7 @@ import {
   ButtonsContainer,
 } from "./SignUpElements";
 
-const SignUp = ({ emailSignUpStart, handleChange2 }) => {
+const SignUp = ({ emailSignUpStart, handleDisplay }) => {
   const [userCredentials, setCredentials] = useState({
     firstName: "",
     lastName: "",
@@ -80,8 +80,6 @@ const SignUp = ({ emailSignUpStart, handleChange2 }) => {
     const { name, value } = event.target;
 
     setCredentials({ ...userCredentials, [name]: value });
-
-    console.log(userCredentials);
   };
   return (
     <>
@@ -146,6 +144,7 @@ const SignUp = ({ emailSignUpStart, handleChange2 }) => {
               type="tel"
               name="phone"
               value={phone}
+              // pattern="[0-9]"
               onChange={handleChange}
               label="Numar telefon"
               required
@@ -175,10 +174,6 @@ const SignUp = ({ emailSignUpStart, handleChange2 }) => {
           <ButtonsContainer>
             <Button buttonType="signUp" type="submit">
               SIGN UP
-            </Button>
-
-            <Button buttonType="signIn" onClick={() => handleChange2("sign")}>
-              SIGN IN
             </Button>
           </ButtonsContainer>
         </Form>

@@ -6,7 +6,6 @@ const INITIAL_STATE = {
   errorMessage: undefined,
 };
 
-// * reducers take in a current state + action -> return a new state
 const rentalReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case RentalActionTypes.FETCH_RENTALS_START:
@@ -24,7 +23,7 @@ const rentalReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isFetching: false,
-        errorMessage: action.payload,
+        error: action.payload,
       };
     default:
       return state;

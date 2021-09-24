@@ -9,9 +9,9 @@ export const fetchOrdersSuccess = (ordersMap) => ({
   payload: ordersMap,
 });
 
-export const fetchOrdersFailure = (errorMessage) => ({
+export const fetchOrdersFailure = (error) => ({
   type: OrderActionTypes.FETCH_ORDERS_FAILURE,
-  payload: errorMessage,
+  payload: error,
 });
 
 export const updateOrderStatusStart = (orderIDAndStatus) => ({

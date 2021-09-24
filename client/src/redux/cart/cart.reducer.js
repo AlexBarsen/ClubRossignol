@@ -1,4 +1,5 @@
 import CartActionTypes from "./cart.types";
+import { toast } from "react-toastify";
 import { editItem } from "./cart.utils";
 
 const INITIAL_STATE = {
@@ -15,11 +16,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartHidden: !state.cartHidden,
       };
     case CartActionTypes.ADD_ITEM:
+      toast.success("Item has been added to your cart.");
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload],
       };
     case CartActionTypes.CLEAR_ITEM_FROM_CART:
+      toast.success("Item has been clear from your cart.");
       return {
         ...state,
         cartItems: state.cartItems.filter(
@@ -27,11 +30,13 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ),
       };
     case CartActionTypes.EDIT_ITEM:
+      toast.success("Item has been successfully edited.");
       return {
         ...state,
         cartItems: editItem(state.cartItems, action.payload),
       };
     case CartActionTypes.CLEAR_CART:
+      toast.success("Cart has been cleared.");
       return {
         ...state,
         cartItems: [],

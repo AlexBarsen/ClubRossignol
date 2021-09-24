@@ -10,7 +10,7 @@ export const fetchRestaurantMenuSuccess = (menuMap) => ({
   payload: menuMap,
 });
 
-export const fetchRestaurantMenuFailure = (errorMessage) => ({
+export const fetchRestaurantMenuFailure = (error) => ({
   type: RestaurantActionTypes.FETCH_RESTAURANT_MENU_FAILURE,
-  payload: errorMessage,
+  payload: error,
 });

@@ -6,7 +6,6 @@ import { FaBars } from "react-icons/fa";
 import CartDropdown from "../Cart-Checkout/CartDropdown/index";
 
 import AccountModal from "../Sign-In-Up/AccountModal/index";
-// import SignUpModal from "../Sign-In-Up/SignUpModal/index";
 
 import { createStructuredSelector } from "reselect";
 
@@ -15,15 +14,12 @@ import CartIcon from "../Cart-Checkout/CartIcon/index";
 import LanguagesDropdown from "../LanguageDropdown/index";
 import UserDropdown from "../UserDropdown/index";
 
-import {
-  selectCurrentUser,
-  selectUserSignInHidden,
-} from "../../../redux/user/user.selectors";
+import { selectCurrentUser } from "../../../redux/user/user.selectors";
 
 import { selectCartHidden } from "../../../redux/cart/cart.selectors";
 
 import {
-  toggleUserSignInHidden,
+  toggleAcountModalHidden,
   signOutStart,
 } from "../../../redux/user/user.actions";
 
@@ -37,14 +33,7 @@ import {
   MobileIcon,
 } from "./NavbarElements";
 
-const Navbar = ({
-  currentUser,
-  userSignInHidden,
-  cartHidden,
-  toggleUserSignInHidden,
-  signOutStart,
-  toggle,
-}) => {
+const Navbar = ({ currentUser, cartHidden, toggle }) => {
   const { t } = useTranslation();
 
   return (
@@ -63,8 +52,6 @@ const Navbar = ({
           {currentUser ? null : (
             <>
               <AccountModal />
-
-              {/* <SignUpModal /> */}
             </>
           )}
 
@@ -74,11 +61,6 @@ const Navbar = ({
             </HeaderOption>
           ) : null}
 
-          {/* {currentUser && currentUser.role === "admin" ? (
-            <HeaderOptionLink to="/rental/admin">
-              Admin Dashbooard
-            </HeaderOptionLink>
-          ) : null} */}
           <CartIcon />
         </HeaderOptions>
 
@@ -92,12 +74,11 @@ const Navbar = ({
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   cartHidden: selectCartHidden,
-  userSignInHidden: selectUserSignInHidden,
 });
 
 // * dispatch function to the Redux store
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
+  toggleAcountModalHidden: () => dispatch(toggleAcountModalHidden()),
   signOutStart: () => dispatch(signOutStart()),
 });
 

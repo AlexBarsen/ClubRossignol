@@ -1,24 +1,15 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
-import {
-  toggleUserSignUpHidden,
-  toggleUserSignInHidden,
-  passwordResetStart,
-} from "../../../../redux/user/user.actions";
+import { passwordResetStart } from "../../../../redux/user/user.actions";
 
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
-import {
-  PasswordResetContainer,
-  Form,
-  Heading,
-  ButtonsContainer,
-} from "./PasswordResetElements";
+import { PasswordResetContainer, Form, Heading } from "./PasswordResetElements";
 
-const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
+const ResetPassword = ({ passwordResetStart }) => {
   const [emails, setEmails] = useState({
     email: "",
     confirmEmail: "",
@@ -30,7 +21,8 @@ const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
     event.preventDefault();
 
     if (email !== confirmEmail) {
-      alert("emails don't match");
+      toast.error("E-mails don't match.");
+      setEmails({ ...emails, confirmEmail: "" });
       return;
     }
 
@@ -67,29 +59,16 @@ const ResetPassword = ({ passwordResetStart, handleChange2 }) => {
           required
         />
 
-        <Button buttonType="signIn" onClick={handleSubmit}>
+        <Button buttonType="signIn" onClick={() => handleSubmit}>
           Reset Password
         </Button>
       </Form>
-
-      <ButtonsContainer>
-        <Button buttonType="signIn" onClick={() => handleChange2("signUp")}>
-          Sign Up
-        </Button>
-
-        <Button buttonType="signIn" onClick={() => handleChange2("reset")}>
-          Reset
-        </Button>
-      </ButtonsContainer>
     </PasswordResetContainer>
   );
 };
 
 // * dispatch function to Redux store
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserSignUpHidden: () => dispatch(toggleUserSignUpHidden()),
-  toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
-  //   toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
   passwordResetStart: (email) => dispatch(passwordResetStart({ email })),
 });
 

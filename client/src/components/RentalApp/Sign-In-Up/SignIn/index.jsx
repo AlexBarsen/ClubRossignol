@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 
-import { createStructuredSelector } from "reselect";
-
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
-import {
-  emailSignInStart,
-  toggleUserSignUpHidden,
-  toggleUserSignInHidden,
-} from "../../../../redux/user/user.actions";
+import { emailSignInStart } from "../../../../redux/user/user.actions";
 
 import {
   SignInContainer,
@@ -20,15 +14,9 @@ import {
   Paragraph,
 } from "./SignInElements";
 
-import AccountModal from "../AccountModal/index";
-
 import { connect } from "react-redux";
 
-const SignIn = ({
-  emailSignInStart,
-  toggleUserSignUpHidden,
-  handleChange2,
-}) => {
+const SignIn = ({ emailSignInStart, handleDisplay }) => {
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -85,16 +73,16 @@ const SignIn = ({
               <Button type="submit" buttonType="signIn">
                 Sign In
               </Button>
-              {/* <Button buttonType="signIn">Password ?</Button> */}
+
               <Button
                 buttonType="signIn"
-                onClick={() => handleChange2("reset")}
+                onClick={() => handleDisplay("reset")}
               >
                 Reset Password
               </Button>
             </Wrapper>
             <Paragraph>Don't have an account?</Paragraph>
-            <Button buttonType="signIn" onClick={() => handleChange2("signUp")}>
+            <Button buttonType="signIn" onClick={() => handleDisplay("signUp")}>
               Sign Up
             </Button>
           </ButtonsContainer>
@@ -104,18 +92,10 @@ const SignIn = ({
   );
 };
 
-// * connect to Redux state
-const mapStateToProps = createStructuredSelector({
-  // userSignInHidden: selectUserSignInHidden,
-});
-
 // * dispatch function to Redux store
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserSignUpHidden: () => dispatch(toggleUserSignUpHidden()),
-  toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
-  //   toggleUserSignInHidden: () => dispatch(toggleUserSignInHidden()),
   emailSignInStart: (email, password) =>
     dispatch(emailSignInStart({ email, password })),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(null, mapDispatchToProps)(SignIn);

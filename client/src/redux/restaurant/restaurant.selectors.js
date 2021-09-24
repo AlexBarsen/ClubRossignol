@@ -15,3 +15,8 @@ export const selectIsMenuLoaded = createSelector(
   [selectRestaurant],
   (restaurant) => !!restaurant.menu
 );
+
+export const selectRestaurantError = createSelector(
+  [selectRestaurant],
+  (restaurant) => restaurant.error
+);
