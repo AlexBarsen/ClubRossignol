@@ -41,7 +41,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                // offset={-85}
+                offset={-120}
               >
                 About
               </NavLinks>
@@ -52,7 +52,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={82}
+                offset={-120}
               >
                 Restaurant
               </NavLinks>
@@ -63,33 +63,36 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={82}
+                offset={-120}
               >
                 Rental
               </NavLinks>
             </NavItem>
-            <NavItem>
-              <NavLinks
-                to="shop"
-                smooth={true}
-                duration={500}
-                spy={true}
-                offset={82}
-              >
-                Shop
-              </NavLinks>
-            </NavItem>
+
             <NavItem>
               <NavLinks
                 to="hotel"
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={82}
+                offset={-120}
               >
                 Hotel
               </NavLinks>
             </NavItem>
+
+            <NavItem>
+              <NavLinks
+                to="shop"
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-120}
+              >
+                Shop
+              </NavLinks>
+            </NavItem>
+
             <NavItem>
               <NavLinks
                 to="contact"

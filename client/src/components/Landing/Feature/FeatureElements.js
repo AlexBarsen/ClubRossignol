@@ -3,24 +3,28 @@ import styled from "styled-components";
 export const FeatureContainer = styled.div`
   display: flex;
   flex-direction: column;
-  box-shadow: 0.5rem 0.5rem 1rem rgba(114, 82, 82, 1);
+  /* box-shadow: 0.5rem 0.5rem 1rem rgba(114, 82, 82, 1); */
   border-radius: 1rem;
   border: 1px solid black;
-  height: 26rem;
-  width: 30rem;
+  height: 30rem;
+  width: 40rem;
   transition: all 0.3s;
 
   &:hover {
     transform: translateY(-1rem) scale(1.05);
   }
+
+  @media screen and (max-width: 768px) {
+    width: 30rem;
+  }
 `;
 
 export const FeatureImage = styled.img`
-  width: 100%;
-  height: 50%;
+  height: 15rem;
+  padding: 1rem 0;
   background-size: contain;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  /* border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem; */
 `;
 
 export const FeatureDetails = styled.div`
