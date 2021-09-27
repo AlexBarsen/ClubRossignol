@@ -6,7 +6,6 @@ export const SignInContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  padding: 2rem;
   width: 45rem;
 `;
 
@@ -29,10 +28,15 @@ export const ButtonsContainer = styled.div`
   flex-direction: column;
 `;
 
+export const ButtonContainer = styled.div``;
+
 export const Wrapper = styled.div`
   display: flex;
+  /* align-items: center; */
   justify-content: space-between;
 `;
+
+export const Wrapper2 = styled.div``;
 
 export const Paragraph = styled.p`
   color: black;

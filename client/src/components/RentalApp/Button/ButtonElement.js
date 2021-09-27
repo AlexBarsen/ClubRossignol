@@ -122,7 +122,7 @@ const handleWidthType = (buttonType) => {
     case "checkout":
       return "20rem";
     case "signIn":
-      return "15rem";
+      return "18rem";
     case "signUp":
       return "15rem";
     case "close":
@@ -178,14 +178,17 @@ export const Button = styled.button`
   width: ${({ buttonType }) => handleWidthType(buttonType)};
   font-size: ${({ buttonType }) => handleFontSizeType(buttonType)};
   background: ${({ buttonType }) => handleColorType(buttonType)};
+  background: ${({ disabled }) => (disabled ? "grey" : null)};
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    transform: ${({ disabled }) => (disabled ? "scale(1)" : "scale(1.05)")};
   }
 
   &:active {
     transform: scale(1);
   }
-
   @media screen and (max-width: 600px) {
     font-size: ${({ buttonType }) => handleFontSizeQueryType(buttonType)};
     width: ${({ buttonType }) => handleWidthQueryType(buttonType)};

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
@@ -10,13 +11,16 @@ import {
   Form,
   Heading,
   ButtonsContainer,
+  ButtonContainer,
   Wrapper,
   Paragraph,
 } from "./SignInElements";
 
-import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const SignIn = ({ emailSignInStart, handleDisplay }) => {
+  const { t } = useTranslation();
+
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -45,7 +49,7 @@ const SignIn = ({ emailSignInStart, handleDisplay }) => {
   return (
     <>
       <SignInContainer>
-        <Heading>Sign in with Email and Password</Heading>
+        <Heading>{t("sign_in_email_password")}</Heading>
 
         <Form onSubmit={handleSubmit}>
           <FormInput
@@ -53,7 +57,7 @@ const SignIn = ({ emailSignInStart, handleDisplay }) => {
             name="email"
             type="email"
             handleChange={handleChange}
-            label="Email"
+            label={t("email")}
             value={email}
             required
           />
@@ -64,26 +68,28 @@ const SignIn = ({ emailSignInStart, handleDisplay }) => {
             type="password"
             value={password}
             handleChange={handleChange}
-            label="Parola"
+            label={t("password")}
             required
           />
 
           <ButtonsContainer>
             <Wrapper>
-              <Button type="submit" buttonType="signIn">
-                Sign In
-              </Button>
+              <ButtonContainer>
+                <Button type="submit" buttonType="signIn">
+                  {t("sign_in")}
+                </Button>
+              </ButtonContainer>
 
               <Button
                 buttonType="signIn"
                 onClick={() => handleDisplay("reset")}
               >
-                Reset Password
+                {t("reset_password")}
               </Button>
             </Wrapper>
-            <Paragraph>Don't have an account?</Paragraph>
+            <Paragraph>{t("no_account")}</Paragraph>
             <Button buttonType="signIn" onClick={() => handleDisplay("signUp")}>
-              Sign Up
+              {t("sign_up")}
             </Button>
           </ButtonsContainer>
         </Form>

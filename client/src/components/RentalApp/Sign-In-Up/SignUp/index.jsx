@@ -13,9 +13,19 @@ import {
   Form,
   Wrapper,
   ButtonsContainer,
+  TermsCheckbox,
+  Input,
+  Label,
+  TermsSpan,
 } from "./SignUpElements";
 
-const SignUp = ({ emailSignUpStart, handleDisplay }) => {
+import { useTranslation } from "react-i18next";
+
+const SignUp = ({ emailSignUpStart }) => {
+  const { t } = useTranslation();
+
+  const [agree, setAgree] = useState(false);
+
   const [userCredentials, setCredentials] = useState({
     firstName: "",
     lastName: "",
@@ -37,6 +47,17 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
     password,
     confirmPassword,
   } = userCredentials;
+
+  // * handle state change depending on what user is typing in the FormInput
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setCredentials({ ...userCredentials, [name]: value });
+  };
+
+  const handleCheckbox = () => {
+    setAgree(!agree);
+  };
 
   // * function which creates the user with email and password
   const handleSubmit = async (event) => {
@@ -75,18 +96,12 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
     });
   };
 
-  // * handle state change depending on what user is typing in the FormInput
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setCredentials({ ...userCredentials, [name]: value });
-  };
   return (
     <>
       <SignUpContainer>
-        <Heading>Sign Up</Heading>
+        <Heading>{t("sign_up")}</Heading>
         <HeadingSecondary>
-          Create account with email and password
+          {t("create_account_email_password")}
         </HeadingSecondary>
         <Form onSubmit={handleSubmit}>
           <Wrapper>
@@ -96,7 +111,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="firstName"
               value={firstName}
               onChange={handleChange}
-              label="Nume"
+              label={t("name")}
               required
             />
             <FormInput
@@ -105,7 +120,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="lastName"
               value={lastName}
               onChange={handleChange}
-              label="Prenume"
+              label={t("surname")}
               required
             />
             <FormInput
@@ -114,7 +129,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="email"
               value={email}
               onChange={handleChange}
-              label="Email"
+              label={t("email")}
               required
             />
 
@@ -124,7 +139,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="confirmEmail"
               value={confirmEmail}
               onChange={handleChange}
-              label="Email"
+              label={t("confirm_email")}
               required
             />
 
@@ -134,7 +149,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="dateOfBirth"
               value={dateOfBirth}
               onChange={handleChange}
-              label="Data nasterii"
+              label={t("date_of_birth")}
               max="2010-01-01"
               required
             />
@@ -144,9 +159,8 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               type="tel"
               name="phone"
               value={phone}
-              // pattern="[0-9]"
               onChange={handleChange}
-              label="Numar telefon"
+              label={t("phone")}
               required
             />
 
@@ -156,7 +170,7 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="password"
               value={password}
               onChange={handleChange}
-              label="Parola"
+              label={t("password")}
               required
             />
 
@@ -166,14 +180,21 @@ const SignUp = ({ emailSignUpStart, handleDisplay }) => {
               name="confirmPassword"
               value={confirmPassword}
               onChange={handleChange}
-              label="Confirma Parola"
+              label={t("confirm_password")}
               required
             />
           </Wrapper>
 
           <ButtonsContainer>
-            <Button buttonType="signUp" type="submit">
-              SIGN UP
+            <TermsCheckbox>
+              <Input type="checkbox" id="agree" onChange={handleCheckbox} />
+              <Label htmlFor="agree">
+                {t("agree")} <TermsSpan>{t("terms_and_conditions")}.</TermsSpan>
+              </Label>
+            </TermsCheckbox>
+
+            <Button buttonType="signIn" type="submit" disabled={!agree}>
+              {t("sign_up")}
             </Button>
           </ButtonsContainer>
         </Form>

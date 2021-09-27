@@ -28,14 +28,14 @@ const UserInformation = ({ currentUser }) => {
           </Detail>
           <Detail>
             <Detail>
-              <DetailSpan> Date of birth: </DetailSpan>
+              <DetailSpan> {t("date_of_birth")}: </DetailSpan>
               {dateOfBirth}
             </Detail>
             <DetailSpan> {t("email")}: </DetailSpan>
             {email}
           </Detail>
           <Detail>
-            <DetailSpan> E-Mail verified: </DetailSpan>
+            <DetailSpan> {t("email_verified")}: </DetailSpan>
             {verifiedEmail ? "true" : "false"}
           </Detail>
           <Detail>

@@ -19,7 +19,11 @@ import SignIn from "../SignIn/index";
 import SignUp from "../SignUp/index";
 import PasswordReset from "../PasswordReset/index";
 
+import { useTranslation } from "react-i18next";
+
 const AccountModal = ({ acountModalHidden, toggleAcountModalHidden }) => {
+  const { t } = useTranslation();
+
   const [state, setState] = useState(null);
 
   const handleDisplay = (display) => {
@@ -40,9 +44,13 @@ const AccountModal = ({ acountModalHidden, toggleAcountModalHidden }) => {
   };
   return (
     <>
-      <HeaderOption onClick={() => toggleModal("signIn")}>Sign In</HeaderOption>
+      <HeaderOption onClick={() => toggleModal("signIn")}>
+        {t("sign_in")}
+      </HeaderOption>
 
-      <HeaderOption onClick={() => toggleModal("signUp")}>Sign Up</HeaderOption>
+      <HeaderOption onClick={() => toggleModal("signUp")}>
+        {t("sign_up")}
+      </HeaderOption>
 
       {/* render Modal depending on the state */}
       {!acountModalHidden && (

@@ -5,6 +5,17 @@
   "about": "About",
   "contact": "Contact",
 
+  "sign_in_email_password": "Sign in with Email and password",
+  "create_account_email_password": "Create account with E-mail and password",
+  "password": "Password",
+  "confirm_password": "Confirm password",
+  "forgot_password": "Forgot your password?",
+  "reset_password": "Reset password",
+  "no_account": "Don't have an account?",
+  "confirm_email": "Confirm E-Mail",
+  "agree": "I agree to the",
+  "terms_and_conditions": "terms and conditions",
+
   "ski_adult": "Skies Adult",
   "ski_boots_adult": "Ski Boots Adult",
   "ski_equipment_adult": "Ski Equipment Adult",
@@ -62,7 +73,9 @@
 
   "name": "Name",
   "surname": "Surname",
+  "date_of_birth": "Date of birth",
   "email": "E-Mail",
+  "email_verified": "E-Mail verified",
   "phone": "Phone number",
 
   "order_history": "Order history",

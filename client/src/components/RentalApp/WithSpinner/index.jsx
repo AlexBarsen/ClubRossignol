@@ -11,7 +11,7 @@ import {
 // * until the data finishes fetching from Firestore
 const WithSpinner =
   (WrappedComponent) =>
-  ({ isLoading, error = null, ...otherProps }) => {
+  ({ isLoading, checkUserSession, error = null, ...otherProps }) => {
     return isLoading ? (
       error ? (
         <ErrorImageOverlay>

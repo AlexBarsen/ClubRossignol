@@ -5,6 +5,17 @@
   "about": "Despre",
   "contact": "Contact",
 
+  "sign_in_email_password": "Conectează-te cu E-Mailul si parola",
+  "create_account_email_password": "Înregistrează-te cu E-Mail si parolă",
+  "password": "Parolă",
+  "confirm_password": "Confirmă parolă",
+  "forgot_password": "Ți-ai uitat parola?",
+  "reset_password": "Resetează parola",
+  "no_account": "Nu ai cont?",
+  "confirm_email": "Confirmă E-Mail",
+  "agree": "Accept",
+  "terms_and_conditions": "termenii si condițiile",
+
   "ski_adult": "Schiuri Adult",
   "ski_boots_adult": "Bocanci Adult",
   "ski_equipment_adult": "Echipament Schi Adult",
@@ -62,7 +73,9 @@
 
   "name": "Nume",
   "surname": "Prenume",
+  "date_of_birth": "Data nasterii",
   "email": "E-Mail",
+  "email_verified": "E-Mail confirmat",
   "phone": "Număr telefon",
 
   "order_history": "Istoric comenzi",

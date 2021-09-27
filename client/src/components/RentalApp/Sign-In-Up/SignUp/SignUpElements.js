@@ -44,6 +44,26 @@ export const Wrapper = styled.div`
 
 export const ButtonsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   /* margin-top: 2rem; */
+`;
+
+export const TermsCheckbox = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const Input = styled.input`
+  transform: scale(1.4);
+`;
+
+export const Label = styled.label`
+  margin-left: 1rem;
+  font-size: 1.6rem;
+`;
+
+export const TermsSpan = styled.span`
+  font-weight: bold;
 `;

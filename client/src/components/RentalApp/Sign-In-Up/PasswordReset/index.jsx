@@ -7,9 +7,18 @@ import { passwordResetStart } from "../../../../redux/user/user.actions";
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
-import { PasswordResetContainer, Form, Heading } from "./PasswordResetElements";
+import {
+  PasswordResetContainer,
+  Form,
+  Heading,
+  ButtonContainer,
+} from "./PasswordResetElements";
+
+import { useTranslation } from "react-i18next";
 
 const ResetPassword = ({ passwordResetStart }) => {
+  const { t } = useTranslation();
+
   const [emails, setEmails] = useState({
     email: "",
     confirmEmail: "",
@@ -36,7 +45,7 @@ const ResetPassword = ({ passwordResetStart }) => {
   };
   return (
     <PasswordResetContainer>
-      <Heading>Reset password</Heading>
+      <Heading>{t("reset_password")}</Heading>
 
       <Form onSubmit={handleSubmit}>
         <FormInput
@@ -44,7 +53,7 @@ const ResetPassword = ({ passwordResetStart }) => {
           name="email"
           type="email"
           handleChange={handleChange}
-          label="Email"
+          label={t("email")}
           value={email}
           required
         />
@@ -55,13 +64,15 @@ const ResetPassword = ({ passwordResetStart }) => {
           type="email"
           value={confirmEmail}
           handleChange={handleChange}
-          label="Confirm Email"
+          label={t("confirm_email")}
           required
         />
 
-        <Button buttonType="signIn" onClick={() => handleSubmit}>
-          Reset Password
-        </Button>
+        <ButtonContainer>
+          <Button buttonType="signIn" onClick={() => handleSubmit}>
+            {t("reset_password")}
+          </Button>
+        </ButtonContainer>
       </Form>
     </PasswordResetContainer>
   );

@@ -7,7 +7,6 @@ export const PasswordResetContainer = styled.div`
 `;
 
 export const Form = styled.form`
-  padding: 2rem;
   width: 100%;
 `;
 
@@ -22,4 +21,8 @@ export const Heading = styled.h1`
   @media screen and (max-width: 500px) {
     font-size: 3.2rem;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  margin-top: 2rem;
 `;

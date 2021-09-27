@@ -8,19 +8,12 @@ const INITIAL_STATE = {
   isFetching: false,
   error: null,
   orders: null,
-  checkUserSession: false,
 };
 
 // * reducers take in a current state + action -> return a new state
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     // * OTHER
-    case UserActionTypes.CHECK_USER_SESSION: {
-      return {
-        ...state,
-        checkUserSession: true,
-      };
-    }
     case UserActionTypes.TOGGLE_ACCOUNT_MODAL_HIDDEN:
       return {
         ...state,
