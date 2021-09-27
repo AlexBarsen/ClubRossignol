@@ -8,15 +8,19 @@ import {
   FeatureDescription,
 } from "./FeatureElements";
 
+import { useTranslation } from "react-i18next";
+
 const Feature = ({ feature }) => {
+  const { t } = useTranslation();
+
   const { image, name, description } = feature;
   return (
     <>
       <FeatureContainer>
         <FeatureImage src={image} alt="Photo" />
         <FeatureDetails>
-          <FeatureName>{name}</FeatureName>
-          <FeatureDescription>{description}</FeatureDescription>
+          <FeatureName>{t(name)}</FeatureName>
+          <FeatureDescription>{t(description)}</FeatureDescription>
         </FeatureDetails>
       </FeatureContainer>
     </>

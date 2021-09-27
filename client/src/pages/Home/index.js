@@ -4,12 +4,13 @@ import Sidebar from "../../components/Landing/Sidebar";
 import HeroSection from "../../components/Landing/HeroSection";
 import AboutSection from "../../components/Landing/AboutSection";
 import InfoSection from "../../components/Landing/InfoSection";
+
 import {
   restaurantSection,
   rentalSection,
   hotelSection,
   shopSection,
-} from "../../components/sections";
+} from "../../components/Landing/InfoSection/sections";
 
 import Footer from "../../components/RentalApp/Footer/index";
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import image from "../../../images/view-big.jpg";
 import { MdKeyboardArrowRight, MdArrowForward } from "react-icons/md";
 
 export const HeroContainer = styled.div`
@@ -25,7 +24,7 @@ export const HeroBackground = styled.div`
       rgba(77, 168, 218, 0.8),
       rgba(0, 124, 199, 0.5)
     ),
-    url(${image});
+    url("https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FHero%2Fhero.jpg?alt=media&token=df34ec17-d7e6-43ae-aa04-b382cebb5944");
   background-position: center;
   background-size: cover;
   z-index: -1;

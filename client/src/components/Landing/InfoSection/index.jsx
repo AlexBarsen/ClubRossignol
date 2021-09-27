@@ -19,18 +19,22 @@ import { ButtonLink } from "../Button/ButtonElement";
 
 import RestaurantModal from "../RestaurantModal/index";
 
+import { useTranslation } from "react-i18next";
+
 const InfoSection = ({ section, imgStart }) => {
+  const { t } = useTranslation();
+
   const {
     id,
     topLine,
     headline,
-    description1,
-    description2,
+    paragraph1,
+    paragraph2,
     buttonLabel,
     image,
-    route,
-    modal,
-    link,
+    route = null,
+    modal = false,
+    link = null,
   } = section;
 
   return (
@@ -40,18 +44,18 @@ const InfoSection = ({ section, imgStart }) => {
           <InfoRow imgStart={imgStart}>
             <Column1>
               <TextWrapper>
-                <TopLine>{topLine}</TopLine>
-                <Heading>{headline}</Heading>
-                <Subtitle>{description1}</Subtitle>
-                <Subtitle>{description2}</Subtitle>
+                <TopLine>{t(topLine)}</TopLine>
+                <Heading>{t(headline)}</Heading>
+                <Subtitle>{t(paragraph1)}</Subtitle>
+                <Subtitle>{t(paragraph2)}</Subtitle>
                 <ButtonWrapper>
                   {route ? (
-                    <ButtonLink to={`/${route}`}>{buttonLabel}</ButtonLink>
+                    <ButtonLink to={`/${route}`}>{t(buttonLabel)}</ButtonLink>
                   ) : modal ? (
                     <RestaurantModal />
                   ) : (
                     <ButtonLink to={{ pathname: link }} target="_blank">
-                      {buttonLabel}
+                      {t(buttonLabel)}
                     </ButtonLink>
                   )}
                 </ButtonWrapper>
