@@ -3,48 +3,63 @@ import styled from "styled-components";
 export const CheckoutItemContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 85rem;
-  background: rgba(255, 213, 64, 1);
-  border-radius: 0.5rem;
-
   border: 2px solid black;
   margin-bottom: 2rem;
+  padding: 1rem 2.5rem;
+  background: rgba(255, 213, 64, 1);
+
+  @media screen and (max-width: 768px) {
+    width: 45rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+`;
+
+export const WrapperNumberIcon = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding: 1rem;
 
   @media screen and (max-width: 768px) {
-    width: auto;
-    align-items: flex-start;
+    display: none;
+  }
+`;
+
+export const DetailNumber = styled.div`
+  font-size: 2rem;
+  margin-right: 1rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
   }
 `;
 
 export const IconContainer = styled.div`
   height: 7rem;
   width: 7rem;
-  /* margin-right: 2rem; */
+  margin-right: 2rem;
 
   @media screen and (max-width: 768px) {
-    width: 10rem;
-    height: 10rem;
-    padding: 0.5rem;
+    display: none;
   }
 `;
 
 export const Icon = styled.img`
-  height: 100%;
+  height: 8rem;
+  width: 8rem;
 `;
 
 export const Container = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
 
   @media screen and (max-width: 768px) {
-    /* width: 80%; */
-    display: grid;
-    grid-template-columns: 20rem 20rem 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-
     padding: 1rem;
-    border-radius: 0.5rem;
   }
 `;
 
@@ -56,19 +71,42 @@ export const WrapperNames = styled.div`
 
   @media screen and (max-width: 768px) {
     width: auto;
-    /* flex-direction: row; */
     justify-content: flex-start;
+    /* border-bottom: 1px solid black; */
   }
 `;
 
+export const DetailTitle = styled.div`
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.8rem;
+  }
+`;
+
+export const Detail = styled.div`
+  font-size: 1.6rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.2rem;
+    padding: 0.5rem 0;
+  }
+`;
+
+export const DetailSpan = styled.span`
+  font-weight: bold;
+`;
+
 export const WrapperDetails = styled.div`
+  margin-left: 2.5rem;
   width: 27%;
   display: flex;
   flex-direction: column;
 
   @media screen and (max-width: 768px) {
+    margin: 0;
     width: auto;
-    /* flex-direction: column; */
     justify-content: flex-start;
   }
 `;
@@ -80,8 +118,8 @@ export const WrapperDates = styled.div`
 
   @media screen and (max-width: 768px) {
     width: auto;
-    /* flex-direction: row; */
     justify-content: flex-start;
+    /* border-bottom: 1px solid black; */
   }
 `;
 
@@ -93,8 +131,8 @@ export const WrapperPrice = styled.div`
 
   @media screen and (max-width: 768px) {
     width: auto;
-    /* flex-direction: row; */
     justify-content: flex-start;
+    /* border-bottom: 1px solid black; */
   }
 `;
 
@@ -105,33 +143,27 @@ export const WrapperActions = styled.div`
   justify-content: space-evenly;
 
   @media screen and (max-width: 768px) {
-    width: auto;
-    justify-content: space-evenly;
-    grid-area: 1 / 3 / 3 / 4;
+    width: 15rem;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 `;
 
-export const DetailNumber = styled.div`
-  font-size: 2rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3rem;
-  }
-`;
-
-export const Detail = styled.div`
-  font-size: 1.6rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 2.2rem;
-  }
-`;
-
-export const DetailSpan = styled.span`
-  font-weight: bold;
-`;
-
 export const ButtonContainer = styled.div`
   cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+export const DetailNumberMobile = styled.span`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: inline-block;
+  }
 `;

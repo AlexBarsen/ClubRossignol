@@ -26,7 +26,7 @@ export const AboutWrapper = styled.div`
 export const AboutFeatures = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 7rem;
+  grid-gap: 5rem;
 
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);

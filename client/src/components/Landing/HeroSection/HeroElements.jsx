@@ -39,6 +39,7 @@ export const HeroContent = styled.div`
 
 export const HeroLogo = styled.img`
   width: 100%;
+  padding: 0 5rem;
 `;
 
 export const HeroHeading = styled.h1`

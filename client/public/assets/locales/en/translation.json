@@ -110,11 +110,14 @@
   "days": "days",
   "day": "day",
 
+  "account_details": "Account Details",
   "name": "Name",
   "surname": "Surname",
   "date_of_birth": "Date of birth",
   "email": "E-Mail",
-  "email_verified": "E-Mail verified",
+  "email_verified": "E-Mail confirmed",
+  "email_verified_true": "confirmed",
+  "email_verified_false": "not confirmed (please check your E-mail)",
   "phone": "Phone number",
 
   "order_history": "Order history",

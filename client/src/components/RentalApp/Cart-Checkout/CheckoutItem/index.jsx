@@ -7,12 +7,15 @@ import { useTranslation } from "react-i18next";
 
 import {
   CheckoutItemContainer,
+  WrapperNumberIcon,
+  DetailNumber,
+  DetailNumberMobile,
+  DetailSpan,
+  DetailTitle,
   IconContainer,
   Icon,
   Container,
-  DetailNumber,
   Detail,
-  DetailSpan,
   WrapperNames,
   WrapperDetails,
   WrapperDates,
@@ -48,20 +51,26 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
   return (
     <>
       <CheckoutItemContainer>
-        <DetailNumber>
-          <DetailSpan>{number}.</DetailSpan>
-        </DetailNumber>
-        <IconContainer>
-          <Icon src={icon} />
-        </IconContainer>
+        <WrapperNumberIcon>
+          <DetailNumber>
+            <DetailSpan>{number}.</DetailSpan>
+          </DetailNumber>
+          <IconContainer>
+            <Icon src={icon} />
+          </IconContainer>
+        </WrapperNumberIcon>
 
         <Container>
           <WrapperNames>
             <DetailSpan>
-              <Detail>{t(name)}</Detail>
+              <DetailTitle>
+                <DetailNumberMobile>{number}.</DetailNumberMobile>
+                {t(name)}
+              </DetailTitle>
             </DetailSpan>
 
             <Detail>
+              <DetailSpan>{t("name")}: </DetailSpan>
               {firstName} {lastName}
             </Detail>
           </WrapperNames>
@@ -74,17 +83,17 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
             ) : null}
             {weight ? (
               <Detail>
-                <DetailSpan>{t("weight")}:</DetailSpan> {weight} (KG)
+                <DetailSpan>{t("weight")}:</DetailSpan> {weight} (kg)
               </Detail>
             ) : null}
             {height ? (
               <Detail>
-                <DetailSpan>{t("height")}:</DetailSpan> {height} (CM)
+                <DetailSpan>{t("height")}:</DetailSpan> {height} (cm)
               </Detail>
             ) : null}
             {shoeSize ? (
               <Detail>
-                <DetailSpan>{t("shoeSize")}:</DetailSpan> {shoeSize} (EUR)
+                <DetailSpan>{t("shoeSize")}:</DetailSpan> {shoeSize}
               </Detail>
             ) : null}
             {experience ? (

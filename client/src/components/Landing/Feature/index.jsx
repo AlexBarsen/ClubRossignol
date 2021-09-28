@@ -1,7 +1,5 @@
 import React from "react";
 
-import Pizza from "../svg/pizza.svg";
-
 import {
   FeatureContainer,
   FeatureImage,
@@ -19,7 +17,7 @@ const Feature = ({ feature }) => {
   return (
     <>
       <FeatureContainer>
-        <FeatureImage src={Pizza} alt="Photo" />
+        <FeatureImage src={image} alt="Photo" />
         <FeatureDetails>
           <FeatureName>{t(name)}</FeatureName>
           <FeatureDescription>{t(description)}</FeatureDescription>

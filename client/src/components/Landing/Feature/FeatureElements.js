@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const FeatureContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* box-shadow: 0.5rem 0.5rem 1rem rgba(114, 82, 82, 1); */
-  border-radius: 1rem;
+  box-shadow: 1rem 0.7rem 0.7rem rgba(114, 82, 82, 0.5);
   border: 1px solid black;
   height: 30rem;
-  width: 40rem;
+  width: 30rem;
   transition: all 0.3s;
 
   &:hover {
@@ -15,16 +14,17 @@ export const FeatureContainer = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    width: 30rem;
+    width: 28rem;
+
+    &:hover {
+      transform: none;
+    }
   }
 `;
 
 export const FeatureImage = styled.img`
   height: 15rem;
-  padding: 1rem 0;
   background-size: contain;
-  /* border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem; */
 `;
 
 export const FeatureDetails = styled.div`

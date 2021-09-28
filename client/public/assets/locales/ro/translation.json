@@ -110,11 +110,14 @@
   "days": "Zile",
   "day": "zi",
 
+  "account_details": "Detaliile contului",
   "name": "Nume",
   "surname": "Prenume",
   "date_of_birth": "Data nasterii",
   "email": "E-Mail",
   "email_verified": "E-Mail confirmat",
+  "email_verified_true": "confirmat",
+  "email_verified_false": "neconfirmat (vă rugăm sa vă verificațivă E-mailul)",
   "phone": "Număr telefon",
 
   "order_history": "Istoric comenzi",

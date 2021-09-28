@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import {
   UserInformationContainer,
+  UserDetailHeading,
   UserDetails,
   Detail,
   DetailSpan,
@@ -17,6 +18,7 @@ const UserInformation = ({ currentUser }) => {
   return (
     <>
       <UserInformationContainer>
+        <UserDetailHeading>{t("account_details")}:</UserDetailHeading>
         <UserDetails>
           <Detail>
             <DetailSpan>{t("name")}: </DetailSpan>
@@ -26,17 +28,20 @@ const UserInformation = ({ currentUser }) => {
             <DetailSpan> {t("surname")}: </DetailSpan>
             {lastName}
           </Detail>
+
           <Detail>
-            <Detail>
-              <DetailSpan> {t("date_of_birth")}: </DetailSpan>
-              {dateOfBirth}
-            </Detail>
+            <DetailSpan> {t("date_of_birth")}: </DetailSpan>
+            {dateOfBirth}
+          </Detail>
+          <Detail>
             <DetailSpan> {t("email")}: </DetailSpan>
             {email}
           </Detail>
           <Detail>
             <DetailSpan> {t("email_verified")}: </DetailSpan>
-            {verifiedEmail ? "true" : "false"}
+            {verifiedEmail
+              ? `${t("email_verified_true")}`
+              : `${t("email_verified_false")}`}
           </Detail>
           <Detail>
             <DetailSpan> {t("phone")}: </DetailSpan>

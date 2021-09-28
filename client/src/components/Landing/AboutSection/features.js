@@ -31,7 +31,7 @@ const FEATURES_DATA = [
   {
     id: 5,
     image:
-      "https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FFeatures%2Fhotel.jpg?alt=media&token=742bb07b-c210-46a6-b8c2-06e693b1d94a",
+      "https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FFeatures%2Frental.jpg?alt=media&token=ebb115b6-30eb-4811-89ff-07b2254cf682",
     name: "feature_rental_heading",
     description: "feature_rental_description",
   },

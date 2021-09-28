@@ -20,7 +20,7 @@ export const RentalItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   width: 26rem;
   box-shadow: 0.3rem 0.3rem 1rem #656565;
 

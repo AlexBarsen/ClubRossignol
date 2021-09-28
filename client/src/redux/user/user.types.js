@@ -23,3 +23,5 @@ export const UserActionTypes = {
   FETCH_USER_ORDERS_SUCCESS: "FETCH_USER_ORDERS_SUCCESS",
   FETCH_USER_ORDERS_FAILURE: "FETCH_USER_ORDERS_FAILURE",
 };
+
+export default UserActionTypes;

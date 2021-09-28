@@ -20,6 +20,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         accountModalHidden: !state.accountModalHidden,
       };
 
+    case UserActionTypes.SIGN_IN_START:
+      return {
+        ...state,
+      };
+
     // * SIGN IN/OUT SUCESS
     case UserActionTypes.SIGN_IN_SUCCESS:
       toast.success(
@@ -53,14 +58,20 @@ const userReducer = (state = INITIAL_STATE, action) => {
               ? "The password is invalid."
               : "Parola este greșită."
           );
-          break;
+          return {
+            ...state,
+            error: action.payload,
+          };
         case "auth/user-not-found":
           toast.error(
             i18next.language === "en"
               ? "There is no user registered with this Email."
               : "Nu există un utilizator înregistrat cu acest Email."
           );
-          break;
+          return {
+            ...state,
+            error: action.payload,
+          };
         default:
           toast.error(
             i18next.language === "en"
@@ -101,7 +112,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
               ? "There is no user registered with this Email."
               : "Nu există un utilizator înregistrat cu acest Email."
           );
-          break;
+          return {
+            ...state,
+            error: action.payload,
+          };
         default:
           toast.error(
             i18next.language === "en"
