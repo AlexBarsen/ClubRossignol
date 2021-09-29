@@ -1,5 +1,9 @@
 import React from "react";
-import { AboutContainer, AboutWrapper, AboutFeatures } from "./AboutElements";
+import {
+  AboutContainer,
+  AboutWrapper,
+  AboutFeatures,
+} from "./FeaturesSectionElements";
 
 import Feature from "../Feature/index";
 import FeaturesData from "./features";

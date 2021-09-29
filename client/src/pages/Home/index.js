@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navbar } from "../../components/Landing/Navbar";
 import Sidebar from "../../components/Landing/Sidebar";
 import HeroSection from "../../components/Landing/HeroSection";
-import AboutSection from "../../components/Landing/AboutSection";
+import FeaturesSection from "../../components/Landing/FeatureSection";
 import InfoSection from "../../components/Landing/InfoSection";
 
 import {
@@ -29,7 +29,7 @@ const Home = () => {
         <Sidebar isOpen={isOpen} toggle={toggle} />
         <Navbar toggle={toggle} />
         <HeroSection />
-        <AboutSection />
+        <FeaturesSection />
         <InfoSection section={restaurantSection} imgStart={false} />
         <InfoSection section={rentalSection} imgStart={true} />
         <InfoSection section={hotelSection} imgStart={false} />

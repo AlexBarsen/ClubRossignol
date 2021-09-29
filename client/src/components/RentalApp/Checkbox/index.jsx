@@ -3,7 +3,7 @@ import { FaCheckSquare, FaSquare } from "react-icons/fa";
 
 import { CheckBoxContainer, Label } from "./CheckboxElements";
 
-const Checkbox = ({ name, label, checked, size }) => {
+const Checkbox = ({ label, checked, size }) => {
   const [check, setCheck] = useState(checked);
 
   const Icon = check ? FaCheckSquare : FaSquare;
