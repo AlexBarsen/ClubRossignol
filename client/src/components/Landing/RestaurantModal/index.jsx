@@ -7,9 +7,8 @@ import {
   ButtonContainer,
 } from "./RestaurantModalElements";
 
-import { Button } from "../Button/ButtonElement";
-
 import RestaurantPage from "../../../pages/Restaurant/index";
+import { Button } from "../Button/ButtonElement";
 
 const RestaurantModal = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -34,7 +33,7 @@ const RestaurantModal = () => {
           <ModalContent>
             <RestaurantPage />
             <ButtonContainer>
-              <Button onClick={toggleModal}>close</Button>
+              <Button onClick={toggleModal}>❌</Button>
             </ButtonContainer>
           </ModalContent>
         </RestaurantMenuModalContainer>

@@ -12,7 +12,6 @@ import {
 } from "./HeroElements";
 
 import { ButtonScroll } from "../Button/ButtonElement";
-
 import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
@@ -35,9 +34,12 @@ const HeroSection = () => {
             to="about"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
-            primary={false}
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-120}
           >
-            Descopera locatia {hover ? <ArrowForward /> : <ArrowRight />}
+            {t("discover")} {hover ? <ArrowForward /> : <ArrowRight />}
           </ButtonScroll>
         </HeroBtnWrapper>
       </HeroContent>

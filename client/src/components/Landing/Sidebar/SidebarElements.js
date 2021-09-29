@@ -28,7 +28,7 @@ export const Icon = styled.div`
   right: 1.5rem;
   font-size: 2rem;
   background: transparent;
-  /* cursor: pointer; */
+  cursor: pointer;
   outline: none;
 `;
 
@@ -74,7 +74,7 @@ export const SidebarRoute = styled(LinkR)`
   font-size: 1.6rem;
   outline: none;
   border: none;
-  /* cursor: pointer; */
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 

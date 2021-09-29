@@ -5,9 +5,11 @@ export const FeatureContainer = styled.div`
   flex-direction: column;
   box-shadow: 1rem 0.7rem 0.7rem rgba(114, 82, 82, 0.5);
   border: 1px solid black;
+  border-radius: 0.5rem;
   height: 30rem;
   width: 30rem;
   transition: all 0.3s;
+  background: #f6f6f6;
 
   &:hover {
     transform: translateY(-1rem) scale(1.05);
@@ -25,6 +27,9 @@ export const FeatureContainer = styled.div`
 export const FeatureImage = styled.img`
   height: 15rem;
   background-size: contain;
+  border-bottom: 2px solid black;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 `;
 
 export const FeatureDetails = styled.div`

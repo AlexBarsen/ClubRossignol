@@ -38,14 +38,18 @@ export const LanguageContainer = styled.div`
 
 export const NavLogo = styled(LinkR)`
   cursor: pointer;
+  display: flex;
+  align-items: center;
 `;
 
 export const NavLogoSvg = styled.img`
-  height: 100%;
-  padding: 1rem;
-
+  height: 6rem;
   @media screen and (max-width: 960px) {
-    height: 90%;
+    height: 3.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 5rem;
   }
 `;
 
@@ -101,7 +105,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavBtnLink = styled(LinkR)`
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   background: #ffd540;
   white-space: nowrap;
   padding: 1rem 2.2rem;
@@ -117,9 +121,5 @@ export const NavBtnLink = styled(LinkR)`
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
-  }
-
-  @media screen and (max-width: 960px) {
-    font-size: 1.4rem;
   }
 `;

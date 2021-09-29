@@ -11,7 +11,7 @@ import { createStructuredSelector } from "reselect";
 
 import CartIcon from "../Cart-Checkout/CartIcon/index";
 
-import LanguagesDropdown from "../LanguageDropdown/index";
+import LanguagesDropdown from "../../LanguageDropdown/index";
 import UserDropdown from "../UserDropdown/index";
 
 import { selectCurrentUser } from "../../../redux/user/user.selectors";

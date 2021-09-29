@@ -56,9 +56,9 @@ export const HeroBtnWrapper = styled.div`
 `;
 
 export const ArrowForward = styled(MdArrowForward)`
-  font-size: 2rem;
+  font-size: 2.6rem;
 `;
 
 export const ArrowRight = styled(MdKeyboardArrowRight)`
-  font-size: 2rem;
+  font-size: 2.6rem;
 `;

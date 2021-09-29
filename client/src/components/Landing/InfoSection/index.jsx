@@ -15,10 +15,9 @@ import {
   InfoImage,
 } from "./InfoElements";
 
-import { ButtonLink } from "../Button/ButtonElement";
-
 import RestaurantModal from "../RestaurantModal/index";
 
+import { ButtonLink } from "../Button/ButtonElement";
 import { useTranslation } from "react-i18next";
 
 const InfoSection = ({ section, imgStart }) => {

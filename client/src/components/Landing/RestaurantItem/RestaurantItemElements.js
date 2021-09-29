@@ -3,15 +3,12 @@ import styled from "styled-components";
 export const RestaurantItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  /* background: lightcyan; */
   border: 1.5px solid black;
   padding: 1rem;
   border-radius: 0.5rem;
 `;
 
-export const Wrapper = styled.div`
-  /* display: flex; */
-`;
+export const DescriptionWrapper = styled.div``;
 
 export const ContainerName = styled.div`
   display: flex;

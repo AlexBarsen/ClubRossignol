@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  AboutContainer,
-  AboutWrapper,
-  AboutFeatures,
-} from "./FeaturesSectionElements";
+
+import { FeaturesContainer, Features } from "./FeaturesSectionElements";
 
 import Feature from "../Feature/index";
 import FeaturesData from "./features";
@@ -11,16 +8,13 @@ import FeaturesData from "./features";
 const AboutSection = () => {
   return (
     <>
-      <AboutContainer id="about">
-        <AboutWrapper>
-          {/* <AboutHeading>Features</AboutHeading> */}
-          <AboutFeatures>
-            {FeaturesData.map((feature) => (
-              <Feature key={feature.id} feature={feature} />
-            ))}
-          </AboutFeatures>
-        </AboutWrapper>
-      </AboutContainer>
+      <FeaturesContainer id="about">
+        <Features>
+          {FeaturesData.map((feature) => (
+            <Feature key={feature.id} feature={feature} />
+          ))}
+        </Features>
+      </FeaturesContainer>
     </>
   );
 };

@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
-
-import RestaurantCategory from "../RestaurantCategory/index";
-
-import RestaurantItem from "../RestaurantItem/index";
 
 import {
   RestaurantMenuContainer,
@@ -14,6 +9,10 @@ import {
   CategoryTitle,
   Message,
 } from "./RestaurantMenuElements";
+
+import RestaurantCategory from "../RestaurantCategory/index";
+import RestaurantItem from "../RestaurantItem/index";
+
 import { createStructuredSelector } from "reselect";
 import { selectMenuArray } from "../../../redux/restaurant/restaurant.selectors";
 
@@ -40,7 +39,9 @@ const RestaurantMenu = ({ restaurantMenu }) => {
         </RestaurantCategories>
 
         <Element>
-          {category ? <CategoryTitle>{category}</CategoryTitle> : null}
+          {category ? (
+            <CategoryTitle>{category.toUpperCase()}</CategoryTitle>
+          ) : null}
           <MenuContainer>
             {menuItems
               ? menuItems.map((item) => (

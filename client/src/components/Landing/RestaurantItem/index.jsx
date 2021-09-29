@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   RestaurantItemContainer,
-  Wrapper,
+  DescriptionWrapper,
   ContainerName,
   RestaurantItemName,
   DetailSpan,
@@ -22,7 +22,7 @@ const RestaurantItem = ({ item }) => {
 
   return (
     <RestaurantItemContainer>
-      <Wrapper>
+      <DescriptionWrapper>
         <ContainerName>
           <RestaurantItemName>{t(name)}</RestaurantItemName>
         </ContainerName>
@@ -32,7 +32,7 @@ const RestaurantItem = ({ item }) => {
 
           <DetailSpan>{alergens}</DetailSpan>
         </ContainerDescription>
-      </Wrapper>
+      </DescriptionWrapper>
 
       <ContainerDetails>
         <Price>{price} RON</Price>

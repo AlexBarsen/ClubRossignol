@@ -4,6 +4,7 @@ import Scroll from "react-scroll";
 export const RestaurantMenuContainer = styled.div``;
 
 export const RestaurantCategories = styled.div`
+  margin-right: 5rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
