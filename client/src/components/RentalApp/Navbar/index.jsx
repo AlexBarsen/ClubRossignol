@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { FaBars } from "react-icons/fa";
 
@@ -22,8 +23,6 @@ import {
   toggleAcountModalHidden,
   signOutStart,
 } from "../../../redux/user/user.actions";
-
-import { useTranslation } from "react-i18next";
 
 import {
   HeaderContainer,

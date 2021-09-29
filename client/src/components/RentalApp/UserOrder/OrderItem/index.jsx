@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useTranslation } from "react-i18next";
 
 import {
@@ -14,6 +13,8 @@ import {
 } from "./OrderItemElements";
 
 const OrderItem = ({ item }) => {
+  const { t } = useTranslation();
+
   const {
     days,
     endDate,
@@ -29,7 +30,6 @@ const OrderItem = ({ item }) => {
     weight,
   } = item;
 
-  const { t } = useTranslation();
   return (
     <>
       <OrderItemsContainer>
@@ -46,17 +46,17 @@ const OrderItem = ({ item }) => {
             <Details>
               {sex ? (
                 <Detail>
-                  <DetailSpan>{t("sex")}: </DetailSpan> {sex}
+                  <DetailSpan>{t("sex")}: </DetailSpan> {t(sex)}
                 </Detail>
               ) : null}
               {weight ? (
                 <Detail>
-                  <DetailSpan>{t("weight")}: </DetailSpan> {weight}
+                  <DetailSpan>{t("weight")}: </DetailSpan> {weight} (kg)
                 </Detail>
               ) : null}
               {height ? (
                 <Detail>
-                  <DetailSpan>{t("height")}: </DetailSpan> {height}
+                  <DetailSpan>{t("height")}: </DetailSpan> {height} (cm)
                 </Detail>
               ) : null}
               {shoeSize ? (
@@ -66,7 +66,7 @@ const OrderItem = ({ item }) => {
               ) : null}
               {experience ? (
                 <Detail>
-                  <DetailSpan>{t("experience")}: </DetailSpan> {experience}
+                  <DetailSpan>{t("experience")}: </DetailSpan> {t(experience)}
                 </Detail>
               ) : null}
             </Details>
@@ -85,16 +85,6 @@ const OrderItem = ({ item }) => {
                 {days}
               </Detail>
             </Details>
-
-            {/* <Details>
-            <Detail>
-              {days} days x {price} RON
-            </Detail>
-            <Detail>
-              Total:
-              <DetailSpan> {days * price} RON</DetailSpan>
-            </Detail>
-          </Details> */}
           </DetailsContainer>
 
           <TotalDetails>

@@ -8,7 +8,6 @@ const PrivateRoute = ({ isAuth, component, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        console.log("sex");
         if (isAuth) {
           if (isAuth.role === "admin") {
             return <Component />;

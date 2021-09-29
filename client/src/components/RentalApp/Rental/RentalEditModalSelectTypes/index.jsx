@@ -1,8 +1,7 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { CustomSelect } from "./RentalEditModalSelectTypesElements";
-
-import { useTranslation } from "react-i18next";
 
 import {
   shoeSizeOptionsAdult,
@@ -25,6 +24,8 @@ const EditModalSelectTypes = ({
   onChangeInput,
   defaultValues,
 }) => {
+  const { t } = useTranslation();
+
   // * <Select> custom styles
   const customStyles = {
     control: (provided, state) => ({
@@ -54,8 +55,6 @@ const EditModalSelectTypes = ({
       },
     }),
   };
-
-  const { t } = useTranslation();
 
   const language = useTranslation().i18n.language;
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { createStructuredSelector } from "reselect";
 import { selectOrders } from "../../../../redux/order/order.selectors";
@@ -7,9 +8,9 @@ import AdminTable from "../AdminTable/index";
 
 import { AdminTableContainer } from "./AdminOrdersElements";
 
-import { useTranslation } from "react-i18next";
-
 const AdminOrders = ({ orders }) => {
+  const { t } = useTranslation();
+
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
     const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
@@ -19,8 +20,6 @@ const AdminOrders = ({ orders }) => {
     const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
     return day + "/" + month + "/" + year + " " + hour + ":" + minutes;
   };
-
-  const { t } = useTranslation();
 
   const transformedOrders = orders.map((order) => {
     const orderedAt = transformDate(order.orderedAt.toDate());

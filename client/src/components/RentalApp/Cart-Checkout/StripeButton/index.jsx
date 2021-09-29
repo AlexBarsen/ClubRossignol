@@ -4,6 +4,7 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
 import i18next from "i18next";
+import { useTranslation } from "react-i18next";
 
 import { clearCart } from "../../../../redux/cart/cart.actions";
 import { selectCurrentUser } from "../../../../redux/user/user.selectors";
@@ -13,6 +14,8 @@ import { createStructuredSelector } from "reselect";
 
 // * pass properties into Component
 const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
+  const { t } = useTranslation();
+
   // * Stripe configuration
   const priceForStripe = price * 100;
   const publishableKey =
@@ -62,12 +65,12 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
   return (
     <StripeCheckout
       currency="RON"
-      label="Finalizeaza Comanda"
+      label={t("to_payment")}
       name="Club Rossignol"
       billingAdress
       shippingAddress
-      description={`Totalul dumneavoastra este de ${price} RON`}
-      panelLabel="Plateste acum"
+      description={`${t("payment_description")} ${price} RON`}
+      panelLabel={`${t("pay")}`}
       amount={priceForStripe}
       token={onToken}
       stripeKey={publishableKey}

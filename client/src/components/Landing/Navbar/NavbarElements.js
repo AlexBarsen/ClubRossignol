@@ -28,11 +28,20 @@ export const LanguageContainer = styled.div`
   color: white;
   display: flex;
   align-items: center;
+  position: absolute;
+  top: 5px;
+  left: 0;
 
   @media screen and (max-width: 768px) {
-    position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 0px;
+  }
+
+  @media screen and (max-width: 600px) {
+    top: -5px;
+  }
+
+  @media screen and (max-width: 450px) {
+    top: -10px;
   }
 `;
 
@@ -40,12 +49,14 @@ export const NavLogo = styled(LinkR)`
   cursor: pointer;
   display: flex;
   align-items: center;
+
+  margin-left: 7rem;
 `;
 
 export const NavLogoSvg = styled.img`
   height: 6rem;
   @media screen and (max-width: 960px) {
-    height: 3.5rem;
+    height: 3rem;
   }
 
   @media screen and (max-width: 768px) {

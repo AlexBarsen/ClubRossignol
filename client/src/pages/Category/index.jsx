@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import RentalItem from "../../components/RentalApp/Rental/RentalItem/index";
-import { selectRentalCategory } from "../../redux/rental/rental.selectors";
 
 import {
   CategoryPageContainer,
   Title,
   CategoryProductsContainer,
 } from "./CategoryElements.js";
+
+import RentalItem from "../../components/RentalApp/Rental/RentalItem/index";
+import { selectRentalCategory } from "../../redux/rental/rental.selectors";
 
 const CategoryPage = ({ category }) => {
   if (!category) throw Error;

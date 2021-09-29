@@ -7,7 +7,7 @@ import {
   selectOrdersError,
 } from "../../../../redux/order/order.selectors";
 
-import WithSpinner from "../../WithSpinner/index";
+import WithSpinner from "../../../WithSpinner/index";
 import AdminOrders from "./index";
 
 const mapStateToProps = createStructuredSelector({

@@ -48,9 +48,9 @@ const LanguagesDropdown = () => {
                 <ReactCountryFlag
                   countryCode={country_code}
                   style={{
-                    width: "5rem",
-                    height: "5rem",
-                    padding: ".5rem",
+                    width: "50px",
+                    height: "50px",
+                    padding: "5px",
                   }}
                   svg
                 />

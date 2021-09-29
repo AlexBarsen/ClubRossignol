@@ -17,6 +17,7 @@ const RentalItem = ({ item }) => {
   const { t } = useTranslation();
 
   const { name, price, icon } = item;
+
   return (
     <>
       <RentalItemContainer>

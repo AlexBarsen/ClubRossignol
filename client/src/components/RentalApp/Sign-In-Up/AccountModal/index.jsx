@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import { selectAcountModalHidden } from "../../../../redux/user/user.selectors";
-import { toggleAcountModalHidden } from "../../../../redux/user/user.actions";
+import { useTranslation } from "react-i18next";
 
 import {
   HeaderOption,
@@ -13,13 +11,13 @@ import {
   CloseButtonContainer,
 } from "./AccountModalElements";
 
-import { Button } from "../../Button/ButtonElement";
+import { selectAcountModalHidden } from "../../../../redux/user/user.selectors";
+import { toggleAcountModalHidden } from "../../../../redux/user/user.actions";
 
 import SignIn from "../SignIn/index";
 import SignUp from "../SignUp/index";
 import PasswordReset from "../PasswordReset/index";
-
-import { useTranslation } from "react-i18next";
+import { Button } from "../../Button/ButtonElement";
 
 const AccountModal = ({ acountModalHidden, toggleAcountModalHidden }) => {
   const { t } = useTranslation();

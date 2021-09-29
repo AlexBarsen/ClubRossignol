@@ -57,7 +57,6 @@ export const SidebarLink = styled(Link)`
   transition: 0.2s ease-in-out;
   text-decoration: none;
   color: #fff;
-  /* cursor: pointer; */
 `;
 
 export const SideBtnWrap = styled.div`

@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-
-import FormInput from "../../FormInput/index";
-import { Button } from "../../Button/ButtonElement";
-
-import { emailSignInStart } from "../../../../redux/user/user.actions";
+import { useTranslation } from "react-i18next";
 
 import {
   SignInContainer,
@@ -12,11 +8,15 @@ import {
   Heading,
   ButtonsContainer,
   ButtonContainer,
-  Wrapper,
+  SignResetWrapper,
+  SignUpWrapper,
   Paragraph,
 } from "./SignInElements";
 
-import { useTranslation } from "react-i18next";
+import { emailSignInStart } from "../../../../redux/user/user.actions";
+
+import FormInput from "../../FormInput/index";
+import { Button } from "../../Button/ButtonElement";
 
 const SignIn = ({ emailSignInStart, handleDisplay }) => {
   const { t } = useTranslation();
@@ -73,24 +73,34 @@ const SignIn = ({ emailSignInStart, handleDisplay }) => {
           />
 
           <ButtonsContainer>
-            <Wrapper>
+            <SignResetWrapper>
               <ButtonContainer>
                 <Button type="submit" buttonType="signIn">
                   {t("sign_in")}
                 </Button>
               </ButtonContainer>
 
-              <Button
-                buttonType="signIn"
-                onClick={() => handleDisplay("reset")}
-              >
-                {t("reset_password")}
-              </Button>
-            </Wrapper>
-            <Paragraph>{t("no_account")}</Paragraph>
-            <Button buttonType="signIn" onClick={() => handleDisplay("signUp")}>
-              {t("sign_up")}
-            </Button>
+              <ButtonContainer>
+                <Button
+                  buttonType="signIn"
+                  onClick={() => handleDisplay("reset")}
+                >
+                  {t("reset_password")}
+                </Button>
+              </ButtonContainer>
+            </SignResetWrapper>
+
+            <SignUpWrapper>
+              <Paragraph>{t("no_account")}</Paragraph>
+              <ButtonContainer>
+                <Button
+                  buttonType="signIn"
+                  onClick={() => handleDisplay("signUp")}
+                >
+                  {t("sign_up")}
+                </Button>
+              </ButtonContainer>
+            </SignUpWrapper>
           </ButtonsContainer>
         </Form>
       </SignInContainer>

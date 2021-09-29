@@ -3,7 +3,8 @@ import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 
 import { selectIsUserLoaded } from "../../../redux/user/user.selectors";
-import WithSpinner from "../WithSpinner/index";
+
+import WithSpinner from "../../WithSpinner/index";
 import UserInformation from "./index";
 
 // * connect to Redux state

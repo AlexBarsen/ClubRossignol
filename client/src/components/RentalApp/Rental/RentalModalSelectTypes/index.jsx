@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { CustomSelect } from "./RentalModalSelectTypesElements";
 
@@ -17,9 +18,9 @@ import {
   bikesTimePeriodENG,
 } from "../RentalModal/options";
 
-import { useTranslation } from "react-i18next";
-
 const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
+  const { t } = useTranslation();
+
   // * <Select> custom styles
   const customStyles = {
     control: (provided, state) => ({
@@ -49,8 +50,6 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
       },
     }),
   };
-
-  const { t } = useTranslation();
 
   const language = useTranslation().i18n.language;
 

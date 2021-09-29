@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
-
-import { useTranslation } from "react-i18next";
 
 import {
   CheckoutItemContainer,
@@ -29,6 +28,8 @@ import { FaTrashAlt } from "react-icons/fa";
 import EditModal from "../../Rental/RentalEditModal/index";
 
 const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
+  const { t } = useTranslation();
+
   const {
     name,
     firstName,
@@ -45,8 +46,6 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
     endDate,
     timePeriod,
   } = cartItem;
-
-  const { t } = useTranslation();
 
   return (
     <>

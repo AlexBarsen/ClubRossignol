@@ -1,13 +1,10 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { selectUserOrders } from "../../../../redux/user/user.selectors";
 
 import { OrdersContainer, OrderContainer, Title } from "./OrdersElements";
-
-import { useTranslation } from "react-i18next";
-
+import { selectUserOrders } from "../../../../redux/user/user.selectors";
 import Order from "../Order/index";
 
 const Orders = ({ userOrders }) => {

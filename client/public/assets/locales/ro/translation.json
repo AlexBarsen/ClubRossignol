@@ -45,7 +45,7 @@
   "section_shop_paragraph_2": "Produsele se pot comanda și online de pe site-ul nostru.",
   "section_shop_button": "Magazin online",
 
-  "sign_in_email_password": "Conectează-te cu E-Mailul si parola",
+  "sign_in_email_password": "Conectare",
   "create_account_email_password": "Înregistrează-te cu E-Mail si parolă",
   "password": "Parolă",
   "confirm_password": "Confirmă parolă",
@@ -130,6 +130,10 @@
   "received": "primită",
   "prepared": "pregatită",
   "complete": "predată",
+
+  "to_payment": "Finalizează comanda",
+  "payment_description": "De achitat",
+  "pay": "Plătește acum",
 
   "pasta": "Paste",
   "side": "Garnituri",

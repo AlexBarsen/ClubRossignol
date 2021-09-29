@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
-
-import { passwordResetStart } from "../../../../redux/user/user.actions";
-
-import FormInput from "../../FormInput/index";
-import { Button } from "../../Button/ButtonElement";
+import { useTranslation } from "react-i18next";
 
 import {
   PasswordResetContainer,
@@ -14,7 +10,10 @@ import {
   ButtonContainer,
 } from "./PasswordResetElements";
 
-import { useTranslation } from "react-i18next";
+import { passwordResetStart } from "../../../../redux/user/user.actions";
+
+import FormInput from "../../FormInput/index";
+import { Button } from "../../Button/ButtonElement";
 
 const ResetPassword = ({ passwordResetStart }) => {
   const { t } = useTranslation();

@@ -12,7 +12,7 @@ import {
   shopSection,
 } from "../../components/Landing/InfoSection/sections";
 
-import Footer from "../../components/RentalApp/Footer/index";
+import Footer from "../../components/Landing/Footer/index";
 
 import { HomeContainer } from "./HomeElements";
 

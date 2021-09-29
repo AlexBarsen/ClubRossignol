@@ -30,11 +30,11 @@ const handleFontSizeQueryType = (buttonType) => {
     case "checkout":
       return "4rem";
     case "signIn":
-      return "3.2rem";
+      return "2.4rem";
     case "signUp":
       return "3.2rem";
     case "close":
-      return "4rem";
+      return "2.4rem";
     case "modal":
       return "4.4rem";
     case "order":
@@ -99,11 +99,11 @@ const handlePaddingQueryType = (buttonType) => {
     case "checkout":
       return "1rem 2rem";
     case "signIn":
-      return "1.5rem";
+      return "1rem";
     case "signUp":
       return "1.5rem";
     case "close":
-      return "1rem 4rem";
+      return "1.2rem 2.4rem";
     case "modal":
       return "1rem";
     case "order":
@@ -145,7 +145,7 @@ const handleWidthQueryType = (buttonType) => {
     case "checkout":
       return "35rem";
     case "signIn":
-      return "25rem";
+      return "20rem";
     case "signUp":
       return "25rem";
     case "close":

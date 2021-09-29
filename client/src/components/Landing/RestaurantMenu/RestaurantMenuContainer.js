@@ -6,7 +6,7 @@ import {
   selectIsMenuLoaded,
   selectRestaurantError,
 } from "../../../redux/restaurant/restaurant.selectors";
-import WithSpinner from "../../RentalApp/WithSpinner/index";
+import WithSpinner from "../../WithSpinner/index";
 import RestaurantMenu from "./index";
 
 const mapStateToProps = createStructuredSelector({

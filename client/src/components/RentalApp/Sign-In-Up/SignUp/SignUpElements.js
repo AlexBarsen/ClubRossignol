@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const SignUpContainer = styled.div`
-  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
 `;
@@ -12,15 +11,6 @@ export const Heading = styled.h1`
 
   @media screen and (max-width: 768px) {
     font-size: 4rem;
-  }
-`;
-
-export const HeadingSecondary = styled.h2`
-  color: black;
-  margin-bottom: 2rem;
-
-  @media screen and (max-width: 768px) {
-    font-size: 3.2rem;
   }
 `;
 
@@ -39,14 +29,13 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 900px) {
     display: flex;
     flex-direction: column;
+    gap: 0;
   }
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* margin-top: 2rem; */
 `;
 
 export const TermsCheckbox = styled.div`
@@ -55,15 +44,32 @@ export const TermsCheckbox = styled.div`
   align-items: center;
 `;
 
+export const TermsSpan = styled.span`
+  font-weight: bold;
+`;
+
+export const ButtonContainer = styled.div`
+  margin-top: 1rem;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 1.4rem;
+  }
+`;
+
 export const Input = styled.input`
   transform: scale(1.4);
+  margin-left: 0.5rem;
+
+  @media screen and (max-width: 768px) {
+    transform: scale(1.2);
+  }
 `;
 
 export const Label = styled.label`
   margin-left: 1rem;
-  font-size: 1.6rem;
-`;
+  font-size: 1.8rem;
 
-export const TermsSpan = styled.span`
-  font-weight: bold;
+  @media screen and (max-width: 768px) {
+    font-size: 2.2rem;
+  }
 `;

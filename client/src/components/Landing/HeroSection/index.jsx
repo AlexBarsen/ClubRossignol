@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   HeroContainer,
@@ -12,7 +13,6 @@ import {
 } from "./HeroElements";
 
 import { ButtonScroll } from "../Button/ButtonElement";
-import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
   const { t } = useTranslation();

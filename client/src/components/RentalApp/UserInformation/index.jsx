@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useTranslation } from "react-i18next";
 
 import {
@@ -11,10 +10,11 @@ import {
 } from "./UserInformationElements";
 
 const UserInformation = ({ currentUser }) => {
-  const { firstName, lastName, email, phone, dateOfBirth, verifiedEmail } =
+  const { t } = useTranslation();
+
+  const { firstName, lastName, email, phone, dateOfBirth, emailVerified } =
     currentUser;
 
-  const { t } = useTranslation();
   return (
     <>
       <UserInformationContainer>
@@ -39,7 +39,7 @@ const UserInformation = ({ currentUser }) => {
           </Detail>
           <Detail>
             <DetailSpan> {t("email_verified")}: </DetailSpan>
-            {verifiedEmail
+            {emailVerified
               ? `${t("email_verified_true")}`
               : `${t("email_verified_false")}`}
           </Detail>
@@ -52,9 +52,5 @@ const UserInformation = ({ currentUser }) => {
     </>
   );
 };
-
-// const mapStateToProps = createStructuredSelector({
-//   currentUser: selectCurrentUser,
-// });
 
 export default UserInformation;

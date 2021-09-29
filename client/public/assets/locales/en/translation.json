@@ -45,7 +45,7 @@
   "section_shop_paragraph_2": "The products can also be ordered online from our website.",
   "section_shop_button": "To Online Shop",
 
-  "sign_in_email_password": "Sign in with Email and password",
+  "sign_in_email_password": "Sign in ",
   "create_account_email_password": "Create account with E-mail and password",
   "password": "Password",
   "confirm_password": "Confirm password",
@@ -130,6 +130,10 @@
   "received": "received",
   "prepared": "prepared",
   "complete": "complete",
+
+  "to_payment": "Go to payment",
+  "payment_description": "To pay",
+  "pay": "Pay now",
 
   "pasta": "Pasta",
   "side": "Side Dishes",

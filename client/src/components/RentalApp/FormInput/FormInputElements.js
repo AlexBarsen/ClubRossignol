@@ -7,19 +7,23 @@ export const Group = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-align: left;
   color: black;
   font-weight: bold;
   margin-bottom: 0.5rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const Input = styled.input`
-  height: 3.5rem;
+  height: 4rem;
   font-size: 2rem;
   padding: 0 1rem;
-  border: 0.1rem solid black;
-  border-radius: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
   outline: none;
 
   &::-webkit-inner-spin-button {
@@ -30,7 +34,7 @@ export const Input = styled.input`
   }
 
   @media screen and (max-width: 768px) {
-    height: 6rem;
+    height: 5rem;
     font-size: 3rem;
   }
 `;

@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
 
-import { Button } from "../../Button/ButtonElement";
-
 import {
   CartDropdownContainer,
   CartItemsContainer,
@@ -13,14 +11,14 @@ import {
   Total,
 } from "./CartDropdownElements";
 
-import CartItem from "../CartItem/index";
-
 import {
   selectCartItems,
   selectCartTotal,
 } from "../../../../redux/cart/cart.selectors";
-
 import { toggleCartHidden } from "../../../../redux/cart/cart.actions";
+
+import { Button } from "../../Button/ButtonElement";
+import CartItem from "../CartItem/index";
 
 const CartDropdown = ({ cartItems, history, dispatch, total }) => {
   return (

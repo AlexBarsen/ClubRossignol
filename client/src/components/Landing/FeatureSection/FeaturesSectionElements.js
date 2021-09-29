@@ -14,7 +14,7 @@ export const Features = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5rem;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 960px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;

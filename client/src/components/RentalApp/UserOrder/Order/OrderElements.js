@@ -24,7 +24,17 @@ export const OrderedItems = styled.div`
   padding: 1rem;
 `;
 
-export const Wrapper = styled.div``;
+export const WrapperLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const WrapperRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+`;
 
 export const OrderInfo = styled.div`
   font-size: 1.6rem;
@@ -42,11 +52,4 @@ export const OrderInfoSpan = styled.span`
   @media screen and (max-width: 768px) {
     font-size: 2.6rem;
   }
-`;
-
-export const Wrapper2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 1rem;
 `;

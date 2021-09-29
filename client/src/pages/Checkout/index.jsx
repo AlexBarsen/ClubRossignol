@@ -1,15 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/index";
-
-import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
-
-import {
-  selectCartItems,
-  selectCartTotal,
-} from "../../redux/cart/cart.selectors";
+import { useTranslation } from "react-i18next";
 
 import {
   Title,
@@ -23,10 +15,17 @@ import {
   TotalItems,
 } from "./CheckoutElements";
 
-import { useTranslation } from "react-i18next";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../redux/cart/cart.selectors";
+
+import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/index";
+import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
 
 const CheckoutPage = ({ cartItems, total }) => {
   const { t } = useTranslation();
+
   return (
     <>
       <CheckoutPageContainer>

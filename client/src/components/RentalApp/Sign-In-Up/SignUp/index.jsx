@@ -1,25 +1,24 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-
-import FormInput from "../../FormInput/index";
-import { Button } from "../../Button/ButtonElement";
-
-import { emailSignUpStart } from "../../../../redux/user/user.actions";
+import { useTranslation } from "react-i18next";
 
 import {
   SignUpContainer,
   Heading,
-  HeadingSecondary,
   Form,
   Wrapper,
   ButtonsContainer,
   TermsCheckbox,
+  ButtonContainer,
   Input,
   Label,
   TermsSpan,
 } from "./SignUpElements";
 
-import { useTranslation } from "react-i18next";
+import { emailSignUpStart } from "../../../../redux/user/user.actions";
+
+import FormInput from "../../FormInput/index";
+import { Button } from "../../Button/ButtonElement";
 
 const SignUp = ({ emailSignUpStart }) => {
   const { t } = useTranslation();
@@ -100,9 +99,6 @@ const SignUp = ({ emailSignUpStart }) => {
     <>
       <SignUpContainer>
         <Heading>{t("sign_up")}</Heading>
-        <HeadingSecondary>
-          {t("create_account_email_password")}
-        </HeadingSecondary>
         <Form onSubmit={handleSubmit}>
           <Wrapper>
             <FormInput
@@ -193,9 +189,11 @@ const SignUp = ({ emailSignUpStart }) => {
               </Label>
             </TermsCheckbox>
 
-            <Button buttonType="signIn" type="submit" disabled={!agree}>
-              {t("sign_up")}
-            </Button>
+            <ButtonContainer>
+              <Button buttonType="signIn" type="submit" disabled={!agree}>
+                {t("sign_up")}
+              </Button>
+            </ButtonContainer>
           </ButtonsContainer>
         </Form>
       </SignUpContainer>

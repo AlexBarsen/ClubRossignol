@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-
-import { FaUserCircle } from "react-icons/fa";
-
 import { connect } from "react-redux";
-
 import { withRouter } from "react-router-dom";
-
-import { signOutStart } from "../../../redux/user/user.actions";
 
 import {
   User,
@@ -14,6 +8,9 @@ import {
   OptionsList,
   Option,
 } from "./UserDropdownElements";
+
+import { signOutStart } from "../../../redux/user/user.actions";
+import { FaUserCircle } from "react-icons/fa";
 
 const UserDropdown = ({ user, signOut, history }) => {
   const { firstName, lastName } = user;

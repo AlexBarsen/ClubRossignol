@@ -1,8 +1,5 @@
 import React from "react";
 import { createStructuredSelector } from "reselect";
-
-import { toggleCartHidden } from "../../../../redux/cart/cart.actions";
-import { selectCartItemsCount } from "../../../../redux/cart/cart.selectors";
 import { connect } from "react-redux";
 
 import {
@@ -11,6 +8,9 @@ import {
   Icon,
   ItemCount,
 } from "./CartIconElements";
+
+import { toggleCartHidden } from "../../../../redux/cart/cart.actions";
+import { selectCartItemsCount } from "../../../../redux/cart/cart.selectors";
 
 const CartIcon = ({ itemCount, toggleCartHidden }) => {
   return (

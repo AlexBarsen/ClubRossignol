@@ -1,11 +1,10 @@
 import React, { useMemo } from "react";
 import { useTable, useExpanded, useSortBy } from "react-table";
+import { useTranslation } from "react-i18next";
 
 import RowSubComponent from "../RowSubComponent/index";
 
 import { Table, Head, Heading, Row, Data, Body } from "./AdminTableElements";
-
-import { useTranslation } from "react-i18next";
 
 const AdminTable = ({ data }) => {
   const { t } = useTranslation();

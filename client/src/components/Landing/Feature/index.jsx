@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   FeatureContainer,
@@ -7,8 +8,6 @@ import {
   FeatureName,
   FeatureDescription,
 } from "./FeatureElements";
-
-import { useTranslation } from "react-i18next";
 
 const Feature = ({ feature }) => {
   const { t } = useTranslation();

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   RestaurantItemContainer,
@@ -13,12 +14,10 @@ import {
   Quantity,
 } from "./RestaurantItemElements";
 
-import { useTranslation } from "react-i18next";
-
 const RestaurantItem = ({ item }) => {
-  const { name, description, alergens, quantity, price } = item;
-
   const { t } = useTranslation();
+
+  const { name, description, alergens, quantity, price } = item;
 
   return (
     <RestaurantItemContainer>

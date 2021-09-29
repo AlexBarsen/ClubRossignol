@@ -4,7 +4,6 @@ export const UserInformationContainer = styled.div`
   border: 2px solid black;
   height: fit-content;
   padding: 1.5rem;
-  /* border-radius: 0.5rem; */
   background: rgba(255, 213, 64, 1);
 
   @media screen and (max-width: 768px) {

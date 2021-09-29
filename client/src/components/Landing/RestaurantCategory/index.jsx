@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   RestaurantCategoryContainer,
@@ -6,8 +7,6 @@ import {
   Icon,
   CategoryTitle,
 } from "./RestaurantCategoryElements";
-
-import { useTranslation } from "react-i18next";
 
 const RestaurantCategory = ({ categoryName, icon, products, filterMenu }) => {
   const { t } = useTranslation();

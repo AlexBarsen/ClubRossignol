@@ -23,34 +23,35 @@ export const Heading = styled.h1`
 `;
 
 export const ButtonsContainer = styled.div`
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+  }
 `;
 
-export const ButtonContainer = styled.div``;
+export const ButtonContainer = styled.div`
+  margin-top: 1.4rem;
+`;
 
-export const Wrapper = styled.div`
+export const SignResetWrapper = styled.div`
   display: flex;
-  /* align-items: center; */
   justify-content: space-between;
 `;
 
-export const Wrapper2 = styled.div``;
+export const SignUpWrapper = styled.div``;
 
 export const Paragraph = styled.p`
   color: black;
   font-size: 1.6rem;
   display: flex;
-  margin: 1rem 0;
-
-  /* justify-content: flex-end; */
+  margin-top: 1.6rem;
 
   @media screen and (max-width: 900px) {
-    font-size: 2.6rem;
+    font-size: 2rem;
   }
 
   @media screen and (max-width: 600px) {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 `;

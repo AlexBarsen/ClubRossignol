@@ -1,28 +1,26 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Collapsible from "react-collapsible";
 
 import {
   OrderContainer,
   Container,
   OrderedItems,
-  Wrapper,
+  WrapperLeft,
+  WrapperRight,
   OrderInfo,
   OrderInfoSpan,
-  Wrapper2,
 } from "./OrderElements";
 
+import OrderItem from "../OrderItem/index";
 import { Button } from "../../Button/ButtonElement";
 
-import OrderItem from "../OrderItem/index";
-
-import Collapsible from "react-collapsible";
-
-import { useTranslation } from "react-i18next";
-
 const Order = ({ order }) => {
-  const { orderedItems, total } = order;
-  const [isOpen, setIsOpen] = useState(false);
-
   const { t } = useTranslation();
+
+  const { orderedItems, total } = order;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   // * get date in DD/MM/YYYY format
   const transformDate = (date) => {
@@ -40,7 +38,7 @@ const Order = ({ order }) => {
     <>
       <OrderContainer>
         <Container isOpen={isOpen}>
-          <Wrapper>
+          <WrapperLeft>
             <OrderInfo>
               <OrderInfoSpan>{t("order_id")}: </OrderInfoSpan>
               {order.orderID}
@@ -56,9 +54,9 @@ const Order = ({ order }) => {
               <OrderInfoSpan>{t("order_total")}: </OrderInfoSpan> {order.total}
               RON
             </OrderInfo>
-          </Wrapper>
+          </WrapperLeft>
 
-          <Wrapper2>
+          <WrapperRight>
             <OrderInfo>
               <OrderInfoSpan>Status: </OrderInfoSpan>{" "}
               {order.status === "received" ? `📩 (${t(order.status)})` : null}
@@ -69,8 +67,9 @@ const Order = ({ order }) => {
             <Button buttonType="order" onClick={() => setIsOpen(!isOpen)}>
               Details &#x2193;
             </Button>
-          </Wrapper2>
+          </WrapperRight>
         </Container>
+
         <Collapsible open={isOpen}>
           <OrderedItems>
             {orderedItems.map((item) => (

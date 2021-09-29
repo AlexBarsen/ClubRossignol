@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
-
+import { useTranslation } from "react-i18next";
 import Select from "react-select";
 
 import { Button } from "../../Button/ButtonElement";
@@ -9,8 +8,6 @@ import { Button } from "../../Button/ButtonElement";
 import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
 
 import AdminOrderItem from "../AdminOrderItem/index";
-
-import { useTranslation } from "react-i18next";
 
 import {
   Wrapper,
@@ -20,6 +17,8 @@ import {
 } from "./RowSubComponentElements";
 
 const RowSubComponent = ({ row, updateOrderStatusStart }) => {
+  const { t } = useTranslation();
+
   const { status, orderedItems, orderID } = row.original;
 
   const [orderStatus, setOrderStatus] = useState(status);
@@ -31,8 +30,6 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const handleStatusUpdate = (orderID, orderStatus) => {
     updateOrderStatusStart(orderID, orderStatus);
   };
-
-  const { t } = useTranslation();
 
   const options = [
     { value: "received", label: t("received") },

@@ -8,17 +8,7 @@ export const HeaderOption = styled.div`
   cursor: pointer;
 
   @media screen and (max-width: 768px) {
-    font-size: 2.4rem;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 3rem;
-    margin-right: 3rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    font-size: 4rem;
-    margin-right: 4rem;
+    font-size: 2.6rem;
   }
 `;
 
@@ -36,8 +26,6 @@ export const SignInModalContanier = styled.div`
 
 export const ModalOverlay = styled.div`
   z-index: 1;
-  width: 100vw;
-  height: 100vh;
   top: 0;
   left: 0;
   right: 0;
@@ -59,17 +47,13 @@ export const ModalContent = styled.div`
   z-index: 10;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 1.4;
   background: #f1f1f1;
-  padding: 2rem 4rem;
-  border-radius: 1.5rem;
-  min-width: 50rem;
-  max-height: 120rem;
-  max-width: 150rem;
+  padding: 3rem 5rem;
+  border: 3px solid black;
+  border-radius: 0.5rem;
 
   @media screen and (max-width: 600px) {
-    top: 35%;
-    width: 72rem;
+    top: 45%;
   }
 `;
 
@@ -86,5 +70,5 @@ export const Title = styled.h1`
 
 export const CloseButtonContainer = styled.div`
   position: absolute;
-  right: 2rem;
+  right: 3rem;
 `;

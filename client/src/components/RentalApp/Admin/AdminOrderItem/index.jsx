@@ -1,7 +1,4 @@
 import React from "react";
-
-import Checkbox from "../../Checkbox";
-
 import { useTranslation } from "react-i18next";
 
 import {
@@ -12,7 +9,11 @@ import {
   DetailsContainer,
 } from "./AdminOrderItemElements";
 
+import Checkbox from "../Checkbox/index";
+
 const AdminOrderItem = ({ item, status }) => {
+  const { t } = useTranslation();
+
   const {
     id,
     days,
@@ -30,9 +31,8 @@ const AdminOrderItem = ({ item, status }) => {
     timePeriod,
   } = item;
 
-  const currentStatus = status === "received" ? false : true;
-
-  const { t } = useTranslation();
+  const currentStatus =
+    status === "received" || status === "primită" ? false : true;
 
   return (
     <>
