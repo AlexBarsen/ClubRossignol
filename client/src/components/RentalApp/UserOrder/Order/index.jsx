@@ -22,18 +22,10 @@ const Order = ({ order }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // * get date in DD/MM/YYYY format
-  const transformDate = (date) => {
-    const day = (date.getDate() < 10 ? "0" : "") + date.getDate();
-    const month = (date.getMonth() < 10 ? "0" : "") + date.getMonth();
-    const year = date.getFullYear();
-    const hour = (date.getHours() < 10 ? "0" : "") + date.getHours();
-    const minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-    return day + "/" + month + "/" + year + " " + hour + ":" + minutes;
-  };
-
-  console.log(order.orderedAt);
-  const orderDate = transformDate(order.orderedAt.toDate());
+  const orderDate =
+    order.orderedAt.toDate().toLocaleDateString() +
+    " " +
+    order.orderedAt.toDate().toLocaleTimeString();
 
   return (
     <>

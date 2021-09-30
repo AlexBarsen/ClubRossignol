@@ -58,18 +58,7 @@ const RentalModal = ({ addItem, item }) => {
     new Date(new Date().setDate(new Date().getDate() + 1))
   );
 
-  // * get date in DD/MM/YYYY format
-  const transformDate = (date) => {
-    const startDay = date.getDate();
-    const startMonth = date.getMonth() + 1;
-    const startYear = date.getFullYear();
-    return startDay + "/" + startMonth + "/" + startYear;
-  };
-
-  // * custom configuration for the Date
   const oneDay = 24 * 60 * 60 * 1000;
-  const startDate = transformDate(dateRange.startDate);
-  const endDate = transformDate(dateRange.endDate);
   const days =
     Math.round(Math.abs((dateRange.endDate - dateRange.startDate) / oneDay)) +
     1;
@@ -147,8 +136,8 @@ const RentalModal = ({ addItem, item }) => {
         id: uuid(),
         productType: productType,
         ...modalInputs,
-        startDate: startDate,
-        endDate: endDate,
+        startDate: dateRange.startDate.toLocaleDateString(),
+        endDate: dateRange.endDate.toLocaleDateString(),
         days: `${days}`,
       };
 
@@ -161,8 +150,8 @@ const RentalModal = ({ addItem, item }) => {
         id: uuid(),
         productType: productType,
         ...modalInputs,
-        startDate: startDate,
-        endDate: endDate,
+        startDate: dateRange.startDate.toLocaleDateString(),
+        endDate: dateRange.endDate.toLocaleDateString(),
         days: days,
       };
 
@@ -261,8 +250,8 @@ const RentalModal = ({ addItem, item }) => {
                     </ModalInputs>
 
                     <RentalModalInfo
-                      startDate={startDate}
-                      endDate={endDate}
+                      startDate={dateRange.startDate.toLocaleDateString()}
+                      endDate={dateRange.endDate.toLocaleDateString()}
                       days={days}
                       timePeriod={modalInputs.timePeriod}
                     />

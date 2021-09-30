@@ -56,17 +56,7 @@ const EditModal = ({ cartItem, editItem }) => {
 
   const [date, setDate] = useState(initialStartDate);
 
-  // * get date in DD/MM/YYYY format
-  const transformDate = (date) => {
-    const startDay = new Date(date).getDate();
-    const startMonth = new Date(date).getMonth() + 1;
-    const startYear = new Date(date).getFullYear();
-    return startDay + "/" + startMonth + "/" + startYear;
-  };
-
   const oneDay = 24 * 60 * 60 * 1000;
-  const startDate = transformDate(dateRange.startDate);
-  const endDate = transformDate(dateRange.endDate);
   const days = Math.round(
     Math.abs((dateRange.startDate - dateRange.endDate) / oneDay) + 1
   );
@@ -134,8 +124,8 @@ const EditModal = ({ cartItem, editItem }) => {
     // * pass state into item
     const editedItem = {
       ...item,
-      startDate: startDate,
-      endDate: endDate,
+      startDate: dateRange.startDate.toLocaleDateString(),
+      endDate: dateRange.endDate.toLocaleDateString(),
       days: days,
     };
 
@@ -243,8 +233,8 @@ const EditModal = ({ cartItem, editItem }) => {
                     </ModalInputs>
 
                     <RentalModalInfo
-                      startDate={startDate}
-                      endDate={endDate}
+                      startDate={dateRange.startDate.toLocaleDateString()}
+                      endDate={dateRange.endDate.toLocaleDateString()}
                       days={days}
                     />
 
