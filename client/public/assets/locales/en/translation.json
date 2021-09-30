@@ -80,9 +80,9 @@
   "sex_modal": "Sex",
   "timePeriod_modal": "Time Period",
 
-  "2h": "2 Hours",
-  "4h": "4 Hours",
-  "per_day": "Per Day",
+  "2h": "2 hours",
+  "4h": "4 hours",
+  "per_day": "Per day",
 
   "beginner": "Beginner",
   "medium": "Medium",
@@ -110,6 +110,7 @@
   "to": "To",
   "days": "days",
   "day": "day",
+  "number_of_days": "Number of days",
 
   "account_details": "Account Details",
   "name": "Name",

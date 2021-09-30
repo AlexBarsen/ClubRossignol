@@ -31,8 +31,6 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 
 import FormInput from "../../FormInput/index";
 
-import { FiEdit } from "react-icons/fi";
-
 const EditModal = ({ cartItem, editItem }) => {
   useEffect(() => {
     setItem(cartItem);
@@ -159,7 +157,9 @@ const EditModal = ({ cartItem, editItem }) => {
 
   return (
     <>
-      <FiEdit onClick={toggleModal} size={25} />
+      <Button buttonType="close" onClick={toggleModal}>
+        ✏️
+      </Button>
 
       {/* render Modal depending on the state */}
       {modalVisibility && (

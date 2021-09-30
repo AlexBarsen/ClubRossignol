@@ -9,7 +9,12 @@ export const CheckoutPageContainer = styled.div`
 export const CheckoutPageContent = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  width: 80%;
+
+  @media screen and (max-width: 768px) {
+    align-items: flex-start;
+  }
 `;
 
 export const Title = styled.h1`
@@ -23,13 +28,11 @@ export const Title = styled.h1`
   }
 `;
 
-export const Table = styled.table`
-  width: 100%;
-  margin-bottom: 4rem;
-  border-collapse: collapse;
+export const CheckoutItemsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
-
-export const CheckoutItemsContainer = styled.div``;
 
 export const Message = styled.h1`
   margin-top: 5rem;

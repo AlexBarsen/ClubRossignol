@@ -81,8 +81,8 @@
   "sex_modal": "Sex",
   "timePeriod_modal": "Durată",
 
-  "2h": "2 Ore",
-  "4h": "4 Ore",
+  "2h": "2 ore",
+  "4h": "4 ore",
   "per_day": "Pe Zi",
 
   "beginner": "Începător",
@@ -108,8 +108,9 @@
   "experience": "Experiență",
   "from": "De la",
   "to": "Pană",
-  "days": "Zile",
+  "days": "zile",
   "day": "zi",
+  "number_of_days": "Număr zile",
 
   "account_details": "Detaliile contului",
   "name": "Nume",

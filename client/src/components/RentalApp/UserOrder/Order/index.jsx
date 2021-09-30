@@ -32,6 +32,7 @@ const Order = ({ order }) => {
     return day + "/" + month + "/" + year + " " + hour + ":" + minutes;
   };
 
+  console.log(order.orderedAt);
   const orderDate = transformDate(order.orderedAt.toDate());
 
   return (
