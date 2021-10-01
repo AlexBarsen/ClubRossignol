@@ -8,7 +8,7 @@ export const OrderContainer = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: bold;
   margin-bottom: 2rem;
   border-bottom: 2px solid black;

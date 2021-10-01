@@ -117,6 +117,7 @@ const RentalPage = ({
             newestOnTop={false}
             closeOnClick
             rtl={false}
+            theme="colored"
             pauseOnFocusLoss
             draggable
           />

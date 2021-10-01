@@ -92,8 +92,7 @@
   "man": "Bărbat",
   "woman": "Femeie",
 
-  "product": "Produs",
-  "product_name": "Nume Produs",
+  "equipment_type": "Tip echipament",
   "person": "Persoană",
   "details": "Detalii",
   "period": "Perioadă",

@@ -1,8 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { createAvatar } from "@dicebear/avatars";
+import * as style from "@dicebear/pixel-art";
 
 import {
   UserInformationContainer,
+  AvatarContainer,
+  Avatar,
   UserDetailHeading,
   UserDetails,
   Detail,
@@ -12,13 +16,23 @@ import {
 const UserInformation = ({ currentUser }) => {
   const { t } = useTranslation();
 
-  const { firstName, lastName, email, phone, dateOfBirth, emailVerified } =
+  const { id, firstName, lastName, email, phone, dateOfBirth, emailVerified } =
     currentUser;
+
+  const avatar = createAvatar(style, {
+    seed: id,
+    dataUri: true,
+  });
 
   return (
     <>
       <UserInformationContainer>
-        <UserDetailHeading>{t("account_details")}:</UserDetailHeading>
+        <UserDetailHeading>{t("account_details")}</UserDetailHeading>
+
+        <AvatarContainer>
+          <Avatar src={avatar} alt="avatar" />
+        </AvatarContainer>
+
         <UserDetails>
           <Detail>
             <DetailSpan>{t("name")}: </DetailSpan>

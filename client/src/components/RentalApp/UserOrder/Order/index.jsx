@@ -8,8 +8,10 @@ import {
   OrderedItems,
   WrapperLeft,
   WrapperRight,
-  OrderInfo,
+  OrderInfoLeft,
+  OrderInfoRight,
   OrderInfoSpan,
+  ButtonContainer,
 } from "./OrderElements";
 
 import OrderItem from "../OrderItem/index";
@@ -32,41 +34,48 @@ const Order = ({ order }) => {
       <OrderContainer>
         <Container isOpen={isOpen}>
           <WrapperLeft>
-            <OrderInfo>
-              <OrderInfoSpan>{t("order_id")}: </OrderInfoSpan>
+            <OrderInfoLeft>
+              <OrderInfoSpan>{t("order_id")}:</OrderInfoSpan>
               {order.orderID}
-            </OrderInfo>
-            <OrderInfo>
-              <OrderInfoSpan>{t("order_date")}: </OrderInfoSpan> {orderDate}
-            </OrderInfo>
-            <OrderInfo>
-              <OrderInfoSpan>{t("items_ordered")}: </OrderInfoSpan>{" "}
+            </OrderInfoLeft>
+            <OrderInfoLeft>
+              <OrderInfoSpan>{t("order_date")}:</OrderInfoSpan> {orderDate}
+            </OrderInfoLeft>
+            <OrderInfoLeft>
+              <OrderInfoSpan>{t("items_ordered")}:</OrderInfoSpan>{" "}
               {orderedItems.length}
-            </OrderInfo>
-            <OrderInfo>
-              <OrderInfoSpan>{t("order_total")}: </OrderInfoSpan> {order.total}
+            </OrderInfoLeft>
+            <OrderInfoLeft>
+              <OrderInfoSpan>{t("order_total")}:</OrderInfoSpan> {order.total}
               RON
-            </OrderInfo>
+            </OrderInfoLeft>
           </WrapperLeft>
 
           <WrapperRight>
-            <OrderInfo>
+            <OrderInfoRight>
               <OrderInfoSpan>Status: </OrderInfoSpan>{" "}
-              {order.status === "received" ? `📩 (${t(order.status)})` : null}
+              {order.status === "received" ? `📥(${t(order.status)})` : null}
               {order.status === "prepared" ? `☑️ (${t(order.status)})` : null}
               {order.status === "complete" ? `✅ (${t(order.status)})` : null}
-            </OrderInfo>
+            </OrderInfoRight>
 
-            <Button buttonType="order" onClick={() => setIsOpen(!isOpen)}>
-              Details &#x2193;
-            </Button>
+            <ButtonContainer>
+              <Button buttonType="order" onClick={() => setIsOpen(!isOpen)}>
+                Details &#x2193;
+              </Button>
+            </ButtonContainer>
           </WrapperRight>
         </Container>
 
-        <Collapsible open={isOpen}>
+        <Collapsible style={{ margin: 0 }} open={isOpen}>
           <OrderedItems>
-            {orderedItems.map((item) => (
-              <OrderItem key={item.id} item={item} total={total} />
+            {orderedItems.map((item, index) => (
+              <OrderItem
+                key={item.id}
+                item={item}
+                total={total}
+                index={index}
+              />
             ))}
           </OrderedItems>
         </Collapsible>
