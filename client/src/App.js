@@ -6,7 +6,6 @@ import Spinner from "./components/Spinner/index";
 
 const Home = lazy(() => import("./pages/Home/index"));
 const RentalPage = lazy(() => import("./pages/Rental/index"));
-const RestaurantPage = lazy(() => import("./pages/Restaurant/index"));
 
 const App = () => {
   return (
@@ -15,7 +14,6 @@ const App = () => {
         <Suspense fallback={<Spinner />}>
           <Route exact path="/" component={Home} />
           <Route path="/rental" component={RentalPage} />
-          <Route exact path="/menu" component={RestaurantPage} />
         </Suspense>
       </Switch>
     </div>

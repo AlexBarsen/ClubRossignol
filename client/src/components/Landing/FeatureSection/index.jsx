@@ -5,7 +5,7 @@ import { FeaturesContainer, Features } from "./FeaturesSectionElements";
 import Feature from "../Feature/index";
 import FeaturesData from "./features";
 
-const AboutSection = () => {
+const FeaturesSection = () => {
   return (
     <>
       <FeaturesContainer id="about">
@@ -19,4 +19,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default FeaturesSection;

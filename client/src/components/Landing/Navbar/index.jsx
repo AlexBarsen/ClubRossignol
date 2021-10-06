@@ -98,7 +98,7 @@ export const Navbar = ({ toggle }) => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={82}
+                offset={-120}
               >
                 Contact
               </NavLinks>
