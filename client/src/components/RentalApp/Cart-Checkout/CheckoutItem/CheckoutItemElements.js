@@ -19,9 +19,6 @@ export const Icon = styled.img`
 `;
 
 export const Body = styled.div`
-  border-color: rgba(0, 0, 0, 0.125);
-  border-style: solid;
-  border-width: 2px 2px 0px 2px;
   padding: 1rem;
 `;
 
@@ -40,7 +37,6 @@ export const Wrapper = styled.div`
   justify-content: center;
 
   flex: 1;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
 `;
 
 export const ListGroup = styled.div`
@@ -58,7 +54,7 @@ export const ListGroupItemLeft = styled.div`
   padding: 1rem;
   border-color: rgba(0, 0, 0, 0.125);
   border-style: solid;
-  border-width: 2px 2px 0px 2px;
+  border-width: 2px 2px 0px 0px;
   width: 25rem;
   flex: 1;
   display: flex;
@@ -75,7 +71,7 @@ export const ListGroupItemRight = styled.div`
   padding: 1rem;
   border-color: rgba(0, 0, 0, 0.125);
   border-style: solid;
-  border-width: 2px 2px 0px 0px;
+  border-width: 2px 0px 0px 0px;
   width: 20rem;
   display: flex;
   align-items: center;
@@ -91,7 +87,7 @@ export const ListGroupItemCenter = styled.div`
   padding: 1rem;
   border-color: rgba(0, 0, 0, 0.125);
   border-style: solid;
-  border-width: 2px 2px 0px 2px;
+  border-width: 2px 0px 0px 0px;
   width: 30rem;
   flex: 1;
   display: flex;
@@ -110,7 +106,7 @@ export const ButtonsContainer = styled.div`
   flex: 1;
   border-color: rgba(0, 0, 0, 0.125);
   border-style: solid;
-  border-width: 2px 2px 0px 0px;
+  border-width: 2px 0px 0px 0px;
   padding: 1rem 0;
 `;
 

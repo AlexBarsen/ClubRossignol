@@ -10,7 +10,6 @@ export const RentalModalContainer = styled.div`
   right: 0;
   bottom: 0;
   position: fixed;
-  background: rgba(49, 49, 49, 0.8);
 `;
 
 export const ModalOverlay = styled.div`
@@ -36,8 +35,8 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 2rem 4rem;
-  border-radius: 1.5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
 `;
 
 export const Title = styled.h1`

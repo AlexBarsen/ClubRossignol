@@ -1,4 +1,5 @@
 import { takeLatest, put, call, all } from "@redux-saga/core/effects";
+
 import {
   auth,
   createUserProfileDocument,
@@ -19,6 +20,7 @@ import {
   passwordResetSuccess,
   passwordResetFailure,
 } from "./user.actions";
+
 import { UserActionTypes } from "./user.types";
 
 // * OTHER FUNCTIONALITY
@@ -77,8 +79,6 @@ export function* emailSignUp({
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
 
     yield user.sendEmailVerification();
-
-    alert("Verfication Email has been sent");
 
     yield put(
       signUpSuccess({

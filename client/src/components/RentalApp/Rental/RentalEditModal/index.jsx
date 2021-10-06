@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import { connect } from "react-redux";
-
-import { editItem } from "../../../../redux/cart/cart.actions";
-
-import EditModalSelectTypes from "../RentalEditModalSelectTypes/index";
-
-import RentalModalInfo from "../RentalModalInfo/index";
+import { DateRange, Calendar } from "react-date-range";
+import "react-date-range/dist/styles.css"; // * main css file
+import "react-date-range/dist/theme/default.css"; // * theme css file
+import { useTranslation } from "react-i18next";
 
 import {
   EditModalContainer,
@@ -23,18 +20,18 @@ import {
   CloseButtonContainer,
 } from "./RentalEditModalElements";
 
+import { editItem } from "../../../../redux/cart/cart.actions";
 import { Button } from "../../Button/ButtonElement";
-
-import { DateRange, Calendar } from "react-date-range";
-import "react-date-range/dist/styles.css"; // * main css file
-import "react-date-range/dist/theme/default.css"; // * theme css file
-
+import EditModalSelectTypes from "../RentalEditModalSelectTypes/index";
+import RentalModalInfo from "../RentalModalInfo/index";
 import FormInput from "../../FormInput/index";
 
 const EditModal = ({ cartItem, editItem }) => {
   useEffect(() => {
     setItem(cartItem);
   }, [cartItem]);
+
+  const { t } = useTranslation();
 
   const [item, setItem] = useState(cartItem);
 
@@ -156,7 +153,7 @@ const EditModal = ({ cartItem, editItem }) => {
         <EditModalContainer>
           <ModalOverlay></ModalOverlay>
           <ModalContent>
-            <Title>{item.name}</Title>
+            <Title>{t(item.name)}</Title>
 
             <Element>
               <Form onSubmit={handleSubmit}>
@@ -209,7 +206,7 @@ const EditModal = ({ cartItem, editItem }) => {
                         className="modal__rental-info--input"
                         name="firstName"
                         type="text"
-                        label="Nume"
+                        label={t("name")}
                         value={item.firstName}
                         onChange={handleChange}
                         required
@@ -218,7 +215,7 @@ const EditModal = ({ cartItem, editItem }) => {
                         className="modal__rental-info--input"
                         name="lastName"
                         type="text"
-                        label="Prenume"
+                        label={t("surname")}
                         value={item.lastName}
                         onChange={handleChange}
                         required

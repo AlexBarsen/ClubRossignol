@@ -27,5 +27,6 @@ export const DateContent = styled.div`
 `;
 
 export const BoldSpan = styled.span`
+  margin-left: 0.5rem;
   font-weight: bold;
 `;

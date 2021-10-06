@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const CartItemContainer = styled.div`
   background: #fff;
-
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 
   &:not(:last-child) {
     margin-bottom: 2rem;
@@ -25,8 +24,8 @@ export const Icon = styled.img`
 `;
 
 export const Wrapper = styled.div`
-  padding: 1rem;
   width: 27rem;
+  padding: 0.5rem 2rem;
 
   @media screen and (max-width: 768px) {
     width: 42rem;
@@ -35,9 +34,10 @@ export const Wrapper = styled.div`
 
 export const Detail = styled.div`
   font-size: 1.6rem;
+  padding: 0.5rem;
 
   &:not(:last-child) {
-    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25);
   }
 
   @media screen and (max-width: 768px) {

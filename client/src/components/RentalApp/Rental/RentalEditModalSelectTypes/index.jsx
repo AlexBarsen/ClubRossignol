@@ -1,8 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { CustomSelect } from "./RentalEditModalSelectTypesElements";
-
 import {
   shoeSizeOptionsAdult,
   heightOptionsAdult,
@@ -17,6 +15,8 @@ import {
   experienceOptionsENG,
   bikesTimePeriodENG,
 } from "../RentalModal/options";
+
+import { CustomSelect } from "./RentalEditModalSelectTypesElements";
 
 const EditModalSelectTypes = ({
   productType,

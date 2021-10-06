@@ -37,8 +37,8 @@ const CartItem = ({ item, clearItemFromCart }) => {
             {item.timePeriod
               ? item.timePeriod !== "days"
                 ? `${item.timePeriod} x ${price}RON = ${price} RON`
-                : `${days} days x ${price}RON = ${days * price}RON`
-              : `${days} days x ${price}RON = ${days * price}RON`}
+                : `${days} days x ${price} RON = ${days * price} RON`
+              : `${days} days x ${price} RON = ${days * price} RON`}
           </Detail>
         </Wrapper>
 

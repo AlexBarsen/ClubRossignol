@@ -16,7 +16,7 @@ import RentalModal from "../RentalModal";
 const RentalItem = ({ item }) => {
   const { t } = useTranslation();
 
-  const { name, price, icon } = item;
+  const { name, productType, price, icon } = item;
 
   return (
     <>
@@ -29,9 +29,14 @@ const RentalItem = ({ item }) => {
           <ProductName>{t(name)}</ProductName>
 
           <Wrapper>
-            <Price>
-              {price} {t("ron_day")}
-            </Price>
+            {productType !== "bike" ? (
+              <Price>
+                {price} {t("ron_day")}
+              </Price>
+            ) : (
+              <Price>{t("price_bike")}</Price>
+            )}
+
             <RentalModal item={item} />
           </Wrapper>
         </Footer>

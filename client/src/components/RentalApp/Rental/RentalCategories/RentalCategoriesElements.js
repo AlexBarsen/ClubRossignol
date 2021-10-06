@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaArrowDown } from "react-icons/fa";
 
 export const RentalCategoriesContainer = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    height: 9rem;
+    height: 8rem;
   }
 `;
 
@@ -27,8 +28,8 @@ export const Category = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   color: black;
-
   transition: all 0.2s ease-in-out;
+  will-change: transform;
 
   &:hover {
     transform: scale(1.07);
@@ -36,7 +37,18 @@ export const Category = styled(Link)`
 `;
 
 export const CategoryTitle = styled.div`
-  border-radius: 2rem;
   font-size: 2.6rem;
   padding: 1rem;
+
+  @media screen and (max-width: 768px) {
+    font-size: 3rem;
+  }
+`;
+
+export const ArrowDown = styled(FaArrowDown)`
+  font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+  }
 `;

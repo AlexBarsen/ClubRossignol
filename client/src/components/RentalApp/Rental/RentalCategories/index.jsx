@@ -1,16 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import { FaArrowDown } from "react-icons/fa";
 import {
   RentalCategoriesContainer,
   Wrapper,
   Category,
   CategoryTitle,
+  ArrowDown,
 } from "./RentalCategoriesElements";
 
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
 import { selectRentalsCategories } from "../../../../redux/rental/rental.selectors";
+// import { FaArrowDown } from "react-icons/fa";s
 
 const RentalCategories = ({ categories }) => {
   return (
@@ -23,7 +24,7 @@ const RentalCategories = ({ categories }) => {
               to={`/rental/category/${category.title.toLowerCase()}`}
             >
               <CategoryTitle>{category.title}</CategoryTitle>
-              <FaArrowDown size={20} />
+              <ArrowDown />
             </Category>
           ))}
         </Wrapper>

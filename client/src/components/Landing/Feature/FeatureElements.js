@@ -10,6 +10,7 @@ export const FeatureContainer = styled.div`
   width: 30rem;
   transition: all 0.3s;
   background: #f6f6f6;
+  will-change: transform;
 
   &:hover {
     transform: translateY(-1rem) scale(1.05);

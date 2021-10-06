@@ -1,31 +1,11 @@
-import styled, { keyframes } from "styled-components";
-
-const fadeIn = keyframes`
- {
-    0% {
-      opacity: 0;
-    }
-
-    1% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-`;
+import styled from "styled-components";
 
 export const RentalItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  /* border-radius: 0.5rem; */
   width: 26rem;
   box-shadow: 0.3rem 0.3rem 1rem #656565;
-
-  /* animation: ${fadeIn} 2s ease-in-out;
-  transition: all 0.5s ease-in-out; */
 `;
 
 export const IconContainer = styled.div`

@@ -72,6 +72,9 @@
   "bike_adult": "Mountainbike Adult",
   "ebike_child": "E-Bike Child",
   "bike_child": "Mountainbike Child",
+  "price_bike": "Per day / per hour",
+
+  "choose": "CHOOSE",
 
   "height_modal": "Height (CM)",
   "weight_modal": "Weight (KG)",
@@ -110,6 +113,10 @@
   "days": "days",
   "day": "day",
   "number_of_days": "Number of days",
+  "reservation_message_1": "Reservations can be made only for the next day, respectively from",
+  "reservation_message_2": "Please be careful when filling in the data!",
+
+  "cart_message": "There is nothing in your cart yet.",
 
   "account_details": "Account Details",
   "name": "Name",
@@ -295,5 +302,8 @@
   "default_error": "An error has occured.",
 
   "payment_error": "Payment successful, your order has been placed.",
-  "payment_sucessfull": "Something went wrong with your payment."
+  "payment_sucessfull": "Something went wrong with your payment.",
+
+  "email_no_match": "Emails don't match.",
+  "password_no_match": "Passwords don't match."
 }

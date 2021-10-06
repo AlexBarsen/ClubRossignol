@@ -42,9 +42,7 @@ const CheckoutPage = ({ cartItems, total }) => {
             ))}
           </CheckoutItemsContainer>
 
-          {cartItems.length ? null : (
-            <Message>Nu exista nimic in cos momentan</Message>
-          )}
+          {cartItems.length ? null : <Message>{t("cart_message")}</Message>}
 
           {total ? (
             <Total>

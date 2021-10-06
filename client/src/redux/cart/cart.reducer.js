@@ -27,7 +27,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: [...state.cartItems, action.payload],
       };
     case CartActionTypes.CLEAR_ITEM_FROM_CART:
-      toast.success(
+      toast.warning(
         i18next.language === "en"
           ? "Item has been removed from your cart."
           : "Produsul a fost eliminat din coș."

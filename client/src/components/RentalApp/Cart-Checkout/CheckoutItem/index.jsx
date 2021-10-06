@@ -75,21 +75,21 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
                 {sex ? (
                   <ListGroupItemLeft>
                     <ListGroupItemSpan>Sex:</ListGroupItemSpan>
-                    {sex}
+                    {t(sex)}
                   </ListGroupItemLeft>
                 ) : null}
 
                 {height ? (
                   <ListGroupItemLeft>
                     <ListGroupItemSpan>{t("height")}:</ListGroupItemSpan>
-                    {height}
+                    {height} cm
                   </ListGroupItemLeft>
                 ) : null}
 
                 {weight ? (
                   <ListGroupItemLeft>
                     <ListGroupItemSpan>{t("weight")}:</ListGroupItemSpan>
-                    {weight}
+                    {weight} kg
                   </ListGroupItemLeft>
                 ) : null}
 
@@ -103,7 +103,7 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
                 {experience ? (
                   <ListGroupItemLeft>
                     <ListGroupItemSpan>{t("experience")}:</ListGroupItemSpan>
-                    {experience}
+                    {t(experience)}
                   </ListGroupItemLeft>
                 ) : null}
               </ListGroup>

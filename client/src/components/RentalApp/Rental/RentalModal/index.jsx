@@ -30,7 +30,11 @@ import { addItem } from "../../../../redux/cart/cart.actions";
 import FormInput from "../../FormInput/index";
 import { Button } from "../../Button/ButtonElement";
 
+import { useTranslation } from "react-i18next";
+
 const RentalModal = ({ addItem, item }) => {
+  const { t } = useTranslation();
+
   const {
     name,
     price = null,
@@ -168,7 +172,7 @@ const RentalModal = ({ addItem, item }) => {
   return (
     <>
       <Button onClick={toggleModal} buttonType="rentalItem">
-        ALEGE
+        {t("choose")}
       </Button>
 
       {/* render Modal depending on the state */}
@@ -177,7 +181,7 @@ const RentalModal = ({ addItem, item }) => {
           <ModalOverlay></ModalOverlay>
 
           <ModalContent>
-            <Title>{item.name}</Title>
+            <Title>{t(name)}</Title>
             <Element>
               <Form onSubmit={handleSubmit}>
                 <ContentWrapper>
@@ -228,7 +232,7 @@ const RentalModal = ({ addItem, item }) => {
                       <FormInput
                         name="firstName"
                         type="text"
-                        label="Nume"
+                        label={t("name")}
                         value={modalInputs.firstName}
                         onChange={handleChange}
                         required
@@ -236,7 +240,7 @@ const RentalModal = ({ addItem, item }) => {
                       <FormInput
                         name="lastName"
                         type="text"
-                        label="Prenume"
+                        label={t("surname")}
                         value={modalInputs.lastName}
                         onChange={handleChange}
                         required

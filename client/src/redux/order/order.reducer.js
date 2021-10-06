@@ -45,7 +45,7 @@ const orderReducer = (state = INITIAL_STATE, action) => {
         orders: updateOrderStatus(state.orders, action.payload),
       };
     case OrderActionTypes.UPDATE_ORDER_STATUS_FAILURE:
-      toast.success(
+      toast.error(
         i18next.language === "en"
           ? `Order status update has failed. Error: ${action.payload.message}`
           : `Actualizarea statusului comenzii a eșuat. Error: ${action.payload.message}`

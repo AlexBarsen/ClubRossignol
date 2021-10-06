@@ -29,7 +29,7 @@ const ResetPassword = ({ passwordResetStart }) => {
     event.preventDefault();
 
     if (email !== confirmEmail) {
-      toast.error("E-mails don't match.");
+      toast.error(t("email_no_match"));
       setEmails({ ...emails, confirmEmail: "" });
       return;
     }

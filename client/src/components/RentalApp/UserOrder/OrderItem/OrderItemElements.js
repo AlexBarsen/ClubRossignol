@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const OrderItemContainer = styled.div`
-  padding-top: 2rem;
+  margin-top: 2rem;
 `;
 
 export const DetailsContainer = styled.div`
   display: flex;
   border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0px 0px 2px 0px;
 `;

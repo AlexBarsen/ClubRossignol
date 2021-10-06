@@ -73,6 +73,9 @@
   "ebike_child": "E-Bike Copil",
   "bike_child": "Mountainbike Copil",
   "ron_day": "RON / ZI",
+  "price_bike": "Pe zi / pe ore",
+
+  "choose": "ALEGE",
 
   "height_modal": "Înălțime (CM)",
   "weight_modal": "Greutate (KG)",
@@ -110,6 +113,10 @@
   "days": "zile",
   "day": "zi",
   "number_of_days": "Număr zile",
+  "reservation_message_1": "Rezervările se pot face doar pentru ziua ce urmează, respectiv din",
+  "reservation_message_2": "Vă rugăm să fiți atenți la completarea datelor!",
+
+  "cart_message": "Nu există nimic in coș momentan.",
 
   "account_details": "Detaliile contului",
   "name": "Nume",
@@ -296,5 +303,8 @@
   "default_error": "A apărut o eroare.",
 
   "payment_error": "Plată reușită, comanda dumneavoastră a fost plasată cu succes.",
-  "payment_sucessfull": "A apărut o eroare cu plata dumneavoastră."
+  "payment_sucessfull": "A apărut o eroare cu plata dumneavoastră.",
+
+  "email_no_match": "Email-urile nu se potrivesc.",
+  "password_no_match": "Parolele nu se potrivesc."
 }

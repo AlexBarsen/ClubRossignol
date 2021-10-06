@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import {
   CartDropdownContainer,
@@ -9,6 +10,8 @@ import {
   Message,
   Footer,
   Total,
+  TotalSpan,
+  ButtonContainer,
 } from "./CartDropdownElements";
 
 import {
@@ -21,6 +24,7 @@ import { Button } from "../../Button/ButtonElement";
 import CartItem from "../CartItem/index";
 
 const CartDropdown = ({ cartItems, history, dispatch, total }) => {
+  const { t } = useTranslation();
   return (
     <>
       <CartDropdownContainer>
@@ -28,23 +32,26 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => {
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} item={cartItem} />
           ))}
-          {cartItems.length ? null : (
-            <Message>Nu exista nimic in cos momentan</Message>
-          )}
+          {cartItems.length ? null : <Message>{t("cart_message")}</Message>}
         </CartItemsContainer>
 
         <Footer>
-          <Total>Total: {total}</Total>
+          <Total>
+            <TotalSpan>Total: </TotalSpan>
+            {total} RON
+          </Total>
 
-          <Button
-            buttonType="checkout"
-            onClick={() => {
-              history.replace("/rental/checkout");
-              dispatch(toggleCartHidden());
-            }}
-          >
-            Go to Checkout
-          </Button>
+          <ButtonContainer>
+            <Button
+              buttonType="checkout"
+              onClick={() => {
+                history.replace("/rental/checkout");
+                dispatch(toggleCartHidden());
+              }}
+            >
+              Go to Checkout
+            </Button>
+          </ButtonContainer>
         </Footer>
       </CartDropdownContainer>
     </>

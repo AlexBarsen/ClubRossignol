@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const OrderContainer = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `;
 
 export const Container = styled.div`

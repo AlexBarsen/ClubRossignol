@@ -26,9 +26,9 @@ const handleFontSizeType = (buttonType) => {
 const handleFontSizeQueryType = (buttonType) => {
   switch (buttonType) {
     case "rentalItem":
-      return "3.2rem";
+      return "2.4rem";
     case "checkout":
-      return "4rem";
+      return "3rem";
     case "signIn":
       return "2.4rem";
     case "signUp":
@@ -72,9 +72,9 @@ const handleColorType = (buttonType) => {
 const handlePaddingType = (buttonType) => {
   switch (buttonType) {
     case "rentalItem":
-      return "1rem 1rem";
+      return "1rem 2rem";
     case "checkout":
-      return "1rem";
+      return ".8rem";
     case "signIn":
       return "1rem";
     case "signUp":
@@ -95,9 +95,9 @@ const handlePaddingType = (buttonType) => {
 const handlePaddingQueryType = (buttonType) => {
   switch (buttonType) {
     case "rentalItem":
-      return "1rem 1rem";
+      return "1rem 1.5rem";
     case "checkout":
-      return "1rem 2rem";
+      return "1rem";
     case "signIn":
       return "1rem";
     case "signUp":
@@ -118,9 +118,9 @@ const handlePaddingQueryType = (buttonType) => {
 const handleWidthType = (buttonType) => {
   switch (buttonType) {
     case "rentalItem":
-      return "12rem";
+      return "auto";
     case "checkout":
-      return "20rem";
+      return "17rem";
     case "signIn":
       return "18rem";
     case "signUp":
@@ -141,9 +141,9 @@ const handleWidthType = (buttonType) => {
 const handleWidthQueryType = (buttonType) => {
   switch (buttonType) {
     case "rentalItem":
-      return "14rem";
+      return "auto";
     case "checkout":
-      return "35rem";
+      return "25rem";
     case "signIn":
       return "20rem";
     case "signUp":

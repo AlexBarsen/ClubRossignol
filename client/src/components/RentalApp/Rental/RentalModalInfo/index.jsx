@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import {
   RentalModalInfoContainer,
@@ -9,19 +10,20 @@ import {
 } from "./RentalModalInfoElements";
 
 const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
+  const { t } = useTranslation();
   return (
     <>
       <RentalModalInfoContainer>
         <Message>
-          Rezervarile se pot face doar pentru ziua ce urmeaza, respectiv din{" "}
-          {startDate}. Va rugam sa fiti atenti la completarea datelor!
+          {t("reservation_message_1")} {startDate}. {t("reservation_message_2")}
         </Message>
+
         <Dates>
           <DateContent>
-            Din data de: <BoldSpan>{startDate}</BoldSpan>
+            Din data de:<BoldSpan>{startDate}</BoldSpan>
           </DateContent>
           <DateContent>
-            Pana in data de: <BoldSpan>{endDate}</BoldSpan>
+            Pana in data de:<BoldSpan>{endDate}</BoldSpan>
           </DateContent>
           <DateContent>
             Durata inchiriere:

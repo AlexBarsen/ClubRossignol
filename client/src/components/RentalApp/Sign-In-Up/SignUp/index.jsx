@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 import {
   SignUpContainer,
@@ -64,13 +65,13 @@ const SignUp = ({ emailSignUpStart }) => {
 
     // * check if password match
     if (email !== confirmEmail) {
-      alert("Emails don't match");
+      toast.error(t("email_no_match"));
       return;
     }
 
     // * check if password match
     if (password !== confirmPassword) {
-      alert("Passwords don't match");
+      toast.error(t("password_no_match"));
       return;
     }
 
