@@ -6,6 +6,7 @@ import {
   SignInContainer,
   Form,
   Heading,
+  AdminDetail,
   ButtonsContainer,
   ButtonContainer,
   SignResetWrapper,
@@ -50,6 +51,9 @@ const SignIn = ({ emailSignInStart, handleDisplay }) => {
     <>
       <SignInContainer>
         <Heading>{t("sign_in_email_password")}</Heading>
+
+        <AdminDetail>Admin Account: admin </AdminDetail>
+        <AdminDetail>Password: test1234</AdminDetail>
 
         <Form onSubmit={handleSubmit}>
           <FormInput

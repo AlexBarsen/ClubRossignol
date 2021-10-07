@@ -38,10 +38,10 @@ const RentalItem = ({ item }) => {
               </Price>
             ) : (
               <Price>
-                <PriceBike>{prices[1]} RON / 2H</PriceBike>
+                <PriceBike>{prices[0]} RON / 2H</PriceBike>
                 <PriceBike>{prices[1]} RON / 4H</PriceBike>
                 <PriceBike>
-                  {prices[1]} {t("ron_day")}
+                  {prices[2]} {t("ron_day")}
                 </PriceBike>
               </Price>
             )}

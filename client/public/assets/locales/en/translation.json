@@ -119,10 +119,11 @@
   "reservation_message_2": "Please be careful when filling in the data!",
 
   "cart_message": "There is nothing in your cart yet.",
+  "please_log_in": "In order the proceed with the payment, please log in",
 
   "account_details": "Account Details",
-  "name": "Name",
-  "surname": "Surname",
+  "name": "Last Name",
+  "surname": "First Name",
   "date_of_birth": "Date of birth",
   "email": "E-Mail",
   "email_verified": "E-Mail confirmed",

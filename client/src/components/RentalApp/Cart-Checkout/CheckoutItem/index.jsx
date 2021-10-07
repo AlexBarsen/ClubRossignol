@@ -67,9 +67,14 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
             <>
               {" "}
               <ListGroup>
-                <ListGroupItemLeft type="name">
+                <ListGroupItemLeft>
                   <ListGroupItemSpan>{t("name")}:</ListGroupItemSpan>{" "}
-                  {firstName} {lastName}
+                  {firstName}
+                </ListGroupItemLeft>
+
+                <ListGroupItemLeft>
+                  <ListGroupItemSpan>{t("surname")}:</ListGroupItemSpan>{" "}
+                  {lastName}
                 </ListGroupItemLeft>
 
                 {sex ? (

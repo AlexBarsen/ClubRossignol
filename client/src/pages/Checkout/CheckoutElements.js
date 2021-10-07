@@ -60,3 +60,18 @@ export const TotalItems = styled.div``;
 export const TotalSpan = styled.span`
   font-weight: bold;
 `;
+
+export const CardDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 2.4rem;
+  margin-top: 2rem;
+`;
+
+export const CardDetail = styled.div`
+  padding: 0.5rem 0;
+`;
+
+export const CardDetailSpan = styled.span`
+  font-weight: bold;
+`;

@@ -10,7 +10,7 @@ export const Form = styled.form`
 `;
 
 export const Heading = styled.h1`
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   color: black;
 
   @media screen and (max-width: 900px) {
@@ -54,4 +54,10 @@ export const Paragraph = styled.p`
   @media screen and (max-width: 600px) {
     font-size: 2.4rem;
   }
+`;
+
+export const AdminDetail = styled.div`
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
 `;

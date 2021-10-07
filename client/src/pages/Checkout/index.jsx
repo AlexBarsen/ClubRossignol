@@ -13,6 +13,9 @@ import {
   TotalPrice,
   TotalSpan,
   TotalItems,
+  CardDetails,
+  CardDetail,
+  CardDetailSpan,
 } from "./CheckoutElements";
 
 import {
@@ -22,8 +25,9 @@ import {
 
 import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/index";
 import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems, total, currentUser }) => {
   const { t } = useTranslation();
 
   return (
@@ -42,7 +46,7 @@ const CheckoutPage = ({ cartItems, total }) => {
             ))}
           </CheckoutItemsContainer>
 
-          {cartItems.length ? null : <Message>{t("cart_message")}</Message>}
+          {/* {cartItems.length ? null : <Message>{t("cart_message")}</Message>} */}
 
           {total ? (
             <Total>
@@ -56,7 +60,31 @@ const CheckoutPage = ({ cartItems, total }) => {
             </Total>
           ) : null}
 
-          <StripeCheckoutButton price={total} cartItems={cartItems} />
+          {currentUser ? (
+            cartItems.length ? (
+              <>
+                <StripeCheckoutButton price={total} cartItems={cartItems} />
+                <CardDetails>
+                  <CardDetail>
+                    <CardDetailSpan>Test Card:</CardDetailSpan> 4242 4242 4242
+                    4242
+                  </CardDetail>
+                  <CardDetail>
+                    <CardDetailSpan>Exp. Date:</CardDetailSpan> 01/22
+                  </CardDetail>
+                  <CardDetail>
+                    <CardDetailSpan>CVC:</CardDetailSpan> 123
+                  </CardDetail>
+                </CardDetails>
+              </>
+            ) : (
+              <Message>{t("cart_message")}</Message>
+            )
+          ) : cartItems.length ? (
+            <Message>{t("please_log_in")}</Message>
+          ) : (
+            <Message>{t("cart_message")}</Message>
+          )}
         </CheckoutPageContent>
       </CheckoutPageContainer>
     </>
@@ -67,6 +95,7 @@ const CheckoutPage = ({ cartItems, total }) => {
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
+  currentUser: selectCurrentUser,
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

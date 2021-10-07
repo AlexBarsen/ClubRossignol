@@ -1,0 +1,30 @@
+{
+  "short_name": "Club Rossignol",
+  "name": "Club Rossignol - Poina Brasov",
+  "icons": [
+    {
+      "src": "logo32.jpg",
+      "type": "image/jpg",
+      "sizes": "32x32"
+    },
+    {
+      "src": "logo80.jpg",
+      "type": "image/jpg",
+      "sizes": "80x80"
+    },
+    {
+      "src": "logo32.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo32.jpg",
+      "type": "image/jpg",
+      "sizes": "270x270"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
