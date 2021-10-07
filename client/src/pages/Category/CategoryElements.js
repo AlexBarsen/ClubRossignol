@@ -23,9 +23,10 @@ export const CategoryProductsContainer = styled.div`
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
-  gap: 7rem;
+  gap: 5rem;
 
   @media screen and (max-width: 900px) {
+    gap: 3rem;
     grid-template-columns: repeat(2, 1fr);
   }
 `;

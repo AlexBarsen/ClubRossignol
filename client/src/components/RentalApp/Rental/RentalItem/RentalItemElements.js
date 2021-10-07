@@ -4,7 +4,7 @@ export const RentalItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  width: 26rem;
+  width: 30rem;
   box-shadow: 0.3rem 0.3rem 1rem #656565;
 `;
 
@@ -44,4 +44,10 @@ export const Wrapper = styled.div`
 
 export const Price = styled.div`
   font-weight: bold;
+`;
+
+export const PriceBike = styled.div`
+  &:not(:first-child) {
+    margin-top: 0.5rem;
+  }
 `;

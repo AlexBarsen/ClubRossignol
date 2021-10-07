@@ -16,7 +16,7 @@ export const CategoryTitle = styled.h1`
 
 export const CategoryItems = styled.div`
   display: grid;
-  grid-gap: 7rem;
+  grid-gap: 5rem;
 
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
@@ -26,6 +26,7 @@ export const CategoryItems = styled.div`
   margin-bottom: 3rem;
 
   @media screen and (max-width: 900px) {
+    grid-gap: 3rem;
     grid-template-columns: repeat(2, 1fr);
   }
 `;

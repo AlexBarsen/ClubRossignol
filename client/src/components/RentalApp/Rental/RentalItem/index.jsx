@@ -9,6 +9,7 @@ import {
   Footer,
   Wrapper,
   Price,
+  PriceBike,
 } from "./RentalItemElements";
 
 import RentalModal from "../RentalModal";
@@ -16,7 +17,9 @@ import RentalModal from "../RentalModal";
 const RentalItem = ({ item }) => {
   const { t } = useTranslation();
 
-  const { name, productType, price, icon } = item;
+  const { name, productType, price, prices = null, icon } = item;
+
+  console.log(prices);
 
   return (
     <>
@@ -34,7 +37,13 @@ const RentalItem = ({ item }) => {
                 {price} {t("ron_day")}
               </Price>
             ) : (
-              <Price>{t("price_bike")}</Price>
+              <Price>
+                <PriceBike>{prices[1]} RON / 2H</PriceBike>
+                <PriceBike>{prices[1]} RON / 4H</PriceBike>
+                <PriceBike>
+                  {prices[1]} {t("ron_day")}
+                </PriceBike>
+              </Price>
             )}
 
             <RentalModal item={item} />
