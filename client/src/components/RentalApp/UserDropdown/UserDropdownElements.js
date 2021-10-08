@@ -7,7 +7,6 @@ export const User = styled.div`
 
 export const UserDropdownContainer = styled.div`
   position: relative;
-  z-index: 5;
 `;
 
 export const OptionsList = styled.ul`
