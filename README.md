@@ -1,6 +1,6 @@
 # ClubRossignol
 
-Club Rossingol is a Pub located at the base of the slope in Poiana Brasov, Romania. Besides the restaurant the location also features a shop with winter specific merchandise, as well as a rental center with ski equipment during winter and bikes during the other seasons.
+Club Rossingol is a location sitauted at the base of the slope in Poiana Brasov, Romania. Besides the restaurant the location also features a shop with winter specific merchandise, as well as a rental center with ski equipment during winter and bikes during the other seasons.
 
 # Project Description
 
@@ -20,7 +20,7 @@ While the Landing Page serves just for the presentation of the location the Rent
 - **Renting Equipment:**
 
   - **adding** items to cart (features a form which has to be filled with the information of the person who is renting the equipment)
-  - **editing** items in the cart (in case the data contains a mistake, the users have to option the edit it)
+  - **editing** items in the cart (in case the data contains a mistake, the users have the option to edit it)
   - **deleting** items from the cart
   - **order placement** through the stripe API
   - **the cart** is stored in the database (upon signing out and relogging the items will be fetched from the database)
@@ -71,4 +71,4 @@ While the Landing Page serves just for the presentation of the location the Rent
   - at the moment when the user/admin is in the dashboard on page refresh he is redirected to the **_/rental_** Route, due to the fact that in the **portected/private Routes** the condition is checked before the user being fetched from firebase so it always redirects to /rental (session based authentication should solve this problem)
 - **implement a better system for renting the equipments**, especially for the bikes, since the timeframe for the hourly rent can't be chosen
 - **custom** **password reset** and **email confirmation** forms after clicking the link received on the e-maill
-- **implementing tests** for the whole project to check if the components and rendred correctly and if the functions work as intended
+- **implementing tests** for the whole project to check if the components are rendred correctly and if the functions work as intended
