@@ -120,7 +120,7 @@ const handleWidthType = (buttonType) => {
     case "rentalItem":
       return "auto";
     case "checkout":
-      return "17rem";
+      return "22rem";
     case "signIn":
       return "18rem";
     case "signUp":
@@ -143,7 +143,7 @@ const handleWidthQueryType = (buttonType) => {
     case "rentalItem":
       return "auto";
     case "checkout":
-      return "25rem";
+      return "30rem";
     case "signIn":
       return "20rem";
     case "signUp":

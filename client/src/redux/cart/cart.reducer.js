@@ -2,6 +2,7 @@ import CartActionTypes from "./cart.types";
 import { toast } from "react-toastify";
 import { editItem } from "./cart.utils";
 import i18next from "i18next";
+import UserActionTypes from "../user/user.types";
 
 const INITIAL_STATE = {
   cartHidden: true,
@@ -15,6 +16,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartHidden: !state.cartHidden,
+      };
+    case UserActionTypes.TOGGLE_USER_DROPDOWN_HIDDEN:
+      return {
+        ...state,
+        cartHidden: false,
       };
     case CartActionTypes.ADD_ITEM:
       toast.success(
@@ -57,6 +63,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: action.payload,
+      };
+    case UserActionTypes.TOGGLE_ACCOUNT_MODAL_HIDDEN:
+      return {
+        ...state,
+        cartHidden: false,
       };
     default:
       return state;

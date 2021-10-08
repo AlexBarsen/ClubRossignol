@@ -56,7 +56,9 @@ export function* fetchUserOrdersAsync({ payload: { currentUser } }) {
   if (currentUser) {
     const userID = currentUser.id;
     try {
-      const ordersRef = firestore.collection("orders");
+      const ordersRef = firestore
+        .collection("orders")
+        .orderBy("orderedAt", "desc");
 
       const ordersSnapshot = yield ordersRef
         .where("userID", "==", userID)

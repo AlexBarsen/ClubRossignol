@@ -48,16 +48,7 @@ const Sidebar = ({ isOpen, toggle }) => {
           >
             Rental
           </SidebarLink>
-          <SidebarLink
-            to="shop"
-            smooth={true}
-            duration={500}
-            spy={true}
-            offset={-75}
-            onClick={toggle}
-          >
-            Shop
-          </SidebarLink>
+
           <SidebarLink
             to="hotel"
             smooth={true}
@@ -67,6 +58,17 @@ const Sidebar = ({ isOpen, toggle }) => {
             onClick={toggle}
           >
             Hotel
+          </SidebarLink>
+
+          <SidebarLink
+            to="shop"
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-75}
+            onClick={toggle}
+          >
+            Shop
           </SidebarLink>
           <SidebarLink
             to="contact"

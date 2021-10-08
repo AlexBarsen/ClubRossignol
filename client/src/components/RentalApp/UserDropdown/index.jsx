@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 
 import {
   User,
@@ -10,33 +11,39 @@ import {
 } from "./UserDropdownElements";
 
 import { signOutStart } from "../../../redux/user/user.actions";
+import { toggleUserDropdownHidden } from "../../../redux/user/user.actions";
+import { selectUserDropdownHidden } from "../../../redux/user/user.selectors";
 import { FaUserCircle } from "react-icons/fa";
 
-const UserDropdown = ({ user, signOut, history }) => {
+const UserDropdown = ({
+  user,
+  userDropdownHidden,
+  toggleUserDropdownHidden,
+  signOut,
+  history,
+}) => {
   const { firstName, lastName } = user;
-
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <UserDropdownContainer>
-        <User onClick={() => setIsOpen(!isOpen)}>
+        <User onClick={() => toggleUserDropdownHidden()}>
           <FaUserCircle size={20} style={{ marginRight: ".5rem" }} />
           {firstName} {lastName}
         </User>
 
-        {isOpen ? (
+        {!userDropdownHidden ? (
           <OptionsList>
             <Option
               onClick={
                 user.role === "admin"
                   ? () => {
                       history.replace("/rental/admin");
-                      setIsOpen(!isOpen);
+                      toggleUserDropdownHidden();
                     }
                   : () => {
                       history.replace("/rental/dashboard");
-                      setIsOpen(!isOpen);
+                      toggleUserDropdownHidden();
                     }
               }
             >
@@ -50,8 +57,15 @@ const UserDropdown = ({ user, signOut, history }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  signOut: () => dispatch(signOutStart()),
+const mapStateToProps = createStructuredSelector({
+  userDropdownHidden: selectUserDropdownHidden,
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(UserDropdown));
+const mapDispatchToProps = (dispatch) => ({
+  signOut: () => dispatch(signOutStart()),
+  toggleUserDropdownHidden: () => dispatch(toggleUserDropdownHidden()),
+});
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(UserDropdown)
+);

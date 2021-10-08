@@ -262,7 +262,7 @@ const RentalModal = ({ addItem, item }) => {
 
                     <ButtonContainer>
                       <Button buttonType="modal" type="submit">
-                        ADAUGA IN COS
+                        {t("add_to_cart")}
                       </Button>
                     </ButtonContainer>
                   </WrapperRight>

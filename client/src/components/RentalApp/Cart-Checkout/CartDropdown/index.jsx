@@ -49,7 +49,7 @@ const CartDropdown = ({ cartItems, history, dispatch, total }) => {
                 dispatch(toggleCartHidden());
               }}
             >
-              Go to Checkout
+              {t("go_to_checkout")}
             </Button>
           </ButtonContainer>
         </Footer>

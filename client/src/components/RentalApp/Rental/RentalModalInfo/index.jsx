@@ -20,13 +20,13 @@ const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
 
         <Dates>
           <DateContent>
-            Din data de:<BoldSpan>{startDate}</BoldSpan>
+            {t("from")}:<BoldSpan>{startDate}</BoldSpan>
           </DateContent>
           <DateContent>
-            Pana in data de:<BoldSpan>{endDate}</BoldSpan>
+            {t("to")}:<BoldSpan>{endDate}</BoldSpan>
           </DateContent>
           <DateContent>
-            Durata inchiriere:
+            {t("number_of_days")}:
             <BoldSpan>
               {days} {days === 1 ? "zi" : "zile"}
             </BoldSpan>

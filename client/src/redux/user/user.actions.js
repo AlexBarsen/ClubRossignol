@@ -10,6 +10,10 @@ export const toggleAcountModalHidden = () => ({
   type: UserActionTypes.TOGGLE_ACCOUNT_MODAL_HIDDEN,
 });
 
+export const toggleUserDropdownHidden = () => ({
+  type: UserActionTypes.TOGGLE_USER_DROPDOWN_HIDDEN,
+});
+
 export const checkUserSession = () => ({
   type: UserActionTypes.CHECK_USER_SESSION,
 });

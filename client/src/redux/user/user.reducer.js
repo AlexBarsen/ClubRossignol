@@ -1,10 +1,12 @@
 import { UserActionTypes } from "./user.types";
+import CartActionTypes from "../cart/cart.types";
 import { toast } from "react-toastify";
 import i18next from "i18next";
 
 const INITIAL_STATE = {
   currentUser: null,
   accountModalHidden: true,
+  userDropdownHidden: true,
   isFetching: false,
   error: null,
   orders: null,
@@ -18,6 +20,17 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         accountModalHidden: !state.accountModalHidden,
+        userDropdownHidden: true,
+      };
+    case UserActionTypes.TOGGLE_USER_DROPDOWN_HIDDEN:
+      return {
+        ...state,
+        userDropdownHidden: !state.userDropdownHidden,
+      };
+    case CartActionTypes.TOGGLE_CART_HIDDEN:
+      return {
+        ...state,
+        userDropdownHidden: true,
       };
 
     case UserActionTypes.SIGN_IN_START:
