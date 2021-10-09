@@ -2,6 +2,8 @@
 
 Club Rossingol is a location sitauted at the base of the slope in Poiana Brasov, Romania. Besides the restaurant the location also features a shop with winter specific merchandise, as well as a rental center with ski equipment during winter and bikes during the other seasons.
 
+**Live Demo: https://clubrossignol.herokuapp.com/**
+
 # Project Description
 
 The purpose of the project was to build a Landing Page together with a Rental Application through which winter equipment and bikes could be rented.
