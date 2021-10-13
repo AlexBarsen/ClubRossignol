@@ -5,7 +5,6 @@ import { CheckBoxContainer, Label } from "./CheckboxElements";
 
 const Checkbox = ({ label, checked, size }) => {
   const [check, setCheck] = useState(checked);
-  console.log(check);
 
   const Icon = check ? FaCheckSquare : FaSquare;
 

@@ -27,7 +27,6 @@ import { Button } from "../../Button/ButtonElement";
 const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
   const { t } = useTranslation();
 
-  console.log(cartItem);
   const {
     productType,
     name,

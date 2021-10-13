@@ -33,8 +33,6 @@ const ContactSection = () => {
   const { firstName, lastName, email, message } = inputValues;
 
   const handleChange = (event) => {
-    console.log("1");
-    console.log(inputValues);
     const { value, name } = event.target;
 
     setInputValues({ ...inputValues, [name]: value });

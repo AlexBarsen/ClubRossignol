@@ -19,8 +19,6 @@ const RentalItem = ({ item }) => {
 
   const { name, productType, price, prices = null, icon } = item;
 
-  console.log(prices);
-
   return (
     <>
       <RentalItemContainer>
