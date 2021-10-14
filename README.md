@@ -64,6 +64,7 @@ While the Landing Page serves just for the presentation of the location the Rent
   - [React-i18next](https://react.i18next.com/) (translations)
 - [Stripe](https://stripe.com)
   - [React-Stripe](https://stripe.com/docs/stripe-js/react) (used for the implementation of the payment functionality)
+- [React Toastify](https://www.npmjs.com/package/react-toastify) (push notfications)
 
 ## Future work and improvements:
 
