@@ -4,6 +4,13 @@ Club Rossingol is a location sitauted at the base of the slope in Poiana Brasov,
 
 **Live Demo: https://clubrossignol.herokuapp.com/**
 
+### To run the project on your computer:
+
+- **clone this repo**
+- **npm / yarn install**
+- **yarn dev / npm run dev** => in the main project folder you will need to create a .env file containg your stripe api key (**example:** STRIPE_SECRET_KEY=your_key - **yes without " "**)
+- **yarn start** in /client to simply run the front-end of the application (you won't be able to place an order since there is no backend server)
+
 # Project Description
 
 The purpose of the project was to build a Landing Page together with a Rental Application through which winter equipment and bikes could be rented.
