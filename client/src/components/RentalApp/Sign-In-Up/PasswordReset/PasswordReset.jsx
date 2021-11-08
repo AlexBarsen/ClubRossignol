@@ -2,20 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-
-import {
-  PasswordResetContainer,
-  Form,
-  Heading,
-  ButtonContainer,
-} from "./PasswordResetElements";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 import { passwordResetStart } from "../../../../redux/user/user.actions";
 
-import FormInput from "../../FormInput/index";
-import { Button } from "../../Button/ButtonElement";
-
-const ResetPassword = ({ passwordResetStart }) => {
+const PasswordReset = ({ passwordResetStart }) => {
   const { t } = useTranslation();
 
   const [emails, setEmails] = useState({
@@ -43,37 +35,25 @@ const ResetPassword = ({ passwordResetStart }) => {
     setEmails({ ...emails, [name]: value });
   };
   return (
-    <PasswordResetContainer>
-      <Heading>{t("reset_password")}</Heading>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label className="h2">Email address</Form.Label>
+        <Form.Control name="email" type="email" onChange={handleChange} />
+      </Form.Group>
 
-      <Form onSubmit={handleSubmit}>
-        <FormInput
-          sign
-          name="email"
-          type="email"
-          handleChange={handleChange}
-          label={t("email")}
-          value={email}
-          required
-        />
-
-        <FormInput
-          sign
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label className="h2">Confirm Email Address</Form.Label>
+        <Form.Control
           name="confirmEmail"
           type="email"
-          value={confirmEmail}
-          handleChange={handleChange}
-          label={t("confirm_email")}
-          required
+          onChange={handleChange}
         />
+      </Form.Group>
 
-        <ButtonContainer>
-          <Button buttonType="signIn" onClick={() => handleSubmit}>
-            {t("reset_password")}
-          </Button>
-        </ButtonContainer>
-      </Form>
-    </PasswordResetContainer>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
 };
 
@@ -82,4 +62,4 @@ const mapDispatchToProps = (dispatch) => ({
   passwordResetStart: (email) => dispatch(passwordResetStart({ email })),
 });
 
-export default connect(null, mapDispatchToProps)(ResetPassword);
+export default connect(null, mapDispatchToProps)(PasswordReset);

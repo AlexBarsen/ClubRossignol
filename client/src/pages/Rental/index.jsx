@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 
 import { RentalPageContainer, RentalContent, Toast } from "./RentaPageElements";
 
-import Navbar from "../../components/RentalApp/Navbar/index";
+import Navigation from "../../components/RentalApp/Navigation/Navigation";
 
 import { Wrapper } from "./RentaPageElements";
 
@@ -67,7 +67,7 @@ const RentalPage = ({
   return (
     <RentalPageContainer>
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
+      <Navigation toggle={toggle} />
 
       <Wrapper>
         <RentalCategories />

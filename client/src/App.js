@@ -1,4 +1,5 @@
 import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
