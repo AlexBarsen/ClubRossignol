@@ -6,6 +6,11 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+
+import i18next from "i18next";
+import { LinkContainer } from "react-router-bootstrap";
 import DynamicModal from "../DynamicModal/DynamicModal";
 import SignIn from "../Sign-In-Up/SignIn/SignIn";
 import SignUp from "../Sign-In-Up/SignUp/SignUp";
@@ -80,24 +85,57 @@ const Navigation = ({ currentUser, cartHidden, toggle }) => {
 
         {cartHidden ? <CartDropdown /> : null}
       </HeaderContainer> */}
-      <Navbar bg="light" expand="lg">
+      <Navbar style={{ backgroundColor: "lightblue" }} expand="lg">
         <Container>
           {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
             id="basic-navbar-nav "
-            className="d-flex justify-content-center"
+            className="d-flex justify-content-end"
           >
             <Nav>
-              <Nav.Link className="h2 me-3" href="#home">
-                Select Language
-              </Nav.Link>
-              <Nav.Link className="h2 me-3" href="#home">
-                Home
-              </Nav.Link>
-              <Nav.Link className="h2 me-3" href="#back-website">
-                {t("back_to_website")}
-              </Nav.Link>
+              <NavDropdown
+                className="h2 me-3"
+                title="Select Language"
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item
+                  className="h3"
+                  onClick={() => i18next.changeLanguage("ro")}
+                >
+                  Romanian <span className="h2">🇷🇴</span>
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  className="h3"
+                  onClick={() => i18next.changeLanguage("en")}
+                >
+                  English <span className="h2">🇬🇧</span>
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <Nav.Link className="h2 me-3">{t("back_to_website")}</Nav.Link>
+
+              <NavDropdown
+                className="h2 me-3"
+                title="Rent"
+                id="basic-nav-dropdown"
+              >
+                <LinkContainer to="/rental">
+                  <NavDropdown.Item className="h3">
+                    All Rentals
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <LinkContainer to="/rental/category/ski">
+                  <NavDropdown.Item className="h3">Ski</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/rental/category/snowboard">
+                  <NavDropdown.Item className="h3">Snowboard</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/rental/category/bike">
+                  <NavDropdown.Item className="h3">Bike</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
 
               <NavDropdown
                 className="h2 me-3"
@@ -106,21 +144,18 @@ const Navigation = ({ currentUser, cartHidden, toggle }) => {
               >
                 <NavDropdown.Item
                   className="h3"
-                  href="#action/3.1"
                   onClick={() => showModal(<SignIn />)}
                 >
                   Sign In
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   className="h3"
-                  href="#action/3.2"
                   onClick={() => showModal(<SignUp />)}
                 >
                   Sign Up
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   className="h3"
-                  href="#action/3.3"
                   onClick={() => showModal(<PasswordReset />)}
                 >
                   Forgot password?
@@ -130,9 +165,16 @@ const Navigation = ({ currentUser, cartHidden, toggle }) => {
               <CartIcon />
               {cartHidden ? <CartDropdown /> : null}
             </Nav>
-            {/* <Navbar.Text className="h3">
-              Signed in as: <a href="#login">Mark Otto</a>
-            </Navbar.Text> */}
+
+            {currentUser ? (
+              <DropdownButton
+                id="dropdown-basic-button"
+                title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
+              >
+                <Dropdown.Item className="h3">Dashboard</Dropdown.Item>
+                <Dropdown.Item className="h3">Sign out</Dropdown.Item>
+              </DropdownButton>
+            ) : null}
           </Navbar.Collapse>
         </Container>
         <DynamicModal

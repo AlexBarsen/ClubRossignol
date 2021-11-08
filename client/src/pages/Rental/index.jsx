@@ -11,8 +11,6 @@ import { Wrapper } from "./RentaPageElements";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
-import RentalCategories from "../../components/RentalApp/Rental/RentalCategories/index";
-
 import Sidebar from "../../components/RentalApp/Sidebar/index";
 
 import ProtectedRoute from "../../components/Routes/ProtectedRoute";
@@ -70,8 +68,6 @@ const RentalPage = ({
       <Navigation toggle={toggle} />
 
       <Wrapper>
-        <RentalCategories />
-
         <RentalContent>
           <Switch>
             <ErrorBoundary>
