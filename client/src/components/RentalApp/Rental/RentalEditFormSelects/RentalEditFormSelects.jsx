@@ -1,6 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+import Select from "react-select";
+
 import {
   shoeSizeOptionsAdult,
   heightOptionsAdult,
@@ -14,11 +16,9 @@ import {
   sexOptionsENG,
   experienceOptionsENG,
   bikesTimePeriodENG,
-} from "../RentalModal/options";
+} from "../RentalForm/options";
 
-import { CustomSelect } from "./RentalEditModalSelectTypesElements";
-
-const EditModalSelectTypes = ({
+const RentalEditFormSelects = ({
   productType,
   adult,
   onChangeInput,
@@ -62,7 +62,7 @@ const EditModalSelectTypes = ({
     case "boots":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("shoeSize_modal")}
             name="shoeSize"
             defaultValue={
@@ -79,7 +79,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
@@ -100,7 +100,7 @@ const EditModalSelectTypes = ({
     case "skiSnow":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("height_modal")}
             name="height"
             defaultValue={
@@ -117,7 +117,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("weight_modal")}
             name="weight"
             defaultValue={
@@ -134,7 +134,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("experience_modal")}
             name="experience"
             defaultValue={
@@ -153,7 +153,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
@@ -174,7 +174,7 @@ const EditModalSelectTypes = ({
     case "equipment":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("height_modal")}
             name="height"
             defaultValue={
@@ -191,7 +191,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("weight_modal")}
             name="weight"
             defaultValue={
@@ -208,7 +208,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("shoeSize_modal")}
             name="shoeSize"
             defaultValue={
@@ -225,7 +225,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("experience_modal")}
             name="experience"
             defaultValue={
@@ -244,7 +244,7 @@ const EditModalSelectTypes = ({
             isSearchable={false}
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             defaultValue={
@@ -265,7 +265,7 @@ const EditModalSelectTypes = ({
     case "bike":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("timePeriod_modal")}
             name="timePeriod"
             defaultValue={
@@ -294,4 +294,4 @@ const EditModalSelectTypes = ({
   }
 };
 
-export default EditModalSelectTypes;
+export default RentalEditFormSelects;

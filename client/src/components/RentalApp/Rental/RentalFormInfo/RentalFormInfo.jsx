@@ -5,11 +5,11 @@ import {
   RentalModalInfoContainer,
   Message,
   Dates,
-  DateContent,
-  BoldSpan,
-} from "./RentalModalInfoElements";
+  // DateContent,
+  // BoldSpan,
+} from "./RentalFormInfoElements";
 
-const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
+const RentalFormInfo = ({ startDate, endDate, days, timePeriod }) => {
   const { t } = useTranslation();
   return (
     <>
@@ -18,8 +18,10 @@ const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
           {t("reservation_message_1")} {startDate}. {t("reservation_message_2")}
         </Message>
 
-        <Dates>
-          <DateContent>
+        <Dates className="h2">
+          Ati selectat rezervare echipamentului pentru {days} zi din data de{" "}
+          {startDate} pana in data de {endDate}.
+          {/* <DateContent>
             {t("from")}:<BoldSpan>{startDate}</BoldSpan>
           </DateContent>
           <DateContent>
@@ -35,11 +37,11 @@ const RentalModalInfo = ({ startDate, endDate, days, timePeriod }) => {
                 ? null
                 : `(${timePeriod})`
               : null}
-          </DateContent>
+          </DateContent> */}
         </Dates>
       </RentalModalInfoContainer>
     </>
   );
 };
 
-export default RentalModalInfo;
+export default RentalFormInfo;

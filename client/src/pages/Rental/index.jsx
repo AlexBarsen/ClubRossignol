@@ -11,8 +11,6 @@ import { Wrapper } from "./RentaPageElements";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
-import Sidebar from "../../components/RentalApp/Sidebar/index";
-
 import ProtectedRoute from "../../components/Routes/ProtectedRoute";
 import PrivateRoute from "../../components/Routes/PrivateRoute";
 
@@ -64,7 +62,6 @@ const RentalPage = ({
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
     <RentalPageContainer>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navigation toggle={toggle} />
 
       <Wrapper>

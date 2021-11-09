@@ -6,7 +6,7 @@ import { selectRentalsArray } from "../../../../redux/rental/rental.selectors";
 
 import { RentalOverviewContainer } from "./RentalOverviewElements";
 
-import RentalCategory from "../RentalCategory/index";
+import RentalCategory from "../RentalCategory/RentalCategory";
 
 const RentalOverview = ({ rentalsArray }) => {
   return (

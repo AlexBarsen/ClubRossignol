@@ -432,7 +432,8 @@ export const experienceOptionsRO = [
 export const bikesTimePeriodRO = [
   { value: "2h", label: "2 ore" },
   { value: "4h", label: "4 ore" },
-  { value: "per_day", label: "Pe zi" },
+  { value: "1d", label: "1 zi" },
+  { value: "1d+", label: "Mai mult de o zi" },
 ];
 
 export const sexOptionsENG = [
@@ -449,5 +450,6 @@ export const experienceOptionsENG = [
 export const bikesTimePeriodENG = [
   { value: "2h", label: "2 hours" },
   { value: "4h", label: "4 hours" },
-  { value: "per_day", label: "Per day" },
+  { value: "1d", label: "1 day" },
+  { value: "1d+", label: "More than 1 day" },
 ];

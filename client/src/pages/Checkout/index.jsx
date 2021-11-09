@@ -23,7 +23,7 @@ import {
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
-import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/index";
+import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/CheckoutItem";
 import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 

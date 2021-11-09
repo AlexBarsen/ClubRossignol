@@ -4,7 +4,7 @@ import { compose } from "redux";
 
 import { isRentalFetching } from "../../../../redux/rental/rental.selectors";
 import WithSpinner from "../../../WithSpinner/index";
-import RentalOverview from "./index";
+import RentalOverview from "./RentalOverview";
 
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({

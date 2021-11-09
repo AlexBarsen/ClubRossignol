@@ -7,13 +7,13 @@ import { useTranslation } from "react-i18next";
 
 import { editItem } from "../../../../redux/cart/cart.actions";
 import { Button } from "../../Button/ButtonElement";
-import EditModalSelectTypes from "../RentalEditModalSelectTypes/index";
-import RentalModalInfo from "../RentalModalInfo/index";
+import RentalEditFormSelects from "../RentalEditFormSelects/RentalEditFormSelects";
+import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
 
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
-const EditModal = ({ cartItem, editItem }) => {
+const RentalEditForm = ({ cartItem, editItem }) => {
   useEffect(() => {
     setItem(cartItem);
   }, [cartItem]);
@@ -136,14 +136,24 @@ const EditModal = ({ cartItem, editItem }) => {
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
           <div className="">
-            <DateRange
-              editableDateInputs={false}
-              onInit={handleRangeChange}
-              ranges={[dateRange]}
-              onChange={handleRangeChange}
-              minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
-              showDateDisplay={false}
-            />
+            {item.productType === "bike" && item.timePeriod !== "1d+" ? (
+              <Calendar
+                onChange={handleSelectDate}
+                editableDateInputs={false}
+                date={date}
+                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+                showDateDisplay={false}
+              />
+            ) : (
+              <DateRange
+                editableDateInputs={false}
+                onInit={handleRangeChange}
+                ranges={[dateRange]}
+                onChange={handleRangeChange}
+                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+                showDateDisplay={false}
+              />
+            )}
           </div>
 
           <div className="d-flex flex-column w-100">
@@ -171,7 +181,7 @@ const EditModal = ({ cartItem, editItem }) => {
               />
             </Form.Group>
 
-            <EditModalSelectTypes
+            <RentalEditFormSelects
               defaultValues={defaultValues}
               adult={cartItem.adult}
               productType={cartItem.productType}
@@ -197,4 +207,4 @@ const mapDispatchToProps = (dispatch) => ({
   editItem: (item) => dispatch(editItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(EditModal);
+export default connect(null, mapDispatchToProps)(RentalEditForm);

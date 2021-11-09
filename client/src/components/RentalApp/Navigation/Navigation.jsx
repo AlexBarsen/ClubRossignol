@@ -16,16 +16,11 @@ import SignIn from "../Sign-In-Up/SignIn/SignIn";
 import SignUp from "../Sign-In-Up/SignUp/SignUp";
 import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
 
-import { FaBars } from "react-icons/fa";
-
 import CartDropdown from "../Cart-Checkout/CartDropdown/index";
 
 import { createStructuredSelector } from "reselect";
 
 import CartIcon from "../Cart-Checkout/CartIcon/index";
-
-import LanguagesDropdown from "../../LanguageDropdown/index";
-import UserDropdown from "../UserDropdown/index";
 
 import { selectCurrentUser } from "../../../redux/user/user.selectors";
 
@@ -56,135 +51,104 @@ const Navigation = ({ currentUser, cartHidden, signOut }) => {
   };
 
   return (
-    <>
-      {/* <HeaderContainer>
-        <MobileIcon onClick={toggle}>
-          <FaBars size={30} />
-        </MobileIcon>
+    <Navbar style={{ backgroundColor: "lightblue" }} expand="lg">
+      <Container>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse
+          id="basic-navbar-nav "
+          className="d-flex justify-content-end"
+        >
+          <Nav>
+            <NavDropdown
+              className="h2 me-3"
+              title="Select Language"
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item
+                className="h3"
+                onClick={() => i18next.changeLanguage("ro")}
+              >
+                Romanian <span className="h2">🇷🇴</span>
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="h3"
+                onClick={() => i18next.changeLanguage("en")}
+              >
+                English <span className="h2">🇬🇧</span>
+              </NavDropdown.Item>
+            </NavDropdown>
 
-        <HeaderOptions>
-          <HeaderOption>
-            <LanguagesDropdown />
-          </HeaderOption>
-          <HeaderOptionLink to="/">{t("back_to_website")}</HeaderOptionLink>
+            <Nav.Link className="h2 me-3">{t("back_to_website")}</Nav.Link>
 
-          {currentUser ? null : (
-            <>
-              <AccountModal />
-            </>
-          )}
+            <NavDropdown
+              className="h2 me-3"
+              title="Rent"
+              id="basic-nav-dropdown"
+            >
+              <LinkContainer to="/rental">
+                <NavDropdown.Item className="h3">All Rentals</NavDropdown.Item>
+              </LinkContainer>
+              <NavDropdown.Divider />
+              <LinkContainer to="/rental/category/ski">
+                <NavDropdown.Item className="h3">Ski</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/rental/category/snowboard">
+                <NavDropdown.Item className="h3">Snowboard</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/rental/category/bike">
+                <NavDropdown.Item className="h3">Bike</NavDropdown.Item>
+              </LinkContainer>
+            </NavDropdown>
+
+            <NavDropdown
+              className="h2 me-3"
+              title="Account"
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item
+                className="h3"
+                onClick={() => showModal(<SignIn />)}
+              >
+                Sign In
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="h3"
+                onClick={() => showModal(<SignUp />)}
+              >
+                Sign Up
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                className="h3"
+                onClick={() => showModal(<PasswordReset />)}
+              >
+                Forgot password?
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
 
           {currentUser ? (
-            <HeaderOption>
-              <UserDropdown user={currentUser} />
-            </HeaderOption>
-          ) : null}
-
-          <CartIcon />
-        </HeaderOptions>
-
-        {cartHidden ? <CartDropdown /> : null}
-      </HeaderContainer> */}
-      <Navbar style={{ backgroundColor: "lightblue" }} expand="lg">
-        <Container>
-          {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand> */}
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav "
-            className="d-flex justify-content-end"
-          >
-            <Nav>
-              <NavDropdown
-                className="h2 me-3"
-                title="Select Language"
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item
-                  className="h3"
-                  onClick={() => i18next.changeLanguage("ro")}
-                >
-                  Romanian <span className="h2">🇷🇴</span>
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="h3"
-                  onClick={() => i18next.changeLanguage("en")}
-                >
-                  English <span className="h2">🇬🇧</span>
-                </NavDropdown.Item>
-              </NavDropdown>
-
-              <Nav.Link className="h2 me-3">{t("back_to_website")}</Nav.Link>
-
-              <NavDropdown
-                className="h2 me-3"
-                title="Rent"
-                id="basic-nav-dropdown"
-              >
-                <LinkContainer to="/rental">
-                  <NavDropdown.Item className="h3">
-                    All Rentals
-                  </NavDropdown.Item>
-                </LinkContainer>
-                <NavDropdown.Divider />
-                <LinkContainer to="/rental/category/ski">
-                  <NavDropdown.Item className="h3">Ski</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/rental/category/snowboard">
-                  <NavDropdown.Item className="h3">Snowboard</NavDropdown.Item>
-                </LinkContainer>
-                <LinkContainer to="/rental/category/bike">
-                  <NavDropdown.Item className="h3">Bike</NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-
-              <NavDropdown
-                className="h2 me-3"
-                title="Account"
-                id="basic-nav-dropdown"
-              >
-                <NavDropdown.Item
-                  className="h3"
-                  onClick={() => showModal(<SignIn />)}
-                >
-                  Sign In
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="h3"
-                  onClick={() => showModal(<SignUp />)}
-                >
-                  Sign Up
-                </NavDropdown.Item>
-                <NavDropdown.Item
-                  className="h3"
-                  onClick={() => showModal(<PasswordReset />)}
-                >
-                  Forgot password?
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-
-            {currentUser ? (
-              <DropdownButton
-                size="lg"
-                id="dropdown-basic-button"
-                title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
-              >
+            <DropdownButton
+              size="lg"
+              id="dropdown-basic-button"
+              title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
+            >
+              <LinkContainer to="/rental/dashboard">
                 <Dropdown.Item className="h3">Dashboard</Dropdown.Item>
-                <Dropdown.Item className="h3" onClick={() => signOut()}>
-                  Sign out
-                </Dropdown.Item>
-              </DropdownButton>
-            ) : (
-              <Navbar.Text className="h3">
-                You currently are not signed in.
-              </Navbar.Text>
-            )}
-          </Navbar.Collapse>
-        </Container>
+              </LinkContainer>
+              <Dropdown.Item className="h3" onClick={() => signOut()}>
+                Sign out
+              </Dropdown.Item>
+            </DropdownButton>
+          ) : (
+            <Navbar.Text className="h3">
+              You currently are not signed in.
+            </Navbar.Text>
+          )}
+        </Navbar.Collapse>
+      </Container>
 
-        <CartIcon />
-        {cartHidden ? <CartDropdown /> : null}
-      </Navbar>
+      <CartIcon />
+      {cartHidden ? <CartDropdown /> : null}
 
       <DynamicModal
         show={modalShow}
@@ -192,7 +156,7 @@ const Navigation = ({ currentUser, cartHidden, signOut }) => {
         modalTitle={modalTitle}
         renderComponent={() => wrappedComponent}
       />
-    </>
+    </Navbar>
   );
 };
 

@@ -10,7 +10,7 @@ import { emailSignUpStart } from "../../../../redux/user/user.actions";
 const SignUp = ({ emailSignUpStart }) => {
   const { t } = useTranslation();
 
-  const [agree, setAgree] = useState(false);
+  // const [agree, setAgree] = useState(false);
 
   const [userCredentials, setCredentials] = useState({
     firstName: "",
@@ -41,9 +41,9 @@ const SignUp = ({ emailSignUpStart }) => {
     setCredentials({ ...userCredentials, [name]: value });
   };
 
-  const handleCheckbox = () => {
-    setAgree(!agree);
-  };
+  // const handleCheckbox = () => {
+  //   setAgree(!agree);
+  // };
 
   // * function which creates the user with email and password
   const handleSubmit = async (event) => {

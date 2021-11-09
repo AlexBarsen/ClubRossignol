@@ -6,18 +6,19 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from "react-bootstrap/Button";
 import DynamicModal from "../../DynamicModal/DynamicModal";
 
-import RentalModal from "../RentalModal/RentalForm";
+import RentalModal from "../RentalForm/RentalForm";
 
 const RentalCard = ({ item }) => {
   const { t } = useTranslation();
 
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
+
   const [wrappedComponent, setWrappedComponent] = useState(
     <RentalModal item={item} />
   );
 
-  const { name, productType, price, prices = null, icon } = item;
+  const { name, price, icon } = item;
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import { emailSignInStart } from "../../../../redux/user/user.actions";
 
 const SignIn = ({ emailSignInStart }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",

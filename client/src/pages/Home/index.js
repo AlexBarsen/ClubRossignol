@@ -11,7 +11,7 @@ import {
 
 import Footer from "../../components/Landing/Footer/index";
 import { Navbar } from "../../components/Landing/Navbar";
-import Sidebar from "../../components/Landing/Sidebar";
+
 import HeroSection from "../../components/Landing/HeroSection";
 import FeaturesSection from "../../components/Landing/FeatureSection";
 import InfoSection from "../../components/Landing/InfoSection";
@@ -27,7 +27,6 @@ const Home = () => {
   return (
     <>
       <HomeContainer>
-        <Sidebar isOpen={isOpen} toggle={toggle} />
         <Navbar toggle={toggle} />
         <HeroSection />
         <FeaturesSection />

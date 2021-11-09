@@ -3,9 +3,9 @@ import uuid from "react-uuid";
 import { connect } from "react-redux";
 import { DateRange, Calendar } from "react-date-range";
 
-import RentalModalSelectTypes from "../RentalModalSelectTypes/index";
+import RentalFormSelects from "../RentalFormSelects/RentalFormSelects";
 
-import RentalModalInfo from "../RentalModalInfo/index";
+import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
 
 import "react-date-range/dist/styles.css"; // * main css file
 import "react-date-range/dist/theme/default.css"; // * theme css file
@@ -33,7 +33,7 @@ const RentalModal = ({ addItem, item }) => {
   const [modalInputs, setModalInputs] = useState({
     firstName: "",
     lastName: "",
-    timePeriod: "",
+    timePeriod: null,
   });
 
   const [dateRange, setDateRange] = useState({
@@ -140,21 +140,33 @@ const RentalModal = ({ addItem, item }) => {
     });
   };
 
+  console.log(modalInputs.timePeriod);
+
   return (
     <Container>
       <h1>{t(name)}</h1>
 
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
-          <div className="">
-            <DateRange
-              editableDateInputs={false}
-              onInit={handleRangeChange}
-              ranges={[dateRange]}
-              onChange={handleRangeChange}
-              minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
-              showDateDisplay={false}
-            />
+          <div>
+            {productType === "bike" && modalInputs.timePeriod !== "1d+" ? (
+              <Calendar
+                onChange={handleSelectDate}
+                editableDateInputs={false}
+                date={date}
+                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+                showDateDisplay={false}
+              />
+            ) : (
+              <DateRange
+                editableDateInputs={false}
+                onInit={handleRangeChange}
+                ranges={[dateRange]}
+                onChange={handleRangeChange}
+                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+                showDateDisplay={false}
+              />
+            )}
           </div>
 
           <div className="d-flex flex-column w-100">
@@ -180,7 +192,7 @@ const RentalModal = ({ addItem, item }) => {
               />
             </Form.Group>
 
-            <RentalModalSelectTypes
+            <RentalFormSelects
               productType={productType}
               adult={adult}
               onChangeInput={onChangeInput.bind(this)}

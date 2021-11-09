@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { CustomSelect } from "./RentalModalSelectTypesElements";
+import FixRequiredSelect from "../RentalForm/FixRequiredSelect";
+import BaseSelect from "react-select";
 
 import {
   shoeSizeOptionsAdult,
@@ -16,9 +17,13 @@ import {
   sexOptionsENG,
   experienceOptionsENG,
   bikesTimePeriodENG,
-} from "../RentalModal/options";
+} from "../RentalForm/options";
 
-const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
+const Select = (props) => (
+  <FixRequiredSelect {...props} SelectComponent={BaseSelect} />
+);
+
+const RentalFormSelects = ({ productType, adult, onChangeInput }) => {
   const { t } = useTranslation();
 
   // * <Select> custom styles
@@ -57,7 +62,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
     case "boots":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("shoeSize_modal")}
             name="shoeSize"
             onChange={onChangeInput}
@@ -67,7 +72,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             onChange={onChangeInput}
@@ -81,7 +86,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
     case "skiSnow":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("height_modal")}
             name="height"
             styles={customStyles}
@@ -91,7 +96,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("weight_modal")}
             name="weight"
             styles={customStyles}
@@ -101,7 +106,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("experience_modal")}
             name="experience"
             styles={customStyles}
@@ -113,7 +118,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             styles={customStyles}
@@ -127,7 +132,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
     case "equipment":
       return (
         <>
-          <CustomSelect
+          <Select
             placeholder={t("height_modal")}
             name="height"
             styles={customStyles}
@@ -137,7 +142,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("weight_modal")}
             name="weight"
             styles={customStyles}
@@ -147,7 +152,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("shoeSize_modal")}
             name="shoeSize"
             styles={customStyles}
@@ -157,7 +162,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("experience_modal")}
             name="experience"
             styles={customStyles}
@@ -169,7 +174,7 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
             required
           />
 
-          <CustomSelect
+          <Select
             placeholder={t("sex_modal")}
             name="sex"
             styles={customStyles}
@@ -184,8 +189,8 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
     case "bike":
       return (
         <>
-          <CustomSelect
-            placeholder={t("timePeriod_modal")}
+          <Select
+            placeholder="I would like to rent the bike for:"
             name="timePeriod"
             styles={customStyles}
             onChange={onChangeInput}
@@ -200,4 +205,4 @@ const RentalModalSelectTypes = ({ productType, adult, onChangeInput }) => {
   }
 };
 
-export default RentalModalSelectTypes;
+export default RentalFormSelects;

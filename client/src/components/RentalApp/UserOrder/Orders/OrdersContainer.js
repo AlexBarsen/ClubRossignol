@@ -8,7 +8,7 @@ import {
 } from "../../../../redux/user/user.selectors";
 
 import WithSpinner from "../../../WithSpinner/index";
-import Orders from "./index";
+import Orders from "./Orders";
 
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({
