@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SignIn.css";
 import { connect } from "react-redux";
 // import { useTranslation } from "react-i18next";
 
@@ -36,30 +37,36 @@ const SignIn = ({ emailSignInStart }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="p-1">
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="h2">Email address</Form.Label>
+        <Form.Label className="h3">Email address</Form.Label>
         <Form.Control
+          className="formControl"
+          size="lg"
           name="email"
           type="email"
-          placeholder="Enter email"
+          // placeholder="Enter email"
           onChange={handleChange}
         />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">Password</Form.Label>
+        <Form.Label className="h3">Password</Form.Label>
         <Form.Control
+          className="formControl"
+          size="lg"
           name="password"
           type="password"
-          placeholder="Password"
+          // placeholder="Password"
           onChange={handleChange}
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <div className="buttonContainer">
+        <Button className="button" variant="primary" type="submit">
+          Login
+        </Button>
+      </div>
     </Form>
   );
 };

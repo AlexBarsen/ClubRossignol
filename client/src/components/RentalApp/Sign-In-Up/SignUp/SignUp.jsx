@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import "./SignUp.css";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { FormCheck } from "react-bootstrap";
 
 import { emailSignUpStart } from "../../../../redux/user/user.actions";
 
@@ -84,63 +86,109 @@ const SignUp = ({ emailSignUpStart }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="h2">{t("name")}</Form.Label>
-        <Form.Control name="firstName" type="text" onChange={handleChange} />
-      </Form.Group>
+      <div className="container">
+        <div className="row">
+          <Form.Group className="mb-3 col" controlId="formBasicEmail">
+            <Form.Label className="h2">{t("name")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="firstName"
+              type="text"
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("surname")}</Form.Label>
-        <Form.Control name="lastName" type="text" onChange={handleChange} />
-      </Form.Group>
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("surname")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="lastName"
+              type="text"
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("password")}</Form.Label>
-        <Form.Control name="email" type="email" onChange={handleChange} />
-      </Form.Group>
+        <div className="row">
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("email")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="email"
+              type="email"
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("confirm_email")}</Form.Label>
-        <Form.Control
-          name="confirmEmail"
-          type="email"
-          onChange={handleChange}
-        />
-      </Form.Group>
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("confirm_email")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="confirmEmail"
+              type="email"
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("phone")}</Form.Label>
-        <Form.Control
-          name="phoneNumber"
-          type="number"
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <div className="row">
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("phone")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="phoneNumber"
+              type="text"
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("password")}</Form.Label>
-        <Form.Control name="password" type="password" onChange={handleChange} />
-      </Form.Group>
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("password")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="password"
+              type="password"
+              onChange={handleChange}
+            />
+          </Form.Group>
+        </div>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">{t("confirm_password")}</Form.Label>
-        <Form.Control
-          name="confirmPassword"
-          type="password"
-          onChange={handleChange}
-        />
-      </Form.Group>
+        <div className="row">
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <Form.Label className="h2">{t("confirm_password")}</Form.Label>
+            <Form.Control
+              className="formControl"
+              size="lg"
+              name="confirmPassword"
+              type="password"
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form.Group className="mb-3 h3" controlId="formBasicCheckbox">
-        <Form.Check
-          type="checkbox"
-          label={t("agree") + " " + t("terms_and_conditions")}
-        />
-      </Form.Group>
-
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+          <Form.Group
+            className="col d-flex align-items-center justify-content-center"
+            controlId="formBasicCheckbox"
+          >
+            <Form.Group className="mb-3 h3">
+              <FormCheck required name="terms">
+                <FormCheck.Input type="checkbox" />
+                <FormCheck.Label>Accept Terms and Conditions.</FormCheck.Label>
+              </FormCheck>
+            </Form.Group>
+          </Form.Group>
+        </div>
+      </div>
+      <div className="buttonContainer">
+        <Button className="button" variant="primary" type="submit">
+          Sign Up
+        </Button>
+      </div>
     </Form>
   );
 };

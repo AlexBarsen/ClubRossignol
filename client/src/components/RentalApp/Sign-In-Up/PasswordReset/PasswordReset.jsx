@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./PasswordRest.css";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
@@ -38,21 +39,30 @@ const PasswordReset = ({ passwordResetStart }) => {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="h2">Email address</Form.Label>
-        <Form.Control name="email" type="email" onChange={handleChange} />
+        <Form.Control
+          className="formControl"
+          size="lg"
+          name="email"
+          type="email"
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className="h2">Confirm Email Address</Form.Label>
         <Form.Control
+          className="formControl"
           name="confirmEmail"
           type="email"
           onChange={handleChange}
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <div className="buttonContainer">
+        <Button className="button" variant="primary" type="submit">
+          Submit
+        </Button>
+      </div>
     </Form>
   );
 };
