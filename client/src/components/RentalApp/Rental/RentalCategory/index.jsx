@@ -6,7 +6,7 @@ import {
   CategoryItems,
 } from "./RentalCategoryElements";
 
-import RentalItem from "../RentalItem/index";
+import RentalCard from "../RentalCard/RentalCard";
 
 const RentalCategory = ({ categoryName, products }) => {
   return (
@@ -15,7 +15,7 @@ const RentalCategory = ({ categoryName, products }) => {
         <CategoryTitle>{categoryName}</CategoryTitle>
         <CategoryItems type={categoryName}>
           {products.map((item) => (
-            <RentalItem key={item.productID} item={item} />
+            <RentalCard key={item.productID} item={item} />
           ))}
         </CategoryItems>
       </RentalCategoryContainer>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ import {
   Body,
   ItemName,
   Wrapper,
-  ListGroup,
+  // ListGroup,
   ListGroupItemLeft,
   ListGroupItemRight,
   ListGroupItemCenter,
@@ -21,28 +21,37 @@ import {
 } from "./CheckoutItemElements";
 
 import EditModal from "../../Rental/RentalEditModal/index";
+import DynamicModal from "../../DynamicModal/DynamicModal";
 
-import { Button } from "../../Button/ButtonElement";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
   const { t } = useTranslation();
+
+  const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState(null);
+  const [wrappedComponent, setWrappedComponent] = useState(
+    <EditModal cartItem={cartItem} />
+  );
 
   const {
     productType,
     name,
     firstName,
     lastName,
-    sex,
-    height,
-    weight,
-    shoeSize,
+    sex = null,
+    height = null,
+    weight = null,
+    shoeSize = null,
     icon,
     price,
-    experience,
+    experience = null,
     days,
     startDate,
     endDate,
-    timePeriod,
+    timePeriod = null,
   } = cartItem;
 
   return (
@@ -62,143 +71,87 @@ const CheckoutItem = ({ cartItem, number, clearItemFromCart }) => {
         </Body>
 
         <Wrapper>
-          {productType !== "bike" ? (
-            <>
-              {" "}
-              <ListGroup>
-                <ListGroupItemLeft>
-                  <ListGroupItemSpan>{t("name")}:</ListGroupItemSpan>{" "}
-                  {firstName}
-                </ListGroupItemLeft>
+          <Card style={{ width: "30rem" }}>
+            <div className="d-flex">
+              <div>
+                <Card.Header>Personal details</Card.Header>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    {t("name")}: {firstName}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    {t("surname")}: {lastName}
+                  </ListGroup.Item>
+                  {sex ? <ListGroup.Item>Sex: {t(sex)}</ListGroup.Item> : null}
+                  {height ? (
+                    <ListGroup.Item>
+                      {t("height")}: {height} cm
+                    </ListGroup.Item>
+                  ) : null}
+                  {weight ? (
+                    <ListGroup.Item>
+                      {t("weight")}: {weight} kg
+                    </ListGroup.Item>
+                  ) : null}
+                  {shoeSize ? (
+                    <ListGroup.Item>
+                      {t("shoeSize")}: {shoeSize}
+                    </ListGroup.Item>
+                  ) : null}
+                  {experience ? (
+                    <ListGroup.Item>
+                      {t("experience")}: {t(experience)}
+                    </ListGroup.Item>
+                  ) : null}
+                </ListGroup>
+              </div>
 
-                <ListGroupItemLeft>
-                  <ListGroupItemSpan>{t("surname")}:</ListGroupItemSpan>{" "}
-                  {lastName}
-                </ListGroupItemLeft>
+              <div>
+                <Card.Header>Reservation Details</Card.Header>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    {t("from")}: {startDate}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    {t("to")} : {endDate}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    {t("number_of_days")}: {days}
+                  </ListGroup.Item>
+                  {productType !== "bike" ? (
+                    <ListGroup.Item>
+                      {t("price")}: {days} x {price} = {days * price} RON
+                    </ListGroup.Item>
+                  ) : (
+                    <ListGroup.Item>
+                      {t("price")}: {days}(
+                      {timePeriod === "per_day" ? t("days") : t(timePeriod)}) x
+                      {price} = {days * price} RON
+                    </ListGroup.Item>
+                  )}
+                </ListGroup>
+              </div>
+            </div>
 
-                {sex ? (
-                  <ListGroupItemLeft>
-                    <ListGroupItemSpan>Sex:</ListGroupItemSpan>
-                    {t(sex)}
-                  </ListGroupItemLeft>
-                ) : null}
-
-                {height ? (
-                  <ListGroupItemLeft>
-                    <ListGroupItemSpan>{t("height")}:</ListGroupItemSpan>
-                    {height} cm
-                  </ListGroupItemLeft>
-                ) : null}
-
-                {weight ? (
-                  <ListGroupItemLeft>
-                    <ListGroupItemSpan>{t("weight")}:</ListGroupItemSpan>
-                    {weight} kg
-                  </ListGroupItemLeft>
-                ) : null}
-
-                {shoeSize ? (
-                  <ListGroupItemLeft>
-                    <ListGroupItemSpan>{t("shoeSize")}:</ListGroupItemSpan>
-                    {shoeSize}
-                  </ListGroupItemLeft>
-                ) : null}
-
-                {experience ? (
-                  <ListGroupItemLeft>
-                    <ListGroupItemSpan>{t("experience")}:</ListGroupItemSpan>
-                    {t(experience)}
-                  </ListGroupItemLeft>
-                ) : null}
-              </ListGroup>
-              <ListGroup>
-                <ListGroupItemRight>
-                  <ListGroupItemSpan>{t("from")}:</ListGroupItemSpan>
-                  {startDate}
-                </ListGroupItemRight>
-
-                <ListGroupItemRight>
-                  <ListGroupItemSpan>{t("to")}:</ListGroupItemSpan>
-                  {endDate}
-                </ListGroupItemRight>
-
-                <ListGroupItemRight>
-                  <ListGroupItemSpan>{t("number_of_days")}:</ListGroupItemSpan>
-                  {days}
-                </ListGroupItemRight>
-
-                <ListGroupItemRight>
-                  <ListGroupItemSpan>{t("price")}:</ListGroupItemSpan>
-                  {days} x {price} = {days * price} RON
-                </ListGroupItemRight>
-
-                <ButtonsContainer>
-                  <ButtonContainer>
-                    <EditModal cartItem={cartItem} />
-                  </ButtonContainer>
-
-                  <ButtonContainer>
-                    <Button
-                      buttonType="close"
-                      onClick={() => clearItemFromCart(cartItem)}
-                    >
-                      ❌
-                    </Button>
-                  </ButtonContainer>
-                </ButtonsContainer>
-              </ListGroup>
-            </>
-          ) : (
-            <>
-              <ListGroup>
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>{t("name")}:</ListGroupItemSpan>
-                  {firstName} {lastName}
-                </ListGroupItemCenter>
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>{t("from")}:</ListGroupItemSpan>
-                  {startDate}
-                </ListGroupItemCenter>
-
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>{t("to")}:</ListGroupItemSpan>
-                  {endDate}
-                </ListGroupItemCenter>
-
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>{t("number_of_days")}:</ListGroupItemSpan>
-                  {days}
-                </ListGroupItemCenter>
-
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>Period:</ListGroupItemSpan>
-                  {t(timePeriod)}
-                </ListGroupItemCenter>
-
-                <ListGroupItemCenter>
-                  <ListGroupItemSpan>{t("price")}:</ListGroupItemSpan>
-                  {days}({timePeriod === "per_day" ? t("days") : t(timePeriod)})
-                  x {price} = {days * price} RON
-                </ListGroupItemCenter>
-
-                <ButtonsContainer>
-                  <ButtonContainer>
-                    <EditModal cartItem={cartItem} />
-                  </ButtonContainer>
-
-                  <ButtonContainer>
-                    <Button
-                      buttonType="close"
-                      onClick={() => clearItemFromCart(cartItem)}
-                    >
-                      ❌
-                    </Button>
-                  </ButtonContainer>
-                </ButtonsContainer>
-              </ListGroup>{" "}
-            </>
-          )}
+            <ButtonsContainer>
+              <ButtonContainer>
+                <Button onClick={() => setModalShow(true)}>Edit</Button>
+              </ButtonContainer>
+              <ButtonContainer>
+                <Button onClick={() => clearItemFromCart(cartItem)}>
+                  Delete
+                </Button>
+              </ButtonContainer>
+            </ButtonsContainer>
+          </Card>
         </Wrapper>
+
+        <DynamicModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          modalTitle={modalTitle}
+          renderComponent={() => wrappedComponent}
+        />
       </CheckoutItemContainer>
     </>
   );

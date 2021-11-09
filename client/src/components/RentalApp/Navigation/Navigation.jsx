@@ -36,7 +36,7 @@ import {
   signOutStart,
 } from "../../../redux/user/user.actions";
 
-const Navigation = ({ currentUser, cartHidden, toggle }) => {
+const Navigation = ({ currentUser, cartHidden, signOut }) => {
   const { t } = useTranslation();
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
@@ -161,29 +161,37 @@ const Navigation = ({ currentUser, cartHidden, toggle }) => {
                   Forgot password?
                 </NavDropdown.Item>
               </NavDropdown>
-
-              <CartIcon />
-              {cartHidden ? <CartDropdown /> : null}
             </Nav>
 
             {currentUser ? (
               <DropdownButton
+                size="lg"
                 id="dropdown-basic-button"
                 title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
               >
                 <Dropdown.Item className="h3">Dashboard</Dropdown.Item>
-                <Dropdown.Item className="h3">Sign out</Dropdown.Item>
+                <Dropdown.Item className="h3" onClick={() => signOut()}>
+                  Sign out
+                </Dropdown.Item>
               </DropdownButton>
-            ) : null}
+            ) : (
+              <Navbar.Text className="h3">
+                You currently are not signed in.
+              </Navbar.Text>
+            )}
           </Navbar.Collapse>
         </Container>
-        <DynamicModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-          modalTitle={modalTitle}
-          renderComponent={() => wrappedComponent}
-        />
+
+        <CartIcon />
+        {cartHidden ? <CartDropdown /> : null}
       </Navbar>
+
+      <DynamicModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        modalTitle={modalTitle}
+        renderComponent={() => wrappedComponent}
+      />
     </>
   );
 };
@@ -197,7 +205,7 @@ const mapStateToProps = createStructuredSelector({
 // * dispatch function to the Redux store
 const mapDispatchToProps = (dispatch) => ({
   toggleAcountModalHidden: () => dispatch(toggleAcountModalHidden()),
-  signOutStart: () => dispatch(signOutStart()),
+  signOut: () => dispatch(signOutStart()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

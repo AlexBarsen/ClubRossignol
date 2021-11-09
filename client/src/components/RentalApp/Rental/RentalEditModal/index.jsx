@@ -5,26 +5,13 @@ import "react-date-range/dist/styles.css"; // * main css file
 import "react-date-range/dist/theme/default.css"; // * theme css file
 import { useTranslation } from "react-i18next";
 
-import {
-  EditModalContainer,
-  ModalOverlay,
-  ModalContent,
-  Title,
-  Element,
-  DateRangeWrapper,
-  ContentWrapper,
-  WrapperRight,
-  ModalInputs,
-  Form,
-  ButtonContainer,
-  CloseButtonContainer,
-} from "./RentalEditModalElements";
-
 import { editItem } from "../../../../redux/cart/cart.actions";
 import { Button } from "../../Button/ButtonElement";
 import EditModalSelectTypes from "../RentalEditModalSelectTypes/index";
 import RentalModalInfo from "../RentalModalInfo/index";
-import FormInput from "../../FormInput/index";
+
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 const EditModal = ({ cartItem, editItem }) => {
   useEffect(() => {
@@ -143,116 +130,66 @@ const EditModal = ({ cartItem, editItem }) => {
   };
 
   return (
-    <>
-      <Button buttonType="close" onClick={toggleModal}>
-        ✏️
-      </Button>
+    <Container>
+      <h1>{t(item.name)}</h1>
 
-      {/* render Modal depending on the state */}
-      {modalVisibility && (
-        <EditModalContainer>
-          <ModalOverlay></ModalOverlay>
-          <ModalContent>
-            <Title>{t(item.name)}</Title>
+      <Form onSubmit={handleSubmit}>
+        <div className="d-flex">
+          <div className="">
+            <DateRange
+              editableDateInputs={false}
+              onInit={handleRangeChange}
+              ranges={[dateRange]}
+              onChange={handleRangeChange}
+              minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+              showDateDisplay={false}
+            />
+          </div>
 
-            <Element>
-              <Form onSubmit={handleSubmit}>
-                <ContentWrapper>
-                  <DateRangeWrapper>
-                    {item.productType === "bike" ? (
-                      item.timePeriod === "days" ? (
-                        <DateRange
-                          editableDateInputs={false}
-                          onInit={handleRangeChange}
-                          ranges={[dateRange]}
-                          onChange={handleRangeChange}
-                          minDate={
-                            new Date(
-                              new Date().setDate(new Date().getDate() + 1)
-                            )
-                          }
-                          showDateDisplay={false}
-                        />
-                      ) : (
-                        <Calendar
-                          onChange={handleSelectDate}
-                          editableDateInputs={false}
-                          date={date}
-                          minDate={
-                            new Date(
-                              new Date().setDate(new Date().getDate() + 1)
-                            )
-                          }
-                          showDateDisplay={false}
-                        />
-                      )
-                    ) : (
-                      <DateRange
-                        editableDateInputs={false}
-                        onInit={handleRangeChange}
-                        ranges={[dateRange]}
-                        onChange={handleRangeChange}
-                        minDate={
-                          new Date(new Date().setDate(new Date().getDate() + 1))
-                        }
-                        showDateDisplay={false}
-                      />
-                    )}
-                  </DateRangeWrapper>
+          <div className="d-flex flex-column w-100">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>{t("name")}</Form.Label>
+              <Form.Control
+                name="firstName"
+                type="text"
+                placeholder="First Name"
+                value={item.firstName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
 
-                  <WrapperRight>
-                    <ModalInputs>
-                      <FormInput
-                        className="modal__rental-info--input"
-                        name="firstName"
-                        type="text"
-                        label={t("name")}
-                        value={item.firstName}
-                        onChange={handleChange}
-                        required
-                      />
-                      <FormInput
-                        className="modal__rental-info--input"
-                        name="lastName"
-                        type="text"
-                        label={t("surname")}
-                        value={item.lastName}
-                        onChange={handleChange}
-                        required
-                      />
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>{t("surname")}</Form.Label>
+              <Form.Control
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
+                value={item.lastName}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
 
-                      <EditModalSelectTypes
-                        defaultValues={defaultValues}
-                        adult={cartItem.adult}
-                        productType={cartItem.productType}
-                        onChangeInput={onChangeInput.bind(this)}
-                      />
-                    </ModalInputs>
+            <EditModalSelectTypes
+              defaultValues={defaultValues}
+              adult={cartItem.adult}
+              productType={cartItem.productType}
+              onChangeInput={onChangeInput.bind(this)}
+            />
+          </div>
+        </div>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
 
-                    <RentalModalInfo
-                      startDate={dateRange.startDate.toLocaleDateString()}
-                      endDate={dateRange.endDate.toLocaleDateString()}
-                      days={days}
-                    />
-
-                    <ButtonContainer>
-                      <Button type="submit" buttonType="modal">
-                        EDITEAZA
-                      </Button>
-                    </ButtonContainer>
-                  </WrapperRight>
-                </ContentWrapper>
-              </Form>
-            </Element>
-            <CloseButtonContainer>
-              <Button onClick={toggleModal} buttonType="close">
-                ❌
-              </Button>
-            </CloseButtonContainer>
-          </ModalContent>
-        </EditModalContainer>
-      )}
-    </>
+      <RentalModalInfo
+        startDate={dateRange.startDate.toLocaleDateString()}
+        endDate={dateRange.endDate.toLocaleDateString()}
+        days={days}
+      />
+    </Container>
   );
 };
 

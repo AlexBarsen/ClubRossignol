@@ -7,7 +7,7 @@ import {
   CategoryProductsContainer,
 } from "./CategoryElements.js";
 
-import RentalItem from "../../components/RentalApp/Rental/RentalItem/index";
+import RentalCard from "../../components/RentalApp/Rental/RentalCard/RentalCard";
 import { selectRentalCategory } from "../../redux/rental/rental.selectors";
 
 const CategoryPage = ({ category }) => {
@@ -20,7 +20,7 @@ const CategoryPage = ({ category }) => {
 
       <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (
-          <RentalItem key={product.productID} item={product} />
+          <RentalCard key={product.productID} item={product} />
         ))}
       </CategoryProductsContainer>
     </CategoryPageContainer>
