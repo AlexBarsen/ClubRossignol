@@ -17,12 +17,7 @@ const CartItem = ({ item, clearItemFromCart }) => {
   return (
     <Card style={{ width: "auto" }} className="mb-3">
       <div className="d-flex align-items-center">
-        <Card.Img
-          variant="top"
-          src={icon}
-          style={{ height: "7rem", width: "20rem" }}
-        />
-        <div className="w-100">
+        <div className="w-75 ms-3">
           <Card.Body className="p-0">
             <Card.Title>{t(name)}</Card.Title>
           </Card.Body>
@@ -36,10 +31,20 @@ const CartItem = ({ item, clearItemFromCart }) => {
               Total: {price} * {days} = {price * days} RON
             </ListGroupItem>
           </ListGroup>
-          <Card.Body className="d-flex justify-content-around">
+        </div>
+
+        <div className="d-flex flex-column">
+          <Card.Img
+            className="mb-3 p-2"
+            variant="top"
+            src={icon}
+            style={{ height: "7rem", width: "12rem" }}
+          />
+
+          <div className="d-flex justify-content-around mb-3">
             <Button>Edit</Button>
             <Button onClick={() => clearItemFromCart(item)}>Remove</Button>
-          </Card.Body>
+          </div>
         </div>
       </div>
     </Card>

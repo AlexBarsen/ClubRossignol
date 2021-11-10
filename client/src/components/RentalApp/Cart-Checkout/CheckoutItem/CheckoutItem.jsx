@@ -4,11 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
-import {
-  CheckoutItemContainer,
-  ButtonsContainer,
-  ButtonContainer,
-} from "./CheckoutItemElements";
+import { CheckoutItemContainer } from "./CheckoutItemElements";
 
 import RentalEditForm from "../../Rental/RentalEditForm/RentalEditForm";
 import DynamicModal from "../../DynamicModal/DynamicModal";
@@ -16,6 +12,8 @@ import DynamicModal from "../../DynamicModal/DynamicModal";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const { t } = useTranslation();
@@ -46,81 +44,86 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
 
   return (
     <CheckoutItemContainer>
-      <Card style={{ width: "30rem" }}>
-        <Card.Img variant="top" src={icon} className="p-5" />
-        <Card.Title className="d-flex justify-content-center">
-          {t(name)}
-        </Card.Title>
-
-        <div className="d-flex">
-          <div>
-            <Card.Header>Personal details</Card.Header>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                {t("name")}: {firstName}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                {t("surname")}: {lastName}
-              </ListGroup.Item>
-              {sex ? <ListGroup.Item>Sex: {t(sex)}</ListGroup.Item> : null}
-              {height ? (
-                <ListGroup.Item>
-                  {t("height")}: {height} cm
-                </ListGroup.Item>
-              ) : null}
-              {weight ? (
-                <ListGroup.Item>
-                  {t("weight")}: {weight} kg
-                </ListGroup.Item>
-              ) : null}
-              {shoeSize ? (
-                <ListGroup.Item>
-                  {t("shoeSize")}: {shoeSize}
-                </ListGroup.Item>
-              ) : null}
-              {experience ? (
-                <ListGroup.Item>
-                  {t("experience")}: {t(experience)}
-                </ListGroup.Item>
-              ) : null}
-            </ListGroup>
-          </div>
-
-          <div>
-            <Card.Header>Reservation Details</Card.Header>
-            <ListGroup variant="flush">
-              <ListGroup.Item>
-                {t("from")}: {startDate}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                {t("to")} : {endDate}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                {t("number_of_days")}: {days}
-              </ListGroup.Item>
-              {productType !== "bike" ? (
-                <ListGroup.Item>
-                  {t("price")}: {days} x {price} = {days * price} RON
-                </ListGroup.Item>
-              ) : (
-                <ListGroup.Item>
-                  {t("price")}: {days}(
-                  {timePeriod === "per_day" ? t("days") : t(timePeriod)}) x
-                  {price} = {days * price} RON
-                </ListGroup.Item>
-              )}
-            </ListGroup>
-          </div>
+      <Card style={{ width: "30rem" }} className="h-100">
+        <div className="d-flex justify-content-center align-items-center mb-2">
+          <Card.Img
+            variant="top"
+            src={icon}
+            className="p-2"
+            style={{ height: "8rem", width: "8rem" }}
+          />
+          <Card.Title className="d-flex justify-content-center mx-3">
+            {t(name)}
+          </Card.Title>
         </div>
 
-        <ButtonsContainer>
-          <ButtonContainer>
+        <Container className="d-flex justify-content-around">
+          <div className="me-2">
+            <Card.Header>Personal details</Card.Header>
+
+            <ListGroup.Item>
+              {firstName} {lastName}
+            </ListGroup.Item>
+
+            {sex ? <ListGroup.Item>Sex: {t(sex)}</ListGroup.Item> : null}
+
+            {height ? (
+              <ListGroup.Item>
+                {t("height")}: {height} cm
+              </ListGroup.Item>
+            ) : null}
+
+            {weight ? (
+              <ListGroup.Item>
+                {t("weight")}: {weight} kg
+              </ListGroup.Item>
+            ) : null}
+
+            {shoeSize ? (
+              <ListGroup.Item>
+                {t("shoeSize")}: {shoeSize}
+              </ListGroup.Item>
+            ) : null}
+          </div>
+
+          <div className="ms-2">
+            <Card.Header>Reservation Details</Card.Header>
+
+            <ListGroup.Item>
+              {t("from")}: {startDate}
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              {t("to")} : {endDate}
+            </ListGroup.Item>
+
+            <ListGroup.Item>
+              {t("number_of_days")}: {days}
+            </ListGroup.Item>
+
+            {productType !== "bike" ? (
+              <ListGroup.Item>
+                {t("price")}: {days} x {price} = {days * price} RON
+              </ListGroup.Item>
+            ) : (
+              <ListGroup.Item>
+                {t("price")}: {days}(
+                {timePeriod === "per_day" ? t("days") : t(timePeriod)}) x{price}{" "}
+                = {days * price} RON
+              </ListGroup.Item>
+            )}
+          </div>
+        </Container>
+
+        <div className="d-flex justify-content-around flex-grow-1 align-items-center p-3">
+          <div>
             <Button onClick={() => setModalShow(true)}>Edit</Button>
-          </ButtonContainer>
-          <ButtonContainer>
+          </div>
+
+          <div>
             <Button onClick={() => clearItemFromCart(cartItem)}>Delete</Button>
-          </ButtonContainer>
-        </ButtonsContainer>
+          </div>
+        </div>
       </Card>
 
       <DynamicModal

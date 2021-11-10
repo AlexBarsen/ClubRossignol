@@ -27,16 +27,18 @@ const Order = ({ order, orderID }) => {
     <Accordion.Item eventKey="0">
       <Accordion.Header>
         <div>
-          <h2>Order Date: {orderDate}</h2>
-          <h2>Number of Items: {orderedItems.length}</h2>
-          <h5>Order ID: {orderID}</h5>
+          <h6>Order Date: {orderDate}</h6>
+          <h6>Number of Items: {orderedItems.length}</h6>
+          <h6>Order ID: {orderID}</h6>
+          <div>Total: {order.total} RON</div>
 
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-around mt-3">
             <div>Order placed</div>
             <div>Order prepared</div>
             <div>Order complete</div>
           </div>
-          <ProgressBar>
+
+          <ProgressBar style={{ width: "45rem" }}>
             <ProgressBar animated striped variant="warning" now={33} key={1} />
             <ProgressBar animated struped variant="info" now={33} key={2} />
             <ProgressBar animated striped variant="success" now={34} key={3} />
@@ -52,9 +54,7 @@ const Order = ({ order, orderID }) => {
                 <Nav variant="pills" className="flex-column">
                   {orderedItems.map((item, index) => (
                     <Nav.Item key={index}>
-                      <Nav.Link className="h2" eventKey={index}>
-                        {item.name}
-                      </Nav.Link>
+                      <Nav.Link eventKey={index}>{t(item.name)}</Nav.Link>
                     </Nav.Item>
                   ))}
                 </Nav>

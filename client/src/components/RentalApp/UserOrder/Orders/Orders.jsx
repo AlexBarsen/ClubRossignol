@@ -16,8 +16,11 @@ const Orders = ({ userOrders }) => {
         <Title>{t("order_history")}:</Title>
 
         {userOrders.map((order) => (
-          // <Order key={order.orderID} order={order} />
-          <Accordion defaultActiveKey="0" key={order.orderID}>
+          <Accordion
+            defaultActiveKey="1"
+            key={order.orderID}
+            style={{ width: "50rem" }}
+          >
             <Order key={order.orderID} order={order} orderID={order.orderID} />
           </Accordion>
         ))}
