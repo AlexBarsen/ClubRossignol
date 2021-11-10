@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./SignUp.css";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { FormCheck } from "react-bootstrap";
+import { FloatingLabel, FormCheck } from "react-bootstrap";
 
 import { emailSignUpStart } from "../../../../redux/user/user.actions";
 
@@ -88,94 +87,118 @@ const SignUp = ({ emailSignUpStart }) => {
     <Form onSubmit={handleSubmit}>
       <div className="container">
         <div className="row">
-          <Form.Group className="mb-3 col" controlId="formBasicEmail">
-            <Form.Label className="h2">{t("name")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="firstName"
-              type="text"
+          <Form.Group className="col" controlId="formBasicEmail">
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("surname")}
+              className="mb-3"
               onChange={handleChange}
-            />
+            >
+              <Form.Control name="firstName" type="text" placeholder="John" />
+            </FloatingLabel>
           </Form.Group>
 
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("surname")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="lastName"
-              type="text"
-              onChange={handleChange}
-            />
-          </Form.Group>
-        </div>
-
-        <div className="row">
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("email")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="email"
-              type="email"
-              onChange={handleChange}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("confirm_email")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="confirmEmail"
-              type="email"
-              onChange={handleChange}
-            />
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("name")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="lastName"
+                type="text"
+                placeholder="Snow"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
           </Form.Group>
         </div>
 
         <div className="row">
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("phone")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="phoneNumber"
-              type="text"
-              onChange={handleChange}
-            />
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("email")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="johnsnow@example.com"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
           </Form.Group>
 
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("password")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="password"
-              type="password"
-              onChange={handleChange}
-            />
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("confirm_email")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="confirmEmail"
+                type="email"
+                placeholder="johnsnow@example.com"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
           </Form.Group>
         </div>
 
         <div className="row">
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <Form.Label className="h2">{t("confirm_password")}</Form.Label>
-            <Form.Control
-              className="formControl"
-              size="lg"
-              name="confirmPassword"
-              type="password"
-              onChange={handleChange}
-            />
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("password")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="johnsnow1234"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
+          </Form.Group>
+
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("confirm_password")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="confirmPassword"
+                type="password"
+                placeholder="johnsnow1234"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
+          </Form.Group>
+        </div>
+
+        <div className="row">
+          <Form.Group className="mb-3 col" controlId="formBasicPassword">
+            <FloatingLabel
+              controlId="floatingInput"
+              label={t("phone")}
+              className="mb-3"
+            >
+              <Form.Control
+                name="phone"
+                type="text"
+                placeholder="0712345678"
+                onChange={handleChange}
+              />
+            </FloatingLabel>
           </Form.Group>
 
           <Form.Group
             className="col d-flex align-items-center justify-content-center"
             controlId="formBasicCheckbox"
           >
-            <Form.Group className="mb-3 h3">
+            <Form.Group className="mb-3">
               <FormCheck required name="terms">
                 <FormCheck.Input type="checkbox" />
                 <FormCheck.Label>Accept Terms and Conditions.</FormCheck.Label>
@@ -184,8 +207,8 @@ const SignUp = ({ emailSignUpStart }) => {
           </Form.Group>
         </div>
       </div>
-      <div className="buttonContainer">
-        <Button className="button" variant="primary" type="submit">
+      <div className="d-flex justify-content-center">
+        <Button className="w-100 fs-20" variant="primary" type="submit">
           Sign Up
         </Button>
       </div>

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./SignIn.css";
 import { connect } from "react-redux";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { FloatingLabel } from "react-bootstrap";
 
 import { emailSignInStart } from "../../../../redux/user/user.actions";
 
 const SignIn = ({ emailSignInStart }) => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -39,31 +39,37 @@ const SignIn = ({ emailSignInStart }) => {
   return (
     <Form onSubmit={handleSubmit} className="p-1">
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="h3">Email address</Form.Label>
-        <Form.Control
-          className="formControl"
-          size="lg"
-          name="email"
-          type="email"
-          // placeholder="Enter email"
-          onChange={handleChange}
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label={t("email")}
+          className="mb-3"
+        >
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="johnsnow@example.com"
+            onChange={handleChange}
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h3">Password</Form.Label>
-        <Form.Control
-          className="formControl"
-          size="lg"
-          name="password"
-          type="password"
-          // placeholder="Password"
-          onChange={handleChange}
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label={t("password")}
+          className="mb-3"
+        >
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="johnsnow1234"
+            onChange={handleChange}
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <div className="buttonContainer">
-        <Button className="button" variant="primary" type="submit">
+        <Button variant="primary" type="submit">
           Login
         </Button>
       </div>

@@ -7,11 +7,11 @@ const DynamicModal = ({ ...props }) => {
       {...props}
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      size="lg"
+      size={props.modalSize}
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <span className="h2">{props.modalTitle}</span>
+          <span className="h4">{props.modalTitle}</span>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>{props.renderComponent()}</Modal.Body>

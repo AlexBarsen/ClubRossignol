@@ -5,41 +5,29 @@ export const CartIconContainer = styled.div`
   margin-right: 40px;
   cursor: pointer;
 
-  @media screen and (max-width: 768px) {
-    margin-right: 60px;
-  }
+  width: 2rem;
+  height: 2rem;
+`;
+
+export const Circle = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -10px;
+  right: -18px;
+  background-color: lightgreen;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
 `;
 
 export const IconContainer = styled.div`
   width: 40px;
-
-  @media screen and (max-width: 768px) {
-    width: 35px;
-  }
 `;
 
 export const Icon = styled.img`
-  filter: invert(100%);
   width: 40px;
-  height: 40px;
-
-  @media screen and (max-width: 768px) {
-    width: 35px;
-    height: 35px;
-  }
 `;
 
-export const ItemCount = styled.span`
-  color: #fff;
-  position: absolute;
-  top: 17px;
-  right: 15px;
-  font-size: 1.6rem;
-  font-weight: bold;
-
-  @media screen and (max-width: 768px) {
-    font-size: 2rem;
-    top: 16px;
-    right: 14px;
-  }
-`;
+export const ItemCount = styled.span``;

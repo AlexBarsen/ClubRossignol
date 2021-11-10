@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from "react-bootstrap/Button";
-import DynamicModal from "../../DynamicModal/DynamicModal";
 
-import RentalModal from "../RentalForm/RentalForm";
+import DynamicModal from "../../DynamicModal/DynamicModal";
+import RentalForm from "../RentalForm/RentalForm";
 
 const RentalCard = ({ item }) => {
   const { t } = useTranslation();
@@ -14,37 +15,42 @@ const RentalCard = ({ item }) => {
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
 
-  const [wrappedComponent, setWrappedComponent] = useState(
-    <RentalModal item={item} />
-  );
+  const [wrappedComponent, setWrappedComponent] = useState(null);
+
+  const renderModal = () => {
+    setWrappedComponent(<RentalForm item={item} />);
+    setModalTitle(t(item.name));
+    setModalShow(true);
+  };
 
   const { name, price, icon } = item;
 
   return (
     <>
-      <Card style={{ width: "30rem" }}>
+      <Card style={{ width: "20rem" }}>
         <Card.Img
           variant="top"
           src={icon}
-          className="p-5 border border-bottom "
+          className="p-3 border border-bottom"
+          style={{ height: "12.5rem" }}
         />
-        <Card.Body>
-          <Card.Title className="d-flex justify-content-center m-0">
-            <span className="h2 mb-0">{t(name)}</span>
+        <Card.Body className="flex-grow-0 p-2">
+          <Card.Title className="d-flex justify-content-center m-0 p-0">
+            <span className="mb-0">{t(name)}</span>
           </Card.Title>
         </Card.Body>
-        <ListGroup className="list-group-flush">
+        <ListGroup className="list-group-flush p-2">
           <div className="d-flex justify-content-around">
-            <ListGroupItem className="h3 m-0 border border-0 p-3">
+            <ListGroupItem className="m-0 border border-0">
               {price} {t("ron_day")}
             </ListGroupItem>
             <div className="d-flex align-items-center">
               <Button
                 variant="primary"
                 className="m-0"
-                onClick={() => setModalShow(true)}
+                onClick={() => renderModal()}
               >
-                <span className="h3">Alege</span>
+                Alege
               </Button>
             </div>
           </div>
@@ -55,6 +61,7 @@ const RentalCard = ({ item }) => {
         show={modalShow}
         onHide={() => setModalShow(false)}
         modalTitle={modalTitle}
+        modalSize="lg"
         renderComponent={() => wrappedComponent}
       />
     </>

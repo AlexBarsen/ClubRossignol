@@ -16,28 +16,24 @@ import SignIn from "../Sign-In-Up/SignIn/SignIn";
 import SignUp from "../Sign-In-Up/SignUp/SignUp";
 import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
 
-import CartDropdown from "../Cart-Checkout/CartDropdown/index";
-
 import { createStructuredSelector } from "reselect";
-
-import CartIcon from "../Cart-Checkout/CartIcon/index";
 
 import { selectCurrentUser } from "../../../redux/user/user.selectors";
 
 import { selectCartHidden } from "../../../redux/cart/cart.selectors";
 
-import {
-  toggleAcountModalHidden,
-  signOutStart,
-} from "../../../redux/user/user.actions";
+import OffCanvasCart from "../Cart-Checkout/OffCanvasCart/OffCanvasCart";
 
-const Navigation = ({ currentUser, cartHidden, signOut }) => {
+import { signOutStart } from "../../../redux/user/user.actions";
+
+const Navigation = ({ currentUser, signOut }) => {
   const { t } = useTranslation();
   const [modalShow, setModalShow] = useState(false);
+  const [modalSize, setModalSize] = useState(null);
   const [modalTitle, setModalTitle] = useState(null);
   const [wrappedComponent, setWrappedComponent] = useState(null);
 
-  const showModal = (component) => {
+  const renderModal = (component, size) => {
     setModalTitle(
       component.type.WrappedComponent.name === "SignIn"
         ? "Sign In"
@@ -46,7 +42,7 @@ const Navigation = ({ currentUser, cartHidden, signOut }) => {
         : "Password Reset"
     );
     setWrappedComponent(component);
-
+    setModalSize(size);
     setModalShow(true);
   };
 
@@ -59,101 +55,84 @@ const Navigation = ({ currentUser, cartHidden, signOut }) => {
           className="d-flex justify-content-end"
         >
           <Nav>
-            <NavDropdown
-              className="h2 me-3"
-              title="Select Language"
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item
-                className="h3"
-                onClick={() => i18next.changeLanguage("ro")}
-              >
-                Romanian <span className="h2">🇷🇴</span>
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                className="h3"
-                onClick={() => i18next.changeLanguage("en")}
-              >
-                English <span className="h2">🇬🇧</span>
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link>{t("back_to_website")}</Nav.Link>
 
-            <Nav.Link className="h2 me-3">{t("back_to_website")}</Nav.Link>
-
-            <NavDropdown
-              className="h2 me-3"
-              title="Rent"
-              id="basic-nav-dropdown"
-            >
+            <NavDropdown title="Rent" id="basic-nav-dropdown">
               <LinkContainer to="/rental">
-                <NavDropdown.Item className="h3">All Rentals</NavDropdown.Item>
+                <NavDropdown.Item className="">All Rentals</NavDropdown.Item>
               </LinkContainer>
               <NavDropdown.Divider />
               <LinkContainer to="/rental/category/ski">
-                <NavDropdown.Item className="h3">Ski</NavDropdown.Item>
+                <NavDropdown.Item className="">Ski</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/rental/category/snowboard">
-                <NavDropdown.Item className="h3">Snowboard</NavDropdown.Item>
+                <NavDropdown.Item className="">Snowboard</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/rental/category/bike">
-                <NavDropdown.Item className="h3">Bike</NavDropdown.Item>
+                <NavDropdown.Item className="">Bike</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
 
-            <NavDropdown
-              className="h2 me-3"
-              title="Account"
-              id="basic-nav-dropdown"
-            >
-              <NavDropdown.Item
-                className="h3"
-                onClick={() => showModal(<SignIn />)}
+            {currentUser ? (
+              <DropdownButton
+                size="sm"
+                id="dropdown-basic-button"
+                title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
               >
-                Sign In
+                <LinkContainer to="/rental/dashboard">
+                  <Dropdown.Item className="">Dashboard</Dropdown.Item>
+                </LinkContainer>
+                <Dropdown.Item className="" onClick={() => signOut()}>
+                  Sign out
+                </Dropdown.Item>
+              </DropdownButton>
+            ) : (
+              <NavDropdown title="Account" id="basic-nav-dropdown">
+                <NavDropdown.Item
+                  className=""
+                  onClick={() => renderModal(<SignIn />, "md")}
+                >
+                  Sign In
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  className=""
+                  onClick={() => renderModal(<SignUp />, "lg")}
+                >
+                  Sign Up
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  className=""
+                  onClick={() => renderModal(<PasswordReset />, "md")}
+                >
+                  Forgot password?
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
+            <NavDropdown title="Select Language" id="basic-nav-dropdown">
+              <NavDropdown.Item
+                className=""
+                onClick={() => i18next.changeLanguage("ro")}
+              >
+                Romanian <span className="">🇷🇴</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                className="h3"
-                onClick={() => showModal(<SignUp />)}
+                className=""
+                onClick={() => i18next.changeLanguage("en")}
               >
-                Sign Up
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                className="h3"
-                onClick={() => showModal(<PasswordReset />)}
-              >
-                Forgot password?
+                English <span className="">🇬🇧</span>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-
-          {currentUser ? (
-            <DropdownButton
-              size="lg"
-              id="dropdown-basic-button"
-              title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
-            >
-              <LinkContainer to="/rental/dashboard">
-                <Dropdown.Item className="h3">Dashboard</Dropdown.Item>
-              </LinkContainer>
-              <Dropdown.Item className="h3" onClick={() => signOut()}>
-                Sign out
-              </Dropdown.Item>
-            </DropdownButton>
-          ) : (
-            <Navbar.Text className="h3">
-              You currently are not signed in.
-            </Navbar.Text>
-          )}
         </Navbar.Collapse>
       </Container>
 
-      <CartIcon />
-      {cartHidden ? <CartDropdown /> : null}
+      <OffCanvasCart key={1} placement="end" />
 
       <DynamicModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         modalTitle={modalTitle}
+        modalSize={modalSize}
         renderComponent={() => wrappedComponent}
       />
     </Navbar>
@@ -163,12 +142,10 @@ const Navigation = ({ currentUser, cartHidden, signOut }) => {
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  cartHidden: selectCartHidden,
 });
 
 // * dispatch function to the Redux store
 const mapDispatchToProps = (dispatch) => ({
-  toggleAcountModalHidden: () => dispatch(toggleAcountModalHidden()),
   signOut: () => dispatch(signOutStart()),
 });
 

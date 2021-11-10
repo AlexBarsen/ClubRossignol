@@ -18,7 +18,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-const RentalModal = ({ addItem, item }) => {
+const RentalForm = ({ addItem, item }) => {
   const { t } = useTranslation();
 
   const {
@@ -219,4 +219,4 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(RentalModal);
+export default connect(null, mapDispatchToProps)(RentalForm);

@@ -2,26 +2,14 @@ import CartActionTypes from "./cart.types";
 import { toast } from "react-toastify";
 import { editItem } from "./cart.utils";
 import i18next from "i18next";
-import UserActionTypes from "../user/user.types";
 
 const INITIAL_STATE = {
-  cartHidden: true,
   cartItems: [],
 };
 
 // * reducers take in a current state + action -> return a new state
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CartActionTypes.TOGGLE_CART_HIDDEN:
-      return {
-        ...state,
-        cartHidden: !state.cartHidden,
-      };
-    case UserActionTypes.TOGGLE_USER_DROPDOWN_HIDDEN:
-      return {
-        ...state,
-        cartHidden: false,
-      };
     case CartActionTypes.ADD_ITEM:
       toast.success(
         i18next.language === "en"
@@ -63,11 +51,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: action.payload,
-      };
-    case UserActionTypes.TOGGLE_ACCOUNT_MODAL_HIDDEN:
-      return {
-        ...state,
-        cartHidden: false,
       };
     default:
       return state;

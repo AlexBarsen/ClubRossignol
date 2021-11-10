@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./PasswordRest.css";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { FloatingLabel } from "react-bootstrap";
 
 import { passwordResetStart } from "../../../../redux/user/user.actions";
 
@@ -38,28 +38,37 @@ const PasswordReset = ({ passwordResetStart }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label className="h2">Email address</Form.Label>
-        <Form.Control
-          className="formControl"
-          size="lg"
-          name="email"
-          type="email"
-          onChange={handleChange}
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label={t("email")}
+          className="mb-3"
+        >
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="johnsnow@example.com"
+            onChange={handleChange}
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label className="h2">Confirm Email Address</Form.Label>
-        <Form.Control
-          className="formControl"
-          name="confirmEmail"
-          type="email"
-          onChange={handleChange}
-        />
+        <FloatingLabel
+          controlId="floatingInput"
+          label={t("confirm_email")}
+          className="mb-3"
+        >
+          <Form.Control
+            name="confirmEmail"
+            type="confirmEmail"
+            placeholder="johnsnow@example.com"
+            onChange={handleChange}
+          />
+        </FloatingLabel>
       </Form.Group>
 
       <div className="buttonContainer">
-        <Button className="button" variant="primary" type="submit">
+        <Button className="button w-100" variant="primary" type="submit">
           Submit
         </Button>
       </div>
