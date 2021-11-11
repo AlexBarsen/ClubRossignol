@@ -12,6 +12,7 @@ import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
 
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 const RentalEditForm = ({ cartItem, editItem }) => {
   useEffect(() => {
@@ -131,8 +132,6 @@ const RentalEditForm = ({ cartItem, editItem }) => {
 
   return (
     <Container>
-      <h1>{t(item.name)}</h1>
-
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
           <div className="">
@@ -158,27 +157,33 @@ const RentalEditForm = ({ cartItem, editItem }) => {
 
           <div className="d-flex flex-column w-100">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>{t("name")}</Form.Label>
-              <Form.Control
-                name="firstName"
-                type="text"
-                placeholder="First Name"
-                value={item.firstName}
-                onChange={handleChange}
-                required
-              />
+              <FloatingLabel
+                controlId="floatingInput"
+                label={t("name")}
+                className="mb-3"
+              >
+                <Form.Control
+                  name="firstName"
+                  type="text"
+                  placeholder="John"
+                  onChange={handleChange}
+                />
+              </FloatingLabel>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>{t("surname")}</Form.Label>
-              <Form.Control
-                name="lastName"
-                type="text"
-                placeholder="Last Name"
-                value={item.lastName}
-                onChange={handleChange}
-                required
-              />
+              <FloatingLabel
+                controlId="floatingInput"
+                label={t("surname")}
+                className="mb-3"
+              >
+                <Form.Control
+                  name="lastName"
+                  type="lastName"
+                  placeholder="Snow"
+                  onChange={handleChange}
+                />
+              </FloatingLabel>
             </Form.Group>
 
             <RentalEditFormSelects
@@ -187,11 +192,12 @@ const RentalEditForm = ({ cartItem, editItem }) => {
               productType={cartItem.productType}
               onChangeInput={onChangeInput.bind(this)}
             />
+
+            <Button className="mt-3" variant="primary" type="submit">
+              Submit
+            </Button>
           </div>
         </div>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
       </Form>
 
       <RentalModalInfo

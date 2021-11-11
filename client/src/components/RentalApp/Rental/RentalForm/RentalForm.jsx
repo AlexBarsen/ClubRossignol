@@ -17,6 +17,7 @@ import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 const RentalForm = ({ addItem, item }) => {
   const { t } = useTranslation();
@@ -144,8 +145,6 @@ const RentalForm = ({ addItem, item }) => {
 
   return (
     <Container>
-      <h1>{t(name)}</h1>
-
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
           <div>
@@ -170,26 +169,34 @@ const RentalForm = ({ addItem, item }) => {
           </div>
 
           <div className="d-flex flex-column w-100">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>{t("name")}</Form.Label>
-              <Form.Control
-                name="firstName"
-                type="text"
-                placeholder="First Name"
-                onChange={handleChange}
-                required
-              />
+            <Form.Group className="mb-3">
+              <FloatingLabel
+                controlId="floatingInput"
+                label={t("name")}
+                className="mb-3"
+              >
+                <Form.Control
+                  name="firstName"
+                  type="text"
+                  placeholder="John"
+                  onChange={handleChange}
+                />
+              </FloatingLabel>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>{t("surname")}</Form.Label>
-              <Form.Control
-                name="lastName"
-                type="text"
-                placeholder="Last Name"
-                onChange={handleChange}
-                required
-              />
+            <Form.Group className="mb-3">
+              <FloatingLabel
+                controlId="floatingInput"
+                label={t("surname")}
+                className="mb-3"
+              >
+                <Form.Control
+                  name="lastName"
+                  type="lastName"
+                  placeholder="Snow"
+                  onChange={handleChange}
+                />
+              </FloatingLabel>
             </Form.Group>
 
             <RentalFormSelects
@@ -197,11 +204,12 @@ const RentalForm = ({ addItem, item }) => {
               adult={adult}
               onChangeInput={onChangeInput.bind(this)}
             />
+
+            <Button className="mt-3" variant="primary" type="submit">
+              Submit
+            </Button>
           </div>
         </div>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
       </Form>
 
       <RentalModalInfo

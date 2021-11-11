@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import FixRequiredSelect from "../RentalForm/FixRequiredSelect";
 import BaseSelect from "react-select";
 
+import Container from "react-bootstrap/Container";
+
 import {
   shoeSizeOptionsAdult,
   heightOptionsAdult,
@@ -30,29 +32,12 @@ const RentalFormSelects = ({ productType, adult, onChangeInput }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
-      display: "flex",
-      "@media screen and (max-width: 600px)": {
-        ...provided,
-        fontSize: "2.6rem",
-      },
-      "@media screen and (max-width: 450px)": {
-        ...provided,
-        fontSize: "3.6rem",
-      },
+      fontSize: "1rem",
     }),
     menu: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
+      fontSize: "1rem",
       textAlign: "center",
-      "@media screen and (max-width: 600px)": {
-        ...provided,
-        fontSize: "2.6rem",
-      },
-      "@media screen and (max-width: 450px)": {
-        ...provided,
-        fontSize: "3.6rem",
-      },
     }),
   };
 
@@ -61,129 +46,159 @@ const RentalFormSelects = ({ productType, adult, onChangeInput }) => {
   switch (productType) {
     case "boots":
       return (
-        <>
-          <Select
-            placeholder={t("shoeSize_modal")}
-            name="shoeSize"
-            onChange={onChangeInput}
-            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
-            styles={customStyles}
-            isSearchable={false}
-            required
-          />
+        <Container className="d-flex justify-content-between p-0">
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("shoeSize_modal")}
+              name="shoeSize"
+              onChange={onChangeInput}
+              options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
+              styles={customStyles}
+              isSearchable={false}
+              required
+            />
+          </div>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            styles={customStyles}
-            isSearchable={false}
-            required
-          />
-        </>
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("sex_modal")}
+              name="sex"
+              onChange={onChangeInput}
+              options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+              styles={customStyles}
+              isSearchable={false}
+              required
+            />
+          </div>
+        </Container>
       );
     case "skiSnow":
       return (
-        <>
-          <Select
-            placeholder={t("height_modal")}
-            name="height"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? heightOptionsAdult : heightOptionsChild}
-            isSearchable={false}
-            required
-          />
+        <Container className="p-0">
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("height_modal")}
+                name="height"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? heightOptionsAdult : heightOptionsChild}
+                isSearchable={false}
+                required
+              />
+            </div>
 
-          <Select
-            placeholder={t("weight_modal")}
-            name="weight"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? weightOptionsAdult : weightOptionsChild}
-            isSearchable={false}
-            required
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("weight_modal")}
+                name="weight"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? weightOptionsAdult : weightOptionsChild}
+                isSearchable={false}
+                required
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("experience_modal")}
-            name="experience"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={
-              language === "ro" ? experienceOptionsRO : experienceOptionsENG
-            }
-            isSearchable={false}
-            required
-          />
+          <Container className="d-flex justify-content-between p-0">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("experience_modal")}
+                name="experience"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={
+                  language === "ro" ? experienceOptionsRO : experienceOptionsENG
+                }
+                isSearchable={false}
+                required
+              />
+            </div>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            isSearchable={false}
-            required
-          />
-        </>
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("sex_modal")}
+                name="sex"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+                isSearchable={false}
+                required
+              />
+            </div>
+          </Container>
+        </Container>
       );
     case "equipment":
       return (
-        <>
-          <Select
-            placeholder={t("height_modal")}
-            name="height"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? heightOptionsAdult : heightOptionsChild}
-            isSearchable={false}
-            required
-          />
+        <Container className="p-0">
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("height_modal")}
+                name="height"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? heightOptionsAdult : heightOptionsChild}
+                isSearchable={false}
+                required
+              />
+            </div>
 
-          <Select
-            placeholder={t("weight_modal")}
-            name="weight"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? weightOptionsAdult : weightOptionsChild}
-            isSearchable={false}
-            required
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("weight_modal")}
+                name="weight"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? weightOptionsAdult : weightOptionsChild}
+                isSearchable={false}
+                required
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("shoeSize_modal")}
-            name="shoeSize"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
-            isSearchable={false}
-            required
-          />
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("shoeSize_modal")}
+                name="shoeSize"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
+                isSearchable={false}
+                required
+              />
+            </div>
 
-          <Select
-            placeholder={t("experience_modal")}
-            name="experience"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={
-              language === "ro" ? experienceOptionsRO : experienceOptionsENG
-            }
-            isSearchable={false}
-            required
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("experience_modal")}
+                name="experience"
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={
+                  language === "ro" ? experienceOptionsRO : experienceOptionsENG
+                }
+                isSearchable={false}
+                required
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            isSearchable={false}
-            required
-          />
-        </>
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("sex_modal")}
+              name="sex"
+              styles={customStyles}
+              onChange={onChangeInput}
+              options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+              isSearchable={false}
+              required
+            />
+          </div>
+        </Container>
       );
 
     case "bike":

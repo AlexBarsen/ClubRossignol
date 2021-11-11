@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { OrdersContainer, Title } from "./OrdersElements";
+// import { OrdersContainer, Title } from "./OrdersElements";
 import { selectUserOrders } from "../../../../redux/user/user.selectors";
 import Order from "../Order/Order";
 import Accordion from "react-bootstrap/Accordion";
@@ -11,21 +11,20 @@ import Accordion from "react-bootstrap/Accordion";
 const Orders = ({ userOrders }) => {
   const { t } = useTranslation();
   return (
-    <>
-      <OrdersContainer>
-        <Title>{t("order_history")}:</Title>
+    <div>
+      <div className="h4">{t("order_history")}:</div>
 
-        {userOrders.map((order) => (
-          <Accordion
-            defaultActiveKey="1"
-            key={order.orderID}
-            style={{ width: "50rem" }}
-          >
-            <Order key={order.orderID} order={order} orderID={order.orderID} />
-          </Accordion>
-        ))}
-      </OrdersContainer>
-    </>
+      {userOrders.map((order) => (
+        <Accordion
+          className="mb-3"
+          defaultActiveKey="1"
+          key={order.orderID}
+          style={{ width: "55rem" }}
+        >
+          <Order key={order.orderID} order={order} orderID={order.orderID} />
+        </Accordion>
+      ))}
+    </div>
   );
 };
 

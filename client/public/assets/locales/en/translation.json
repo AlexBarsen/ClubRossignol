@@ -83,7 +83,7 @@
 
   "height_modal": "Height (CM)",
   "weight_modal": "Weight (KG)",
-  "shoeSize_modal": "Shoe Size (EUR)",
+  "shoeSize_modal": "Shoe Size",
   "experience_modal": "Experience Level",
   "sex_modal": "Sex",
   "timePeriod_modal": "Time Period",

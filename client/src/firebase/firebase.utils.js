@@ -26,6 +26,7 @@ export const firestore = firebase.firestore();
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
+  console.log(userAuth);
   // * get a reference at /users/userAuth.uid (reference the user document)
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 

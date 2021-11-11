@@ -30,29 +30,12 @@ const RentalEditFormSelects = ({
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
-      display: "flex",
-      "@media screen and (max-width: 600px)": {
-        ...provided,
-        fontSize: "2.6rem",
-      },
-      "@media screen and (max-width: 450px)": {
-        ...provided,
-        fontSize: "3.6rem",
-      },
+      fontSize: "1rem",
     }),
     menu: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
+      fontSize: "1rem",
       textAlign: "center",
-      "@media screen and (max-width: 600px)": {
-        ...provided,
-        fontSize: "2.6rem",
-      },
-      "@media screen and (max-width: 450px)": {
-        ...provided,
-        fontSize: "3.6rem",
-      },
     }),
   };
 

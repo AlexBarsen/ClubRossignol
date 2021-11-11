@@ -1,4 +1,5 @@
 import React from "react";
+import "./Order.scss";
 import { useTranslation } from "react-i18next";
 
 import Accordion from "react-bootstrap/Accordion";
@@ -6,8 +7,6 @@ import Tab from "react-bootstrap/Tab";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
-
-import { OrderedItems } from "./OrderElements";
 
 import ProgressBar from "react-bootstrap/ProgressBar";
 
@@ -18,6 +17,8 @@ const Order = ({ order, orderID }) => {
 
   const { orderedItems, total } = order;
 
+  console.log(order.status);
+
   const orderDate =
     order.orderedAt.toDate().toLocaleDateString() +
     " " +
@@ -26,35 +27,74 @@ const Order = ({ order, orderID }) => {
   return (
     <Accordion.Item eventKey="0">
       <Accordion.Header>
-        <div>
-          <h6>Order Date: {orderDate}</h6>
-          <h6>Number of Items: {orderedItems.length}</h6>
-          <h6>Order ID: {orderID}</h6>
-          <div>Total: {order.total} RON</div>
-
-          <div className="d-flex justify-content-around mt-3">
-            <div>Order placed</div>
-            <div>Order prepared</div>
-            <div>Order complete</div>
+        <div style={{ width: "50rem" }}>
+          <div className="d-flex justify-content-around align-items-center">
+            <div>
+              <div className="mb-2">Date: {orderDate}</div>
+              <div>ID: {orderID}</div>
+            </div>
+            <div>
+              <div className="mb-2">No. items: {orderedItems.length}</div>
+              <div>Total: {order.total} RON</div>
+            </div>
+            <div>
+              <ProgressBar
+                style={{
+                  width: "20rem",
+                  height: "2rem",
+                  border: "1px solid black",
+                }}
+              >
+                <ProgressBar
+                  label="placed"
+                  animated
+                  className="progress--placed"
+                  now={33}
+                  key={1}
+                />
+                <ProgressBar
+                  label="prepared"
+                  style={{ borderLeft: "1px solid black" }}
+                  animated
+                  className={
+                    order.status === "complete"
+                      ? "progress--prepared"
+                      : order.status === "prepared"
+                      ? "progress--prepared"
+                      : "progress--grey"
+                  }
+                  now={33}
+                  key={2}
+                />
+                <ProgressBar
+                  label="complete"
+                  style={{ borderLeft: "1px solid black" }}
+                  animated
+                  className={
+                    order.status === "complete"
+                      ? "progress--complete"
+                      : "progress--grey"
+                  }
+                  now={34}
+                  key={3}
+                />
+              </ProgressBar>
+            </div>
           </div>
-
-          <ProgressBar style={{ width: "45rem" }}>
-            <ProgressBar animated striped variant="warning" now={33} key={1} />
-            <ProgressBar animated struped variant="info" now={33} key={2} />
-            <ProgressBar animated striped variant="success" now={34} key={3} />
-          </ProgressBar>
         </div>
       </Accordion.Header>
 
-      <Accordion.Body>
-        <OrderedItems>
+      <Accordion.Body classname="accordion-body">
+        <div className="d-flex flex-column">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>
               <Col sm={3}>
-                <Nav variant="pills" className="flex-column">
+                <Nav variant="pills" className="flex-column tab--nav">
                   {orderedItems.map((item, index) => (
-                    <Nav.Item key={index}>
-                      <Nav.Link eventKey={index}>{t(item.name)}</Nav.Link>
+                    <Nav.Item className="tab--item mb-2" key={index}>
+                      <Nav.Link className="tab--text" eventKey={index}>
+                        {t(item.name)}
+                      </Nav.Link>
                     </Nav.Item>
                   ))}
                 </Nav>
@@ -75,7 +115,7 @@ const Order = ({ order, orderID }) => {
               </Col>
             </Row>
           </Tab.Container>
-        </OrderedItems>
+        </div>
       </Accordion.Body>
     </Accordion.Item>
   );

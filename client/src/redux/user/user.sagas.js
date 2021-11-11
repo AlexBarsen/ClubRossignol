@@ -100,7 +100,7 @@ export function* signInAfterSignUp({ payload: { user, additionalData } }) {
 // * SIGN IN
 export function* signInWithEmail({ payload: { email, password } }) {
   try {
-    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    const { user } = auth.signInWithEmailAndPassword(email, password);
 
     yield getSnapshotFromUserAuth(user); // *return userSnapshot
   } catch (error) {

@@ -19,7 +19,7 @@ const UserInformation = ({ currentUser }) => {
   });
 
   return (
-    <Card className="userCard">
+    <Card className="user-card">
       <Card.Img
         style={{ width: "10rem" }}
         className="m-auto"
