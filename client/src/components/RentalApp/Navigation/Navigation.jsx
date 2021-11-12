@@ -7,25 +7,28 @@ import Nav from "react-bootstrap/Nav";
 
 import OffCanvasCart from "../Cart-Checkout/OffCanvasCart/OffCanvasCart";
 import LangaugeDropdown from "../LanguageDropdown/LangaugeDropdown";
-import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
-import AccountDropdown from "../AccountDropdown/AccountDropdown";
+
+import AccountLinks from "../AccountLinks/AccountLinks";
 
 const Navigation = () => {
   const { t } = useTranslation();
 
   return (
-    <Navbar style={{ backgroundColor: "lightblue" }} expand="lg">
+    <Navbar sticky="top" className="background-primary--1" expand="lg">
       <Container>
+        <Navbar.Brand className="text-white">Club Rossignol</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           id="basic-navbar-nav "
           className="d-flex justify-content-end"
         >
           <Nav className="d-flex align-items-center">
+            <Nav.Link className="me-3 text-white">
+              {t("back_to_website")}
+            </Nav.Link>
+
+            <AccountLinks />
             <LangaugeDropdown />
-            <Nav.Link>{t("back_to_website")}</Nav.Link>
-            <CategoryDropdown />
-            <AccountDropdown />
           </Nav>
         </Navbar.Collapse>
       </Container>

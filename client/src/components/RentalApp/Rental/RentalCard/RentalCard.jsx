@@ -34,10 +34,10 @@ const RentalCard = ({ item }) => {
           className="p-3 border border-bottom"
           style={{ height: "12.5rem" }}
         />
-        <Card.Body className="flex-grow-0 p-2">
-          <Card.Title className="d-flex justify-content-center m-0 p-0">
+        <Card.Body className="flex-grow-0 p-0">
+          <Card.Header className="d-flex justify-content-center m-0 p-2">
             <span className="mb-0">{t(name)}</span>
-          </Card.Title>
+          </Card.Header>
         </Card.Body>
         <ListGroup className="list-group-flush p-2">
           <div className="d-flex justify-content-around">

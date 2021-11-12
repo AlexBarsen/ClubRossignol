@@ -3,11 +3,9 @@ import { connect } from "react-redux";
 
 import { Route, Switch } from "react-router-dom";
 
-import { RentalPageContainer, RentalContent, Toast } from "./RentaPageElements";
+import { Toast } from "./RentaPageElements";
 
 import Navigation from "../../components/RentalApp/Navigation/Navigation";
-
-import { Wrapper } from "./RentaPageElements";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
@@ -22,6 +20,8 @@ import { checkUserSession } from "../../redux/user/user.actions";
 import Spinner from "../../components/Spinner/index";
 
 import ErrorBoundary from "../../components/ErrorBoundary/index";
+
+import RentalTabs from "../../components/RentalApp/RentalTabs/RentalTabs";
 
 const CheckoutPage = lazy(() => import("../Checkout/index"));
 const DashboardPage = lazy(() => import("../Dashboard/index"));
@@ -61,62 +61,60 @@ const RentalPage = ({
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
-    <RentalPageContainer>
+    <>
       <Navigation toggle={toggle} />
 
-      <Wrapper>
-        <RentalContent>
-          <Switch>
-            <ErrorBoundary>
-              <Suspense fallback={<Spinner />}>
-                <Route
-                  exact
-                  path={`${match.path}`}
-                  component={RentalOverviewContainer}
-                />
+      <RentalTabs />
 
-                <Route
-                  exact
-                  path={`${match.path}/category/:categoryName`}
-                  component={CategoryPageContainer}
-                />
+      <Switch>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route
+              exact
+              path={`${match.path}`}
+              component={RentalOverviewContainer}
+            />
 
-                <Route
-                  exact
-                  path={`${match.path}/checkout`}
-                  component={CheckoutPage}
-                />
+            <Route
+              exact
+              path={`${match.path}/category/:categoryName`}
+              component={CategoryPageContainer}
+            />
 
-                <ProtectedRoute
-                  exact
-                  path={`${match.path}/dashboard`}
-                  component={DashboardPage}
-                  isAuth={currentUser}
-                />
+            <Route
+              exact
+              path={`${match.path}/checkout`}
+              component={CheckoutPage}
+            />
 
-                <PrivateRoute
-                  exact
-                  path={`${match.path}/admin`}
-                  component={AdminDashboardPage}
-                  isAuth={currentUser}
-                />
-              </Suspense>
-            </ErrorBoundary>
-          </Switch>
-          <Toast
-            position="bottom-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            theme="colored"
-            pauseOnFocusLoss
-            draggable
-          />
-        </RentalContent>
-      </Wrapper>
-    </RentalPageContainer>
+            <ProtectedRoute
+              exact
+              path={`${match.path}/dashboard`}
+              component={DashboardPage}
+              isAuth={currentUser}
+            />
+
+            <PrivateRoute
+              exact
+              path={`${match.path}/admin`}
+              component={AdminDashboardPage}
+              isAuth={currentUser}
+            />
+          </Suspense>
+        </ErrorBoundary>
+      </Switch>
+      <Toast
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        theme="colored"
+        pauseOnFocusLoss
+        draggable
+      />
+    </>
   );
 };
 

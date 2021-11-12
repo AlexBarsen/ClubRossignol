@@ -1,11 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import {
-  CategoryPageContainer,
-  Title,
-  CategoryProductsContainer,
-} from "./CategoryElements.js";
+import { CategoryProductsContainer } from "./CategoryElements.js";
 
 import RentalCard from "../../components/RentalApp/Rental/RentalCard/RentalCard";
 import { selectRentalCategory } from "../../redux/rental/rental.selectors";
@@ -15,15 +11,13 @@ const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
 
   return (
-    <CategoryPageContainer>
-      <Title>{categoryName}</Title>
-
+    <div className="d-flex justify-content-center">
       <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (
           <RentalCard key={product.productID} item={product} />
         ))}
       </CategoryProductsContainer>
-    </CategoryPageContainer>
+    </div>
   );
 };
 

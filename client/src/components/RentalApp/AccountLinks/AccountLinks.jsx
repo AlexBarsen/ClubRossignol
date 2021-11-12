@@ -4,8 +4,8 @@ import { createStructuredSelector } from "reselect";
 
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
+import Nav from "react-bootstrap/Nav";
 
 import DynamicModal from "../DynamicModal/DynamicModal";
 import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
@@ -15,7 +15,7 @@ import SignUp from "../Sign-In-Up/SignUp/SignUp";
 import { selectCurrentUser } from "../../../redux/user/user.selectors";
 import { signOutStart } from "../../../redux/user/user.actions";
 
-const AccountDropdown = ({ currentUser, signOut }) => {
+const AccountLinks = ({ currentUser, signOut }) => {
   const [modalShow, setModalShow] = useState(false);
   const [modalSize, setModalSize] = useState(null);
   const [modalTitle, setModalTitle] = useState(null);
@@ -49,26 +49,26 @@ const AccountDropdown = ({ currentUser, signOut }) => {
           </Dropdown.Item>
         </DropdownButton>
       ) : (
-        <NavDropdown title="Account" id="basic-nav-dropdown">
-          <NavDropdown.Item
-            className=""
+        <>
+          <Nav.Link
+            className="me-3 text-white"
             onClick={() => renderModal(<SignIn />, "md")}
           >
             Sign In
-          </NavDropdown.Item>
-          <NavDropdown.Item
-            className=""
+          </Nav.Link>
+          <Nav.Link
+            className="me-3 text-white"
             onClick={() => renderModal(<SignUp />, "lg")}
           >
             Sign Up
-          </NavDropdown.Item>
-          <NavDropdown.Item
-            className=""
+          </Nav.Link>
+          <Nav.Link
+            className="me-3 text-white"
             onClick={() => renderModal(<PasswordReset />, "md")}
           >
             Forgot password?
-          </NavDropdown.Item>
-        </NavDropdown>
+          </Nav.Link>
+        </>
       )}
 
       <DynamicModal
@@ -92,4 +92,4 @@ const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AccountDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountLinks);

@@ -4,7 +4,7 @@ import { createStructuredSelector } from "reselect";
 
 import { selectIsCategoriesLoaded } from "../../redux/rental/rental.selectors";
 import WithSpinner from "../../components/WithSpinner/index";
-import CategoryPage from "./index";
+import CategoryPage from "./Category";
 
 const mapStateToProps = createStructuredSelector({
   isLoading: (state) => !selectIsCategoriesLoaded(state),

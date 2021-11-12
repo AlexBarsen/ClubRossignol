@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -55,10 +56,11 @@ const SignIn = ({ emailSignInStart }) => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <FloatingLabel
+          className="mb-3"
           controlId="floatingInput"
           label={t("password")}
-          className="mb-3"
         >
+          <i class="far fa-envelope"></i>
           <Form.Control
             name="password"
             type="password"
