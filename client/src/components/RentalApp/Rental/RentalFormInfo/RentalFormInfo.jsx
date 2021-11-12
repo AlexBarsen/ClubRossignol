@@ -9,37 +9,25 @@ import {
   // BoldSpan,
 } from "./RentalFormInfoElements";
 
-const RentalFormInfo = ({ startDate, endDate, days, timePeriod }) => {
+const RentalFormInfo = ({
+  startDate,
+  endDate,
+  days,
+  productName,
+  timePeriod,
+}) => {
   const { t } = useTranslation();
   return (
     <>
-      <RentalModalInfoContainer>
-        <Message>
-          {t("reservation_message_1")} {startDate}. {t("reservation_message_2")}
-        </Message>
-
-        <Dates className="h2">
-          Ati selectat rezervare echipamentului pentru {days} zi din data de{" "}
-          {startDate} pana in data de {endDate}.
-          {/* <DateContent>
-            {t("from")}:<BoldSpan>{startDate}</BoldSpan>
-          </DateContent>
-          <DateContent>
-            {t("to")}:<BoldSpan>{endDate}</BoldSpan>
-          </DateContent>
-          <DateContent>
-            {t("number_of_days")}:
-            <BoldSpan>
-              {days} {days === 1 ? "zi" : "zile"}
-            </BoldSpan>
-            {timePeriod
-              ? timePeriod === "days"
-                ? null
-                : `(${timePeriod})`
-              : null}
-          </DateContent> */}
-        </Dates>
-      </RentalModalInfoContainer>
+      <div className="d-flex flex-column">
+        <div className="text-center px-2" style={{ fontSize: "1.1rem" }}>
+          {t("reservation_message_1")} <strong>{startDate}.</strong>
+          {t("reservation_message_2")} Ati selectat rezervarea ununi echipament
+          de tip <strong> {t(productName)}</strong> pentru{" "}
+          <strong>{days}</strong> zi din data de <strong>{startDate} </strong>{" "}
+          pana in data de <strong>{endDate}</strong>.
+        </div>
+      </div>
     </>
   );
 };

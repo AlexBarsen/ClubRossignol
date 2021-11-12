@@ -10,12 +10,12 @@ const RentalTabs = () => {
       variant="tabs"
       defaultActiveKey="/home"
     >
-      <Nav.Item>
+      <Nav.Item style={{ borderRight: "1px solid #8590aa" }}>
         <LinkContainer to="/rental/category/ski">
           <Nav.Link>Ski</Nav.Link>
         </LinkContainer>
       </Nav.Item>
-      <Nav.Item>
+      <Nav.Item style={{ borderRight: "1px solid #8590aa" }}>
         <LinkContainer to="/rental/category/snowboard">
           <Nav.Link>Snowboard</Nav.Link>
         </LinkContainer>

@@ -144,10 +144,10 @@ const RentalForm = ({ addItem, item }) => {
   console.log(modalInputs.timePeriod);
 
   return (
-    <Container>
+    <Container className="p-0">
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
-          <div>
+          <div className="me-2">
             {productType === "bike" && modalInputs.timePeriod !== "1d+" ? (
               <Calendar
                 onChange={handleSelectDate}
@@ -168,36 +168,24 @@ const RentalForm = ({ addItem, item }) => {
             )}
           </div>
 
-          <div className="d-flex flex-column w-100">
-            <Form.Group className="mb-3">
-              <FloatingLabel
-                controlId="floatingInput"
-                label={t("name")}
-                className="mb-3"
-              >
+          <div className="d-flex flex-column w-100 justify-content-center">
+            <div className="d-flex p-0 mb-3 justify-content-between">
+              <Form.Group style={{ width: "48%" }}>
                 <Form.Control
                   name="firstName"
-                  type="text"
-                  placeholder="John"
-                  onChange={handleChange}
+                  type="email"
+                  placeholder="First Name"
                 />
-              </FloatingLabel>
-            </Form.Group>
+              </Form.Group>
 
-            <Form.Group className="mb-3">
-              <FloatingLabel
-                controlId="floatingInput"
-                label={t("surname")}
-                className="mb-3"
-              >
+              <Form.Group style={{ width: "48%" }}>
                 <Form.Control
                   name="lastName"
-                  type="lastName"
-                  placeholder="Snow"
-                  onChange={handleChange}
+                  type="email"
+                  placeholder="Last Name"
                 />
-              </FloatingLabel>
-            </Form.Group>
+              </Form.Group>
+            </div>
 
             <RentalFormSelects
               productType={productType}
@@ -216,6 +204,7 @@ const RentalForm = ({ addItem, item }) => {
         startDate={dateRange.startDate.toLocaleDateString()}
         endDate={dateRange.endDate.toLocaleDateString()}
         days={days}
+        productName={name}
         timePeriod={modalInputs.timePeriod}
       />
     </Container>
