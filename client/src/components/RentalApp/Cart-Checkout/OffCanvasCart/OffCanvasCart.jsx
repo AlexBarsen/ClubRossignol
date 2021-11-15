@@ -33,7 +33,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, ...props }) => {
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} item={cartItem} />
           ))}
-          <h1>Total: {cartTotal} RON</h1>
+          <div className="h1">Total: {cartTotal} RON</div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

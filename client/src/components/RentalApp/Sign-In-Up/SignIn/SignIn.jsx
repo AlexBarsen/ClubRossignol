@@ -40,11 +40,7 @@ const SignIn = ({ emailSignInStart }) => {
   return (
     <Form onSubmit={handleSubmit} className="p-1">
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <FloatingLabel
-          controlId="floatingInput"
-          label={t("email")}
-          className="mb-3"
-        >
+        <FloatingLabel label={t("email")} className="mb-3">
           <Form.Control
             name="email"
             type="email"
@@ -55,12 +51,7 @@ const SignIn = ({ emailSignInStart }) => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <FloatingLabel
-          className="mb-3"
-          controlId="floatingInput"
-          label={t("password")}
-        >
-          <i class="far fa-envelope"></i>
+        <FloatingLabel className="mb-3" label={t("password")}>
           <Form.Control
             name="password"
             type="password"

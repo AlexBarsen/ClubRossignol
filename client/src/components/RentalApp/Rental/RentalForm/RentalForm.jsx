@@ -12,15 +12,14 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 
 import { addItem } from "../../../../redux/cart/cart.actions";
 
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 const RentalForm = ({ addItem, item }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   const {
     name,
@@ -173,16 +172,18 @@ const RentalForm = ({ addItem, item }) => {
               <Form.Group style={{ width: "48%" }}>
                 <Form.Control
                   name="firstName"
-                  type="email"
+                  type="text"
                   placeholder="First Name"
+                  onChange={handleChange}
                 />
               </Form.Group>
 
               <Form.Group style={{ width: "48%" }}>
                 <Form.Control
                   name="lastName"
-                  type="email"
+                  type="text"
                   placeholder="Last Name"
+                  onChange={handleChange}
                 />
               </Form.Group>
             </div>

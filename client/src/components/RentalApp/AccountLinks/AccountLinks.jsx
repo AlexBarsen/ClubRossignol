@@ -42,11 +42,9 @@ const AccountLinks = ({ currentUser, signOut }) => {
           title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
         >
           <LinkContainer to="/rental/dashboard">
-            <Dropdown.Item className="">Dashboard</Dropdown.Item>
+            <Dropdown.Item>Dashboard</Dropdown.Item>
           </LinkContainer>
-          <Dropdown.Item className="" onClick={() => signOut()}>
-            Sign out
-          </Dropdown.Item>
+          <Dropdown.Item onClick={() => signOut()}>Sign out</Dropdown.Item>
         </DropdownButton>
       ) : (
         <>
@@ -74,9 +72,9 @@ const AccountLinks = ({ currentUser, signOut }) => {
       <DynamicModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        modalTitle={modalTitle}
-        modalSize={modalSize}
-        renderComponent={() => wrappedComponent}
+        title={modalTitle}
+        size={modalSize}
+        render={() => wrappedComponent}
       />
     </>
   );

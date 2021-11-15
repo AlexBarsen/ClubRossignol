@@ -2,7 +2,6 @@ import React from "react";
 import "./OrderItem.scss";
 import { useTranslation } from "react-i18next";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
@@ -16,7 +15,6 @@ const OrderItem = ({ item }) => {
     firstName,
     height,
     lastName,
-    name,
     price,
     sex,
     shoeSize,

@@ -1,14 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import {
-  RentalModalInfoContainer,
-  Message,
-  Dates,
-  // DateContent,
-  // BoldSpan,
-} from "./RentalFormInfoElements";
-
 const RentalFormInfo = ({
   startDate,
   endDate,

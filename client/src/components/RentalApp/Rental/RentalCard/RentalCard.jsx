@@ -60,9 +60,9 @@ const RentalCard = ({ item }) => {
       <DynamicModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        modalTitle={modalTitle}
-        modalSize="lg"
-        renderComponent={() => wrappedComponent}
+        title={modalTitle}
+        size="lg"
+        render={() => wrappedComponent}
       />
     </>
   );

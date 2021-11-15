@@ -13,16 +13,13 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const { t } = useTranslation();
 
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
-  const [wrappedComponent, setWrappedComponent] = useState(
-    <RentalEditForm cartItem={cartItem} />
-  );
+  const [wrappedComponent, setWrappedComponent] = useState(null);
 
   const {
     productType,
@@ -42,15 +39,21 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     timePeriod = null,
   } = cartItem;
 
+  const renderModal = () => {
+    setModalTitle(name);
+    setWrappedComponent(<RentalEditForm cartItem={cartItem} />);
+    setModalShow(true);
+  };
+
   return (
     <CheckoutItemContainer>
-      <Card style={{ width: "30rem" }} className="h-100">
+      <Card style={{ width: "28rem" }} className="h-100">
         <div className="d-flex justify-content-center align-items-center mb-2">
           <Card.Img
             variant="top"
             src={icon}
-            className="p-2"
-            style={{ height: "8rem", width: "8rem" }}
+            className="py-2"
+            style={{ height: "6rem", width: "6rem" }}
           />
           <Card.Title className="d-flex justify-content-center mx-3">
             {t(name)}
@@ -58,56 +61,67 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
         </div>
 
         <Container className="d-flex justify-content-around">
-          <div className="me-2">
-            <Card.Header>Personal details</Card.Header>
+          <div style={{ width: "48%" }}>
+            <Card.Header className="border">Personal details</Card.Header>
 
             <ListGroup.Item>
-              {firstName} {lastName}
+              <strong>Person:</strong> {firstName} {lastName}
             </ListGroup.Item>
 
-            {sex ? <ListGroup.Item>Sex: {t(sex)}</ListGroup.Item> : null}
+            {sex ? (
+              <ListGroup.Item>
+                <strong>Sex:</strong> {t(sex)}
+              </ListGroup.Item>
+            ) : null}
 
             {height ? (
               <ListGroup.Item>
-                {t("height")}: {height} cm
+                <strong>{t("height")}:</strong> {height} cm
               </ListGroup.Item>
             ) : null}
 
             {weight ? (
               <ListGroup.Item>
-                {t("weight")}: {weight} kg
+                <strong>{t("weight")}:</strong> {weight} kg
               </ListGroup.Item>
             ) : null}
 
             {shoeSize ? (
               <ListGroup.Item>
-                {t("shoeSize")}: {shoeSize}
+                <strong>{t("shoeSize")}:</strong> {shoeSize}
+              </ListGroup.Item>
+            ) : null}
+
+            {experience ? (
+              <ListGroup.Item>
+                <strong>{t("experience")}:</strong> {t(experience)}
               </ListGroup.Item>
             ) : null}
           </div>
 
-          <div className="ms-2">
-            <Card.Header>Reservation Details</Card.Header>
+          <div style={{ width: "48%" }}>
+            <Card.Header className="border">Reservation Details</Card.Header>
 
             <ListGroup.Item>
-              {t("from")}: {startDate}
+              <strong>{t("from")}:</strong> {startDate}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              {t("to")} : {endDate}
+              <strong>{t("to")}:</strong> {endDate}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              {t("number_of_days")}: {days}
+              <strong>{t("number_of_days")}:</strong> {days}
             </ListGroup.Item>
 
             {productType !== "bike" ? (
               <ListGroup.Item>
-                {t("price")}: {days} x {price} = {days * price} RON
+                <strong>{t("price")}:</strong> {days} x {price} = {days * price}{" "}
+                RON
               </ListGroup.Item>
             ) : (
               <ListGroup.Item>
-                {t("price")}: {days}(
+                <strong>{t("price")}:</strong> {days}(
                 {timePeriod === "per_day" ? t("days") : t(timePeriod)}) x{price}{" "}
                 = {days * price} RON
               </ListGroup.Item>
@@ -117,7 +131,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
 
         <div className="d-flex justify-content-around flex-grow-1 align-items-center p-3">
           <div>
-            <Button onClick={() => setModalShow(true)}>Edit</Button>
+            <Button onClick={() => renderModal()}>Edit</Button>
           </div>
 
           <div>
@@ -129,8 +143,9 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
       <DynamicModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        modalTitle={modalTitle}
-        renderComponent={() => wrappedComponent}
+        title={modalTitle}
+        size="lg"
+        render={() => wrappedComponent}
       />
     </CheckoutItemContainer>
   );

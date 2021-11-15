@@ -179,7 +179,7 @@ const RentalEditForm = ({ cartItem, editItem }) => {
               >
                 <Form.Control
                   name="lastName"
-                  type="lastName"
+                  type="text"
                   placeholder="Snow"
                   onChange={handleChange}
                 />

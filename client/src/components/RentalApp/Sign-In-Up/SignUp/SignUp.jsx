@@ -89,7 +89,6 @@ const SignUp = ({ emailSignUpStart }) => {
         <div className="row">
           <Form.Group className="col" controlId="formBasicEmail">
             <FloatingLabel
-              controlId="floatingInput"
               label={t("surname")}
               className="mb-3"
               onChange={handleChange}
@@ -99,11 +98,7 @@ const SignUp = ({ emailSignUpStart }) => {
           </Form.Group>
 
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("name")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("name")} className="mb-3">
               <Form.Control
                 name="lastName"
                 type="text"
@@ -116,11 +111,7 @@ const SignUp = ({ emailSignUpStart }) => {
 
         <div className="row">
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("email")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("email")} className="mb-3">
               <Form.Control
                 name="email"
                 type="email"
@@ -131,11 +122,7 @@ const SignUp = ({ emailSignUpStart }) => {
           </Form.Group>
 
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("confirm_email")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("confirm_email")} className="mb-3">
               <Form.Control
                 name="confirmEmail"
                 type="email"
@@ -148,11 +135,7 @@ const SignUp = ({ emailSignUpStart }) => {
 
         <div className="row">
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("password")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("password")} className="mb-3">
               <Form.Control
                 name="password"
                 type="password"
@@ -163,11 +146,7 @@ const SignUp = ({ emailSignUpStart }) => {
           </Form.Group>
 
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("confirm_password")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("confirm_password")} className="mb-3">
               <Form.Control
                 name="confirmPassword"
                 type="password"
@@ -180,11 +159,7 @@ const SignUp = ({ emailSignUpStart }) => {
 
         <div className="row">
           <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel
-              controlId="floatingInput"
-              label={t("phone")}
-              className="mb-3"
-            >
+            <FloatingLabel label={t("phone")} className="mb-3">
               <Form.Control
                 name="phone"
                 type="text"

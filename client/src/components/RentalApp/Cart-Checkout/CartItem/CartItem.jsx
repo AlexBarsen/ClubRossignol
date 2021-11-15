@@ -17,31 +17,33 @@ const CartItem = ({ item, clearItemFromCart }) => {
   return (
     <Card style={{ width: "auto" }} className="mb-3">
       <div className="d-flex align-items-center">
-        <div className="w-75 ms-3">
+        <div className="w-75">
           <Card.Body className="p-0">
-            <Card.Title>{t(name)}</Card.Title>
+            <Card.Header>
+              <strong>{t(name)}</strong>
+            </Card.Header>
           </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem className="p-0">
-              {firstName} {lastName}
+          <ListGroup className="list-group-flush border">
+            <ListGroupItem>
+              <strong>Person:</strong> {firstName} {lastName}
             </ListGroupItem>
-            <ListGroupItem className="p-0">Duration: {days} days</ListGroupItem>
-            <ListGroupItem className="p-0">Price: {price} / day</ListGroupItem>
-            <ListGroupItem className="p-0">
-              Total: {price} * {days} = {price * days} RON
+            <ListGroupItem>
+              <strong>Duration:</strong> {days} days
+            </ListGroupItem>
+            <ListGroupItem>
+              <strong>Total:</strong> {price} * {days} day = {price * days} RON
             </ListGroupItem>
           </ListGroup>
         </div>
 
         <div className="d-flex flex-column">
           <Card.Img
-            className="mb-3 p-2"
-            variant="top"
+            className="mb-3"
             src={icon}
-            style={{ height: "7rem", width: "12rem" }}
+            style={{ height: "5rem", width: "10rem" }}
           />
 
-          <div className="d-flex justify-content-around mb-3">
+          <div className="d-flex justify-content-around">
             <Button>Edit</Button>
             <Button onClick={() => clearItemFromCart(item)}>Remove</Button>
           </div>
