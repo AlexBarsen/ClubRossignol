@@ -24,7 +24,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, ...props }) => {
         style={{ width: "32rem" }}
         show={showCanvas}
         onHide={handleClose}
-        {...props}
+        placement="end"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Items in cart for Rental</Offcanvas.Title>

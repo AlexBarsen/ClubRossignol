@@ -16,8 +16,8 @@ import { selectCartItemsCount } from "../../../../redux/cart/cart.selectors";
 const CartIcon = ({ itemCount, handleShow }) => {
   return (
     <>
-      <CartIconContainer onClick={handleShow}>
-        <IconContainer>
+      <CartIconContainer>
+        <IconContainer onClick={handleShow}>
           <Icon src={icon2} />
         </IconContainer>
         <Circle>
