@@ -2,6 +2,21 @@ const express = require("express");
 const path = require("path");
 const compression = require("compression");
 
+// const csrf = require("csurf");
+// const bodyParser = require("body-parser");
+// const admin = require("firebase-admin");
+// const serviceAccount = require("./serviceAccountKey.json");
+// const cookieParser = require("cookie-parser");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   //   databaseURL:
+// });
+
+// app.use(cookieParser());
+// // app.use(csrfMiddleware);
+// app.use(bodyParser.json());
+
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -45,3 +60,27 @@ app.post("/rental/payment", (req, res) => {
     }
   });
 });
+
+// app.post("/createToken", (req, res) => {
+//   const uid = req.body.uid;
+
+//   admin
+//     .auth()
+//     .createCustomToken(uid)
+//     .then((customToken) => {
+//       res.json(customToken);
+//     })
+//     .catch((err) => console.log(err));
+// });
+
+// app.post("/verifyToken", (req, res) => {
+//   const idToken = req.body.uid;
+
+//   admin
+//     .auth()
+//     .verifyIdToken(idToken)
+//     .then((decodedToken) => {
+//       const uid = decodedToken.uid;
+//     })
+//     .catch((err) => console.log(err));
+// });

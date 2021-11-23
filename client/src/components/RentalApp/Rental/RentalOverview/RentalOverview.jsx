@@ -4,14 +4,12 @@ import { createStructuredSelector } from "reselect";
 
 import { selectRentalsArray } from "../../../../redux/rental/rental.selectors";
 
-import { RentalOverviewContainer } from "./RentalOverviewElements";
-
 import RentalCategory from "../RentalCategory/RentalCategory";
 
 const RentalOverview = ({ rentalsArray }) => {
   return (
     <>
-      <RentalOverviewContainer>
+      <div className="pt-4">
         {rentalsArray.map(({ id, categoryName, products }) => (
           <RentalCategory
             key={id}
@@ -19,7 +17,7 @@ const RentalOverview = ({ rentalsArray }) => {
             categoryName={categoryName}
           />
         ))}
-      </RentalOverviewContainer>
+      </div>
     </>
   );
 };

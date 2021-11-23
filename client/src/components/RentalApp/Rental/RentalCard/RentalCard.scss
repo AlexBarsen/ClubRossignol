@@ -1,0 +1,12 @@
+.card-image {
+  &--container {
+    display: flex;
+    justify-content: center;
+    height: 15rem;
+  }
+
+  &--img {
+    height: 100%;
+    width: auto;
+  }
+}

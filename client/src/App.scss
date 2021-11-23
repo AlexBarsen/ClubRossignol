@@ -1,9 +1,11 @@
-$color-primary--1: #3b8beb;
-$color-primary--2: #c4dbf6;
-$color-secondary: #8590aa;
-$color-tertiary: #b23850;
 $color-white: #fff;
 $color-black: #000;
+$color-navy--dark: #2d2e49;
+$color-navy--light: #2d2e49b3;
+$color-red: #bc112d;
+
+// #2D2E49 navy
+// #BC112D red
 
 * {
   box-sizing: border-box;
@@ -13,24 +15,6 @@ $color-black: #000;
 }
 
 .background {
-  &-primary {
-    &--1 {
-      background-color: $color-primary--1 !important;
-    }
-
-    &--2 {
-      background-color: $color-primary--2 !important;
-    }
-  }
-
-  &-secondary {
-    background-color: $color-secondary !important;
-  }
-
-  &-tertiary {
-    background-color: $color-tertiary !important;
-  }
-
   &-white {
     background-color: $color-white;
   }
@@ -38,33 +22,43 @@ $color-black: #000;
   &-black {
     background-color: $color-black;
   }
+
+  &-navy {
+    &--dark {
+      background-color: $color-navy--dark;
+    }
+
+    &--light {
+      background-color: $color-navy--light;
+    }
+  }
+
+  &-red {
+    background-color: $color-red;
+  }
 }
 
 .text {
-  &-primary {
-    &--1 {
-      color: $color-primary--1 !important;
-    }
-
-    &-2 {
-      color: $color-primary--2 !important;
-    }
-  }
-
-  &-secondary {
-    color: $color-secondary !important;
-  }
-
-  &-tertiary {
-    color: $color-tertiary !important;
-  }
-
   &-white {
     color: $color-white;
   }
 
   &-black {
     color: $color-black;
+  }
+
+  &-navy {
+    &--dark {
+      color: $color-navy--dark;
+    }
+
+    &--light {
+      color: $color-navy--light;
+    }
+  }
+
+  &-red {
+    color: $color-red;
   }
 }
 
@@ -75,51 +69,5 @@ $color-black: #000;
 .dropdown-item.active,
 .dropdown-item:active {
   text-decoration: none;
-  background-color: $color-secondary !important;
+  background-color: $color-white !important;
 }
-
-// html {
-//   font-size: 62.5%;
-// }
-
-// @media only screen and (max-width: 1200px) {
-//   html {
-//     font-size: 57%;
-//   }
-// }
-
-// @media only screen and (max-width: 1100px) {
-//   html {
-//     font-size: 55%;
-//   }
-// }
-
-// @media only screen and (max-wdith: 900px) {
-//   html {
-//     font-size: 50%;
-//   }
-// }
-
-// @media only screen and (max-width: 768px) {
-//   html {
-//     font-size: 45%;
-//   }
-// }
-
-// @media only screen and (max-width: 600px) {
-//   html {
-//     font-size: 40%;
-//   }
-// }
-
-// @media only screen and (max-width: 450px) {
-//   html {
-//     font-size: 35%;
-//   }
-// }
-
-// @media only screen and (max-width: 350px) {
-//   html {
-//     font-size: 30%;
-//   }
-// }

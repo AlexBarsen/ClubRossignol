@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./RentalCard.scss";
 import { useTranslation } from "react-i18next";
 
 import Card from "react-bootstrap/Card";
@@ -27,15 +28,19 @@ const RentalCard = ({ item }) => {
 
   return (
     <>
-      <Card style={{ width: "20rem" }}>
-        <Card.Img
-          variant="top"
-          src={icon}
-          className="p-3 border border-bottom"
-          style={{ height: "12.5rem" }}
-        />
+      <Card
+        style={{ width: "20rem", border: "1px solid #d3d3d3" }}
+        className="shadow"
+      >
+        <div className="card-image--container">
+          <Card.Img
+            variant="top"
+            src={icon}
+            className="p-3 border border-0 card-image--img"
+          />
+        </div>
         <Card.Body className="flex-grow-0 p-0">
-          <Card.Header className="d-flex justify-content-center m-0 p-2">
+          <Card.Header className="d-flex justify-content-center m-0 p-2 border-top border-bottom-0">
             <span className="mb-0">{t(name)}</span>
           </Card.Header>
         </Card.Body>

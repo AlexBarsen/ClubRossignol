@@ -11,7 +11,7 @@ const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center pt-4">
       <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (
           <RentalCard key={product.productID} item={product} />

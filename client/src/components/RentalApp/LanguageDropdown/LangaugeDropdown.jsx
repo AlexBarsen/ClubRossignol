@@ -6,7 +6,7 @@ const LangaugeDropdown = () => {
   return (
     <NavDropdown
       color="black"
-      title={<span className="text-white">Select Langauge</span>}
+      title={<span className="text-navy--dark">Select Langauge</span>}
       id="basic-nav-dropdown"
     >
       <NavDropdown.Item onClick={() => i18next.changeLanguage("ro")}>

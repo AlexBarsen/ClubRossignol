@@ -49,19 +49,19 @@ const AccountLinks = ({ currentUser, signOut }) => {
       ) : (
         <>
           <Nav.Link
-            className="me-3 text-white"
+            className="me-3 text-navy--dark"
             onClick={() => renderModal(<SignIn />, "md")}
           >
             Sign In
           </Nav.Link>
           <Nav.Link
-            className="me-3 text-white"
+            className="me-3 text-navy--dark"
             onClick={() => renderModal(<SignUp />, "lg")}
           >
             Sign Up
           </Nav.Link>
           <Nav.Link
-            className="me-3 text-white"
+            className="me-3 text-navy--dark"
             onClick={() => renderModal(<PasswordReset />, "md")}
           >
             Forgot password?

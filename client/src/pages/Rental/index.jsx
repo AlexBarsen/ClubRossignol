@@ -66,43 +66,45 @@ const RentalPage = ({
 
       <RentalTabs />
 
-      <Switch>
-        <ErrorBoundary>
-          <Suspense fallback={<Spinner />}>
-            <Route
-              exact
-              path={`${match.path}`}
-              component={RentalOverviewContainer}
-            />
+      <div className="rental-background">
+        <Switch>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Route
+                exact
+                path={`${match.path}`}
+                component={RentalOverviewContainer}
+              />
 
-            <Route
-              exact
-              path={`${match.path}/category/:categoryName`}
-              component={CategoryPageContainer}
-            />
+              <Route
+                exact
+                path={`${match.path}/category/:categoryName`}
+                component={CategoryPageContainer}
+              />
 
-            <Route
-              exact
-              path={`${match.path}/checkout`}
-              component={CheckoutPage}
-            />
+              <Route
+                exact
+                path={`${match.path}/checkout`}
+                component={CheckoutPage}
+              />
 
-            <ProtectedRoute
-              exact
-              path={`${match.path}/dashboard`}
-              component={DashboardPage}
-              isAuth={currentUser}
-            />
+              <ProtectedRoute
+                exact
+                path={`${match.path}/dashboard`}
+                component={DashboardPage}
+                isAuth={currentUser}
+              />
 
-            <PrivateRoute
-              exact
-              path={`${match.path}/admin`}
-              component={AdminDashboardPage}
-              isAuth={currentUser}
-            />
-          </Suspense>
-        </ErrorBoundary>
-      </Switch>
+              <PrivateRoute
+                exact
+                path={`${match.path}/admin`}
+                component={AdminDashboardPage}
+                isAuth={currentUser}
+              />
+            </Suspense>
+          </ErrorBoundary>
+        </Switch>
+      </div>
       <Toast
         position="bottom-right"
         autoClose={3000}

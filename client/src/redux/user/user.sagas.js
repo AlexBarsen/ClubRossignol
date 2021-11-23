@@ -43,9 +43,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield getCurrentUser(); // * returns null or obj
-
     if (!userAuth) return;
-
     yield getSnapshotFromUserAuth(userAuth); // * return userSnapshot
   } catch (error) {
     yield put(signInFailure(error));
@@ -79,8 +77,6 @@ export function* emailSignUp({
 }) {
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
-
-    yield user.sendEmailVerification();
 
     yield put(
       signUpSuccess({
