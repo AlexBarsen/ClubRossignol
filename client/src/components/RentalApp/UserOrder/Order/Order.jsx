@@ -17,8 +17,6 @@ const Order = ({ order, orderID }) => {
 
   const { orderedItems, total } = order;
 
-  console.log(order.status);
-
   const orderDate =
     order.orderedAt.toDate().toLocaleDateString() +
     " " +
@@ -84,7 +82,7 @@ const Order = ({ order, orderID }) => {
         </div>
       </Accordion.Header>
 
-      <Accordion.Body classname="accordion-body">
+      <Accordion.Body className="accordion-body">
         <div className="d-flex flex-column">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>

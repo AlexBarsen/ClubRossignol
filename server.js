@@ -1,25 +1,17 @@
 const express = require("express");
 const path = require("path");
 const compression = require("compression");
-
-// const csrf = require("csurf");
-// const bodyParser = require("body-parser");
 // const admin = require("firebase-admin");
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 // const serviceAccount = require("./serviceAccountKey.json");
-// const cookieParser = require("cookie-parser");
 
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount),
-//   //   databaseURL:
+//   databaseURL: "https://rental-clubrossignol.firebaseio.com",
 // });
 
-// app.use(cookieParser());
-// // app.use(csrfMiddleware);
-// app.use(bodyParser.json());
-
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
-
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express(); // * use express node
 const port = process.env.PORT || 5001; // * select port
@@ -40,11 +32,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(port, (error) => {
-  if (error) throw error;
-  console.log("Server running on port " + port);
-});
-
 app.post("/rental/payment", (req, res) => {
   const body = {
     source: req.body.token.id,
@@ -64,23 +51,30 @@ app.post("/rental/payment", (req, res) => {
 // app.post("/createToken", (req, res) => {
 //   const uid = req.body.uid;
 
-//   admin
-//     .auth()
-//     .createCustomToken(uid)
-//     .then((customToken) => {
-//       res.json(customToken);
-//     })
-//     .catch((err) => console.log(err));
+//   const additionalClaims = {
+//     admin: true,
+//   };
+
+//   if (uid === "kum5QtEaWRM6CSYU78hEasBcwfp2") {
+//     admin
+//       .auth()
+//       .createCustomToken(uid, additionalClaims)
+//       .then((customToken) => {
+//         res.json(customToken);
+//       })
+//       .catch((err) => console.log(err));
+//   } else {
+//     admin
+//       .auth()
+//       .createCustomToken(uid)
+//       .then((customToken) => {
+//         res.json(customToken);
+//       })
+//       .catch((err) => console.log(err));
+//   }
 // });
 
-// app.post("/verifyToken", (req, res) => {
-//   const idToken = req.body.uid;
-
-//   admin
-//     .auth()
-//     .verifyIdToken(idToken)
-//     .then((decodedToken) => {
-//       const uid = decodedToken.uid;
-//     })
-//     .catch((err) => console.log(err));
-// });
+app.listen(port, (error) => {
+  if (error) throw error;
+  console.log("Server running on port " + port);
+});
