@@ -35,12 +35,7 @@ const CategoryPageContainer = lazy(() =>
   import("../Category/CategoryPageContainer")
 );
 
-const RentalPage = ({
-  fetchRentalsStart,
-  checkUserSession,
-  match,
-  currentUser,
-}) => {
+const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
   useEffect(() => {
     fetchRentalsStart();
     checkUserSession();
@@ -57,6 +52,8 @@ const RentalPage = ({
       document.body.style.overflow = "hidden";
     }
   };
+
+  console.log(match.path);
 
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
@@ -89,17 +86,17 @@ const RentalPage = ({
               />
 
               <ProtectedRoute
+                match={match}
                 exact
                 path={`${match.path}/dashboard`}
                 component={DashboardPage}
-                isAuth={currentUser}
               />
 
               <PrivateRoute
+                match={match}
                 exact
                 path={`${match.path}/admin`}
                 component={AdminDashboardPage}
-                isAuth={currentUser}
               />
             </Suspense>
           </ErrorBoundary>

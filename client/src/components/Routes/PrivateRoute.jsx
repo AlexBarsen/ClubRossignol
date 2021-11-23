@@ -1,25 +1,33 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+import WithSpinner from "../WithSpinner";
 
-const PrivateRoute = ({ isAuth, component, ...rest }) => {
+import { useAuthListener } from "./AuthListener";
+
+const PrivateRoute = ({ component, match }) => {
   const Component = component;
+
+  const { loggedIn, checkingStatus, userRole } = useAuthListener();
+
+  console.log(userRole);
 
   return (
     <Route
-      {...rest}
-      render={(props) => {
-        if (isAuth) {
-          if (isAuth.role === "admin") {
-            return <Component />;
-          }
-        }
-
-        return (
-          <Redirect
-            to={{ pathname: "/rental", state: { from: props.location } }}
-          />
-        );
-      }}
+      exact
+      path={`${match.path}/admin`}
+      render={() =>
+        checkingStatus ? (
+          <WithSpinner />
+        ) : loggedIn ? (
+          userRole === "admin" ? (
+            <Component />
+          ) : (
+            <Redirect to="/rental" />
+          )
+        ) : (
+          <Redirect to="/rental" />
+        )
+      }
     />
   );
 };

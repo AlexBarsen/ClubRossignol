@@ -1,24 +1,29 @@
 import React from "react";
 import { useAuthListener } from "./AuthListener";
-import { Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 
 import WithSpinner from "../WithSpinner";
 
-const ProtectedRoute = ({ isAuth, component, ...rest }) => {
+const ProtectedRoute = ({ component, match, ...rest }) => {
   const Component = component;
 
   const { loggedIn, checkingStatus } = useAuthListener();
 
   return (
-    <>
-      {checkingStatus ? (
-        <WithSpinner />
-      ) : loggedIn ? (
-        <Component />
-      ) : (
-        <Redirect to={{ pathname: "/rental" }} />
-      )}
-    </>
+    <Route
+      exact
+      path={`${match.path}/dashboard`}
+      {...rest}
+      render={() =>
+        checkingStatus ? (
+          <WithSpinner />
+        ) : loggedIn ? (
+          <Component />
+        ) : (
+          <Redirect to="/rental" />
+        )
+      }
+    />
   );
 };
 

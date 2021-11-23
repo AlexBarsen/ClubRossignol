@@ -40,7 +40,7 @@ const CartItem = ({ item, clearItemFromCart }) => {
           <Card.Img
             className="mb-3"
             src={icon}
-            style={{ height: "5.5rem", width: "10rem" }}
+            style={{ height: "5.5rem", width: "10rem", objectFit: "contain" }}
           />
 
           <div className="d-flex justify-content-around">
