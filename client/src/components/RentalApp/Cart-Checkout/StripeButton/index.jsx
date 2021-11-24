@@ -9,7 +9,11 @@ import { useTranslation } from "react-i18next";
 import { clearCart } from "../../../../redux/cart/cart.actions";
 import { selectCurrentUser } from "../../../../redux/user/user.selectors";
 
-import { addCollectionAndDocuments } from "../../../../firebase/firebase.utils";
+import {
+  addCollectionAndDocuments,
+  getOrderCounter,
+  incrementOrderNumber,
+} from "../../../../firebase/firebase.utils";
 import { createStructuredSelector } from "reselect";
 
 // * pass properties into Component
@@ -37,20 +41,27 @@ const StripeCheckoutButton = ({ price, currentUser, clearCart, cartItems }) => {
             ? "Payment successful, your order has been placed."
             : "Plată reușită, comanda dumneavoastră a fost plasată cu succes."
         );
-        const order = [
-          {
-            order_ip: token.client_ip,
-            userID: currentUser.id,
-            userEmail: currentUser.email,
-            status: "received",
-            orderedItems: cartItems,
-            total: priceForStripe / 100,
-            orderedAt: new Date(),
-          },
-        ];
 
-        addCollectionAndDocuments("orders", order);
-        clearCart();
+        getOrderCounter()
+          .then((orderNumber) => {
+            const order = [
+              {
+                clientIp: token.client_ip,
+                orderNumber: orderNumber,
+                userID: currentUser.id,
+                userEmail: currentUser.email,
+                status: "received",
+                orderedItems: cartItems,
+                total: priceForStripe / 100,
+                orderedAt: new Date(),
+              },
+            ];
+
+            incrementOrderNumber();
+            addCollectionAndDocuments("orders", order);
+            clearCart();
+          })
+          .catch((error) => console.log(error));
       })
       .catch((error) => {
         toast.error(

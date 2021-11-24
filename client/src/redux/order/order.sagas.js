@@ -16,7 +16,9 @@ import OrderActionTypes from "./order.types";
 
 export function* fetchOrdersAsync() {
   try {
-    const ordersRef = firestore.collection("orders");
+    const ordersRef = firestore
+      .collection("orders")
+      .where("order_ip", "!=", null);
 
     const ordersSnapshot = yield ordersRef.get();
 

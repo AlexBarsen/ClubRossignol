@@ -22,6 +22,8 @@ const AdminOrders = ({ orders }) => {
     };
   });
 
+  console.log(transformedOrders);
+
   return (
     <>
       <Container className="w-100 my-5">

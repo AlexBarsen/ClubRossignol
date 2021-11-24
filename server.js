@@ -1,17 +1,11 @@
 const express = require("express");
 const path = require("path");
 const compression = require("compression");
-// const admin = require("firebase-admin");
-
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-// const serviceAccount = require("./serviceAccountKey.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://rental-clubrossignol.firebaseio.com",
-// });
+const cors = require("cors");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express(); // * use express node
 const port = process.env.PORT || 5001; // * select port
@@ -22,7 +16,7 @@ app.use(express.json()); // * any of the requests will be converted to JSON
 
 app.use(express.urlencoded({ extended: true })); // * make sure that URL strings do not contain spaces etc.
 
-// app.use(cors()); // * check's to make sure that origin is the same (safety feature)
+app.use(cors()); // * check's to make sure that origin is the same (safety feature)
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
@@ -47,6 +41,19 @@ app.post("/rental/payment", (req, res) => {
     }
   });
 });
+
+app.listen(port, (error) => {
+  if (error) throw error;
+  console.log("Server running on port " + port);
+});
+
+// const admin = require("firebase-admin");
+// const serviceAccount = require("./serviceAccountKey.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://rental-clubrossignol.firebaseio.com",
+// });
 
 // app.post("/createToken", (req, res) => {
 //   const uid = req.body.uid;
@@ -73,8 +80,3 @@ app.post("/rental/payment", (req, res) => {
 //       .catch((err) => console.log(err));
 //   }
 // });
-
-app.listen(port, (error) => {
-  if (error) throw error;
-  console.log("Server running on port " + port);
-});
