@@ -1,7 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
 import Modal from "react-bootstrap/Modal";
+import { createStructuredSelector } from "reselect";
+import { selectAcountModalHidden } from "../../../redux/user/user.selectors";
 
-const DynamicModal = ({ title, size, render, ...props }) => {
+const DynamicModal = ({
+  title,
+  accountModalHidden,
+  size,
+  render,
+  ...props
+}) => {
   return (
     <Modal
       {...props}
@@ -19,4 +28,8 @@ const DynamicModal = ({ title, size, render, ...props }) => {
   );
 };
 
-export default DynamicModal;
+const mapStateToProps = createStructuredSelector({
+  accountModalHidden: selectAcountModalHidden,
+});
+
+export default connect(mapStateToProps)(DynamicModal);

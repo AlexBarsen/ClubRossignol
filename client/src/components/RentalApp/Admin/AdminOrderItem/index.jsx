@@ -1,13 +1,18 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import {
-  AdminOrderItemContainer,
-  Wrapper,
-  Detail,
-  PriceDetail,
-  DetailsContainer,
-} from "./AdminOrderItemElements";
+// import {
+//   AdminOrderItemContainer,
+//   Wrapper,
+//   Detail,
+//   PriceDetail,
+//   DetailsContainer,
+// } from "./AdminOrderItemElements";
+
+import Container from "react-bootstrap/Container";
+import ListGroup from "react-bootstrap/ListGroup";
+
+import Table from "react-bootstrap/Table";
 
 import Checkbox from "../Checkbox/index";
 
@@ -35,71 +40,55 @@ const AdminOrderItem = ({ item, status }) => {
     status === "received" || status === "primită" ? false : true;
 
   return (
-    <>
-      <AdminOrderItemContainer>
-        <Wrapper>
-          <Detail>{t(name)}</Detail>
-          <Detail>
+    <tbody>
+      <tr>
+        <td>
+          <ListGroup.Item variant="secondary">{t(name)}</ListGroup.Item>
+          <ListGroup.Item variant="secondary">
+            {timePeriod
+              ? timePeriod !== "days"
+                ? `${days} x (${timePeriod})`
+                : `${days} days`
+              : `${days} days`}
+          </ListGroup.Item>
+          <ListGroup.Item variant="secondary">
+            Total: {price * days} RON
+          </ListGroup.Item>
+        </td>
+        <td>
+          <ListGroup.Item variant="secondary">
             {firstName} {lastName}
-          </Detail>
-          <DetailsContainer>
-            {sex ? (
-              <Detail>
-                {t("sex")}: {t(sex)}
-              </Detail>
-            ) : null}
-            {shoeSize ? (
-              <Detail>
-                {t("shoeSize")}: {shoeSize}
-              </Detail>
-            ) : null}
-            {weight ? (
-              <Detail>
-                {t("weight")}: {weight}
-              </Detail>
-            ) : null}
-            {height ? (
-              <Detail>
-                {t("height")}: {height}
-              </Detail>
-            ) : null}
-            {experience ? (
-              <Detail>
-                {t("experience")}: {t(experience)}
-              </Detail>
-            ) : null}
-          </DetailsContainer>
-          <DetailsContainer>
-            <Detail>
-              {t("from")}: {startDate}
-            </Detail>
-            <Detail>
-              {t("to")}: {endDate}
-            </Detail>
-            <Detail>
-              {t("days")}:{" "}
-              {timePeriod
-                ? timePeriod !== "days"
-                  ? `${days} (${timePeriod})`
-                  : `${days} days`
-                : `${days} days`}
-            </Detail>
-          </DetailsContainer>
+          </ListGroup.Item>
+        </td>
 
-          {status === "complete" ? null : (
-            <Checkbox
-              size={25}
-              name={id}
-              checked={currentStatus}
-              label={t("prepared")}
-            />
-          )}
-        </Wrapper>
-        <PriceDetail>
-          {t("price")}: {days} x {price}RON = {days * price}RON
-        </PriceDetail>
-      </AdminOrderItemContainer>
-    </>
+        <td>
+          {sex ? (
+            <ListGroup.Item variant="secondary">{t(sex)}</ListGroup.Item>
+          ) : null}
+          {shoeSize ? (
+            <ListGroup.Item variant="secondary">{shoeSize} EUR</ListGroup.Item>
+          ) : null}
+          {weight ? (
+            <ListGroup.Item variant="secondary">{weight} KG</ListGroup.Item>
+          ) : null}
+          {height ? (
+            <ListGroup.Item variant="secondary">{height} CM</ListGroup.Item>
+          ) : null}
+          {experience ? (
+            <ListGroup.Item variant="secondary">{t(experience)}</ListGroup.Item>
+          ) : null}
+        </td>
+
+        <td>
+          <ListGroup.Item variant="secondary">
+            <strong>{t("from")}:</strong> {startDate}
+          </ListGroup.Item>
+          <ListGroup.Item variant="secondary">
+            <strong>{t("to")}:</strong> {endDate}
+          </ListGroup.Item>
+        </td>
+      </tr>
+    </tbody>
   );
 };
 

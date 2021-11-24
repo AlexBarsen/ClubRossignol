@@ -53,8 +53,6 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
     }
   };
 
-  console.log(match.path);
-
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (

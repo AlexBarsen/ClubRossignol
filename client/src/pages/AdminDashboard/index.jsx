@@ -20,12 +20,10 @@ const AdminDashboardPage = ({ fetchOrdersStart }) => {
   }, [fetchOrdersStart]);
   return (
     <>
-      <AdminDashboardPageContainer>
-        <AdminDashboardContent>
-          <Title>Orders:</Title>
-          <AdminOrderContainer />
-        </AdminDashboardContent>
-      </AdminDashboardPageContainer>
+      <AdminDashboardContent>
+        {/* <Title>Orders:</Title> */}
+        <AdminOrderContainer />
+      </AdminDashboardContent>
     </>
   );
 };

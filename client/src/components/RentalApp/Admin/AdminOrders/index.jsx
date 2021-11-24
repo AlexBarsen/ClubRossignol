@@ -5,8 +5,7 @@ import { useTranslation } from "react-i18next";
 import { createStructuredSelector } from "reselect";
 import { selectOrders } from "../../../../redux/order/order.selectors";
 import AdminTable from "../AdminTable/index";
-
-import { AdminTableContainer } from "./AdminOrdersElements";
+import { Container } from "react-bootstrap";
 
 const AdminOrders = ({ orders }) => {
   const { t } = useTranslation();
@@ -25,9 +24,9 @@ const AdminOrders = ({ orders }) => {
 
   return (
     <>
-      <AdminTableContainer>
+      <Container className="w-100 my-5">
         <AdminTable data={transformedOrders} />
-      </AdminTableContainer>
+      </Container>
     </>
   );
 };

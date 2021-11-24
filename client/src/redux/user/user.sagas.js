@@ -78,20 +78,6 @@ export function* emailSignUp({
   try {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
 
-    const uid = user.uid;
-
-    const token = yield fetch("/createToken", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ uid }),
-    })
-      .then((response) => response.json())
-      .catch((err) => console.log(err));
-
-    yield auth.signOut();
-
-    yield auth.signInWithCustomToken(token);
-
     yield put(
       signUpSuccess({
         user,

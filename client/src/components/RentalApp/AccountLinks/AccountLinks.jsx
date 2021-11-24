@@ -12,11 +12,21 @@ import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
 import SignIn from "../Sign-In-Up/SignIn/SignIn";
 import SignUp from "../Sign-In-Up/SignUp/SignUp";
 
-import { selectCurrentUser } from "../../../redux/user/user.selectors";
-import { signOutStart } from "../../../redux/user/user.actions";
+import {
+  selectAcountModalHidden,
+  selectCurrentUser,
+} from "../../../redux/user/user.selectors";
+import {
+  signOutStart,
+  toggleAcountModalHidden,
+} from "../../../redux/user/user.actions";
 
-const AccountLinks = ({ currentUser, signOut }) => {
-  const [modalShow, setModalShow] = useState(false);
+const AccountLinks = ({
+  currentUser,
+  accountModalHidden,
+  toggleAccountModal,
+  signOut,
+}) => {
   const [modalSize, setModalSize] = useState(null);
   const [modalTitle, setModalTitle] = useState(null);
   const [wrappedComponent, setWrappedComponent] = useState(null);
@@ -31,7 +41,7 @@ const AccountLinks = ({ currentUser, signOut }) => {
     );
     setWrappedComponent(component);
     setModalSize(size);
-    setModalShow(true);
+    toggleAccountModal();
   };
   return (
     <>
@@ -70,8 +80,8 @@ const AccountLinks = ({ currentUser, signOut }) => {
       )}
 
       <DynamicModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
+        show={!accountModalHidden}
+        onHide={() => toggleAccountModal()}
         title={modalTitle}
         size={modalSize}
         render={() => wrappedComponent}
@@ -83,11 +93,13 @@ const AccountLinks = ({ currentUser, signOut }) => {
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  accountModalHidden: selectAcountModalHidden,
 });
 
 // * dispatch function to the Redux store
 const mapDispatchToProps = (dispatch) => ({
   signOut: () => dispatch(signOutStart()),
+  toggleAccountModal: () => dispatch(toggleAcountModalHidden()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountLinks);

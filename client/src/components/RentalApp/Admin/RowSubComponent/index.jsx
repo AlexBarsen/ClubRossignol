@@ -3,18 +3,13 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
 
-import { Button } from "../../Button/ButtonElement";
+import Button from "react-bootstrap/Button";
 
 import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
 
 import AdminOrderItem from "../AdminOrderItem/index";
 
-import {
-  Wrapper,
-  AdminOrderedItems,
-  SelectContainer,
-  ButtonContainer,
-} from "./RowSubComponentElements";
+import { Container, Table } from "react-bootstrap";
 
 const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const { t } = useTranslation();
@@ -40,32 +35,82 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
+      fontSize: "1rem",
       textAlin: "center",
       width: 150,
     }),
     menu: (provided, state) => ({
       ...provided,
-      fontSize: "2rem",
+      fontSize: "1rem",
       textAlign: "center",
     }),
   };
   return (
-    <Wrapper>
-      <AdminOrderedItems>
-        {orderedItems.map((item) => (
-          <AdminOrderItem
-            key={item.id}
-            item={item}
-            status={row.original.status}
-          />
-        ))}
-      </AdminOrderedItems>
+    <Container className="d-flex">
+      <div style={{ width: "85%" }}>
+        <Container className="d-flex justify-content-between align-items-center">
+          <Table style={{ border: "1px solid black" }}>
+            <thead>
+              <tr>
+                <th
+                  style={{
+                    background: "#dedede",
+                    borderTop: "1px solid black",
+                    borderLeft: "1px solid black",
+                    borderRight: "1px solid black",
+                  }}
+                >
+                  Product
+                </th>
+                <th
+                  style={{
+                    background: "#dedede",
+                    borderTop: "1px solid black",
+                    borderRight: "1px solid black",
+                  }}
+                >
+                  Name
+                </th>
+                <th
+                  style={{
+                    background: "#dedede",
+                    borderTop: "1px solid black",
+                    borderRight: "1px solid black",
+                  }}
+                >
+                  Details
+                </th>
+                <th
+                  style={{
+                    background: "#dedede",
+                    borderTop: "1px solid black",
+                    borderRight: "1px solid black",
+                  }}
+                >
+                  Dates
+                </th>
+                {/* <th>Price</th> */}
+              </tr>
+            </thead>
+            {orderedItems.map((item) => (
+              <AdminOrderItem
+                key={item.id}
+                item={item}
+                status={row.original.status}
+              />
+            ))}
+          </Table>
+        </Container>
+      </div>
 
-      <SelectContainer>
+      <div
+        style={{ width: "15%" }}
+        className="d-flex flex-column justify-content-center align-items-center"
+      >
         {status !== "complete" ? (
           <>
             <Select
+              className="mb-3"
               defaultValue={{
                 value: orderStatus,
                 label: t(orderStatus),
@@ -75,18 +120,18 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
               options={options}
               isSearchable={false}
             />
-            <ButtonContainer>
+            <div>
               <Button
                 buttonType="status"
                 onClick={() => handleStatusUpdate(orderID, orderStatus)}
               >
                 Change Status
               </Button>
-            </ButtonContainer>
+            </div>
           </>
         ) : null}
-      </SelectContainer>
-    </Wrapper>
+      </div>
+    </Container>
   );
 };
 

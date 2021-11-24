@@ -78,7 +78,7 @@ const AdminTable = ({ data }) => {
 
   return (
     <>
-      <Table {...getTableProps()}>
+      <Table {...getTableProps()} className="border-0">
         <Head>
           {headerGroups.map((headerGroup) => (
             <Row {...headerGroup.getHeaderGroupProps()}>

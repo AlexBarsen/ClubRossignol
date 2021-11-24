@@ -7,11 +7,6 @@ export const selectAcountModalHidden = createSelector(
   (user) => user.accountModalHidden
 );
 
-export const selectUserDropdownHidden = createSelector(
-  [selectUser],
-  (user) => user.userDropdownHidden
-);
-
 // * CURRENT USER
 export const selectCurrentUser = createSelector(
   [selectUser],

@@ -9,8 +9,6 @@ const PrivateRoute = ({ component, match }) => {
 
   const { loggedIn, checkingStatus, userRole } = useAuthListener();
 
-  console.log(userRole);
-
   return (
     <Route
       exact
