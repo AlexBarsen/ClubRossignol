@@ -7,11 +7,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import Button from "react-bootstrap/Button";
 
-import {
-  incrementOrderNumber,
-  getOrderCounter,
-} from "../../../../firebase/firebase.utils";
-
 import DynamicModal from "../../DynamicModal/DynamicModal";
 import RentalForm from "../RentalForm/RentalForm";
 

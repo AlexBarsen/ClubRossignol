@@ -29,7 +29,7 @@ const Order = ({ order, orderID }) => {
           <div className="d-flex justify-content-around align-items-center">
             <div>
               <div className="mb-2">Date: {orderDate}</div>
-              <div>ID: {orderID}</div>
+              <div>Order: #{orderID}</div>
             </div>
             <div>
               <div className="mb-2">No. items: {orderedItems.length}</div>

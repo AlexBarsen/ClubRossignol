@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import WithSpinner from "../WithSpinner";
+import Spinner from "../Spinner/index";
 
 import { useAuthListener } from "./AuthListener";
 
@@ -15,7 +15,7 @@ const PrivateRoute = ({ component, match }) => {
       path={`${match.path}/admin`}
       render={() =>
         checkingStatus ? (
-          <WithSpinner />
+          <Spinner />
         ) : loggedIn ? (
           userRole === "admin" ? (
             <Component />

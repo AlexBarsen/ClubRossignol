@@ -19,10 +19,9 @@ const AdminOrders = ({ orders }) => {
         " " +
         order.orderedAt.toDate().toLocaleTimeString(),
       numberOfItems: order.orderedItems.length,
+      orderNumber: "#" + order.orderNumber,
     };
   });
-
-  console.log(transformedOrders);
 
   return (
     <>

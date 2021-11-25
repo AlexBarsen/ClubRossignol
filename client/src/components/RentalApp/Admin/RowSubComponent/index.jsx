@@ -89,7 +89,6 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
                 >
                   Dates
                 </th>
-                {/* <th>Price</th> */}
               </tr>
             </thead>
             {orderedItems.map((item) => (
@@ -121,10 +120,7 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
               isSearchable={false}
             />
             <div>
-              <Button
-                buttonType="status"
-                onClick={() => handleStatusUpdate(orderID, orderStatus)}
-              >
+              <Button onClick={() => handleStatusUpdate(orderID, orderStatus)}>
                 Change Status
               </Button>
             </div>

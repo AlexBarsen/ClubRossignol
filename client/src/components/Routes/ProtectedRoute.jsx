@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthListener } from "./AuthListener";
 import { Route, Redirect } from "react-router-dom";
 
-import WithSpinner from "../WithSpinner";
+import Spinner from "../Spinner/index";
 
 const ProtectedRoute = ({ component, match, ...rest }) => {
   const Component = component;
@@ -16,7 +16,7 @@ const ProtectedRoute = ({ component, match, ...rest }) => {
       {...rest}
       render={() =>
         checkingStatus ? (
-          <WithSpinner />
+          <Spinner />
         ) : loggedIn ? (
           <Component />
         ) : (

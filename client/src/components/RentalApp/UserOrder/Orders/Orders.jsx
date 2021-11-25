@@ -9,6 +9,7 @@ import Order from "../Order/Order";
 import Accordion from "react-bootstrap/Accordion";
 
 const Orders = ({ userOrders }) => {
+  console.log(userOrders);
   const { t } = useTranslation();
   return (
     <div>
@@ -21,7 +22,11 @@ const Orders = ({ userOrders }) => {
           key={order.orderID}
           style={{ width: "55rem" }}
         >
-          <Order key={order.orderID} order={order} orderID={order.orderID} />
+          <Order
+            key={order.orderID}
+            order={order}
+            orderID={order.orderNumber}
+          />
         </Accordion>
       ))}
     </div>

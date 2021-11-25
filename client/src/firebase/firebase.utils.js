@@ -165,12 +165,20 @@ export const getCurrentUser = () => {
 export const convertOrdersSnapshotToMap = (orders) => {
   const transformedOrders = orders.docs.map((doc) => {
     // * destructe properties from the document
-    const { userID, orderedItems, total, orderedAt, userEmail, status } =
-      doc.data();
+    const {
+      userID,
+      orderedItems,
+      total,
+      orderedAt,
+      orderNumber,
+      userEmail,
+      status,
+    } = doc.data();
 
     // * return final object with desired data
     return {
       orderID: doc.id,
+      orderNumber: orderNumber,
       userID: userID,
       userEmail: userEmail,
       orderedItems: orderedItems,

@@ -1,10 +1,15 @@
 import React, { useMemo } from "react";
-import { useTable, useExpanded, useSortBy } from "react-table";
+import { useTable, useExpanded, useSortBy, usePagination } from "react-table";
 import { useTranslation } from "react-i18next";
+
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import Form from "react-bootstrap/Form";
 
 import RowSubComponent from "../RowSubComponent/index";
 
-import { Table, Head, Heading, Row, Data, Body } from "./AdminTableElements";
+import Table from "react-bootstrap/Table";
 
 const AdminTable = ({ data }) => {
   const { t } = useTranslation();
@@ -25,7 +30,7 @@ const AdminTable = ({ data }) => {
         columns: [
           {
             Header: t("order_id"),
-            accessor: "orderID",
+            accessor: "orderNumber",
           },
           {
             Header: t("email"),
@@ -62,30 +67,43 @@ const AdminTable = ({ data }) => {
     {
       columns,
       data,
+      initialState: { pageIndex: 0 },
     },
     useSortBy,
-    useExpanded
+    useExpanded,
+    usePagination
   );
 
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
     prepareRow,
     visibleColumns,
+    page,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize },
   } = tableInstance;
 
   return (
     <>
-      <Table {...getTableProps()} className="border-0">
-        <Head>
+      <Table
+        striped
+        bordered
+        {...getTableProps()}
+        className="border-0 text-center"
+      >
+        <thead>
           {headerGroups.map((headerGroup) => (
-            <Row {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <Heading
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                >
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
                   <span>
                     {column.isSorted
@@ -94,38 +112,92 @@ const AdminTable = ({ data }) => {
                         : " 🔼"
                       : ""}
                   </span>
-                </Heading>
+                </th>
               ))}
-            </Row>
+            </tr>
           ))}
-        </Head>
-        <Body {...getTableBodyProps()}>
-          {rows.map((row) => {
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map((row, i) => {
             prepareRow(row);
             return (
               <React.Fragment key={row.original.orderID}>
-                <Row {...row.getRowProps()}>
+                <tr {...row.getRowProps()}>
                   {row.cells.map((cell) => {
                     return (
-                      <Data {...cell.getCellProps()}>
-                        {cell.render("Cell")}
-                      </Data>
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                     );
                   })}
-                </Row>
+                </tr>
 
                 {row.isExpanded ? (
-                  <Row>
-                    <Data colSpan={visibleColumns.length}>
+                  <tr>
+                    <td colSpan={visibleColumns.length}>
                       <RowSubComponent row={row} />
-                    </Data>
-                  </Row>
+                    </td>
+                  </tr>
                 ) : null}
               </React.Fragment>
             );
           })}
-        </Body>
+        </tbody>
       </Table>
+
+      <div className="pagination mt-3 d-flex align-items-center">
+        <div className="me-3 d-flex">
+          <div className="me-3">
+            <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
+              {"<"}
+            </Button>
+          </div>
+          <div>
+            <Button onClick={() => nextPage()} disabled={!canNextPage}>
+              {">"}
+            </Button>
+          </div>
+        </div>
+
+        <div className="me-3">
+          Page
+          <strong>
+            {" "}
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>
+        </div>
+
+        <div className="me-3">
+          <InputGroup>
+            <InputGroup.Text id="basic-addon1">Page Number</InputGroup.Text>
+            <FormControl
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              type="number"
+              defaultValue={pageIndex + 1}
+              onChange={(e) => {
+                const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                gotoPage(page);
+              }}
+              style={{ width: "100px" }}
+            />
+          </InputGroup>
+        </div>
+
+        <div>
+          <Form.Select
+            aria-label="Default select example"
+            value={pageSize}
+            onChange={(e) => {
+              setPageSize(Number(e.target.value));
+            }}
+          >
+            {[5, 10, 15, 20, 25].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </Form.Select>
+        </div>
+      </div>
     </>
   );
 };
