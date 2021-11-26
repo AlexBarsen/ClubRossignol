@@ -7,7 +7,7 @@ import {
   ButtonContainer,
 } from "./RestaurantModalElements";
 
-import RestaurantPage from "../../../pages/Restaurant/index";
+import RestaurantPage from "../../../pages/Restaurant/Restaurant";
 import { Button } from "../Button/ButtonElement";
 
 const RestaurantModal = () => {

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { HomeContainer } from "./HomeElements";
-
 import {
   restaurantSection,
   rentalSection,
@@ -17,7 +15,7 @@ import FeaturesSection from "../../components/Landing/FeatureSection";
 import InfoSection from "../../components/Landing/InfoSection";
 import ContactSection from "../../components/Landing/ContactSection";
 
-const Home = () => {
+const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -26,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <HomeContainer>
+      <div>
         <Navbar toggle={toggle} />
         <HeroSection />
         <FeaturesSection />
@@ -36,9 +34,9 @@ const Home = () => {
         <InfoSection section={shopSection} imgStart={true} />
         <ContactSection />
         <Footer />
-      </HomeContainer>
+      </div>
     </>
   );
 };
 
-export default Home;
+export default HomePage;

@@ -3,7 +3,7 @@ import { compose } from "redux";
 import { createStructuredSelector } from "reselect";
 
 import { selectIsCategoriesLoaded } from "../../redux/rental/rental.selectors";
-import WithSpinner from "../../components/WithSpinner/index";
+import WithSpinner from "../../components/WithSpinner/WithSpinner";
 import CategoryPage from "./Category";
 
 const mapStateToProps = createStructuredSelector({

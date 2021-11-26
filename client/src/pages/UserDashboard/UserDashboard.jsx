@@ -6,23 +6,21 @@ import { createStructuredSelector } from "reselect";
 import { fetchUserOrdersStart } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-import { DashboardPageContainer } from "./DashboardElements";
+import OrdersContainer from "../../components/RentalApp/User/Orders/OrdersContainer";
 
-import OrdersContainer from "../../components/RentalApp/UserOrder/Orders/OrdersContainer";
+import UserInformationContainer from "../../components/RentalApp/User/UserInformation/UserIonformationContainer";
 
-import UserInformationContainer from "../../components/RentalApp/UserInformation/UserIonformationContainer";
-
-const DashboardPage = ({ currentUser, fetchUserOrdersStart }) => {
+const UserDashboardPage = ({ currentUser, fetchUserOrdersStart }) => {
   useEffect(() => {
     fetchUserOrdersStart(currentUser);
   }, [fetchUserOrdersStart, currentUser]);
 
   return (
     <>
-      <DashboardPageContainer>
+      <div className="d-flex justify-content-evenly">
         <UserInformationContainer currentUser={currentUser} />
         <OrdersContainer />
-      </DashboardPageContainer>
+      </div>
     </>
   );
 };
@@ -36,4 +34,4 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchUserOrdersStart({ currentUser })),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(UserDashboardPage);

@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 
-import ProgressBar from "react-bootstrap/ProgressBar";
+import OrderStatus from "../../ProgressBar/OrderSatus";
 
 import OrderItem from "../OrderItem/OrderItem";
 
@@ -36,47 +36,7 @@ const Order = ({ order, orderID }) => {
               <div>Total: {order.total} RON</div>
             </div>
             <div>
-              <ProgressBar
-                style={{
-                  width: "20rem",
-                  height: "2rem",
-                  border: "1px solid black",
-                }}
-              >
-                <ProgressBar
-                  label="placed"
-                  animated
-                  className="progress--placed"
-                  now={33}
-                  key={1}
-                />
-                <ProgressBar
-                  label="prepared"
-                  style={{ borderLeft: "1px solid black" }}
-                  animated
-                  className={
-                    order.status === "complete"
-                      ? "progress--prepared"
-                      : order.status === "prepared"
-                      ? "progress--prepared"
-                      : "progress--grey"
-                  }
-                  now={33}
-                  key={2}
-                />
-                <ProgressBar
-                  label="complete"
-                  style={{ borderLeft: "1px solid black" }}
-                  animated
-                  className={
-                    order.status === "complete"
-                      ? "progress--complete"
-                      : "progress--grey"
-                  }
-                  now={34}
-                  key={3}
-                />
-              </ProgressBar>
+              <OrderStatus status={order.status} />
             </div>
           </div>
         </div>

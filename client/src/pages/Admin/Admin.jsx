@@ -6,13 +6,13 @@ import { createStructuredSelector } from "reselect";
 import { selectOrders } from "../../redux/order/order.selectors";
 import { fetchOrdersStart } from "../../redux/order/order.actions";
 
-import AdminOrderContainer from "../../components/RentalApp/Admin/AdminOrders/AdminOrderContainer.js";
+import AdminTableContainer from "../../components/RentalApp/Admin/AdminTableContainer/AdminTableContainer";
 
-const AdminDashboardPage = ({ fetchOrdersStart }) => {
+const AdminPage = ({ fetchOrdersStart }) => {
   useEffect(() => {
     fetchOrdersStart();
   }, [fetchOrdersStart]);
-  return <AdminOrderContainer />;
+  return <AdminTableContainer />;
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchOrdersStart: () => dispatch(fetchOrdersStart()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminDashboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminPage);

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Spinner from "../Spinner/index";
+import Spinner from "../Spinner/Spinner";
 
 import { useAuthListener } from "./AuthListener";
 

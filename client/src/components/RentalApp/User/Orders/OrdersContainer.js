@@ -7,7 +7,7 @@ import {
   selectUserOrdersError,
 } from "../../../../redux/user/user.selectors";
 
-import WithSpinner from "../../../WithSpinner/index";
+import WithSpinner from "../../../WithSpinner/WithSpinner";
 import Orders from "./Orders";
 
 // * connect to Redux state

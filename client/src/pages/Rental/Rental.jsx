@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { Route, Switch } from "react-router-dom";
 
-import { Toast } from "./RentaPageElements";
+import { Toast } from "./RentaElements";
 
 import Navigation from "../../components/RentalApp/Navigation/Navigation";
 
@@ -17,22 +17,22 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { checkUserSession } from "../../redux/user/user.actions";
 
-import Spinner from "../../components/Spinner/index";
+import Spinner from "../../components/Spinner/Spinner";
 
 import ErrorBoundary from "../../components/ErrorBoundary/index";
 
 import RentalTabs from "../../components/RentalApp/RentalTabs/RentalTabs";
 
-const CheckoutPage = lazy(() => import("../Checkout/index"));
-const DashboardPage = lazy(() => import("../Dashboard/index"));
-const AdminDashboardPage = lazy(() => import("../AdminDashboard/index"));
+const CheckoutPage = lazy(() => import("../Checkout/Checkout"));
+const DashboardPage = lazy(() => import("../UserDashboard/UserDashboard"));
+const AdminPage = lazy(() => import("../Admin/Admin"));
 const RentalOverviewContainer = lazy(() =>
   import(
     "../../components/RentalApp/Rental/RentalOverview/RentalOverviewContainer"
   )
 );
 const CategoryPageContainer = lazy(() =>
-  import("../Category/CategoryPageContainer")
+  import("../Category/CategoryContainer")
 );
 
 const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
@@ -94,7 +94,7 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
                 match={match}
                 exact
                 path={`${match.path}/admin`}
-                component={AdminDashboardPage}
+                component={AdminPage}
               />
             </Suspense>
           </ErrorBoundary>

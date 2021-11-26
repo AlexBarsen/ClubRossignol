@@ -7,12 +7,15 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
 
-import RowSubComponent from "../RowSubComponent/index";
+import RowSubComponent from "../RowSubComponent/RowSubComponent";
 
+import OrderStatus from "../../ProgressBar/OrderSatus";
 import Table from "react-bootstrap/Table";
 
 const AdminTable = ({ data }) => {
   const { t } = useTranslation();
+
+  console.log(data);
 
   const columns = useMemo(
     () => [
@@ -51,11 +54,15 @@ const AdminTable = ({ data }) => {
           },
           {
             Header: t("order_total"),
-            accessor: "total",
+            accessor: (row) => row.total + " RON",
           },
           {
             Header: "Status",
-            accessor: "status",
+            accessor: (row) => (
+              <div className="d-flex justify-content-center">
+                <OrderStatus status={row.status} />
+              </div>
+            ),
           },
         ],
       },

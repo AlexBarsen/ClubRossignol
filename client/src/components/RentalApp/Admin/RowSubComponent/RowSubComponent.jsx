@@ -7,9 +7,9 @@ import Button from "react-bootstrap/Button";
 
 import { updateOrderStatusStart } from "../../../../redux/order/order.actions";
 
-import AdminOrderItem from "../AdminOrderItem/index";
+import TabItem from "../TabItem/TabItem";
 
-import { Container, Table } from "react-bootstrap";
+import { Container, Tab, Nav, Row, Col } from "react-bootstrap";
 
 const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const { t } = useTranslation();
@@ -25,6 +25,8 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   const handleStatusUpdate = (orderID, orderStatus) => {
     updateOrderStatusStart(orderID, orderStatus);
   };
+
+  console.log(orderedItems);
 
   const options = [
     { value: "received", label: t("received") },
@@ -48,58 +50,34 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   return (
     <Container className="d-flex">
       <div style={{ width: "85%" }}>
-        <Container className="d-flex justify-content-between align-items-center">
-          <Table style={{ border: "1px solid black" }}>
-            <thead>
-              <tr>
-                <th
-                  style={{
-                    background: "#dedede",
-                    borderTop: "1px solid black",
-                    borderLeft: "1px solid black",
-                    borderRight: "1px solid black",
-                  }}
-                >
-                  Product
-                </th>
-                <th
-                  style={{
-                    background: "#dedede",
-                    borderTop: "1px solid black",
-                    borderRight: "1px solid black",
-                  }}
-                >
-                  Name
-                </th>
-                <th
-                  style={{
-                    background: "#dedede",
-                    borderTop: "1px solid black",
-                    borderRight: "1px solid black",
-                  }}
-                >
-                  Details
-                </th>
-                <th
-                  style={{
-                    background: "#dedede",
-                    borderTop: "1px solid black",
-                    borderRight: "1px solid black",
-                  }}
-                >
-                  Dates
-                </th>
-              </tr>
-            </thead>
-            {orderedItems.map((item) => (
-              <AdminOrderItem
-                key={item.id}
-                item={item}
-                status={row.original.status}
-              />
-            ))}
-          </Table>
-        </Container>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                {orderedItems.map((item) => (
+                  <Nav.Item>
+                    <Nav.Link key={item.id} eventKey={item.id}>
+                      {t(item.name)}
+                    </Nav.Link>
+                  </Nav.Item>
+                ))}
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                {orderedItems.map((item) => (
+                  <Tab.Pane eventKey={item.id}>
+                    <TabItem
+                      key={item.id}
+                      item={item}
+                      status={row.original.status}
+                    />
+                  </Tab.Pane>
+                ))}
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </div>
 
       <div

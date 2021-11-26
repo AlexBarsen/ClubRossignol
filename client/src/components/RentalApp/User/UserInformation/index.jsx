@@ -55,45 +55,6 @@ const UserInformation = ({ currentUser }) => {
         </ListGroupItem>
       </ListGroup>
     </Card>
-    // <>
-    //   <UserInformationContainer>
-    //     <UserDetailHeading>{t("account_details")}</UserDetailHeading>
-
-    //     <AvatarContainer>
-    //       <Avatar src={avatar} alt="avatar" />
-    //     </AvatarContainer>
-
-    //     <UserDetails>
-    //       <Detail>
-    //         <DetailSpan>{t("name")}: </DetailSpan>
-    //         {firstName}
-    //       </Detail>
-    //       <Detail>
-    //         <DetailSpan> {t("surname")}: </DetailSpan>
-    //         {lastName}
-    //       </Detail>
-
-    //       <Detail>
-    //         <DetailSpan> {t("date_of_birth")}: </DetailSpan>
-    //         {dateOfBirth}
-    //       </Detail>
-    //       <Detail>
-    //         <DetailSpan> {t("email")}: </DetailSpan>
-    //         {email}
-    //       </Detail>
-    //       <Detail>
-    //         <DetailSpan> {t("email_verified")}: </DetailSpan>
-    //         {emailVerified
-    //           ? `${t("email_verified_true")}`
-    //           : `${t("email_verified_false")}`}
-    //       </Detail>
-    //       <Detail>
-    //         <DetailSpan> {t("phone")}: </DetailSpan>
-    //         {phone}
-    //       </Detail>
-    //     </UserDetails>
-    //   </UserInformationContainer>
-    // </>
   );
 };
 

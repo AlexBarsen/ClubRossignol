@@ -1,0 +1,43 @@
+.progress {
+  &--placed {
+    background-color: #dce775;
+    color: black;
+  }
+
+  &--prepared {
+    background-color: #bce954;
+    color: black;
+  }
+
+  &--complete {
+    background-color: #5cb85c;
+    color: black;
+  }
+
+  &--grey {
+    background-color: #e9ecef;
+    color: black;
+  }
+}
+
+.tab {
+  &--item {
+    cursor: pointer;
+    background-color: grey;
+    border-radius: 0.3rem;
+
+    &:hover {
+      background-color: #6495ed;
+      color: #fff;
+    }
+  }
+
+  &--text {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &--text:hover {
+    color: #fff;
+  }
+}

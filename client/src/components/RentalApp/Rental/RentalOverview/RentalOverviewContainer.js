@@ -3,7 +3,7 @@ import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 
 import { isRentalFetching } from "../../../../redux/rental/rental.selectors";
-import WithSpinner from "../../../WithSpinner/index";
+import WithSpinner from "../../../WithSpinner/WithSpinner";
 import RentalOverview from "./RentalOverview";
 
 // * connect to Redux state

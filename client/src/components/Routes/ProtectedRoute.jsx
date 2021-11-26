@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthListener } from "./AuthListener";
 import { Route, Redirect } from "react-router-dom";
 
-import Spinner from "../Spinner/index";
+import Spinner from "../Spinner/Spinner";
 
 const ProtectedRoute = ({ component, match, ...rest }) => {
   const Component = component;

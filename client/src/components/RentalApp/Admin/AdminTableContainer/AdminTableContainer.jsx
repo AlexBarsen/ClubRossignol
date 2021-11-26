@@ -1,19 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useTranslation } from "react-i18next";
-
+import { compose } from "redux";
 import { createStructuredSelector } from "reselect";
+
+import {
+  selectIsOrdersLoaded,
+  selectOrdersError,
+} from "../../../../redux/order/order.selectors";
+
+import WithSpinner from "../../../WithSpinner/WithSpinner";
+
 import { selectOrders } from "../../../../redux/order/order.selectors";
-import AdminTable from "../AdminTable/index";
+import AdminTable from "../AdminTable/AdminTable";
+
 import { Container } from "react-bootstrap";
 
-const AdminOrders = ({ orders }) => {
-  const { t } = useTranslation();
-
+const AdminTableContainer = ({ orders }) => {
   const transformedOrders = orders.map((order) => {
     return {
       ...order,
-      status: t(order.status),
+
       orderedAt:
         order.orderedAt.toDate().toLocaleDateString() +
         " " +
@@ -34,6 +40,11 @@ const AdminOrders = ({ orders }) => {
 
 const mapStateToProps = createStructuredSelector({
   orders: selectOrders,
+  isLoading: (state) => !selectIsOrdersLoaded(state),
+  error: (state) => selectOrdersError(state),
 });
 
-export default connect(mapStateToProps)(AdminOrders);
+export default compose(
+  connect(mapStateToProps),
+  WithSpinner
+)(AdminTableContainer);
