@@ -2,12 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import Button from "react-bootstrap/Button";
-
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
+
+import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 const CartItem = ({ item, clearItemFromCart }) => {
   const { t } = useTranslation();

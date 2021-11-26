@@ -14,9 +14,7 @@ import { addItem } from "../../../../redux/cart/cart.actions";
 
 // import { useTranslation } from "react-i18next";
 
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Container, Form, Button } from "react-bootstrap";
 
 const RentalForm = ({ addItem, item }) => {
   // const { t } = useTranslation();

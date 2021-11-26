@@ -7,12 +7,10 @@ import { useTranslation } from "react-i18next";
 
 import { editItem } from "../../../../redux/cart/cart.actions";
 import { Button } from "../../Button/ButtonElement";
+
 import RentalEditFormSelects from "../RentalEditFormSelects/RentalEditFormSelects";
 import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
-
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Form, Container, FloatingLabel } from "react-bootstrap";
 
 const RentalEditForm = ({ cartItem, editItem }) => {
   useEffect(() => {

@@ -1,0 +1,14 @@
+.tab {
+  &-item {
+    background: #dedede;
+    cursor: pointer;
+  }
+
+  &-link {
+    color: black;
+
+    &:hover {
+      color: blue;
+    }
+  }
+}

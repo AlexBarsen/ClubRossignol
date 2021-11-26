@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { FloatingLabel, FormCheck } from "react-bootstrap";
 
 import { emailSignUpStart } from "../../../../redux/user/user.actions";
+
+import { FloatingLabel, FormCheck, Form, Button } from "react-bootstrap";
 
 const SignUp = ({ emailSignUpStart }) => {
   const { t } = useTranslation();

@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
-import { LinkContainer } from "react-router-bootstrap";
-import Nav from "react-bootstrap/Nav";
-
-import DynamicModal from "../DynamicModal/DynamicModal";
-import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
-import SignIn from "../Sign-In-Up/SignIn/SignIn";
-import SignUp from "../Sign-In-Up/SignUp/SignUp";
+import "./AcountLinks.scss";
 
 import {
   selectAcountModalHidden,
@@ -20,6 +11,13 @@ import {
   signOutStart,
   toggleAcountModalHidden,
 } from "../../../redux/user/user.actions";
+
+import { LinkContainer } from "react-router-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
+import DynamicModal from "../DynamicModal/DynamicModal";
+import PasswordReset from "../Sign-In-Up/PasswordReset/PasswordReset";
+import SignIn from "../Sign-In-Up/SignIn/SignIn";
+import SignUp from "../Sign-In-Up/SignUp/SignUp";
 
 const AccountLinks = ({
   currentUser,
@@ -46,16 +44,25 @@ const AccountLinks = ({
   return (
     <>
       {currentUser ? (
-        <DropdownButton
-          size="sm"
-          id="dropdown-basic-button"
-          title={`Signed in as: ${currentUser.firstName} ${currentUser.lastName}`}
-        >
-          <LinkContainer to="/rental/dashboard">
-            <Dropdown.Item>Dashboard</Dropdown.Item>
-          </LinkContainer>
-          <Dropdown.Item onClick={() => signOut()}>Sign out</Dropdown.Item>
-        </DropdownButton>
+        <Nav>
+          <NavDropdown
+            id="nav-dropdown"
+            title={currentUser.firstName + " " + currentUser.lastName}
+          >
+            {currentUser.email === "admin@gmail.com" ? (
+              <LinkContainer to="/rental/admin">
+                <NavDropdown.Item>Admin Dashboard</NavDropdown.Item>
+              </LinkContainer>
+            ) : (
+              <LinkContainer to="/rental/dashboard">
+                <NavDropdown.Item>Dashboard</NavDropdown.Item>
+              </LinkContainer>
+            )}
+            <NavDropdown.Item onClick={() => signOut()}>
+              Sign out
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       ) : (
         <>
           <Nav.Link

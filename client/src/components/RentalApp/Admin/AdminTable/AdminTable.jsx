@@ -2,15 +2,9 @@ import React, { useMemo } from "react";
 import { useTable, useExpanded, useSortBy, usePagination } from "react-table";
 import { useTranslation } from "react-i18next";
 
-import Button from "react-bootstrap/Button";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import Form from "react-bootstrap/Form";
-
+import { Button, InputGroup, FormControl, Form, Table } from "react-bootstrap";
 import RowSubComponent from "../RowSubComponent/RowSubComponent";
-
 import OrderStatus from "../../ProgressBar/OrderSatus";
-import Table from "react-bootstrap/Table";
 
 const AdminTable = ({ data }) => {
   const { t } = useTranslation();

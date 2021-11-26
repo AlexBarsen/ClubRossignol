@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { FloatingLabel } from "react-bootstrap";
 
 import { passwordResetStart } from "../../../../redux/user/user.actions";
+
+import { Form, Button, FloatingLabel } from "react-bootstrap";
 
 const PasswordReset = ({ passwordResetStart }) => {
   const { t } = useTranslation();

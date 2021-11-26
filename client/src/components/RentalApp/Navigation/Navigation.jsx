@@ -1,24 +1,21 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-
+import { Navbar, Nav } from "react-bootstrap";
 import OffCanvasCart from "../Cart-Checkout/OffCanvasCart/OffCanvasCart";
 import LangaugeDropdown from "../LanguageDropdown/LangaugeDropdown";
 import AccountLinks from "../AccountLinks/AccountLinks";
-
+import RentalTabs from "../RentalTabs/RentalTabs";
 import Logo from "../../../logos/logo-text-small.png";
 
 const Navigation = () => {
   const { t } = useTranslation();
 
   return (
-    <Navbar sticky="top" className="background-white" expand="lg">
-      <Container>
-        <div style={{ height: "3.5rem" }}>
-          <img style={{ height: "3.5rem" }} src={Logo} alt="logo" />
+    <Navbar sticky="top" className="d-flex flex-column" expand="xl">
+      <div className="d-flex w-100 justify-content-evenly align-items-center">
+        <div style={{ height: "4.5rem" }}>
+          <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
@@ -34,9 +31,11 @@ const Navigation = () => {
             <LangaugeDropdown />
           </Nav>
         </Navbar.Collapse>
-      </Container>
 
-      <OffCanvasCart key={1} placement="end" />
+        <OffCanvasCart key={1} placement="end" />
+      </div>
+
+      <RentalTabs />
     </Navbar>
   );
 };

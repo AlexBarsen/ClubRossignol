@@ -1,9 +1,8 @@
 import React from "react";
 import "./OrderItem.scss";
 import { useTranslation } from "react-i18next";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+
+import { Container, Card, ListGroup } from "react-bootstrap";
 
 const OrderItem = ({ item }) => {
   const { t } = useTranslation();

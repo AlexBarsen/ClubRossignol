@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import Select from "react-select";
+import "./RowSubComponent.scss";
 
 import Button from "react-bootstrap/Button";
 
@@ -55,8 +56,12 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 {orderedItems.map((item) => (
-                  <Nav.Item>
-                    <Nav.Link key={item.id} eventKey={item.id}>
+                  <Nav.Item className="tab-item mb-2">
+                    <Nav.Link
+                      key={item.id}
+                      eventKey={item.id}
+                      className="tab-link"
+                    >
                       {t(item.name)}
                     </Nav.Link>
                   </Nav.Item>

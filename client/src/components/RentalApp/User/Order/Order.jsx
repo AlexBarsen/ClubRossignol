@@ -2,11 +2,7 @@ import React from "react";
 import "./Order.scss";
 import { useTranslation } from "react-i18next";
 
-import Accordion from "react-bootstrap/Accordion";
-import Tab from "react-bootstrap/Tab";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Nav from "react-bootstrap/Nav";
+import { Accordion, Tab, Row, Col, Nav } from "react-bootstrap";
 
 import OrderStatus from "../../ProgressBar/OrderSatus";
 

@@ -21,8 +21,6 @@ import Spinner from "../../components/Spinner/Spinner";
 
 import ErrorBoundary from "../../components/ErrorBoundary/index";
 
-import RentalTabs from "../../components/RentalApp/RentalTabs/RentalTabs";
-
 const CheckoutPage = lazy(() => import("../Checkout/Checkout"));
 const DashboardPage = lazy(() => import("../UserDashboard/UserDashboard"));
 const AdminPage = lazy(() => import("../Admin/Admin"));
@@ -56,50 +54,47 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
-    <>
+    <div style={{ maxWidth: "1200px" }} className="m-auto">
       <Navigation toggle={toggle} />
 
-      <RentalTabs />
+      <Switch>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route
+              exact
+              path={`${match.path}`}
+              component={RentalOverviewContainer}
+            />
 
-      <div className="rental-background">
-        <Switch>
-          <ErrorBoundary>
-            <Suspense fallback={<Spinner />}>
-              <Route
-                exact
-                path={`${match.path}`}
-                component={RentalOverviewContainer}
-              />
+            <Route
+              exact
+              path={`${match.path}/category/:categoryName`}
+              component={CategoryPageContainer}
+            />
 
-              <Route
-                exact
-                path={`${match.path}/category/:categoryName`}
-                component={CategoryPageContainer}
-              />
+            <Route
+              exact
+              path={`${match.path}/checkout`}
+              component={CheckoutPage}
+            />
 
-              <Route
-                exact
-                path={`${match.path}/checkout`}
-                component={CheckoutPage}
-              />
+            <ProtectedRoute
+              match={match}
+              exact
+              path={`${match.path}/dashboard`}
+              component={DashboardPage}
+            />
 
-              <ProtectedRoute
-                match={match}
-                exact
-                path={`${match.path}/dashboard`}
-                component={DashboardPage}
-              />
+            <PrivateRoute
+              match={match}
+              exact
+              path={`${match.path}/admin`}
+              component={AdminPage}
+            />
+          </Suspense>
+        </ErrorBoundary>
+      </Switch>
 
-              <PrivateRoute
-                match={match}
-                exact
-                path={`${match.path}/admin`}
-                component={AdminPage}
-              />
-            </Suspense>
-          </ErrorBoundary>
-        </Switch>
-      </div>
       <Toast
         position="bottom-right"
         autoClose={3000}
@@ -111,7 +106,7 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
         pauseOnFocusLoss
         draggable
       />
-    </>
+    </div>
   );
 };
 

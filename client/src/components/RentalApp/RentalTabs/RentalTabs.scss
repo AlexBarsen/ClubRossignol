@@ -1,7 +1,20 @@
-.category-title {
-  color: white;
+.tab {
+  &-item {
+    background: lightgray;
+    cursor: pointer;
+    border-top: 1px solid black;
+    // border-bottom: 1px solid black;
 
-  &:hover {
-    color: white;
+    &:not(:last-child) {
+      border-right: 1px solid black;
+    }
+  }
+
+  &-link {
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
   }
 }

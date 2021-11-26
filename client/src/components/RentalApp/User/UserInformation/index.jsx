@@ -3,9 +3,8 @@ import "./UserCard.css";
 import { useTranslation } from "react-i18next";
 import { createAvatar } from "@dicebear/avatars";
 import * as style from "@dicebear/pixel-art";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
+
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 const UserInformation = ({ currentUser }) => {
   const { t } = useTranslation();

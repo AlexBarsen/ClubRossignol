@@ -1,0 +1,16 @@
+.dropdown-toggle::after {
+  color: black;
+}
+
+#nav-dropdown {
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: bold;
+
+  &--2 {
+    font-weight: normal;
+  }
+
+  &:hover {
+    color: black;
+  }
+}

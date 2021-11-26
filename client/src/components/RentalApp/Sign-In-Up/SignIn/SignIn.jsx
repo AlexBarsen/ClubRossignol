@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { FloatingLabel } from "react-bootstrap";
-
 import { emailSignInStart } from "../../../../redux/user/user.actions";
+
+import { FloatingLabel, Form, Button } from "react-bootstrap";
 
 const SignIn = ({ emailSignInStart }) => {
   const { t } = useTranslation();

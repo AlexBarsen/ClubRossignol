@@ -1,8 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import ListGroup from "react-bootstrap/ListGroup";
-import { Table } from "react-bootstrap";
+import { Table, ListGroup } from "react-bootstrap";
 
 const TabItem = ({ item }) => {
   const { t } = useTranslation();

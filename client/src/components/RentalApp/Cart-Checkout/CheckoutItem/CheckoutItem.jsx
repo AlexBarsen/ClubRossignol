@@ -4,15 +4,9 @@ import { useTranslation } from "react-i18next";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
-import { CheckoutItemContainer } from "./CheckoutItemElements";
-
 import RentalEditForm from "../../Rental/RentalEditForm/RentalEditForm";
 import DynamicModal from "../../DynamicModal/DynamicModal";
-
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import Container from "react-bootstrap/Container";
+import { Button, Card, ListGroup, Container } from "react-bootstrap/";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const { t } = useTranslation();
@@ -46,7 +40,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   };
 
   return (
-    <CheckoutItemContainer>
+    <div>
       <Card style={{ width: "28rem" }} className="h-100">
         <div className="d-flex justify-content-center align-items-center mb-2">
           <Card.Img
@@ -147,7 +141,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
         size="lg"
         render={() => wrappedComponent}
       />
-    </CheckoutItemContainer>
+    </div>
   );
 };
 

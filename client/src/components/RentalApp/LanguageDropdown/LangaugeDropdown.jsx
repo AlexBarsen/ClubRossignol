@@ -5,9 +5,9 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 const LangaugeDropdown = () => {
   return (
     <NavDropdown
-      color="black"
-      title={<span className="text-navy--dark">Select Langauge</span>}
-      id="basic-nav-dropdown"
+      title="Language"
+      id="nav-dropdown--2"
+      className="font-weight-normal"
     >
       <NavDropdown.Item onClick={() => i18next.changeLanguage("ro")}>
         Romanian <span className="">🇷🇴</span>

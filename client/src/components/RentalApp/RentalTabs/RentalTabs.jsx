@@ -7,23 +7,23 @@ const RentalTabs = () => {
   return (
     <Nav
       justify
-      className="d-flex justify-content-center background-navy--light"
+      className="d-flex justify-content-center background-navy--light w-100"
       variant="tabs"
       defaultActiveKey="/home"
     >
-      <Nav.Item style={{ borderRight: "1px solid #8590aa" }}>
+      <Nav.Item className="tab-item">
         <LinkContainer to="/rental/category/ski">
-          <Nav.Link className="category-title">Ski</Nav.Link>
+          <Nav.Link className="tab-link">Ski</Nav.Link>
         </LinkContainer>
       </Nav.Item>
-      <Nav.Item style={{ borderRight: "1px solid #8590aa" }}>
+      <Nav.Item className="tab-item">
         <LinkContainer to="/rental/category/snowboard">
-          <Nav.Link className="category-title">Snowboard</Nav.Link>
+          <Nav.Link className="tab-link">Snowboard</Nav.Link>
         </LinkContainer>
       </Nav.Item>
-      <Nav.Item>
+      <Nav.Item className="tab-item">
         <LinkContainer to="/rental/category/bike">
-          <Nav.Link className="category-title">Bike</Nav.Link>
+          <Nav.Link className="tab-link">Bike</Nav.Link>
         </LinkContainer>
       </Nav.Item>
     </Nav>

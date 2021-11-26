@@ -7,13 +7,11 @@ import {
   selectIsOrdersLoaded,
   selectOrdersError,
 } from "../../../../redux/order/order.selectors";
-
-import WithSpinner from "../../../WithSpinner/WithSpinner";
-
 import { selectOrders } from "../../../../redux/order/order.selectors";
-import AdminTable from "../AdminTable/AdminTable";
 
-import { Container } from "react-bootstrap";
+import AdminTable from "../AdminTable/AdminTable";
+import WithSpinner from "../../../WithSpinner/WithSpinner";
+import Container from "react-bootstrap/Container";
 
 const AdminTableContainer = ({ orders }) => {
   const transformedOrders = orders.map((order) => {

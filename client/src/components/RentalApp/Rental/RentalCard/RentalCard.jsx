@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "./RentalCard.scss";
 import { useTranslation } from "react-i18next";
 
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import Button from "react-bootstrap/Button";
-
+import {
+  Card,
+  ListGroup,
+  ListGroupItem,
+  Button,
+  Carousel,
+} from "react-bootstrap";
 import DynamicModal from "../../DynamicModal/DynamicModal";
 import RentalForm from "../RentalForm/RentalForm";
 
@@ -15,8 +17,12 @@ const RentalCard = ({ item }) => {
 
   const [modalShow, setModalShow] = useState(false);
   const [modalTitle, setModalTitle] = useState(null);
-
   const [wrappedComponent, setWrappedComponent] = useState(null);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
   const renderModal = () => {
     setWrappedComponent(<RentalForm item={item} />);
@@ -24,7 +30,9 @@ const RentalCard = ({ item }) => {
     setModalShow(true);
   };
 
-  const { name, price, icon } = item;
+  console.log(item);
+
+  const { name, price, images } = item;
 
   return (
     <>
@@ -33,11 +41,48 @@ const RentalCard = ({ item }) => {
         className="shadow"
       >
         <div className="card-image--container">
-          <Card.Img
+          {/* <Card.Img
             variant="top"
             src={icon}
             className="p-3 border border-0 card-image--img"
-          />
+          /> */}
+
+          {images.length > 1 ? (
+            <Carousel
+              variant="dark"
+              activeIndex={index}
+              onSelect={handleSelect}
+              interval={null}
+              indicators={false}
+              style={{ height: "15rem" }}
+            >
+              {" "}
+              {images.map((image, idx) => (
+                <Carousel.Item
+                  key={image + idx}
+                  className="card-image--img"
+                  style={{ height: "15rem", width: "20rem" }}
+                >
+                  <img
+                    style={{
+                      height: "15rem",
+                      width: "100%",
+                      objectFit: "contain",
+                    }}
+                    className="d-block w-100"
+                    src={image}
+                    alt="Second slide"
+                  />
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          ) : (
+            <Card.Img
+              variant="top"
+              src={images[0]}
+              className="p-3 border border-0 card-image--img"
+            />
+          )}
         </div>
         <Card.Body className="flex-grow-0 p-0">
           <Card.Header className="d-flex justify-content-center m-0 p-2 border-top border-bottom-0">
