@@ -9,8 +9,8 @@ const mapStyles = {
 
 const containerStyle = {
   position: "relative",
-  width: "50rem",
-  height: "50rem",
+  width: "25rem",
+  height: "20rem",
 };
 
 export class MapContainer extends React.Component {

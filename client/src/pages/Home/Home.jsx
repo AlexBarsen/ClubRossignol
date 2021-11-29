@@ -5,15 +5,15 @@ import {
   rentalSection,
   hotelSection,
   shopSection,
-} from "../../components/Landing/InfoSection/sections";
+} from "../../components/Landing/InfoCard/sections";
 
-import Footer from "../../components/Landing/Footer/index";
-import { Navbar } from "../../components/Landing/Navbar";
+import Footer from "../../components/Landing/Footer/Footer";
+import Navigation from "../../components/Landing/Navigation/Navigation";
+import HeroCarousel from "../../components/Landing/HeroCarousel/HeroCarousel";
 
-import HeroSection from "../../components/Landing/HeroSection";
-import FeaturesSection from "../../components/Landing/FeatureSection";
-import InfoSection from "../../components/Landing/InfoSection";
-import ContactSection from "../../components/Landing/ContactSection";
+import InfoCard from "../../components/Landing/InfoCard/InfoCard";
+import Contact from "../../components/Landing/Contact/Contact";
+import Features from "../../components/Landing/Features/Features";
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +25,14 @@ const HomePage = () => {
   return (
     <>
       <div>
-        <Navbar toggle={toggle} />
-        <HeroSection />
-        <FeaturesSection />
-        <InfoSection section={restaurantSection} imgStart={false} />
-        <InfoSection section={rentalSection} imgStart={true} />
-        <InfoSection section={hotelSection} imgStart={false} />
-        <InfoSection section={shopSection} imgStart={true} />
-        <ContactSection />
+        <Navigation />
+        <HeroCarousel />
+        <Features />
+        <InfoCard section={restaurantSection} imgStart={false} />
+        <InfoCard section={rentalSection} imgStart={true} />
+        <InfoCard section={hotelSection} imgStart={false} />
+        <InfoCard section={shopSection} imgStart={true} />
+        <Contact />
         <Footer />
       </div>
     </>

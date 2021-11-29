@@ -6,7 +6,7 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 import { useTranslation } from "react-i18next";
 
 import { editItem } from "../../../../redux/cart/cart.actions";
-import { Button } from "../../Button/ButtonElement";
+// import { Button } from "../../Button/ButtonElement";
 
 import RentalEditFormSelects from "../RentalEditFormSelects/RentalEditFormSelects";
 import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
@@ -191,9 +191,9 @@ const RentalEditForm = ({ cartItem, editItem }) => {
               onChangeInput={onChangeInput.bind(this)}
             />
 
-            <Button className="mt-3" variant="primary" type="submit">
+            {/* <Button className="mt-3" variant="primary" type="submit">
               Submit
-            </Button>
+            </Button> */}
           </div>
         </div>
       </Form>
