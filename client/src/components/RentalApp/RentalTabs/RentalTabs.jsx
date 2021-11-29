@@ -11,17 +11,17 @@ const RentalTabs = () => {
       variant="tabs"
       defaultActiveKey="/home"
     >
-      <Nav.Item className="tab-item">
+      <Nav.Item className="tab-item tab-item--border-right">
         <LinkContainer to="/rental/category/ski">
           <Nav.Link className="tab-link">Ski</Nav.Link>
         </LinkContainer>
       </Nav.Item>
-      <Nav.Item className="tab-item">
+      <Nav.Item className="tab-item tab-item--border-right">
         <LinkContainer to="/rental/category/snowboard">
           <Nav.Link className="tab-link">Snowboard</Nav.Link>
         </LinkContainer>
       </Nav.Item>
-      <Nav.Item className="tab-item">
+      <Nav.Item className="tab-item ">
         <LinkContainer to="/rental/category/bike">
           <Nav.Link className="tab-link">Bike</Nav.Link>
         </LinkContainer>

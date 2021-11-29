@@ -23,24 +23,28 @@ const InfoCard = ({ section, imgStart }) => {
     <div className="d-flex justify-content-center mt-5">
       <Card
         id={id}
-        style={{ width: "70rem", border: "1px solid black" }}
+        style={{
+          width: "70rem",
+          border: "1px solid black",
+        }}
         className="shadow"
       >
         <Card.Header
-          // className={imgStart ? "text-end pe-4" : "text-start ps-4"}
           className="ps-3"
           style={{ borderBottom: "2px solid #0000007e" }}
           as="h4"
         >
-          {t(topLine)}
+          <strong>{t(topLine)}</strong>
         </Card.Header>
         <div className={imgStart ? "d-flex" : "d-flex flex-row-reverse"}>
           <Card.Body className="d-flex flex-column justify-content-center">
-            <Card.Title>{t(headline)}</Card.Title>
+            <Card.Title as="h4">{t(headline)}</Card.Title>
             <Card.Text>{t(paragraph1)}</Card.Text>
             <Card.Text>{t(paragraph2)}</Card.Text>
             <div>
-              <Button variant="primary">{t(buttonLabel)}</Button>
+              <Button className="custom-button--warning" variant="warning">
+                {t(buttonLabel)}
+              </Button>
             </div>
           </Card.Body>
           <Image

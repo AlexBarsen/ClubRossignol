@@ -12,7 +12,12 @@ const Navigation = () => {
   const { t } = useTranslation();
 
   return (
-    <Navbar sticky="top" className="d-flex flex-column" expand="xl">
+    <Navbar
+      bg="light"
+      sticky="top"
+      className="d-flex flex-column p-0"
+      expand="xl"
+    >
       <div className="d-flex w-100 justify-content-evenly align-items-center">
         <div style={{ height: "4.5rem" }}>
           <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />

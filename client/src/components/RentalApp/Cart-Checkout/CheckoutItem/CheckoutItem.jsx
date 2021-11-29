@@ -24,7 +24,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     height = null,
     weight = null,
     shoeSize = null,
-    icon,
+    images,
     price,
     experience = null,
     days,
@@ -45,7 +45,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
         <div className="d-flex justify-content-center align-items-center mb-2">
           <Card.Img
             variant="top"
-            src={icon}
+            src={images[0]}
             className="py-2"
             style={{ height: "6rem", width: "6rem" }}
           />

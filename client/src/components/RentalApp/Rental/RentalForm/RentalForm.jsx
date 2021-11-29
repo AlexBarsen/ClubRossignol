@@ -24,7 +24,7 @@ const RentalForm = ({ addItem, item }) => {
     price = null,
     productType,
     adult = null,
-    icon,
+    images,
     prices = null,
   } = item;
 
@@ -98,7 +98,7 @@ const RentalForm = ({ addItem, item }) => {
 
     if (productType === "bike") {
       const orderItem = {
-        icon: icon,
+        images: images,
         name: name,
         price:
           modalInputs.timePeriod === "2h"
@@ -117,7 +117,7 @@ const RentalForm = ({ addItem, item }) => {
       addItem(orderItem);
     } else {
       const orderItem = {
-        icon: icon,
+        images: images,
         name: name,
         price: price,
         id: uuid(),

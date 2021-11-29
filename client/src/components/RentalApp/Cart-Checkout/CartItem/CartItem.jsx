@@ -9,7 +9,9 @@ import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 const CartItem = ({ item, clearItemFromCart }) => {
   const { t } = useTranslation();
 
-  const { icon, price, name, firstName, lastName, days } = item;
+  const { images, price, name, firstName, lastName, days } = item;
+
+  console.log(images);
 
   return (
     <Card style={{ width: "auto" }} className="mb-3">
@@ -36,7 +38,7 @@ const CartItem = ({ item, clearItemFromCart }) => {
         <div className="d-flex flex-column">
           <Card.Img
             className="mb-3"
-            src={icon}
+            src={images[0]}
             style={{ height: "5.5rem", width: "10rem", objectFit: "contain" }}
           />
 

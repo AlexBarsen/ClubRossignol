@@ -71,3 +71,12 @@ $color-red: #bc112d;
   text-decoration: none;
   background-color: $color-white !important;
 }
+
+.custom-button {
+  &--warning {
+    &:hover {
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.05);
+    }
+  }
+}
