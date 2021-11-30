@@ -1,22 +1,28 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { withRouter } from "react-router-dom";
 
 import CartItem from "../CartItem/CartItem";
 
 import CartIcon from "../CartIcon/CartIcon";
-import Offcanvas from "react-bootstrap/Offcanvas";
+import { Offcanvas, Button } from "react-bootstrap";
 
 import {
   selectCartItems,
   selectCartTotal,
 } from "../../../../redux/cart/cart.selectors";
 
-const OffCanvasCart = ({ cartItems, cartTotal, ...props }) => {
+const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
   const [showCanvas, setShowCanvas] = useState(false);
 
   const handleClose = () => setShowCanvas(false);
   const handleShow = () => setShowCanvas(true);
+
+  const goToCheckout = () => {
+    handleClose();
+    history.push("/rental/checkout");
+  };
   return (
     <>
       <CartIcon handleShow={handleShow} />
@@ -34,6 +40,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, ...props }) => {
             <CartItem key={cartItem.id} item={cartItem} />
           ))}
           <div className="h1">Total: {cartTotal} RON</div>
+          <Button onClick={() => goToCheckout()}>Checkout</Button>
         </Offcanvas.Body>
       </Offcanvas>
     </>
@@ -45,4 +52,4 @@ const mapStateToProps = createStructuredSelector({
   cartTotal: selectCartTotal,
 });
 
-export default connect(mapStateToProps)(OffCanvasCart);
+export default withRouter(connect(mapStateToProps)(OffCanvasCart));

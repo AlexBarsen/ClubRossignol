@@ -14,9 +14,9 @@ const InfoCard = ({ section, imgStart }) => {
     paragraph2,
     buttonLabel,
     image,
-    route = null,
-    modal = false,
-    link = null,
+    // route = null,
+    // modal = false,
+    // link = null,
   } = section;
 
   return (

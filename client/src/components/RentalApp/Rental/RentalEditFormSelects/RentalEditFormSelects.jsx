@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import Select from "react-select";
+import Container from "react-bootstrap/Container";
 
 import {
   shoeSizeOptionsAdult,
@@ -44,206 +45,236 @@ const RentalEditFormSelects = ({
   switch (productType) {
     case "boots":
       return (
-        <>
-          <Select
-            placeholder={t("shoeSize_modal")}
-            name="shoeSize"
-            defaultValue={
-              defaultValues.shoeSize
-                ? {
-                    value: defaultValues.shoeSize,
-                    label: defaultValues.shoeSize + " EUR",
-                  }
-                : null
-            }
-            onChange={onChangeInput}
-            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
-            styles={customStyles}
-            isSearchable={false}
-          />
+        <Container className="d-flex justify-content-between p-0">
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("shoeSize_modal")}
+              name="shoeSize"
+              defaultValue={
+                defaultValues.shoeSize
+                  ? {
+                      value: defaultValues.shoeSize,
+                      label: defaultValues.shoeSize + " EUR",
+                    }
+                  : null
+              }
+              onChange={onChangeInput}
+              options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
+              styles={customStyles}
+              isSearchable={false}
+            />
+          </div>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            defaultValue={
-              defaultValues.sex
-                ? {
-                    value: defaultValues.sex,
-                    label: t(defaultValues.sex),
-                  }
-                : null
-            }
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            styles={customStyles}
-            isSearchable={false}
-          />
-        </>
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("sex_modal")}
+              name="sex"
+              defaultValue={
+                defaultValues.sex
+                  ? {
+                      value: defaultValues.sex,
+                      label: t(defaultValues.sex),
+                    }
+                  : null
+              }
+              onChange={onChangeInput}
+              options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+              styles={customStyles}
+              isSearchable={false}
+            />
+          </div>
+        </Container>
       );
     case "skiSnow":
       return (
-        <>
-          <Select
-            placeholder={t("height_modal")}
-            name="height"
-            defaultValue={
-              defaultValues.height
-                ? {
-                    value: defaultValues.height,
-                    label: defaultValues.height + " CM",
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? heightOptionsAdult : heightOptionsChild}
-            isSearchable={false}
-          />
+        <Container className="p-0">
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("height_modal")}
+                name="height"
+                defaultValue={
+                  defaultValues.height
+                    ? {
+                        value: defaultValues.height,
+                        label: defaultValues.height + " CM",
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? heightOptionsAdult : heightOptionsChild}
+                isSearchable={false}
+              />
+            </div>
 
-          <Select
-            placeholder={t("weight_modal")}
-            name="weight"
-            defaultValue={
-              defaultValues.weight
-                ? {
-                    value: defaultValues.weight,
-                    label: defaultValues.weight + " KG",
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? weightOptionsAdult : weightOptionsChild}
-            isSearchable={false}
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("weight_modal")}
+                name="weight"
+                defaultValue={
+                  defaultValues.weight
+                    ? {
+                        value: defaultValues.weight,
+                        label: defaultValues.weight + " KG",
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? weightOptionsAdult : weightOptionsChild}
+                isSearchable={false}
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("experience_modal")}
-            name="experience"
-            defaultValue={
-              defaultValues.experience
-                ? {
-                    value: defaultValues.experience,
-                    label: t(defaultValues.experience),
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={
-              language === "ro" ? experienceOptionsRO : experienceOptionsENG
-            }
-            isSearchable={false}
-          />
+          <Container className="d-flex justify-content-between p-0">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("experience_modal")}
+                name="experience"
+                defaultValue={
+                  defaultValues.experience
+                    ? {
+                        value: defaultValues.experience,
+                        label: t(defaultValues.experience),
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={
+                  language === "ro" ? experienceOptionsRO : experienceOptionsENG
+                }
+                isSearchable={false}
+              />
+            </div>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            defaultValue={
-              defaultValues.sex
-                ? {
-                    value: defaultValues.sex,
-                    label: t(defaultValues.sex),
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            isSearchable={false}
-          />
-        </>
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("sex_modal")}
+                name="sex"
+                defaultValue={
+                  defaultValues.sex
+                    ? {
+                        value: defaultValues.sex,
+                        label: t(defaultValues.sex),
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+                isSearchable={false}
+              />
+            </div>
+          </Container>
+        </Container>
       );
     case "equipment":
       return (
-        <>
-          <Select
-            placeholder={t("height_modal")}
-            name="height"
-            defaultValue={
-              defaultValues.height
-                ? {
-                    value: defaultValues.height,
-                    label: defaultValues.height + " CM",
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? heightOptionsAdult : heightOptionsChild}
-            isSearchable={false}
-          />
+        <Container className="p-0">
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("height_modal")}
+                name="height"
+                defaultValue={
+                  defaultValues.height
+                    ? {
+                        value: defaultValues.height,
+                        label: defaultValues.height + " CM",
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? heightOptionsAdult : heightOptionsChild}
+                isSearchable={false}
+              />
+            </div>
 
-          <Select
-            placeholder={t("weight_modal")}
-            name="weight"
-            defaultValue={
-              defaultValues.weight
-                ? {
-                    value: defaultValues.weight,
-                    label: defaultValues.weight + " KG",
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? weightOptionsAdult : weightOptionsChild}
-            isSearchable={false}
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("weight_modal")}
+                name="weight"
+                defaultValue={
+                  defaultValues.weight
+                    ? {
+                        value: defaultValues.weight,
+                        label: defaultValues.weight + " KG",
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? weightOptionsAdult : weightOptionsChild}
+                isSearchable={false}
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("shoeSize_modal")}
-            name="shoeSize"
-            defaultValue={
-              defaultValues.shoeSize
-                ? {
-                    value: defaultValues.shoeSize,
-                    label: defaultValues.shoeSize + " EUR",
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
-            isSearchable={false}
-          />
+          <Container className="d-flex justify-content-between p-0 mb-3">
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("shoeSize_modal")}
+                name="shoeSize"
+                defaultValue={
+                  defaultValues.shoeSize
+                    ? {
+                        value: defaultValues.shoeSize,
+                        label: defaultValues.shoeSize + " EUR",
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={adult ? shoeSizeOptionsAdult : shoeSizeOptionsChild}
+                isSearchable={false}
+              />
+            </div>
 
-          <Select
-            placeholder={t("experience_modal")}
-            name="experience"
-            defaultValue={
-              defaultValues.experience
-                ? {
-                    value: defaultValues.experience,
-                    label: t(defaultValues.experience),
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={
-              language === "ro" ? experienceOptionsRO : experienceOptionsENG
-            }
-            isSearchable={false}
-          />
+            <div style={{ width: "48%" }}>
+              <Select
+                placeholder={t("experience_modal")}
+                name="experience"
+                defaultValue={
+                  defaultValues.experience
+                    ? {
+                        value: defaultValues.experience,
+                        label: t(defaultValues.experience),
+                      }
+                    : null
+                }
+                styles={customStyles}
+                onChange={onChangeInput}
+                options={
+                  language === "ro" ? experienceOptionsRO : experienceOptionsENG
+                }
+                isSearchable={false}
+              />
+            </div>
+          </Container>
 
-          <Select
-            placeholder={t("sex_modal")}
-            name="sex"
-            defaultValue={
-              defaultValues.sex
-                ? {
-                    value: defaultValues.sex,
-                    label: t(defaultValues.sex),
-                  }
-                : null
-            }
-            styles={customStyles}
-            onChange={onChangeInput}
-            options={language === "ro" ? sexOptionsRO : sexOptionsENG}
-            isSearchable={false}
-          />
-        </>
+          <div style={{ width: "48%" }}>
+            <Select
+              placeholder={t("sex_modal")}
+              name="sex"
+              defaultValue={
+                defaultValues.sex
+                  ? {
+                      value: defaultValues.sex,
+                      label: t(defaultValues.sex),
+                    }
+                  : null
+              }
+              styles={customStyles}
+              onChange={onChangeInput}
+              options={language === "ro" ? sexOptionsRO : sexOptionsENG}
+              isSearchable={false}
+            />
+          </div>
+        </Container>
       );
     case "bike":
       return (

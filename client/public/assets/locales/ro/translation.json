@@ -125,8 +125,8 @@
   "please_log_in": "Pentru a finaliza comanda, vă rugăm logați-vă.",
 
   "account_details": "Detaliile contului",
-  "name": "Nume",
-  "surname": "Prenume",
+  "last_name": "Nume",
+  "first_name": "Prenume",
   "date_of_birth": "Data nasterii",
   "email": "E-Mail",
   "email_verified": "E-Mail confirmat",

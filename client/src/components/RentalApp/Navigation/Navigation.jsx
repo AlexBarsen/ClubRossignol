@@ -7,6 +7,7 @@ import LangaugeDropdown from "../LanguageDropdown/LangaugeDropdown";
 import AccountLinks from "../AccountLinks/AccountLinks";
 import RentalTabs from "../RentalTabs/RentalTabs";
 import Logo from "../../../logos/logo-text-small.png";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const { t } = useTranslation();
@@ -19,16 +20,16 @@ const Navigation = () => {
       expand="xl"
     >
       <div className="d-flex w-100 justify-content-evenly align-items-center">
-        <div style={{ height: "4.5rem" }}>
+        <Link style={{ height: "4.5rem" }} to="/rental">
           <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />
-        </div>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
           id="basic-navbar-nav "
           className="d-flex justify-content-end"
         >
           <Nav className="d-flex align-items-center">
-            <Nav.Link className="me-3 text-navy--dark">
+            <Nav.Link as={Link} className="me-3 text-navy--dark" to="/">
               {t("back_to_website")}
             </Nav.Link>
 

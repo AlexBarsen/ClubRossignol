@@ -11,7 +11,7 @@ const app = express(); // * use express node
 const port = process.env.PORT || 5001; // * select port
 
 app.use(compression());
-
+app.use(express.static("public"));
 app.use(express.json()); // * any of the requests will be converted to JSON
 
 app.use(express.urlencoded({ extended: true })); // * make sure that URL strings do not contain spaces etc.

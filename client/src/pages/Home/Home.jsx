@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   restaurantSection,
@@ -16,12 +16,6 @@ import Contact from "../../components/Landing/Contact/Contact";
 import Features from "../../components/Landing/Features/Features";
 
 const HomePage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <>
       <div>

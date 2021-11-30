@@ -6,11 +6,10 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 import { useTranslation } from "react-i18next";
 
 import { editItem } from "../../../../redux/cart/cart.actions";
-// import { Button } from "../../Button/ButtonElement";
 
 import RentalEditFormSelects from "../RentalEditFormSelects/RentalEditFormSelects";
 import RentalModalInfo from "../RentalFormInfo/RentalFormInfo";
-import { Form, Container, FloatingLabel } from "react-bootstrap";
+import { Form, Container, Button } from "react-bootstrap";
 
 const RentalEditForm = ({ cartItem, editItem }) => {
   useEffect(() => {
@@ -155,33 +154,25 @@ const RentalEditForm = ({ cartItem, editItem }) => {
 
           <div className="d-flex flex-column w-100">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <FloatingLabel
-                controlId="floatingInput"
-                label={t("name")}
-                className="mb-3"
-              >
-                <Form.Control
-                  name="firstName"
-                  type="text"
-                  placeholder="John"
-                  onChange={handleChange}
-                />
-              </FloatingLabel>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <FloatingLabel
-                controlId="floatingInput"
-                label={t("surname")}
-                className="mb-3"
-              >
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control
                   name="lastName"
                   type="text"
-                  placeholder="Snow"
+                  defaultValue={cartItem.lastName}
+                  placeholder={t("last_name")}
                   onChange={handleChange}
+                  required
                 />
-              </FloatingLabel>
+              </Form.Group>
+
+              <Form.Control
+                name="firstName"
+                type="text"
+                defaultValue={cartItem.firstName}
+                placeholder={t("first_name")}
+                onChange={handleChange}
+                required
+              />
             </Form.Group>
 
             <RentalEditFormSelects
@@ -191,9 +182,9 @@ const RentalEditForm = ({ cartItem, editItem }) => {
               onChangeInput={onChangeInput.bind(this)}
             />
 
-            {/* <Button className="mt-3" variant="primary" type="submit">
+            <Button className="mt-3" variant="primary" type="submit">
               Submit
-            </Button> */}
+            </Button>
           </div>
         </div>
       </Form>

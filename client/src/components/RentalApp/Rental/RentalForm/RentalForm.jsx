@@ -12,12 +12,12 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 
 import { addItem } from "../../../../redux/cart/cart.actions";
 
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { Container, Form, Button } from "react-bootstrap";
 
-const RentalForm = ({ addItem, item }) => {
-  // const { t } = useTranslation();
+const RentalForm = ({ addItem, item, closeModal }) => {
+  const { t } = useTranslation();
 
   const {
     name,
@@ -131,14 +131,14 @@ const RentalForm = ({ addItem, item }) => {
       addItem(orderItem);
     }
 
+    closeModal();
+
     setModalInputs({
       firstName: "",
       lastName: "",
       timePeriod: "",
     });
   };
-
-  console.log(modalInputs.timePeriod);
 
   return (
     <Container className="p-0">
@@ -169,19 +169,21 @@ const RentalForm = ({ addItem, item }) => {
             <div className="d-flex p-0 mb-3 justify-content-between">
               <Form.Group style={{ width: "48%" }}>
                 <Form.Control
-                  name="firstName"
+                  name="lastName"
                   type="text"
-                  placeholder="First Name"
+                  placeholder={t("last_name")}
                   onChange={handleChange}
+                  required
                 />
               </Form.Group>
 
               <Form.Group style={{ width: "48%" }}>
                 <Form.Control
-                  name="lastName"
+                  name="firstName"
                   type="text"
-                  placeholder="Last Name"
+                  placeholder={t("first_name")}
                   onChange={handleChange}
+                  required
                 />
               </Form.Group>
             </div>

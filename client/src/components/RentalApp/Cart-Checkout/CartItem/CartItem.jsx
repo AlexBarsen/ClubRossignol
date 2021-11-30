@@ -11,8 +11,6 @@ const CartItem = ({ item, clearItemFromCart }) => {
 
   const { images, price, name, firstName, lastName, days } = item;
 
-  console.log(images);
-
   return (
     <Card style={{ width: "auto" }} className="mb-3">
       <div className="d-flex align-items-center">

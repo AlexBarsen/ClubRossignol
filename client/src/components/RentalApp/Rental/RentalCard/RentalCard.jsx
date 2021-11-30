@@ -25,12 +25,12 @@ const RentalCard = ({ item }) => {
   };
 
   const renderModal = () => {
-    setWrappedComponent(<RentalForm item={item} />);
+    setWrappedComponent(
+      <RentalForm item={item} closeModal={() => setModalShow(false)} />
+    );
     setModalTitle(t(item.name));
     setModalShow(true);
   };
-
-  console.log(item);
 
   const { name, price, images } = item;
 
@@ -41,12 +41,6 @@ const RentalCard = ({ item }) => {
         className="shadow"
       >
         <div className="card-image--container">
-          {/* <Card.Img
-            variant="top"
-            src={icon}
-            className="p-3 border border-0 card-image--img"
-          /> */}
-
           {images.length > 1 ? (
             <Carousel
               variant="dark"
@@ -56,7 +50,6 @@ const RentalCard = ({ item }) => {
               indicators={false}
               style={{ height: "15rem" }}
             >
-              {" "}
               {images.map((image, idx) => (
                 <Carousel.Item
                   key={image + idx}

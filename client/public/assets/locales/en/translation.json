@@ -125,8 +125,8 @@
   "please_log_in": "In order the proceed with the payment, please log in",
 
   "account_details": "Account Details",
-  "name": "Last Name",
-  "surname": "First Name",
+  "last_name": "Last Name",
+  "first_name": "First Name",
   "date_of_birth": "Date of birth",
   "email": "E-Mail",
   "email_verified": "E-Mail confirmed",
