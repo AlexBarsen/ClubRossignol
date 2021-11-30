@@ -37,7 +37,7 @@ const RentalCard = ({ item }) => {
   return (
     <>
       <Card
-        style={{ width: "20rem", border: "1px solid #d3d3d3" }}
+        style={{ width: "16rem", border: "1px solid #d3d3d3" }}
         className="shadow"
       >
         <div className="card-image--container">
@@ -48,17 +48,17 @@ const RentalCard = ({ item }) => {
               onSelect={handleSelect}
               interval={null}
               indicators={false}
-              style={{ height: "15rem" }}
+              style={{ height: "12rem" }}
             >
               {images.map((image, idx) => (
                 <Carousel.Item
                   key={image + idx}
                   className="card-image--img"
-                  style={{ height: "15rem", width: "20rem" }}
+                  style={{ height: "12rem", width: "16rem" }}
                 >
                   <img
                     style={{
-                      height: "15rem",
+                      height: "12rem",
                       width: "100%",
                       objectFit: "contain",
                     }}
@@ -100,13 +100,15 @@ const RentalCard = ({ item }) => {
         </ListGroup>
       </Card>
 
-      <DynamicModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        title={modalTitle}
-        size="lg"
-        render={() => wrappedComponent}
-      />
+      {modalShow ? (
+        <DynamicModal
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          title={modalTitle}
+          size="lg"
+          render={() => wrappedComponent}
+        />
+      ) : null}
     </>
   );
 };

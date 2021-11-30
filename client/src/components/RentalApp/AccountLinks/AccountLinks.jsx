@@ -86,13 +86,15 @@ const AccountLinks = ({
         </>
       )}
 
-      <DynamicModal
-        show={!accountModalHidden}
-        onHide={() => toggleAccountModal()}
-        title={modalTitle}
-        size={modalSize}
-        render={() => wrappedComponent}
-      />
+      {!accountModalHidden ? (
+        <DynamicModal
+          show={!accountModalHidden}
+          onHide={() => toggleAccountModal()}
+          title={modalTitle}
+          size={modalSize}
+          render={() => wrappedComponent}
+        />
+      ) : null}
     </>
   );
 };

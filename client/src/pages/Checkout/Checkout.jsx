@@ -4,21 +4,12 @@ import { createStructuredSelector } from "reselect";
 import { useTranslation } from "react-i18next";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-// import StripeButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
 
 import {
   Title,
   CheckoutPageContainer,
   CheckoutPageContent,
   CheckoutItemsContainer,
-  Message,
-  Total,
-  TotalPrice,
-  TotalSpan,
-  TotalItems,
-  CardDetails,
-  CardDetail,
-  CardDetailSpan,
 } from "./CheckoutElements";
 
 import CheckoutForm from "../../components/RentalApp/Stripe/CheckoutForm";
@@ -28,23 +19,58 @@ import {
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
+import Button from "react-bootstrap/Button";
+
 import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/CheckoutItem";
-// import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
-import { selectCurrentUser } from "../../redux/user/user.selectors";
+
+import DynamicModal from "../../components/RentalApp/DynamicModal/DynamicModal";
 
 const stripePromise = loadStripe(
   "pk_test_51Ie0jqGu2kcl3ZIO43mlATVgl4kRVDjkclxzqHpH5oyTVDBS2UZbFpM32kSqlS7dsXzR6owuqFoXlXVjf6Yaq34000QJFmKJIr"
 );
 
-const CheckoutPage = ({ cartItems, total, currentUser }) => {
+const CheckoutPage = ({ cartItems, total }) => {
   const { t } = useTranslation();
+  const [clientSecret, setClientSecret] = useState("");
+
+  const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState(null);
+  const [wrappedComponent, setWrappedComponent] = useState(null);
+
+  const renderModal = () => {
+    setWrappedComponent(
+      <Elements options={options} stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>
+    );
+    setModalTitle("Payment");
+    setModalShow(true);
+  };
+
+  useEffect(() => {
+    fetch("/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ amount: total * 100 }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, [total]);
+
+  const appearance = {
+    theme: "stripe",
+  };
+
+  const options = {
+    clientSecret,
+    appearance,
+  };
 
   return (
     <>
       <CheckoutPageContainer>
         <CheckoutPageContent>
           <Title>{t("cart_items")}:</Title>
-
           <CheckoutItemsContainer>
             {cartItems.map((cartItem, index) => (
               <CheckoutItem
@@ -55,54 +81,16 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
             ))}
           </CheckoutItemsContainer>
 
-          {/* {cartItems.length ? null : <Message>{t("cart_message")}</Message>} */}
-
-          {/* {total ? (
-            <Total>
-              <TotalPrice>
-                <TotalSpan>Total:</TotalSpan> {total} RON
-              </TotalPrice>
-              <TotalItems>
-                There are <TotalSpan>{cartItems.length}</TotalSpan> products in
-                your cart
-              </TotalItems>
-            </Total>
+          {modalShow ? (
+            <DynamicModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              title={modalTitle}
+              render={() => wrappedComponent}
+            />
           ) : null}
 
-          {clientSecret && (
-            <Elements options={options} stripe={stripePromise}>
-              <StripeCheckoutButton />
-            </Elements>
-          )} */}
-
-          {/* {currentUser ? (
-            cartItems.length ? (
-              <>
-                <StripeCheckoutButton price={total} cartItems={cartItems} />
-                <CardDetails>
-                  <CardDetail>
-                    <CardDetailSpan>Test Card:</CardDetailSpan> 4242 4242 4242
-                    4242
-                  </CardDetail>
-                  <CardDetail>
-                    <CardDetailSpan>Exp. Date:</CardDetailSpan> 01/22
-                  </CardDetail>
-                  <CardDetail>
-                    <CardDetailSpan>CVC:</CardDetailSpan> 123
-                  </CardDetail>
-                </CardDetails>
-              </>
-            ) : (
-              <Message>{t("cart_message")}</Message>
-            )
-          ) : cartItems.length ? (
-            <Message>{t("please_log_in")}</Message>
-          ) : (
-            <Message>{t("cart_message")}</Message>
-          )} */}
-          <Elements stripe={stripePromise}>
-            <CheckoutForm />
-          </Elements>
+          <Button onClick={() => renderModal()}>Pay</Button>
         </CheckoutPageContent>
       </CheckoutPageContainer>
     </>
@@ -113,7 +101,6 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
-  currentUser: selectCurrentUser,
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

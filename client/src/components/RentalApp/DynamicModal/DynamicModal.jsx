@@ -3,6 +3,8 @@ import Modal from "react-bootstrap/Modal";
 const DynamicModal = ({ render, size, title, ...props }) => {
   const WrappedComponent = render;
 
+  console.log("rendering");
+
   return (
     <Modal
       {...props}
@@ -15,7 +17,7 @@ const DynamicModal = ({ render, size, title, ...props }) => {
           <span className="h4">{title}</span>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="d-flex justify-content-center">
         <WrappedComponent />
       </Modal.Body>
     </Modal>
