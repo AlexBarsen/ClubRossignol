@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { useTranslation } from "react-i18next";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+// import StripeButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
 
 import {
   Title,
@@ -18,14 +21,20 @@ import {
   CardDetailSpan,
 } from "./CheckoutElements";
 
+import CheckoutForm from "../../components/RentalApp/Stripe/CheckoutForm";
+
 import {
   selectCartItems,
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
 import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/CheckoutItem";
-import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
+// import StripeCheckoutButton from "../../components/RentalApp/Cart-Checkout/StripeButton/index";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+
+const stripePromise = loadStripe(
+  "pk_test_51Ie0jqGu2kcl3ZIO43mlATVgl4kRVDjkclxzqHpH5oyTVDBS2UZbFpM32kSqlS7dsXzR6owuqFoXlXVjf6Yaq34000QJFmKJIr"
+);
 
 const CheckoutPage = ({ cartItems, total, currentUser }) => {
   const { t } = useTranslation();
@@ -48,7 +57,7 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
 
           {/* {cartItems.length ? null : <Message>{t("cart_message")}</Message>} */}
 
-          {total ? (
+          {/* {total ? (
             <Total>
               <TotalPrice>
                 <TotalSpan>Total:</TotalSpan> {total} RON
@@ -60,7 +69,13 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
             </Total>
           ) : null}
 
-          {currentUser ? (
+          {clientSecret && (
+            <Elements options={options} stripe={stripePromise}>
+              <StripeCheckoutButton />
+            </Elements>
+          )} */}
+
+          {/* {currentUser ? (
             cartItems.length ? (
               <>
                 <StripeCheckoutButton price={total} cartItems={cartItems} />
@@ -84,7 +99,10 @@ const CheckoutPage = ({ cartItems, total, currentUser }) => {
             <Message>{t("please_log_in")}</Message>
           ) : (
             <Message>{t("cart_message")}</Message>
-          )}
+          )} */}
+          <Elements stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
         </CheckoutPageContent>
       </CheckoutPageContainer>
     </>

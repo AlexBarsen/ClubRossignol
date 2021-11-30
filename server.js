@@ -6,17 +6,16 @@ const cors = require("cors");
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+console.log(stripe.paymentIntents);
 
 const app = express(); // * use express node
 const port = process.env.PORT || 5001; // * select port
 
 app.use(compression());
 app.use(express.static("public"));
-app.use(express.json()); // * any of the requests will be converted to JSON
-
-app.use(express.urlencoded({ extended: true })); // * make sure that URL strings do not contain spaces etc.
-
-app.use(cors()); // * check's to make sure that origin is the same (safety feature)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
@@ -26,20 +25,29 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.post("/rental/payment", (req, res) => {
-  const body = {
-    source: req.body.token.id,
+app.post("/create-payment-intent", async (req, res) => {
+  // const body = {
+  //   source: req.body.token.id,
+  //   amount: req.body.amount,
+  //   currency: "ron",
+  // };
+
+  const paymentIntent = await stripe.paymentIntents.create({
     amount: req.body.amount,
     currency: "ron",
-  };
-
-  stripe.charges.create(body, (stripeErr, stripeRes) => {
-    if (stripeErr) {
-      res.status(500).send({ error: stripeErr });
-    } else {
-      res.status(200).send({ success: stripeRes });
-    }
   });
+
+  res.status(200).send({
+    clientSecret: paymentIntent.client_secret,
+  });
+
+  // stripe.charges.create(body, (stripeErr, stripeRes) => {
+  //   if (stripeErr) {
+  //     res.status(500).send({ error: stripeErr });
+  //   } else {
+  //     res.status(200).send({ success: stripeRes });
+  //   }
+  // });
 });
 
 app.listen(port, (error) => {
