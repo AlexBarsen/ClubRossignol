@@ -29,7 +29,7 @@ const stripePromise = loadStripe(
   "pk_test_51Ie0jqGu2kcl3ZIO43mlATVgl4kRVDjkclxzqHpH5oyTVDBS2UZbFpM32kSqlS7dsXzR6owuqFoXlXVjf6Yaq34000QJFmKJIr"
 );
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems }) => {
   const { t } = useTranslation();
   const [clientSecret, setClientSecret] = useState("");
 
@@ -40,7 +40,7 @@ const CheckoutPage = ({ cartItems, total }) => {
   const renderModal = () => {
     setWrappedComponent(
       <Elements options={options} stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm onHide={() => setModalShow(false)} />
       </Elements>
     );
     setModalTitle("Payment");
@@ -51,11 +51,11 @@ const CheckoutPage = ({ cartItems, total }) => {
     fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: total * 100 }),
+      body: JSON.stringify({ items: cartItems }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-  }, [total]);
+  }, [cartItems]);
 
   const appearance = {
     theme: "stripe",

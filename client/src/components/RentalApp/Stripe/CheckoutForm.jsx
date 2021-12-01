@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import {
   PaymentElement,
   useStripe,
@@ -7,9 +9,19 @@ import {
 
 import "./CheckoutForm.scss";
 
-import { Row, FormControl, InputGroup } from "react-bootstrap";
+import {
+  addCollectionAndDocuments,
+  getOrderCounter,
+  incrementOrderNumber,
+  clearFirebaseCart,
+} from "../../../firebase/firebase.utils";
+import { selectCurrentUser } from "../../../redux/user/user.selectors";
 
-const CheckoutForm = () => {
+import { Row, FormControl, InputGroup } from "react-bootstrap";
+import { selectCartItems } from "../../../redux/cart/cart.selectors";
+import { clearCart } from "../../../redux/cart/cart.actions";
+
+const CheckoutForm = ({ currentUser, cartItems, clearCart, onHide }) => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -24,6 +36,8 @@ const CheckoutForm = () => {
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
+
+    console.log(clientSecret);
 
     if (!clientSecret) {
       return;
@@ -66,23 +80,51 @@ const CheckoutForm = () => {
 
     setIsLoading(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
-        return_url: "http://localhost:3000",
-        payment_method_data: {
-          billing_details: billingDetails,
+    stripe
+      .confirmPayment({
+        elements,
+        redirect: "if_required",
+        confirmParams: {
+          return_url: "http://localhost:3000/rental/payment-successfull",
+          payment_method_data: {
+            billing_details: billingDetails,
+          },
         },
-      },
-    });
+      })
+      .then((response) => {
+        if (response.paymentIntent) {
+          getOrderCounter().then((orderNumber) => {
+            const order = [
+              {
+                userID: currentUser.id,
+                orderNumber: orderNumber,
+                userEmail: currentUser.email,
+                status: "received",
+                orderedItems: cartItems,
+                orderedAt: new Date(),
+              },
+            ];
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
-    } else {
-      setMessage("An unexpected error occured.");
-    }
+            incrementOrderNumber();
+            addCollectionAndDocuments("orders", order);
+            clearFirebaseCart(currentUser.id);
+            clearCart();
+          });
 
-    setIsLoading(false);
+          setIsLoading(false);
+          onHide();
+        } else if (response.error) {
+          if (
+            response.error.type === "card_error" ||
+            response.error.type === "validation_error"
+          ) {
+            setMessage(response.error.message);
+          } else {
+            setMessage("An unexpected error occured.");
+          }
+          setIsLoading(false);
+        }
+      });
   };
 
   return (
@@ -132,4 +174,12 @@ const CheckoutForm = () => {
   );
 };
 
-export default CheckoutForm;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  cartItems: selectCartItems,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  clearCart: () => dispatch(clearCart()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutForm);

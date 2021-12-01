@@ -195,7 +195,7 @@ export const getOrderCounter = async () => {
   const currentCount = await ordersCounterRef.get();
   const data = currentCount.data();
   const { counter } = data;
-  console.log(counter);
+
   return counter;
 };
 
@@ -205,6 +205,16 @@ export const incrementOrderNumber = async () => {
   const increment = firebase.firestore.FieldValue.increment(1);
 
   await ordersCounterRef.update({ counter: increment });
+};
+
+export const clearFirebaseCart = async (userId) => {
+  const firebaseCartRef = firestore
+    .collection("carts")
+    .where("userId", "==", userId);
+
+  const snapShot = await firebaseCartRef.get();
+
+  await snapShot.docs[0].ref.update({ cartItems: [] });
 };
 
 export default firebase;
