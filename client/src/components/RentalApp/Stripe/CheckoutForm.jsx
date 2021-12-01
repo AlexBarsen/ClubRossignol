@@ -156,7 +156,7 @@ const CheckoutForm = ({ currentUser, cartItems, clearCart, onHide }) => {
           <button
             disabled={isLoading || !stripe || !elements}
             id="submit"
-            className="mt-3"
+            className="pay-button mt-3"
           >
             <span id="button-text">
               {isLoading ? (

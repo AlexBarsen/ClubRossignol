@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
@@ -6,7 +6,8 @@ import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
 import RentalEditForm from "../../Rental/RentalEditForm/RentalEditForm";
 import DynamicModal from "../../DynamicModal/DynamicModal";
-import { Button, Card, ListGroup, Container } from "react-bootstrap/";
+import { Image, Button, Card } from "react-bootstrap/";
+import CheckoutItemsDetails from "../CheckoutItemDetails/CheckoutItemDetails";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const { t } = useTranslation();
@@ -15,23 +16,14 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const [modalTitle, setModalTitle] = useState(null);
   const [wrappedComponent, setWrappedComponent] = useState(null);
 
-  const {
-    productType,
-    name,
-    firstName,
-    lastName,
-    sex = null,
-    height = null,
-    weight = null,
-    shoeSize = null,
-    images,
-    price,
-    experience = null,
-    days,
-    startDate,
-    endDate,
-    timePeriod = null,
-  } = cartItem;
+  const [Cardheight, setCardHeight] = useState(0);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setCardHeight(ref.current.clientHeight);
+  }, []);
+
+  const { name, firstName, lastName, days, price, images } = cartItem;
 
   const renderModal = () => {
     setModalTitle(name);
@@ -40,98 +32,48 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   };
 
   return (
-    <div>
-      <Card style={{ width: "28rem" }} className="h-100">
-        <div className="d-flex justify-content-center align-items-center mb-2">
-          <Card.Img
-            variant="top"
-            src={images[0]}
-            className="py-2"
-            style={{ height: "6rem", width: "6rem" }}
-          />
-          <Card.Title className="d-flex justify-content-center mx-3">
-            {t(name)}
+    <div
+      className="d-flex align-items-center mt-5 shadow"
+      style={{ border: "1px solid black" }}
+    >
+      <div style={{ height: Cardheight }}>
+        <Image
+          style={{ height: "100%", width: "10rem", objectFit: "contain" }}
+          className="p-3"
+          src={images[0]}
+        />
+      </div>
+      <Card
+        className="w-100"
+        ref={ref}
+        style={{ borderTopLeftRadius: "0", borderBottomLeftRadius: "0" }}
+      >
+        <Card.Header as="h4" className="d-flex justify-content-between">
+          <div>{t(name)}</div>
+          <div>{days * price} RON</div>
+        </Card.Header>
+
+        <Card.Body>
+          <Card.Title>
+            {firstName} {lastName}
           </Card.Title>
-        </div>
 
-        <Container className="d-flex justify-content-around">
-          <div style={{ width: "48%" }}>
-            <Card.Header className="border">Personal details</Card.Header>
+          <div className="d-flex mt-3">
+            <CheckoutItemsDetails cartItem={cartItem} />
 
-            <ListGroup.Item>
-              <strong>Person:</strong> {firstName} {lastName}
-            </ListGroup.Item>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <div>
+                <Button onClick={() => renderModal()}>Edit</Button>
+              </div>
 
-            {sex ? (
-              <ListGroup.Item>
-                <strong>Sex:</strong> {t(sex)}
-              </ListGroup.Item>
-            ) : null}
-
-            {height ? (
-              <ListGroup.Item>
-                <strong>{t("height")}:</strong> {height} cm
-              </ListGroup.Item>
-            ) : null}
-
-            {weight ? (
-              <ListGroup.Item>
-                <strong>{t("weight")}:</strong> {weight} kg
-              </ListGroup.Item>
-            ) : null}
-
-            {shoeSize ? (
-              <ListGroup.Item>
-                <strong>{t("shoeSize")}:</strong> {shoeSize}
-              </ListGroup.Item>
-            ) : null}
-
-            {experience ? (
-              <ListGroup.Item>
-                <strong>{t("experience")}:</strong> {t(experience)}
-              </ListGroup.Item>
-            ) : null}
+              <div className="mt-3">
+                <Button onClick={() => clearItemFromCart(cartItem)}>
+                  Delete
+                </Button>
+              </div>
+            </div>
           </div>
-
-          <div style={{ width: "48%" }}>
-            <Card.Header className="border">Reservation Details</Card.Header>
-
-            <ListGroup.Item>
-              <strong>{t("from")}:</strong> {startDate}
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              <strong>{t("to")}:</strong> {endDate}
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              <strong>{t("number_of_days")}:</strong> {days}
-            </ListGroup.Item>
-
-            {productType !== "bike" ? (
-              <ListGroup.Item>
-                <strong>{t("price")}:</strong> {days} x {price} = {days * price}{" "}
-                RON
-              </ListGroup.Item>
-            ) : (
-              <ListGroup.Item>
-                <strong>{t("price")}:</strong> {days}(
-                {timePeriod === "per_day" ? t("days") : t(timePeriod)}) x{price}{" "}
-                = {days * price} RON
-              </ListGroup.Item>
-            )}
-          </div>
-        </Container>
-
-        <div className="d-flex justify-content-around flex-grow-1 align-items-center p-3">
-          <div>
-            <Button onClick={() => renderModal()}>Edit</Button>
-          </div>
-
-          <div>
-            <Button onClick={() => clearItemFromCart(cartItem)}>Delete</Button>
-          </div>
-        </div>
+        </Card.Body>
       </Card>
 
       <DynamicModal

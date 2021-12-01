@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-
-import {
-  Title,
-  CheckoutPageContainer,
-  CheckoutPageContent,
-  CheckoutItemsContainer,
-} from "./CheckoutElements";
 
 import CheckoutForm from "../../components/RentalApp/Stripe/CheckoutForm";
 
@@ -19,7 +12,7 @@ import {
   selectCartTotal,
 } from "../../redux/cart/cart.selectors";
 
-import Button from "react-bootstrap/Button";
+import { Button, Container } from "react-bootstrap";
 
 import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/CheckoutItem";
 
@@ -30,7 +23,7 @@ const stripePromise = loadStripe(
 );
 
 const CheckoutPage = ({ cartItems }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [clientSecret, setClientSecret] = useState("");
 
   const [modalShow, setModalShow] = useState(false);
@@ -68,31 +61,29 @@ const CheckoutPage = ({ cartItems }) => {
 
   return (
     <>
-      <CheckoutPageContainer>
-        <CheckoutPageContent>
-          <Title>{t("cart_items")}:</Title>
-          <CheckoutItemsContainer>
-            {cartItems.map((cartItem, index) => (
-              <CheckoutItem
-                key={cartItem.id}
-                cartItem={cartItem}
-                number={index + 1}
-              />
-            ))}
-          </CheckoutItemsContainer>
-
-          {modalShow ? (
-            <DynamicModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-              title={modalTitle}
-              render={() => wrappedComponent}
+      <div>
+        {/* <div>{t("cart_items")}:</div> */}
+        <Container>
+          {cartItems.map((cartItem, index) => (
+            <CheckoutItem
+              key={cartItem.id}
+              cartItem={cartItem}
+              number={index + 1}
             />
-          ) : null}
+          ))}
+        </Container>
 
-          <Button onClick={() => renderModal()}>Pay</Button>
-        </CheckoutPageContent>
-      </CheckoutPageContainer>
+        {modalShow ? (
+          <DynamicModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            title={modalTitle}
+            render={() => wrappedComponent}
+          />
+        ) : null}
+
+        <Button onClick={() => renderModal()}>Pay</Button>
+      </div>
     </>
   );
 };
