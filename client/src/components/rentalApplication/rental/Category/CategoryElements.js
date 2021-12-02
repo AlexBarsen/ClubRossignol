@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CategoryItems = styled.div`
   display: grid;
-  grid-gap: 3rem;
+  grid-gap: 4rem;
 
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};

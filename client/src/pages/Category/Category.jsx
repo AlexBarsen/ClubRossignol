@@ -11,7 +11,10 @@ const CategoryPage = ({ category }) => {
   const { categoryName, products } = category;
 
   return (
-    <div className="d-flex justify-content-center pt-4">
+    <div className="d-flex flex-column align-items-center justify-content-center mt-4">
+      <div className="h2 mb-4">
+        <strong>{categoryName}</strong>
+      </div>
       <CategoryProductsContainer type={categoryName}>
         {products.map((product) => (
           <EquipmentCard key={product.productID} item={product} />

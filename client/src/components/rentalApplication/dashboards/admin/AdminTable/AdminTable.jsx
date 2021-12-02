@@ -9,8 +9,6 @@ import OrderStatus from "../../ProgressBar/OrderSatus";
 const AdminTable = ({ data }) => {
   const { t } = useTranslation();
 
-  console.log(data);
-
   const columns = useMemo(
     () => [
       {

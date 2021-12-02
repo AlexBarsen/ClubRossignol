@@ -18,7 +18,7 @@ export function* fetchOrdersAsync() {
   try {
     const ordersRef = firestore
       .collection("orders")
-      .where("clientIp", "!=", null);
+      .where("userEmail", "!=", null);
 
     const ordersSnapshot = yield ordersRef.get();
 

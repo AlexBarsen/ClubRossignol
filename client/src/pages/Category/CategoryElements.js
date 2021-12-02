@@ -6,7 +6,7 @@ export const CategoryProductsContainer = styled.div`
   grid-template-columns: ${({ type }) =>
     type === "Bike" ? "repeat(2, 1fr)" : "repeat(3, 1fr)"};
   grid-template-rows: repeat(2, 1fr);
-  gap: 3rem;
+  gap: 4rem;
 
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 `;

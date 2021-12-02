@@ -27,6 +27,10 @@ const AdminTableContainer = ({ orders }) => {
     };
   });
 
+  console.log(orders);
+
+  console.log(transformedOrders);
+
   return (
     <>
       <Container className="w-100 my-5">

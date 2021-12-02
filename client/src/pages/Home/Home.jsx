@@ -5,15 +5,15 @@ import {
   rentalSection,
   hotelSection,
   shopSection,
-} from "../../components/Landing/InfoCard/sections";
+} from "../../components/landing/InfoCard/sections";
 
-import Footer from "../../components/Landing/Footer/Footer";
-import Navigation from "../../components/Landing/Navigation/Navigation";
-import HeroCarousel from "../../components/Landing/HeroCarousel/HeroCarousel";
+import Footer from "../../components/landing/Footer/Footer";
+import Navigation from "../../components/landing/Navigation/Navigation";
+import HeroCarousel from "../../components/landing/HeroCarousel/HeroCarousel";
 
-import InfoCard from "../../components/Landing/InfoCard/InfoCard";
-import Contact from "../../components/Landing/Contact/Contact";
-import Features from "../../components/Landing/Features/Features";
+import InfoCard from "../../components/landing/InfoCard/InfoCard";
+import Contact from "../../components/landing/Contact/Contact";
+import Features from "../../components/landing/Features/Features";
 
 const HomePage = () => {
   return (

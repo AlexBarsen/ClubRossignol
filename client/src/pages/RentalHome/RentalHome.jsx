@@ -23,7 +23,9 @@ const RentalHomePage = () => {
 
       <Steps />
 
-      <h2 className="text-center mt-5">Lista preturi</h2>
+      <div className="text-center mt-5 h2">
+        <strong>Lista preturi</strong>
+      </div>
       <div className="d-flex justify-content-around mt-4">
         <div>
           <WinterPricesTable />
@@ -34,8 +36,8 @@ const RentalHomePage = () => {
         </div>
       </div>
 
-      <div className="mt-5">
-        <div className="mb-5 h3 text-center">
+      <div className="mt-5 px-5 mb-4">
+        <div className="mb-5 h2 text-center">
           <strong>Frequently asked questions</strong>
         </div>
 

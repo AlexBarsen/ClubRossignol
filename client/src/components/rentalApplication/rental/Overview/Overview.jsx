@@ -9,7 +9,7 @@ import Category from "../Category/Category";
 const RentalOverview = ({ rentalsArray }) => {
   return (
     <>
-      <div className="pt-4">
+      <div className="mt-4">
         {rentalsArray.map(({ id, categoryName, products }) => (
           <Category key={id} products={products} categoryName={categoryName} />
         ))}

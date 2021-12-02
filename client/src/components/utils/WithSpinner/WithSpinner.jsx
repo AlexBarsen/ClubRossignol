@@ -1,11 +1,11 @@
 import React from "react";
-import Spinner from "../../Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 
 import {
   ErrorImageOverlay,
   ErrorImageContainer,
   ErrorImageText,
-} from "./WithSpinnerElements";
+} from "./WithSinnerElements";
 
 // * HOC (Higher Order Component) which renders a "Spinner"
 // * until the data finishes fetching from Firestore

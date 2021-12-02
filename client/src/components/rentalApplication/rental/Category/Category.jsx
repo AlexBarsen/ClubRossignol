@@ -8,7 +8,9 @@ const Category = ({ categoryName, products }) => {
   return (
     <>
       <div className="d-flex flex-column justify-content-center align-items-center">
-        <div>{categoryName}</div>
+        <div className="h2 mb-5">
+          <strong>{categoryName}</strong>
+        </div>
         <CategoryItems type={categoryName}>
           {products.map((item) => (
             <EquipmentCard key={item.id} item={item} />
