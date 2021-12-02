@@ -6,7 +6,7 @@ import { createStructuredSelector } from "reselect";
 import { selectOrders } from "../../redux/order/order.selectors";
 import { fetchOrdersStart } from "../../redux/order/order.actions";
 
-import AdminTableContainer from "../../components/RentalApp/Admin/AdminTableContainer/AdminTableContainer";
+import AdminTableContainer from "../../components/rentalApplication/dashboards/admin/AdminTableContainer/AdminTableContainer";
 
 const AdminPage = ({ fetchOrdersStart }) => {
   useEffect(() => {

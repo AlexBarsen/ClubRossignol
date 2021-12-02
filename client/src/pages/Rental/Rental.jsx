@@ -5,30 +5,28 @@ import { Route, Switch } from "react-router-dom";
 
 import { Toast } from "./RentaElements";
 
-import Navigation from "../../components/RentalApp/Navigation/Navigation";
+import NavigationBar from "../../components/rentalApplication/navigation/NavigationBar/NavigationBar";
 
 import { fetchRentalsStart } from "../../redux/rental/rental.actions";
 
-import ProtectedRoute from "../../components/Routes/ProtectedRoute";
-import PrivateRoute from "../../components/Routes/PrivateRoute";
+import ProtectedRoute from "../../components/routing/ProtectedRoute/ProtectedRoute";
+import PrivateRoute from "../../components/routing/PrivateRoute/PrivateRoute";
 
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import { checkUserSession } from "../../redux/user/user.actions";
 
-import Spinner from "../../components/Spinner/Spinner";
+import Spinner from "../../components/utils/Spinner/Spinner";
 
-import ErrorBoundary from "../../components/ErrorBoundary/index";
+import ErrorBoundary from "../../components/utils/ErrorBoundry/ErrorBoundry";
 
 const CheckoutPage = lazy(() => import("../Checkout/Checkout"));
 const RentalHomePage = lazy(() => import("../RentalHome/RentalHome"));
 const DashboardPage = lazy(() => import("../UserDashboard/UserDashboard"));
 const AdminPage = lazy(() => import("../Admin/Admin"));
-const RentalOverviewContainer = lazy(() =>
-  import(
-    "../../components/RentalApp/Rental/RentalOverview/RentalOverviewContainer"
-  )
+const OverviewContainer = lazy(() =>
+  import("../../components/rentalApplication/rental/Overview/OverviewContainer")
 );
 const CategoryPageContainer = lazy(() =>
   import("../Category/CategoryContainer")
@@ -56,7 +54,7 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
     <div style={{ maxWidth: "1400px" }} className="m-auto">
-      <Navigation toggle={toggle} />
+      <NavigationBar toggle={toggle} />
 
       <Switch>
         <ErrorBoundary>
@@ -66,7 +64,7 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
             <Route
               exact
               path={`${match.path}/rentals`}
-              component={RentalOverviewContainer}
+              component={OverviewContainer}
             />
 
             <Route

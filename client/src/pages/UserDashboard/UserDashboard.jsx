@@ -6,9 +6,9 @@ import { createStructuredSelector } from "reselect";
 import { fetchUserOrdersStart } from "../../redux/user/user.actions";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-import OrdersContainer from "../../components/RentalApp/User/Orders/OrdersContainer";
+import OrdersContainer from "../../components/rentalApplication/dashboards/user/Orders/OrdersContainer";
 
-import UserInformationContainer from "../../components/RentalApp/User/UserInformation/UserIonformationContainer";
+import UserInformationContainer from "../../components/rentalApplication/dashboards/user/UserInformation/UserIonformationContainer";
 
 const UserDashboardPage = ({ currentUser, fetchUserOrdersStart }) => {
   useEffect(() => {

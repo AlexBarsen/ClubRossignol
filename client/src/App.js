@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Spinner from "./components/Spinner/Spinner";
+import Spinner from "./components/utils/Spinner/Spinner";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const RentalPage = lazy(() => import("./pages/Rental/Rental"));

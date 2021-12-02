@@ -1,14 +1,14 @@
 import React from "react";
-import RentalFAQ from "../../components/RentalApp/Rental/RentalFAQ/RentalFAQ";
+import FrequenltyAskedQuestions from "../../components/rentalApplication/home/FrequentlyAskedQuestions/FrequentlyAkedQuestions";
 
-import RentalSteps from "../../components/RentalApp/RentalSteps/RentalSteps";
+import Steps from "../../components/rentalApplication/home/Steps/Steps";
 import {
   WinterPricesTable,
   BikePricesTable,
-} from "../../components/RentalApp/PricesTable/PricesTable";
+} from "../../components/rentalApplication/home/PricesTable/PricesTable";
 import { Image } from "react-bootstrap";
 
-const RentalHome = () => {
+const RentalHomePage = () => {
   return (
     <>
       <div className="h4 text-center my-5">
@@ -21,7 +21,7 @@ const RentalHome = () => {
         </div>
       </div>
 
-      <RentalSteps />
+      <Steps />
 
       <h2 className="text-center mt-5">Lista preturi</h2>
       <div className="d-flex justify-content-around mt-4">
@@ -40,11 +40,11 @@ const RentalHome = () => {
         </div>
 
         <ol>
-          <RentalFAQ />
+          <FrequenltyAskedQuestions />
         </ol>
       </div>
     </>
   );
 };
 
-export default RentalHome;
+export default RentalHomePage;

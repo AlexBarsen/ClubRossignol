@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import CheckoutForm from "../../components/RentalApp/Stripe/CheckoutForm";
+import CheckoutForm from "../../components/rentalApplication/checkout/CheckoutForm/CheckoutForm";
 
 import {
   selectCartItems,
@@ -14,9 +14,9 @@ import {
 
 import { Button, Container } from "react-bootstrap";
 
-import CheckoutItem from "../../components/RentalApp/Cart-Checkout/CheckoutItem/CheckoutItem";
+import CheckoutItem from "../../components/rentalApplication/checkout/CheckoutItem/CheckoutItem";
 
-import DynamicModal from "../../components/RentalApp/DynamicModal/DynamicModal";
+import DynamicModal from "../../components/utils/DynamicModal/DynamicModal";
 
 const stripePromise = loadStripe(
   "pk_test_51Ie0jqGu2kcl3ZIO43mlATVgl4kRVDjkclxzqHpH5oyTVDBS2UZbFpM32kSqlS7dsXzR6owuqFoXlXVjf6Yaq34000QJFmKJIr"
@@ -62,7 +62,6 @@ const CheckoutPage = ({ cartItems }) => {
   return (
     <>
       <div>
-        {/* <div>{t("cart_items")}:</div> */}
         <Container>
           {cartItems.map((cartItem, index) => (
             <CheckoutItem
