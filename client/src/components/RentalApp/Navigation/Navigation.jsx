@@ -13,36 +13,38 @@ const Navigation = () => {
   const { t } = useTranslation();
 
   return (
-    <Navbar
-      bg="light"
-      sticky="top"
-      className="d-flex flex-column p-0"
-      expand="xl"
-    >
-      <div className="d-flex w-100 justify-content-evenly align-items-center">
-        <Link style={{ height: "4.5rem" }} to="/rental">
-          <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />
-        </Link>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse
-          id="basic-navbar-nav "
-          className="d-flex justify-content-end"
-        >
-          <Nav className="d-flex align-items-center">
-            <Nav.Link as={Link} className="me-3 text-navy--dark" to="/">
-              {t("back_to_website")}
-            </Nav.Link>
+    <>
+      <Navbar
+        bg="light"
+        sticky="top"
+        className="d-flex flex-column p-0"
+        expand="xl"
+        style={{ borderBottom: "1px solid black" }}
+      >
+        <div className="d-flex w-100 justify-content-evenly align-items-center">
+          <Link style={{ height: "4.5rem" }} to="/rental">
+            <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />
+          </Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse
+            id="basic-navbar-nav "
+            className="d-flex justify-content-end"
+          >
+            <Nav className="d-flex align-items-center">
+              <Nav.Link as={Link} className="me-3 text-navy--dark" to="/">
+                {t("back_to_website")}
+              </Nav.Link>
 
-            <AccountLinks />
-            <LangaugeDropdown />
-          </Nav>
-        </Navbar.Collapse>
+              <AccountLinks />
+              <LangaugeDropdown />
+            </Nav>
+          </Navbar.Collapse>
 
-        <OffCanvasCart key={1} placement="end" />
-      </div>
-
+          <OffCanvasCart key={1} placement="end" />
+        </div>
+      </Navbar>
       <RentalTabs />
-    </Navbar>
+    </>
   );
 };
 
