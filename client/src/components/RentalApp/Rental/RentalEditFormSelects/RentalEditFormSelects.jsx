@@ -20,7 +20,7 @@ import {
 } from "../RentalForm/options";
 
 const RentalEditFormSelects = ({
-  productType,
+  type,
   adult,
   onChangeInput,
   defaultValues,
@@ -42,7 +42,7 @@ const RentalEditFormSelects = ({
 
   const language = useTranslation().i18n.language;
 
-  switch (productType) {
+  switch (type) {
     case "boots":
       return (
         <Container className="d-flex justify-content-between p-0">

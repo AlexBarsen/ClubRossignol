@@ -45,7 +45,7 @@ const RestaurantMenu = ({ restaurantMenu }) => {
           <MenuContainer>
             {menuItems
               ? menuItems.map((item) => (
-                  <RestaurantItem key={item.productID} item={item} />
+                  <RestaurantItem key={item.id} item={item} />
                 ))
               : null}
           </MenuContainer>

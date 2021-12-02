@@ -8,6 +8,7 @@ import AccountLinks from "../AccountLinks/AccountLinks";
 import RentalTabs from "../RentalTabs/RentalTabs";
 import Logo from "../../../logos/logo-text-small.png";
 import { Link } from "react-router-dom";
+import CategoryLinks from "../Rental/CategoryLinks/CategoryLinks";
 
 const Navigation = () => {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ const Navigation = () => {
   return (
     <>
       <Navbar
+        variant="light"
         bg="light"
         sticky="top"
         className="d-flex flex-column p-0"
@@ -31,11 +33,14 @@ const Navigation = () => {
             className="d-flex justify-content-end"
           >
             <Nav className="d-flex align-items-center">
-              <Nav.Link as={Link} className="me-3 text-navy--dark" to="/">
+              <Nav.Link as={Link} className="me-3 " to="/">
                 {t("back_to_website")}
               </Nav.Link>
 
+              <CategoryLinks />
+
               <AccountLinks />
+
               <LangaugeDropdown />
             </Nav>
           </Navbar.Collapse>
@@ -43,7 +48,7 @@ const Navigation = () => {
           <OffCanvasCart key={1} placement="end" />
         </div>
       </Navbar>
-      <RentalTabs />
+      {/* <RentalTabs /> */}
     </>
   );
 };

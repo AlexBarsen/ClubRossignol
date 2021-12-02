@@ -22,7 +22,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
   const {
     name,
     price = null,
-    productType,
+    type,
     adult = null,
     images,
     prices = null,
@@ -96,7 +96,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (productType === "bike") {
+    if (type === "bike") {
       const orderItem = {
         images: images,
         name: name,
@@ -107,7 +107,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
             ? prices[1]
             : prices[2],
         id: uuid(),
-        productType: productType,
+        type: type,
         ...modalInputs,
         startDate: dateRange.startDate.toLocaleDateString(),
         endDate: dateRange.endDate.toLocaleDateString(),
@@ -121,7 +121,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
         name: name,
         price: price,
         id: uuid(),
-        productType: productType,
+        type: type,
         ...modalInputs,
         startDate: dateRange.startDate.toLocaleDateString(),
         endDate: dateRange.endDate.toLocaleDateString(),
@@ -145,7 +145,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
           <div className="me-2">
-            {productType === "bike" && modalInputs.timePeriod !== "1d+" ? (
+            {type === "bike" && modalInputs.timePeriod !== "1d+" ? (
               <Calendar
                 onChange={handleSelectDate}
                 editableDateInputs={false}
@@ -189,7 +189,7 @@ const RentalForm = ({ addItem, item, closeModal }) => {
             </div>
 
             <RentalFormSelects
-              productType={productType}
+              type={type}
               adult={adult}
               onChangeInput={onChangeInput.bind(this)}
             />

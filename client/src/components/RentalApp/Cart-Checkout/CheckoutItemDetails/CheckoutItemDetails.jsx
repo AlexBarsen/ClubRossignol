@@ -6,7 +6,7 @@ import { Card, ListGroup, Container, Col, Row } from "react-bootstrap";
 const CheckoutItemDetails = ({ cartItem }) => {
   const { t } = useTranslation();
   const {
-    productType,
+    type,
     sex = null,
     height = null,
     weight = null,
@@ -21,7 +21,7 @@ const CheckoutItemDetails = ({ cartItem }) => {
 
   return (
     <>
-      {productType !== "bike" ? (
+      {type !== "bike" ? (
         <Container className="p-0">
           <Row>
             <Col>
@@ -92,7 +92,7 @@ const CheckoutItemDetails = ({ cartItem }) => {
             <ListGroup.Item>
               <strong>{t("number_of_days")}:</strong> {days}
             </ListGroup.Item>
-            {productType !== "bike" ? (
+            {type !== "bike" ? (
               <ListGroup.Item>
                 <strong>{t("price")}:</strong> {price} / day
               </ListGroup.Item>

@@ -132,7 +132,7 @@ const RentalEditForm = ({ cartItem, editItem }) => {
       <Form onSubmit={handleSubmit}>
         <div className="d-flex">
           <div className="">
-            {item.productType === "bike" && item.timePeriod !== "1d+" ? (
+            {item.type === "bike" && item.timePeriod !== "1d+" ? (
               <Calendar
                 onChange={handleSelectDate}
                 editableDateInputs={false}
@@ -178,7 +178,7 @@ const RentalEditForm = ({ cartItem, editItem }) => {
             <RentalEditFormSelects
               defaultValues={defaultValues}
               adult={cartItem.adult}
-              productType={cartItem.productType}
+              type={cartItem.type}
               onChangeInput={onChangeInput.bind(this)}
             />
 

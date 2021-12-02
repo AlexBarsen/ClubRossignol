@@ -25,7 +25,7 @@ const Select = (props) => (
   <FixRequiredSelect {...props} SelectComponent={BaseSelect} />
 );
 
-const RentalFormSelects = ({ productType, adult, onChangeInput }) => {
+const RentalFormSelects = ({ type, adult, onChangeInput }) => {
   const { t } = useTranslation();
 
   // * <Select> custom styles
@@ -43,7 +43,7 @@ const RentalFormSelects = ({ productType, adult, onChangeInput }) => {
 
   const language = useTranslation().i18n.language;
 
-  switch (productType) {
+  switch (type) {
     case "boots":
       return (
         <Container className="d-flex justify-content-between p-0">
