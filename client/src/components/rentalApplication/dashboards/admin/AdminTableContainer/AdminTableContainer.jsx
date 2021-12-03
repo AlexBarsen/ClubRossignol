@@ -12,6 +12,7 @@ import { selectOrders } from "../../../../../redux/order/order.selectors";
 import AdminTable from "../AdminTable/AdminTable";
 import WithSpinner from "../../../../utils/WithSpinner/WithSpinner";
 import Container from "react-bootstrap/Container";
+import EnhancedTable from "../AdminTable/AdminTable";
 
 const AdminTableContainer = ({ orders }) => {
   const transformedOrders = orders.map((order) => {
@@ -26,10 +27,6 @@ const AdminTableContainer = ({ orders }) => {
       orderNumber: "#" + order.orderNumber,
     };
   });
-
-  console.log(orders);
-
-  console.log(transformedOrders);
 
   return (
     <>

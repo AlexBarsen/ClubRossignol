@@ -56,12 +56,8 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 {orderedItems.map((item) => (
-                  <Nav.Item className="tab-item mb-2">
-                    <Nav.Link
-                      key={item.id}
-                      eventKey={item.id}
-                      className="tab-link"
-                    >
+                  <Nav.Item className="tab-item mb-2" key={item.id}>
+                    <Nav.Link eventKey={item.id} className="tab-link">
                       {t(item.name)}
                     </Nav.Link>
                   </Nav.Item>
@@ -71,12 +67,8 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
             <Col sm={9}>
               <Tab.Content>
                 {orderedItems.map((item) => (
-                  <Tab.Pane eventKey={item.id}>
-                    <TabItem
-                      key={item.id}
-                      item={item}
-                      status={row.original.status}
-                    />
+                  <Tab.Pane eventKey={item.id} key={item.id}>
+                    <TabItem item={item} status={row.original.status} />
                   </Tab.Pane>
                 ))}
               </Tab.Content>

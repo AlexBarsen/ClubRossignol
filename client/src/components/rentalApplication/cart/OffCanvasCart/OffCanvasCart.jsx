@@ -6,7 +6,8 @@ import { withRouter } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
 
 import CartIcon from "../CartIcon/CartIcon";
-import { Offcanvas, Button } from "react-bootstrap";
+import { Offcanvas } from "react-bootstrap";
+import Button from "@mui/material/Button";
 
 import {
   selectCartItems,
@@ -27,7 +28,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
     <>
       <CartIcon handleShow={handleShow} />
       <Offcanvas
-        style={{ width: "32rem" }}
+        style={{ width: "32rem", backgroundColor: "#F9F9F6" }}
         show={showCanvas}
         onHide={handleClose}
         placement="end"
@@ -39,8 +40,17 @@ const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} item={cartItem} />
           ))}
-          <div className="h1">Total: {cartTotal} RON</div>
-          <Button onClick={() => goToCheckout()}>Checkout</Button>
+          <div className="mt-4 d-flex justify-content-between align-items-center">
+            <div className="h2 m-0">Total: {cartTotal} RON</div>
+
+            <Button
+              className="custom-button custom-button--blue"
+              variant="contained"
+              onClick={() => goToCheckout()}
+            >
+              Go To Checkout
+            </Button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

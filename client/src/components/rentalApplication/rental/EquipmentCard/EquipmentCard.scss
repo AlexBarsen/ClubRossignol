@@ -1,12 +1,48 @@
-.card-image {
-  &--container {
-    display: flex;
-    justify-content: center;
+@import "../../../../scss/variables";
+
+.equipmentCard {
+  width: 18rem;
+  border: none !important;
+
+  &-carousel {
     height: 12rem;
+
+    &--item {
+    }
+
+    &--image {
+      width: 100%;
+      object-fit: contain;
+    }
   }
 
-  &--img {
-    height: 100%;
-    width: auto;
+  &-image {
+    height: 12rem;
+
+    &--img {
+      padding: 1rem !important;
+      width: 100%;
+      object-fit: contain;
+    }
   }
+
+  &-body {
+    &--header {
+      height: 2.5rem;
+      // background-color: #38bae91b;
+
+      font-weight: bolder;
+    }
+
+    &--footer {
+      height: 4rem;
+      background-color: $color-blue;
+      color: #fff;
+    }
+  }
+}
+
+.card-shadow {
+  border: 1px solid black !important;
+  box-shadow: 3px 7px 10px 3px #949494 !important  ;
 }

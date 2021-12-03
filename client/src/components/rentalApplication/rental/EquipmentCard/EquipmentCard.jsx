@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import "./EquipmentCard.scss";
 import { useTranslation } from "react-i18next";
+import Button from "@mui/material/Button";
 
-import {
-  Card,
-  ListGroup,
-  ListGroupItem,
-  Button,
-  Carousel,
-} from "react-bootstrap";
+import { Card, Carousel } from "react-bootstrap";
 import DynamicModal from "../../../utils/DynamicModal/DynamicModal";
 import RentalForm from "../RentalForm/RentalForm";
 
@@ -36,68 +31,59 @@ const EquipmentCard = ({ item }) => {
 
   return (
     <>
-      <Card
-        style={{ width: "20rem", border: "1px solid #d3d3d3" }}
-        className="shadow"
-      >
-        <div className="card-image--container">
-          {images.length > 1 ? (
-            <Carousel
-              variant="dark"
-              activeIndex={index}
-              onSelect={handleSelect}
-              interval={null}
-              indicators={false}
-              style={{ height: "12rem" }}
-            >
-              {images.map((image, idx) => (
-                <Carousel.Item
-                  key={image + idx}
-                  className="card-image--img"
-                  style={{ height: "12rem", width: "20rem" }}
-                >
-                  <img
-                    style={{
-                      height: "12rem",
-                      width: "100%",
-                      objectFit: "contain",
-                    }}
-                    className="d-block w-100"
-                    src={image}
-                    alt="Second slide"
-                  />
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          ) : (
+      <Card className="equipmentCard card-shadow">
+        {images.length > 1 ? (
+          <Carousel
+            variant="dark"
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={null}
+            indicators={false}
+            className="equipment-card equipment-card-carousel"
+          >
+            {images.map((image, idx) => (
+              <Carousel.Item
+                key={image + idx}
+                className="equipmentCard equipmentCard-carousel  equipmentCard-carousel--item"
+              >
+                <img
+                  className="d-block w-100  equipmentCard  equipmentCard-carousel  equipmentCard-carousel--image p-3"
+                  src={image}
+                  alt="Second slide"
+                />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <div className="card-image">
             <Card.Img
               variant="top"
               src={images[0]}
-              className="p-3 border border-0 card-image--img"
+              className="p-3 border border-0  equipmentCard  equipmentCard-image  equipmentCard-image--img p-3"
             />
-          )}
-        </div>
-        <Card.Body className="flex-grow-0 p-0">
-          <Card.Header className="d-flex justify-content-center m-0 p-2 border-top border-bottom-0">
+          </div>
+        )}
+
+        <Card.Body className="flex-grow-0 p-0 card-body">
+          <Card.Header className="d-flex justify-content-center m-0 p-2 border-top border-bottom-0  equipmentCard-body--header">
             <span className="mb-0">{t(name)}</span>
           </Card.Header>
-        </Card.Body>
-        <ListGroup className="list-group-flush p-2">
-          <div className="d-flex justify-content-around">
-            <ListGroupItem className="m-0 border border-0">
+
+          <div className="d-flex justify-content-around align-items-center  equipmentCard-body--footer">
+            <div className="m-0 border border-0">
               {price} {t("ron_day")}
-            </ListGroupItem>
+            </div>
             <div className="d-flex align-items-center">
               <Button
-                variant="primary"
-                className="m-0"
+                variant="outlined"
+                className="m-0 custom-button shadow"
                 onClick={() => renderModal()}
               >
                 Alege
               </Button>
             </div>
           </div>
-        </ListGroup>
+        </Card.Body>
       </Card>
 
       {modalShow ? (

@@ -1,0 +1,12 @@
+@import "../../../../scss/variables";
+
+.checkoutCard {
+  border: 1px solid black;
+  &-body {
+    border-right: 1px solid black;
+    &--header {
+      background-color: $color-blue;
+      color: $color-white;
+    }
+  }
+}

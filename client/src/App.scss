@@ -1,9 +1,4 @@
-$color-white: #fff;
-$color-black: #000;
-$color-navy--dark: #2d2e49;
-$color-navy--light: #2d2e49b3;
-$color-red: #bc112d;
-
+@import "../src//scss/variables";
 // #2D2E49 navy
 // #BC112D red
 
@@ -12,54 +7,6 @@ $color-red: #bc112d;
   margin: 0;
   padding: 0;
   font-family: "ENcode Sans Expanded", sans-serif;
-}
-
-.background {
-  &-white {
-    background-color: $color-white;
-  }
-
-  &-black {
-    background-color: $color-black;
-  }
-
-  &-navy {
-    &--dark {
-      background-color: $color-navy--dark;
-    }
-
-    &--light {
-      background-color: $color-navy--light;
-    }
-  }
-
-  &-red {
-    background-color: $color-red;
-  }
-}
-
-.text {
-  &-white {
-    color: $color-white;
-  }
-
-  &-black {
-    color: $color-black;
-  }
-
-  &-navy {
-    &--dark {
-      color: $color-navy--dark;
-    }
-
-    &--light {
-      color: $color-navy--light;
-    }
-  }
-
-  &-red {
-    color: $color-red;
-  }
 }
 
 .dropdown-toggle::after {
@@ -73,10 +20,21 @@ $color-red: #bc112d;
 }
 
 .custom-button {
-  &--warning {
-    &:hover {
-      transition: all 0.3s ease-in-out;
-      transform: scale(1.05);
-    }
+  background: $color-white !important;
+  color: black !important;
+  border: 1px solid black !important;
+
+  &--red {
+    font-weight: bolder !important;
+    border: none !important;
+    background: $color-red !important;
+    color: $color-white !important;
+  }
+
+  &--blue {
+    font-weight: bolder !important;
+    border: none !important;
+    background: $color-blue !important;
+    color: $color-white !important;
   }
 }

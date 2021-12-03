@@ -18,10 +18,19 @@ import {
 import { selectCurrentUser } from "../../../../redux/user/user.selectors";
 
 import { Row, FormControl, InputGroup } from "react-bootstrap";
-import { selectCartItems } from "../../../../redux/cart/cart.selectors";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../../../redux/cart/cart.selectors";
 import { clearCart } from "../../../../redux/cart/cart.actions";
 
-const CheckoutForm = ({ currentUser, cartItems, clearCart, onHide }) => {
+const CheckoutForm = ({
+  currentUser,
+  cartItems,
+  clearCart,
+  cartTotal,
+  onHide,
+}) => {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -97,6 +106,7 @@ const CheckoutForm = ({ currentUser, cartItems, clearCart, onHide }) => {
             const order = [
               {
                 userID: currentUser.id,
+                total: cartTotal,
                 orderNumber: orderNumber,
                 userEmail: currentUser.email,
                 status: "received",
@@ -177,6 +187,7 @@ const CheckoutForm = ({ currentUser, cartItems, clearCart, onHide }) => {
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
   cartItems: selectCartItems,
+  cartTotal: selectCartTotal,
 });
 
 const mapDispatchToProps = (dispatch) => ({
