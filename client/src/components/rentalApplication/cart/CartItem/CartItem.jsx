@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import "./CartItem.scss";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
@@ -41,13 +42,16 @@ const CartItem = ({ item, clearItemFromCart }) => {
         />
 
         <div className="d-flex justify-content-around">
-          <Button
-            variant="contained"
-            className="custom-button custom-button--red"
-            onClick={() => clearItemFromCart(item)}
-          >
-            Remove
-          </Button>
+          <div>
+            <Button
+              variant="contained"
+              startIcon={<DeleteIcon />}
+              className="custom-button custom-button--red"
+              onClick={() => clearItemFromCart(item)}
+            >
+              Remove
+            </Button>
+          </div>
         </div>
       </div>
     </Card>

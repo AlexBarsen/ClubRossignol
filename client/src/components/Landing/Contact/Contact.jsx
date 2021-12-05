@@ -14,7 +14,7 @@ const Contact = () => {
           <div className="d-flex justify-content-between">
             <Form className="d-flex border p-2">
               <div className="d-flex flex-column justify-content-center">
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" />
                   <Form.Text className="text-muted">
@@ -22,12 +22,12 @@ const Contact = () => {
                   </Form.Text>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3">
                   <Form.Label>First Name</Form.Label>
                   <Form.Control type="firstName" placeholder="First Name" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3">
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control type="lastNameName" placeholder="First Name" />
                 </Form.Group>

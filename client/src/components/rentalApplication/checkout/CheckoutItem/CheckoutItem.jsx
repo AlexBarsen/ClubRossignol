@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
 import EditForm from "../../rental/EditForm/EditForm";
 import DynamicModal from "../../../utils/DynamicModal/DynamicModal";
-import { Image, Button, Card } from "react-bootstrap/";
+import { Image, Card } from "react-bootstrap/";
 import CheckoutItemsDetails from "../CheckoutItemDetails/CheckoutItemDetails";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
@@ -62,15 +65,27 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
             <CheckoutItemsDetails cartItem={cartItem} />
 
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <div>
-                <Button onClick={() => renderModal()}>Edit</Button>
-              </div>
+              {/* <div> */}
+              <Button
+                variant="contained"
+                startIcon={<EditIcon />}
+                className="custom-button custom-button--red w-100"
+                onClick={() => renderModal()}
+              >
+                Edit
+              </Button>
+              {/* </div> */}
 
-              <div className="mt-3">
-                <Button onClick={() => clearItemFromCart(cartItem)}>
-                  Delete
-                </Button>
-              </div>
+              {/* <div className="mt-3"> */}
+              <Button
+                variant="contained"
+                startIcon={<DeleteIcon />}
+                className="custom-button custom-button--red mt-3"
+                onClick={() => clearItemFromCart(cartItem)}
+              >
+                Remove
+              </Button>
+              {/* </div> */}
             </div>
           </div>
         </Card.Body>

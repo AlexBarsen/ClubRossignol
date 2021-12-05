@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { DateRange, Calendar } from "react-date-range";
 
 import RentalFormSelects from "../RentalFormSelects/RentalFormSelects";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import FromInfo from "../FormInfo/FormInfo";
 
@@ -13,8 +14,8 @@ import "react-date-range/dist/theme/default.css"; // * theme css file
 import { addItem } from "../../../../redux/cart/cart.actions";
 
 import { useTranslation } from "react-i18next";
-
-import { Container, Form, Button } from "react-bootstrap";
+import Button from "@mui/material/Button";
+import { Container, Form } from "react-bootstrap";
 
 const RentalForm = ({ addItem, item, closeModal }) => {
   const { t } = useTranslation();
@@ -194,8 +195,13 @@ const RentalForm = ({ addItem, item, closeModal }) => {
               onChangeInput={onChangeInput.bind(this)}
             />
 
-            <Button className="mt-3" variant="primary" type="submit">
-              Submit
+            <Button
+              startIcon={<AddShoppingCartIcon />}
+              className="mt-3"
+              variant="contained"
+              type="submit"
+            >
+              Add to cart
             </Button>
           </div>
         </div>

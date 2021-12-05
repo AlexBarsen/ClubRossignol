@@ -25,7 +25,7 @@ const AccountLinks = ({
   toggleAccountModal,
   signOut,
 }) => {
-  const [modalSize, setModalSize] = useState(null);
+  const [modalSize, setModalSize] = useState();
   const [modalTitle, setModalTitle] = useState(null);
   const [wrappedComponent, setWrappedComponent] = useState(null);
 
@@ -67,19 +67,19 @@ const AccountLinks = ({
         <>
           <Nav.Link
             className="me-3 text-navy--dark"
-            onClick={() => renderModal(<SignIn />, "md")}
+            onClick={() => renderModal(<SignIn />, "sm")}
           >
             Sign In
           </Nav.Link>
           <Nav.Link
             className="me-3 text-navy--dark"
-            onClick={() => renderModal(<SignUp />, "lg")}
+            onClick={() => renderModal(<SignUp />, "md")}
           >
             Sign Up
           </Nav.Link>
           <Nav.Link
             className="me-3 text-navy--dark"
-            onClick={() => renderModal(<PasswordReset />, "md")}
+            onClick={() => renderModal(<PasswordReset />, "sm")}
           >
             Forgot password?
           </Nav.Link>

@@ -8,6 +8,7 @@ import CartItem from "../CartItem/CartItem";
 import CartIcon from "../CartIcon/CartIcon";
 import { Offcanvas } from "react-bootstrap";
 import Button from "@mui/material/Button";
+import PaymentIcon from "@mui/icons-material/Payment";
 
 import {
   selectCartItems,
@@ -41,15 +42,18 @@ const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
             <CartItem key={cartItem.id} item={cartItem} />
           ))}
           <div className="mt-4 d-flex justify-content-between align-items-center">
-            <div className="h2 m-0">Total: {cartTotal} RON</div>
+            <div className="h3 m-0">Total: {cartTotal} RON</div>
 
-            <Button
-              className="custom-button custom-button--blue"
-              variant="contained"
-              onClick={() => goToCheckout()}
-            >
-              Go To Checkout
-            </Button>
+            <div>
+              <Button
+                startIcon={<PaymentIcon />}
+                variant="contained"
+                className="custom-button--blue"
+                onClick={() => goToCheckout()}
+              >
+                Go To Checkout
+              </Button>
+            </div>
           </div>
         </Offcanvas.Body>
       </Offcanvas>

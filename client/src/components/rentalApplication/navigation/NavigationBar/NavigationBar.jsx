@@ -1,4 +1,6 @@
 import React from "react";
+import "./NavigationBar.scss";
+
 import { useTranslation } from "react-i18next";
 
 import { Navbar, Nav } from "react-bootstrap";
@@ -15,10 +17,10 @@ const NavigationBar = () => {
   return (
     <>
       <Navbar
-        variant="light"
-        bg="light"
+        // variant="light"
+        // bg="light"
         sticky="top"
-        className="d-flex flex-column p-0"
+        className="m-auto p-0 navigation"
         expand="xl"
         style={{ borderBottom: "1px solid black" }}
       >

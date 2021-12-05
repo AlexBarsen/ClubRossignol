@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 import { emailSignInStart } from "../../../../redux/user/user.actions";
-
-import { FloatingLabel, Form, Button } from "react-bootstrap";
+import Button from "@mui/material/Button";
+import LoginIcon from "@mui/icons-material/Login";
+import { Form } from "react-bootstrap";
 
 const SignIn = ({ emailSignInStart }) => {
   const { t } = useTranslation();
@@ -35,31 +36,32 @@ const SignIn = ({ emailSignInStart }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="p-1">
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <FloatingLabel label={t("email")} className="mb-3">
-          <Form.Control
-            name="email"
-            type="email"
-            placeholder="johnsnow@example.com"
-            onChange={handleChange}
-          />
-        </FloatingLabel>
+    <Form onSubmit={handleSubmit} className="w-100">
+      <Form.Group className="mb-3">
+        <Form.Control
+          name="email"
+          type="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <FloatingLabel className="mb-3" label={t("password")}>
-          <Form.Control
-            name="password"
-            type="password"
-            placeholder="johnsnow1234"
-            onChange={handleChange}
-          />
-        </FloatingLabel>
+      <Form.Group className="mb-3">
+        <Form.Control
+          name="password"
+          type="password"
+          placeholder={t("password")}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <div className="buttonContainer">
-        <Button variant="primary" type="submit">
+        <Button
+          startIcon={<LoginIcon />}
+          variant="contained"
+          type="submit"
+          className="custom-button--blue"
+        >
           Login
         </Button>
       </div>

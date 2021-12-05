@@ -3,9 +3,12 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
+import Button from "@mui/material/Button";
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+
 import { emailSignUpStart } from "../../../../redux/user/user.actions";
 
-import { FloatingLabel, FormCheck, Form, Button } from "react-bootstrap";
+import { FormCheck, Form, Row } from "react-bootstrap";
 
 const SignUp = ({ emailSignUpStart }) => {
   const { t } = useTranslation();
@@ -83,95 +86,79 @@ const SignUp = ({ emailSignUpStart }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <div className="container">
-        <div className="row">
-          <Form.Group className="col" controlId="formBasicEmail">
-            <FloatingLabel
-              label={t("surname")}
-              className="mb-3"
+    <Form onSubmit={handleSubmit} className="w-100">
+      <div>
+        <Row>
+          <Form.Group className="col">
+            <Form.Control
+              name="firstName"
+              type="text"
+              placeholder={t("surname")}
               onChange={handleChange}
-            >
-              <Form.Control name="firstName" type="text" placeholder="John" />
-            </FloatingLabel>
+            />
           </Form.Group>
 
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("name")} className="mb-3">
-              <Form.Control
-                name="lastName"
-                type="text"
-                placeholder="Snow"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="lastName"
+              type="text"
+              placeholder={t("name")}
+              onChange={handleChange}
+            />
           </Form.Group>
-        </div>
+        </Row>
 
-        <div className="row">
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("email")} className="mb-3">
-              <Form.Control
-                name="email"
-                type="email"
-                placeholder="johnsnow@example.com"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+        <Row>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder={t("email")}
+              onChange={handleChange}
+            />
           </Form.Group>
 
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("confirm_email")} className="mb-3">
-              <Form.Control
-                name="confirmEmail"
-                type="email"
-                placeholder="johnsnow@example.com"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="confirmEmail"
+              type="email"
+              placeholder={t("confirm_email")}
+              onChange={handleChange}
+            />
           </Form.Group>
-        </div>
+        </Row>
 
-        <div className="row">
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("password")} className="mb-3">
-              <Form.Control
-                name="password"
-                type="password"
-                placeholder="johnsnow1234"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+        <Row>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder={t("password")}
+              onChange={handleChange}
+            />
           </Form.Group>
 
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("confirm_password")} className="mb-3">
-              <Form.Control
-                name="confirmPassword"
-                type="password"
-                placeholder="johnsnow1234"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="confirmPassword"
+              type="password"
+              placeholder={t("confirm_password")}
+              onChange={handleChange}
+            />
           </Form.Group>
-        </div>
+        </Row>
 
-        <div className="row">
-          <Form.Group className="mb-3 col" controlId="formBasicPassword">
-            <FloatingLabel label={t("phone")} className="mb-3">
-              <Form.Control
-                name="phone"
-                type="text"
-                placeholder="0712345678"
-                onChange={handleChange}
-              />
-            </FloatingLabel>
+        <Row>
+          <Form.Group className="mb-3 col">
+            <Form.Control
+              name="phone"
+              type="text"
+              placeholder={t("phone")}
+              onChange={handleChange}
+            />
           </Form.Group>
 
-          <Form.Group
-            className="col d-flex align-items-center justify-content-center"
-            controlId="formBasicCheckbox"
-          >
+          <Form.Group className="col d-flex align-items-center justify-content-center">
             <Form.Group className="mb-3">
               <FormCheck required name="terms">
                 <FormCheck.Input type="checkbox" />
@@ -179,10 +166,15 @@ const SignUp = ({ emailSignUpStart }) => {
               </FormCheck>
             </Form.Group>
           </Form.Group>
-        </div>
+        </Row>
       </div>
       <div className="d-flex justify-content-center">
-        <Button className="w-100 fs-20" variant="primary" type="submit">
+        <Button
+          startIcon={<HowToRegIcon />}
+          className="custom-button--blue"
+          variant="contained"
+          type="submit"
+        >
           Sign Up
         </Button>
       </div>

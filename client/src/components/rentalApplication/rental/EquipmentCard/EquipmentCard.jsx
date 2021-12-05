@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./EquipmentCard.scss";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 
@@ -64,19 +65,21 @@ const EquipmentCard = ({ item }) => {
           </div>
         )}
 
-        <Card.Body className="flex-grow-0 p-0 card-body">
-          <Card.Header className="d-flex justify-content-center m-0 p-2 border-top border-bottom-0  equipmentCard-body--header">
-            <span className="mb-0">{t(name)}</span>
+        <Card.Body className="p-0 card-body">
+          <Card.Header className="equipmentCard-body--header">
+            {t(name)}
           </Card.Header>
 
-          <div className="d-flex justify-content-around align-items-center  equipmentCard-body--footer">
+          <div className="d-flex justify-content-between px-3 py-2 align-items-center  equipmentCard-body--footer">
             <div className="m-0 border border-0">
               {price} {t("ron_day")}
             </div>
+
             <div className="d-flex align-items-center">
               <Button
-                variant="outlined"
-                className="m-0 custom-button shadow"
+                startIcon={<AddCircleIcon />}
+                variant="contained"
+                className="custom-button--blue"
                 onClick={() => renderModal()}
               >
                 Alege

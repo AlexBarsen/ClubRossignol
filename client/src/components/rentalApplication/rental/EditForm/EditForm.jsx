@@ -4,12 +4,13 @@ import { DateRange, Calendar } from "react-date-range";
 import "react-date-range/dist/styles.css"; // * main css file
 import "react-date-range/dist/theme/default.css"; // * theme css file
 import { useTranslation } from "react-i18next";
+import EditIcon from "@mui/icons-material/Edit";
 
 import { editItem } from "../../../../redux/cart/cart.actions";
-
+import Button from "@mui/material/Button";
 import EditFormSelects from "../EditFormSelects/EditFormSelects";
 import FormInfo from "../FormInfo/FormInfo";
-import { Form, Container, Button } from "react-bootstrap";
+import { Form, Container } from "react-bootstrap";
 
 const EditForm = ({ cartItem, editItem }) => {
   useEffect(() => {
@@ -152,9 +153,9 @@ const EditForm = ({ cartItem, editItem }) => {
             )}
           </div>
 
-          <div className="d-flex flex-column w-100">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+          <div className="d-flex flex-column w-100 justify-content-center">
+            <div className="d-flex p-0 mb-3 justify-content-between">
+              <Form.Group>
                 <Form.Control
                   name="lastName"
                   type="text"
@@ -165,15 +166,17 @@ const EditForm = ({ cartItem, editItem }) => {
                 />
               </Form.Group>
 
-              <Form.Control
-                name="firstName"
-                type="text"
-                defaultValue={cartItem.firstName}
-                placeholder={t("first_name")}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  name="firstName"
+                  type="text"
+                  defaultValue={cartItem.firstName}
+                  placeholder={t("first_name")}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+            </div>
 
             <EditFormSelects
               defaultValues={defaultValues}
@@ -182,7 +185,12 @@ const EditForm = ({ cartItem, editItem }) => {
               onChangeInput={onChangeInput.bind(this)}
             />
 
-            <Button className="mt-3" variant="primary" type="submit">
+            <Button
+              startIcon={<EditIcon />}
+              varaint="contained"
+              className="mt-3"
+              type="submit"
+            >
               Submit
             </Button>
           </div>

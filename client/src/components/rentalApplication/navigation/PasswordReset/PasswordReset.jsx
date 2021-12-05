@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import Button from "@mui/material/Button";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 import { passwordResetStart } from "../../../../redux/user/user.actions";
 
-import { Form, Button, FloatingLabel } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 const PasswordReset = ({ passwordResetStart }) => {
   const { t } = useTranslation();
@@ -35,39 +37,32 @@ const PasswordReset = ({ passwordResetStart }) => {
     setEmails({ ...emails, [name]: value });
   };
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <FloatingLabel
-          controlId="floatingInput"
-          label={t("email")}
-          className="mb-3"
-        >
-          <Form.Control
-            name="email"
-            type="email"
-            placeholder="johnsnow@example.com"
-            onChange={handleChange}
-          />
-        </FloatingLabel>
+    <Form onSubmit={handleSubmit} className="w-100">
+      <Form.Group className="mb-3">
+        <Form.Control
+          name="email"
+          type="email"
+          placeholder={t("email")}
+          onChange={handleChange}
+        />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <FloatingLabel
-          controlId="floatingInput"
-          label={t("confirm_email")}
-          className="mb-3"
-        >
-          <Form.Control
-            name="confirmEmail"
-            type="confirmEmail"
-            placeholder="johnsnow@example.com"
-            onChange={handleChange}
-          />
-        </FloatingLabel>
+      <Form.Group className="mb-3">
+        <Form.Control
+          name="confirmEmail"
+          type="confirmEmail"
+          placeholder={t("confirm_email")}
+          onChange={handleChange}
+        />
       </Form.Group>
 
       <div className="buttonContainer">
-        <Button className="button w-100" variant="primary" type="submit">
+        <Button
+          startIcon={<RestartAltIcon />}
+          className="custom-button--blue"
+          variant="contained"
+          type="submit"
+        >
           Submit
         </Button>
       </div>
