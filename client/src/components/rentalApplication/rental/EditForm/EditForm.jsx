@@ -12,6 +12,8 @@ import EditFormSelects from "../EditFormSelects/EditFormSelects";
 import FormInfo from "../FormInfo/FormInfo";
 import { Form, Container } from "react-bootstrap";
 
+import "./EditForm.scss";
+
 const EditForm = ({ cartItem, editItem }) => {
   useEffect(() => {
     setItem(cartItem);
@@ -130,78 +132,78 @@ const EditForm = ({ cartItem, editItem }) => {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
-        <div className="d-flex">
-          <div className="">
-            {item.type === "bike" && item.timePeriod !== "1d+" ? (
-              <Calendar
-                onChange={handleSelectDate}
-                editableDateInputs={false}
-                date={date}
-                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
-                showDateDisplay={false}
-              />
-            ) : (
-              <DateRange
-                editableDateInputs={false}
-                onInit={handleRangeChange}
-                ranges={[dateRange]}
-                onChange={handleRangeChange}
-                minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
-                showDateDisplay={false}
-              />
-            )}
-          </div>
-
-          <div className="d-flex flex-column w-100 justify-content-center">
-            <div className="d-flex p-0 mb-3 justify-content-between">
-              <Form.Group>
-                <Form.Control
-                  name="lastName"
-                  type="text"
-                  defaultValue={cartItem.lastName}
-                  placeholder={t("last_name")}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group>
-                <Form.Control
-                  name="firstName"
-                  type="text"
-                  defaultValue={cartItem.firstName}
-                  placeholder={t("first_name")}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-            </div>
-
-            <EditFormSelects
-              defaultValues={defaultValues}
-              adult={cartItem.adult}
-              type={cartItem.type}
-              onChangeInput={onChangeInput.bind(this)}
+      <Form onSubmit={handleSubmit} className="edit-form">
+        <div className="me-2 d-flex justify-content-center">
+          {item.type === "bike" && item.timePeriod !== "1d+" ? (
+            <Calendar
+              onChange={handleSelectDate}
+              editableDateInputs={false}
+              date={date}
+              minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+              showDateDisplay={false}
             />
+          ) : (
+            <DateRange
+              editableDateInputs={false}
+              onInit={handleRangeChange}
+              ranges={[dateRange]}
+              onChange={handleRangeChange}
+              minDate={new Date(new Date().setDate(new Date().getDate() + 1))}
+              showDateDisplay={false}
+            />
+          )}
+        </div>
 
-            <Button
-              startIcon={<EditIcon />}
-              varaint="contained"
-              className="mt-3"
-              type="submit"
-            >
-              Submit
-            </Button>
+        <div className="d-flex flex-column w-100 justify-content-center">
+          <div className="d-flex p-0 mb-3 justify-content-between">
+            <Form.Group style={{ width: "48%" }}>
+              <Form.Control
+                name="lastName"
+                type="text"
+                defaultValue={cartItem.lastName}
+                placeholder={t("last_name")}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group style={{ width: "48%" }}>
+              <Form.Control
+                name="firstName"
+                type="text"
+                defaultValue={cartItem.firstName}
+                placeholder={t("first_name")}
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
           </div>
+
+          <EditFormSelects
+            defaultValues={defaultValues}
+            adult={cartItem.adult}
+            type={cartItem.type}
+            onChangeInput={onChangeInput.bind(this)}
+          />
+
+          <Button
+            startIcon={<EditIcon />}
+            variant="contained"
+            className="mt-3 custom-button--blue"
+            type="submit"
+          >
+            Submit
+          </Button>
         </div>
       </Form>
 
-      <FormInfo
-        startDate={dateRange.startDate.toLocaleDateString()}
-        endDate={dateRange.endDate.toLocaleDateString()}
-        days={days}
-      />
+      <div className="edit-form--info">
+        <FormInfo
+          startDate={dateRange.startDate.toLocaleDateString()}
+          endDate={dateRange.endDate.toLocaleDateString()}
+          days={days}
+        />
+      </div>
     </Container>
   );
 };

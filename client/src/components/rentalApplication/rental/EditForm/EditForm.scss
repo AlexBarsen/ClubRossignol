@@ -1,0 +1,13 @@
+.edit-form {
+  display: flex;
+
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+
+  &--info {
+    @media screen and (max-width: 992px) {
+      margin-top: 1.2rem !important;
+    }
+  }
+}

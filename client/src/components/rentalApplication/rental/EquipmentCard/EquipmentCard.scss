@@ -1,11 +1,11 @@
 @import "../../../../scss/variables";
 
 .equipmentCard {
-  width: 18rem;
+  width: 20rem;
   border: none !important;
 
   &-carousel {
-    height: 12rem;
+    height: 15rem;
 
     &--item {
     }
@@ -17,7 +17,7 @@
   }
 
   &-image {
-    height: 12rem;
+    height: 15rem;
 
     &--img {
       padding: 1rem !important;
@@ -28,7 +28,6 @@
 
   &-body {
     &--header {
-      // height: 2.5rem;
       text-align: left !important;
       background-color: #fff;
 
@@ -36,14 +35,11 @@
     }
 
     &--footer {
-      // height: 4rem;
-      // background-color: $color-blue;
       color: #000;
     }
   }
 }
 
 .card-shadow {
-  // border: 1px solid black !important;
   box-shadow: 3px 7px 10px 3px #949494 !important;
 }

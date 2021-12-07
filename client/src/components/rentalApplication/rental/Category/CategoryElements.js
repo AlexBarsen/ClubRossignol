@@ -9,4 +9,13 @@ export const CategoryItems = styled.div`
   grid-template-rows: repeat(2, 1fr);
 
   margin-bottom: 3rem;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;

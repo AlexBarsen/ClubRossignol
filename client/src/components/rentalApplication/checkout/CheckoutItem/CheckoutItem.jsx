@@ -5,11 +5,18 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+
+import Typography from "@mui/material/Typography";
+
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
 import EditForm from "../../rental/EditForm/EditForm";
 import DynamicModal from "../../../utils/DynamicModal/DynamicModal";
-import { Image, Card } from "react-bootstrap/";
+import { Image } from "react-bootstrap/";
 import CheckoutItemsDetails from "../CheckoutItemDetails/CheckoutItemDetails";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
@@ -26,7 +33,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     setCardHeight(ref.current.clientHeight);
   }, []);
 
-  const { name, firstName, lastName, days, price, images } = cartItem;
+  const { name, firstName, lastName, price, images } = cartItem;
 
   const renderModal = () => {
     setModalTitle(name);
@@ -36,59 +43,49 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
 
   return (
     <div
-      className="d-flex align-items-center mt-5 shadow"
-      style={{ border: "1px solid black" }}
+      className="d-flex align-items-center mt-5 border shadow"
+      style={{ width: "fit-content" }}
     >
       <div style={{ height: Cardheight }}>
         <Image
-          style={{ height: "100%", width: "10rem", objectFit: "contain" }}
+          style={{ height: "100%", width: "12rem", objectFit: "contain" }}
           className="p-3"
           src={images[0]}
         />
       </div>
       <Card
-        className="w-100"
-        ref={ref}
+        className="shadow"
         style={{ borderTopLeftRadius: "0", borderBottomLeftRadius: "0" }}
       >
-        <Card.Header as="h4" className="d-flex justify-content-between">
-          <div>{t(name)}</div>
-          <div>{days * price} RON</div>
-        </Card.Header>
-
-        <Card.Body>
-          <Card.Title>
-            {firstName} {lastName}
-          </Card.Title>
-
-          <div className="d-flex mt-3">
+        <CardContent>
+          <div className="d-flex mt-3 flex-column" ref={ref}>
             <CheckoutItemsDetails cartItem={cartItem} />
 
-            <div className="d-flex flex-column justify-content-center align-items-center">
-              {/* <div> */}
-              <Button
-                variant="contained"
-                startIcon={<EditIcon />}
-                className="custom-button custom-button--red w-100"
-                onClick={() => renderModal()}
-              >
-                Edit
-              </Button>
-              {/* </div> */}
+            <div className="d-flex justify-content-around align-items-center">
+              <div>
+                <Button
+                  variant="contained"
+                  startIcon={<EditIcon />}
+                  className="custom-button custom-button--red w-100"
+                  onClick={() => renderModal()}
+                >
+                  Edit
+                </Button>
+              </div>
 
-              {/* <div className="mt-3"> */}
-              <Button
-                variant="contained"
-                startIcon={<DeleteIcon />}
-                className="custom-button custom-button--red mt-3"
-                onClick={() => clearItemFromCart(cartItem)}
-              >
-                Remove
-              </Button>
-              {/* </div> */}
+              <div>
+                <Button
+                  variant="contained"
+                  startIcon={<DeleteIcon />}
+                  className="custom-button custom-button--red"
+                  onClick={() => clearItemFromCart(cartItem)}
+                >
+                  Remove
+                </Button>
+              </div>
             </div>
           </div>
-        </Card.Body>
+        </CardContent>
       </Card>
 
       <DynamicModal
