@@ -65,9 +65,12 @@ const CheckoutItemDetails = ({ cartItem }) => {
       </div>
 
       <div className="d-flex justify-content-center">
-        <div className="d-flex justify-content-around shadow mt-2">
-          <List className="p-0" style={{ borderRight: "1px solid #d3d3d3" }}>
-            <ListItem style={{ background: "#dedede" }}>
+        <div className="d-flex justify-content-around shadow  mt-2">
+          <List className="p-0 border-end border-secondary">
+            <ListItem
+              style={{ background: "#dedede" }}
+              className="border-bottom border-secondary"
+            >
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
@@ -119,7 +122,10 @@ const CheckoutItemDetails = ({ cartItem }) => {
           </List>
 
           <List className="p-0">
-            <ListItem style={{ background: "#dedede" }}>
+            <ListItem
+              className="border-bottom border-secondary"
+              style={{ background: "#dedede" }}
+            >
               <ListItemIcon>
                 <EventNoteIcon />
               </ListItemIcon>

@@ -41,7 +41,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   };
 
   return (
-    <div className="d-flex align-items-center mt-5 shadow checkout-item border">
+    <div className="d-flex align-items-center mt-5 shadow checkout-item">
       <div style={{ height: Cardheight }} className="shadow">
         <Image className="p-3 checkout-item--image" src={images[0]} />
       </div>
@@ -49,7 +49,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
         className="checkout-item--card w-100"
         style={{ borderRadius: "0", boxShadow: "none" }}
       >
-        <CardContent ref={ref} style={{ borderLeft: "1px solid #dedede" }}>
+        <CardContent ref={ref} className="border-start ">
           <div className="d-flex flex-column">
             <CheckoutItemsDetails cartItem={cartItem} />
 
