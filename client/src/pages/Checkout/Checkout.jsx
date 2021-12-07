@@ -62,7 +62,7 @@ const CheckoutPage = ({ cartItems }) => {
   return (
     <>
       <div>
-        <Container>
+        <Container className="d-flex flex-column align-items-center">
           {cartItems.map((cartItem, index) => (
             <CheckoutItem
               key={cartItem.id}

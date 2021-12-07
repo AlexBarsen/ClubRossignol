@@ -6,11 +6,8 @@ import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 
-import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
 
 import { clearItemFromCart } from "../../../../redux/cart/cart.actions";
 
@@ -18,6 +15,8 @@ import EditForm from "../../rental/EditForm/EditForm";
 import DynamicModal from "../../../utils/DynamicModal/DynamicModal";
 import { Image } from "react-bootstrap/";
 import CheckoutItemsDetails from "../CheckoutItemDetails/CheckoutItemDetails";
+
+import "./CheckoutItem.scss";
 
 const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   const { t } = useTranslation();
@@ -33,7 +32,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     setCardHeight(ref.current.clientHeight);
   }, []);
 
-  const { name, firstName, lastName, price, images } = cartItem;
+  const { name, images } = cartItem;
 
   const renderModal = () => {
     setModalTitle(name);
@@ -42,31 +41,24 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
   };
 
   return (
-    <div
-      className="d-flex align-items-center mt-5 border shadow"
-      style={{ width: "fit-content" }}
-    >
-      <div style={{ height: Cardheight }}>
-        <Image
-          style={{ height: "100%", width: "12rem", objectFit: "contain" }}
-          className="p-3"
-          src={images[0]}
-        />
+    <div className="d-flex align-items-center mt-5 shadow checkout-item border">
+      <div style={{ height: Cardheight }} className="shadow">
+        <Image className="p-3 checkout-item--image" src={images[0]} />
       </div>
       <Card
-        className="shadow"
-        style={{ borderTopLeftRadius: "0", borderBottomLeftRadius: "0" }}
+        className="checkout-item--card w-100"
+        style={{ borderRadius: "0", boxShadow: "none" }}
       >
-        <CardContent>
-          <div className="d-flex mt-3 flex-column" ref={ref}>
+        <CardContent ref={ref} style={{ borderLeft: "1px solid #dedede" }}>
+          <div className="d-flex flex-column">
             <CheckoutItemsDetails cartItem={cartItem} />
 
-            <div className="d-flex justify-content-around align-items-center">
+            <div className="d-flex justify-content-around align-items-center mt-3">
               <div>
                 <Button
                   variant="contained"
                   startIcon={<EditIcon />}
-                  className="custom-button custom-button--red w-100"
+                  className="custom-button custom-button--red"
                   onClick={() => renderModal()}
                 >
                   Edit

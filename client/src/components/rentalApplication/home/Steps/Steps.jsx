@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import CreditCardIcon from "@mui/icons-material/CreditCard";

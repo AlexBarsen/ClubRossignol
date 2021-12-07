@@ -1,0 +1,17 @@
+.checkout-item {
+  width: 45rem;
+
+  @media screen and (max-width: 768px) {
+    width: fit-content;
+  }
+
+  &--image {
+    height: 100%;
+    width: 12rem;
+    object-fit: contain;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+}

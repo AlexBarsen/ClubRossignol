@@ -1,12 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import "./CheckoutItemDetails.scss";
 
-import { Card, ListGroup, Container, Col, Row } from "react-bootstrap";
-
-import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
+
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
@@ -22,10 +20,13 @@ import StopCircleIcon from "@mui/icons-material/StopCircle";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
+import { Image } from "react-bootstrap";
+
 const CheckoutItemDetails = ({ cartItem }) => {
   const { t } = useTranslation();
   const {
     type,
+    images,
     name,
     firstName,
     lastName,
@@ -41,62 +42,84 @@ const CheckoutItemDetails = ({ cartItem }) => {
     // timePeriod = null,
   } = cartItem;
 
+  console.log("type", type);
+
   return (
-    <>
-      <div className="">
-        <div className="d-flex justify-content-between px-4 py-2 h4 border-bottom">
+    <div>
+      <div className="d-flex justify-content-between align-items-center px-3 h4 border-bottom">
+        <div className="d-flex align-items-center gap-4">
+          <div style={{ height: "6rem" }} className="detail-image">
+            <Image className="h-100 p-2" src={images[0]} />
+          </div>
           <div>
             <strong>
               {firstName} {lastName}
             </strong>
-            <div className="mt-3">{t(name)}</div>
+            <div className="h6 mt-2">{t(name)}</div>
           </div>
-
-          <div>{price * days} RON</div>
         </div>
-        <div className="d-flex justify-content-around ">
-          <List>
-            <ListItem>
+
+        <div>
+          <strong>{price * days} RON</strong>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-around shadow mt-2">
+          <List className="p-0" style={{ borderRight: "1px solid #d3d3d3" }}>
+            <ListItem style={{ background: "#dedede" }}>
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
               <ListItemText primary="Personal Details" />
             </ListItem>
+
             <ListItem>
               <ListItemIcon>
                 <WcIcon />
               </ListItemIcon>
               <ListItemText primary={t(sex)} />
             </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <HeightIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${height} cm`} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <MonitorWeightIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${weight} kg`} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <StraightenIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${shoeSize} eur`} />
-            </ListItem>
 
-            <ListItem>
-              <ListItemIcon>
-                <AcUnitIcon />
-              </ListItemIcon>
-              <ListItemText primary={t(experience)} />
-            </ListItem>
+            {height ? (
+              <ListItem>
+                <ListItemIcon>
+                  <HeightIcon />
+                </ListItemIcon>
+                <ListItemText primary={`${height} cm`} />
+              </ListItem>
+            ) : null}
+
+            {weight ? (
+              <ListItem>
+                <ListItemIcon>
+                  <MonitorWeightIcon />
+                </ListItemIcon>
+                <ListItemText primary={`${weight} kg`} />
+              </ListItem>
+            ) : null}
+
+            {shoeSize ? (
+              <ListItem>
+                <ListItemIcon>
+                  <StraightenIcon />
+                </ListItemIcon>
+                <ListItemText primary={`${shoeSize} eur`} />
+              </ListItem>
+            ) : null}
+
+            {experience ? (
+              <ListItem>
+                <ListItemIcon>
+                  <AcUnitIcon />
+                </ListItemIcon>
+                <ListItemText primary={t(experience)} />
+              </ListItem>
+            ) : null}
           </List>
 
-          <List>
-            <ListItem>
+          <List className="p-0">
+            <ListItem style={{ background: "#dedede" }}>
               <ListItemIcon>
                 <EventNoteIcon />
               </ListItemIcon>
@@ -119,7 +142,9 @@ const CheckoutItemDetails = ({ cartItem }) => {
               <ListItemIcon>
                 <DateRangeIcon />
               </ListItemIcon>
-              <ListItemText primary={days} />
+              <ListItemText
+                primary={`${days > 1 ? days + " days" : days + " day"}`}
+              />
             </ListItem>
             <ListItem>
               <ListItemIcon>
@@ -130,90 +155,7 @@ const CheckoutItemDetails = ({ cartItem }) => {
           </List>
         </div>
       </div>
-      {/* {type !== "bike" ? (
-        <Container className="p-0">
-          <Row>
-            <Col>
-              <Card.Header className="d-flex justify-content-center">
-                Personal Details
-              </Card.Header>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              {shoeSize ? (
-                <ListGroup.Item>
-                  <strong>{t("shoeSize")}:</strong> {shoeSize}
-                </ListGroup.Item>
-              ) : null}
-
-              {height ? (
-                <ListGroup.Item>
-                  <strong>{t("height")}:</strong> {height} cm
-                </ListGroup.Item>
-              ) : null}
-
-              {weight ? (
-                <ListGroup.Item>
-                  <strong>{t("weight")}:</strong> {weight} kg
-                </ListGroup.Item>
-              ) : null}
-            </Col>
-
-            <Col>
-              {sex ? (
-                <ListGroup.Item>
-                  <strong>Sex:</strong> {t(sex)}
-                </ListGroup.Item>
-              ) : null}
-
-              {experience ? (
-                <ListGroup.Item>
-                  <strong>{t("experience")}:</strong> {t(experience)}
-                </ListGroup.Item>
-              ) : null}
-            </Col>
-          </Row>
-        </Container>
-      ) : null}
-
-      <Container>
-        <Row>
-          <Col>
-            <Card.Header className="d-flex justify-content-center">
-              Reservation Details
-            </Card.Header>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
-            <ListGroup.Item>
-              <strong>{t("from")}:</strong> {startDate}
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              <strong>{t("to")}:</strong> {endDate}
-            </ListGroup.Item>
-          </Col>
-
-          <Col>
-            <ListGroup.Item>
-              <strong>{t("number_of_days")}:</strong> {days}
-            </ListGroup.Item>
-            {type !== "bike" ? (
-              <ListGroup.Item>
-                <strong>{t("price")}:</strong> {price} / day
-              </ListGroup.Item>
-            ) : (
-              <ListGroup.Item>
-                <strong>{t("price")}:</strong> {price} / day
-              </ListGroup.Item>
-            )}
-          </Col>
-        </Row>
-      </Container> */}
-    </>
+    </div>
   );
 };
 
