@@ -15,6 +15,13 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 16,
+
+    "@media screen and (max-width: 768px)": {
+      fontSize: 12,
+    },
+  },
+  "@media screen and (max-width: 768px)": {
+    fontSize: 12,
   },
 }));
 
@@ -33,13 +40,13 @@ function createWinterData(equipment, priceDay, priceWeek) {
 }
 
 const winterRows = [
-  createWinterData("Skiuri / Snowboard Adult", 50, 50),
-  createWinterData("Bocanci / Booti Adult", 50, 50),
-  createWinterData("Ecipament Ski / Snowboard Adult", 50, 50),
-  createWinterData("Skiuri / Snowboard Copil", 50, 50),
-  createWinterData("Bocanci / Booti Copil", 50, 50),
+  createWinterData("Skiuri / Snowboard Adult", 45, 50),
+  createWinterData("Bocanci / Booti Adult", 25, 50),
+  createWinterData("Ecipament Ski / Snowboard Adult", 60, 50),
+  createWinterData("Skiuri / Snowboard Copil", 40, 50),
+  createWinterData("Bocanci / Booti Copil", 20, 50),
   createWinterData("Ecipament Ski / Snowboard Copil", 50, 50),
-  createWinterData("Casca", 50, 50),
+  createWinterData("Casca", 20, 50),
 ];
 
 function bikeData(equipment, price2Hours, price4Hours, priceDay) {
@@ -64,10 +71,12 @@ export function WinterPricesTable() {
             <StyledTableCell align="left">7 zile</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody className="table-body">
           {winterRows.map((row) => (
             <StyledTableRow key={row.equipment}>
-              <StyledTableCell align="left">{row.equipment}</StyledTableCell>
+              <StyledTableCell className="table-cell" align="left">
+                {row.equipment}
+              </StyledTableCell>
               <StyledTableCell align="left">{row.priceDay}</StyledTableCell>
               <StyledTableCell align="left">{row.priceWeek}</StyledTableCell>
             </StyledTableRow>

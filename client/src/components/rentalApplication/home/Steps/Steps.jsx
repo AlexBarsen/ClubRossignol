@@ -11,6 +11,7 @@ import DoneIcon from "@mui/icons-material/Done";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
+import CustomPopover from "../CustomPopover/CustomPopover";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -114,7 +115,7 @@ export default function Steps() {
     >
       {steps.map((label) => (
         <Step key={label}>
-          <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
+          <CustomPopover ColorlibStepIcon={ColorlibStepIcon} label={label} />
         </Step>
       ))}
     </Stepper>

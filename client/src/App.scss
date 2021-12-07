@@ -38,3 +38,9 @@
     background-color: $color-red--secondary !important;
   }
 }
+
+html {
+  @media screen and (max-width: 768px) {
+    font-size: 80%;
+  }
+}

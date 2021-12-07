@@ -1,0 +1,29 @@
+.hero {
+  &-container {
+  }
+
+  &-image {
+    width: 25rem;
+  }
+
+  &-text {
+  }
+}
+
+.tables {
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &--container {
+    width: fit-content;
+  }
+}
+
+.frequentlyAsked {
+  @media screen and (max-width: 768px) {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}

@@ -3,4 +3,12 @@
 .navigation {
   max-width: 1400px;
   background-color: #fff;
+  border-bottom: 1px solid black;
+
+  &--container {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
