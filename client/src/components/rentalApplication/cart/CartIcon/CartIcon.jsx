@@ -1,30 +1,17 @@
 import React from "react";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import icon2 from "./cart-icon.svg";
 
-import {
-  CartIconContainer,
-  Circle,
-  IconContainer,
-  Icon,
-  ItemCount,
-} from "./CartIconElements";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { selectCartItemsCount } from "../../../../redux/cart/cart.selectors";
 
 const CartIcon = ({ itemCount, handleShow }) => {
   return (
-    <>
-      <CartIconContainer>
-        <IconContainer onClick={handleShow}>
-          <Icon src={icon2} />
-        </IconContainer>
-        <Circle>
-          <ItemCount>{itemCount}</ItemCount>
-        </Circle>
-      </CartIconContainer>
-    </>
+    <Badge badgeContent={itemCount} onClick={handleShow} color="primary">
+      <ShoppingCartIcon fontSize="large" color="action" />
+    </Badge>
   );
 };
 

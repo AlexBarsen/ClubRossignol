@@ -4,10 +4,16 @@
   background-color: #fff;
   border-bottom: 1px solid black;
 
-  &--container {
+  &-container {
     @media screen and (max-width: 768px) {
       display: flex;
       flex-direction: row-reverse;
+    }
+  }
+
+  &-nav {
+    @media screen and (max-width: 768px) {
+      align-items: flex-start !important;
     }
   }
 }

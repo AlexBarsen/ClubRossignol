@@ -50,16 +50,23 @@ const AccountLinks = ({
             title={currentUser.firstName + " " + currentUser.lastName}
           >
             {currentUser.email === "admin@gmail.com" ? (
-              <LinkContainer to="/rental/admin">
-                <NavDropdown.Item>Admin Dashboard</NavDropdown.Item>
-              </LinkContainer>
+              <NavDropdown.Item>
+                <LinkContainer to="/rental/admin">
+                  <Nav.Link>Admin Dashboard</Nav.Link>
+                </LinkContainer>
+              </NavDropdown.Item>
             ) : (
-              <LinkContainer to="/rental/dashboard">
-                <NavDropdown.Item>Dashboard</NavDropdown.Item>
-              </LinkContainer>
+              <NavDropdown.Item>
+                <LinkContainer to="/rental/dashboard">
+                  <Nav.Link>Dashboard</Nav.Link>
+                </LinkContainer>
+              </NavDropdown.Item>
             )}
+
             <NavDropdown.Item onClick={() => signOut()}>
-              Sign out
+              <LinkContainer to="/rental/rentals">
+                <Nav.Link>Sign Out</Nav.Link>
+              </LinkContainer>
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>

@@ -16,13 +16,13 @@ const NavigationBar = () => {
 
   return (
     <Navbar sticky="top" className="m-auto navigation" expand="md">
-      <Container className="navigation--container">
+      <Container className="navigation-container">
         <Link style={{ height: "4.5rem" }} to="/rental">
           <img style={{ height: "4.5rem" }} src={Logo} alt="logo" />
         </Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Nav>
+          <Nav className="d-flex align-items-center navigation-nav">
             <Nav.Link as={Link} className="me-3 " to="/">
               {t("back_to_website")}
             </Nav.Link>
@@ -33,7 +33,9 @@ const NavigationBar = () => {
 
             <LangaugeDropdown />
 
-            <OffCanvasCart key={1} placement="end" />
+            <div className="ms-2">
+              <OffCanvasCart key={1} placement="end" />
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

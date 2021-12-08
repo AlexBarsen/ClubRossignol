@@ -10,24 +10,24 @@ const CategoryLinks = () => {
       className="me-3"
       style={{ fontWeight: "bolder" }}
     >
-      <NavDropdown.Item className="tab-item tab-item--border-right">
+      <NavDropdown.Item>
         <LinkContainer to="/rental/rentals">
-          <Nav.Link className="tab-link">All categories</Nav.Link>
+          <Nav.Link>All categories</Nav.Link>
         </LinkContainer>
       </NavDropdown.Item>
-      <NavDropdown.Item className="tab-item tab-item--border-right">
+      <NavDropdown.Item>
         <LinkContainer to="/rental/category/ski">
-          <Nav.Link className="tab-link">Ski</Nav.Link>
+          <Nav.Link>Ski</Nav.Link>
         </LinkContainer>
       </NavDropdown.Item>
-      <NavDropdown.Item className="tab-item tab-item--border-right">
+      <NavDropdown.Item>
         <LinkContainer to="/rental/category/snowboard">
-          <Nav.Link className="tab-link">Snowboard</Nav.Link>
+          <Nav.Link>Snowboard</Nav.Link>
         </LinkContainer>
       </NavDropdown.Item>
-      <NavDropdown.Item className="tab-item ">
+      <NavDropdown.Item>
         <LinkContainer to="/rental/category/bike">
-          <Nav.Link className="tab-link">Bike</Nav.Link>
+          <Nav.Link>Bike</Nav.Link>
         </LinkContainer>
       </NavDropdown.Item>
     </NavDropdown>

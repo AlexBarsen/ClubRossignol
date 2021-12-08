@@ -1,16 +1,18 @@
+@import "../../../../scss/variables";
+
 .progress {
   &--placed {
-    background-color: #dce775;
+    background-color: $color-yellow;
     color: black;
   }
 
   &--prepared {
-    background-color: #bce954;
+    background-color: $color-green--secondary;
     color: black;
   }
 
   &--complete {
-    background-color: #5cb85c;
+    background-color: $color-green--primary;
     color: black;
   }
 

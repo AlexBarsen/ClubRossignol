@@ -32,7 +32,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     setCardHeight(ref.current.clientHeight);
   }, []);
 
-  const { name, type, images } = cartItem;
+  const { name, images } = cartItem;
 
   const renderModal = () => {
     setModalTitle(name);

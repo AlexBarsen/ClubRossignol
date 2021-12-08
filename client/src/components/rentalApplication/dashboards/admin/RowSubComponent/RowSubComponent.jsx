@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import Select from "react-select";
 import "./RowSubComponent.scss";
 
-import Button from "react-bootstrap/Button";
-
 import { updateOrderStatusStart } from "../../../../../redux/order/order.actions";
 
+import Button from "@mui/material/Button";
 import TabItem from "../TabItem/TabItem";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 import { Container, Tab, Nav, Row, Col } from "react-bootstrap";
 
@@ -56,7 +56,7 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 {orderedItems.map((item) => (
-                  <Nav.Item className="tab-item mb-2" key={item.id}>
+                  <Nav.Item className="admin-tab-item mb-2" key={item.id}>
                     <Nav.Link eventKey={item.id} className="tab-link">
                       {t(item.name)}
                     </Nav.Link>
@@ -95,8 +95,13 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
               isSearchable={false}
             />
             <div>
-              <Button onClick={() => handleStatusUpdate(orderID, orderStatus)}>
-                Change Status
+              <Button
+                startIcon={<CloudUploadIcon />}
+                variant="contained"
+                onClick={() => handleStatusUpdate(orderID, orderStatus)}
+                className="custom-button--blue"
+              >
+                Update Status
               </Button>
             </div>
           </>
