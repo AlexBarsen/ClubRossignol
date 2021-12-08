@@ -1,0 +1,13 @@
+.custom-accordion {
+  width: 45rem;
+
+  @media screen and (max-width: 550px) {
+    width: 30rem;
+  }
+}
+
+.orders-heading {
+  @media screen and (max-width: 850px) {
+    margin-top: 1.5rem;
+  }
+}

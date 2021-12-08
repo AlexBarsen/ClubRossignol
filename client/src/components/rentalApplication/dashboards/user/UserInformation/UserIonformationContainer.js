@@ -5,7 +5,7 @@ import { compose } from "redux";
 import { selectIsUserLoaded } from "../../../../../redux/user/user.selectors";
 
 import WithSpinner from "../../../../utils/WithSpinner/WithSpinner";
-import UserInformation from "./index";
+import UserCard from "./UserCard";
 
 // * connect to Redux state
 const mapStateToProps = createStructuredSelector({
@@ -15,6 +15,6 @@ const mapStateToProps = createStructuredSelector({
 const UserInformationContainer = compose(
   connect(mapStateToProps),
   WithSpinner
-)(UserInformation);
+)(UserCard);
 
 export default UserInformationContainer;

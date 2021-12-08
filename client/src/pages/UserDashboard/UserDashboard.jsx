@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import "./UserDashboard.scss";
 
 import { createStructuredSelector } from "reselect";
 
@@ -17,8 +18,11 @@ const UserDashboardPage = ({ currentUser, fetchUserOrdersStart }) => {
 
   return (
     <>
-      <div className="d-flex justify-content-evenly">
-        <UserInformationContainer currentUser={currentUser} />
+      <div className="d-flex justify-content-evenly mt-5 user-dasbhoard">
+        <div>
+          <UserInformationContainer currentUser={currentUser} />
+        </div>
+
         <OrdersContainer />
       </div>
     </>

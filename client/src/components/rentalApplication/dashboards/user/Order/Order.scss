@@ -1,3 +1,5 @@
+@import "../../../../../scss//variables";
+
 .accordion-button:not(.collapsed) {
   background: #fafafa;
   color: black;
@@ -18,53 +20,65 @@
   }
 
   &-body {
-    background-color: #ececec;
+    // background-color: #ececec;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
   }
 }
 
-.progress {
-  &--placed {
-    background-color: #dce775;
-    color: black;
-  }
-
-  &--prepared {
-    background-color: #bce954;
-    color: black;
-  }
-
-  &--complete {
-    background-color: #5cb85c;
-    color: black;
-  }
-
-  &--grey {
-    background-color: #e9ecef;
-    color: black;
-  }
-}
-
 .tab {
   &--item {
+    width: 13rem;
     cursor: pointer;
-    background-color: grey;
+    background-color: $color-blue--primary !important;
     border-radius: 0.3rem;
 
     &:hover {
-      background-color: #6495ed;
+      background-color: $color-blue--secondary !important;
       color: #fff;
+    }
+
+    &:focus {
+      background-color: red !important;
     }
   }
 
   &--text {
     text-decoration: none;
     color: #fff;
+
+    @media screen and (max-width: 550px) {
+      justify-content: center;
+    }
   }
 
   &--text:hover {
     color: #fff;
+  }
+
+  &-nav {
+    @media screen and (max-width: 550px) {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem !important;
+    }
+  }
+}
+
+.order-status {
+  &--normal {
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+    @media screen and (max-width: 550px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 }

@@ -20,9 +20,9 @@ const Order = ({ order, orderID }) => {
 
   return (
     <Accordion.Item eventKey="0">
-      <Accordion.Header>
+      <Accordion.Header className="accodrion-header m-0">
         <div style={{ width: "50rem" }}>
-          <div className="d-flex justify-content-around align-items-center">
+          <div className="d-flex justify-content-between align-items-center me-3">
             <div>
               <div className="mb-2">Date: {orderDate}</div>
               <div>Order: #{orderID}</div>
@@ -31,9 +31,14 @@ const Order = ({ order, orderID }) => {
               <div className="mb-2">No. items: {orderedItems.length}</div>
               <div>Total: {order.total} RON</div>
             </div>
-            <div>
+
+            <div className="order-status--normal">
               <OrderStatus status={order.status} />
             </div>
+          </div>
+
+          <div className="order-status--mobile mt-3">
+            <OrderStatus status={order.status} />
           </div>
         </div>
       </Accordion.Header>
@@ -43,10 +48,10 @@ const Order = ({ order, orderID }) => {
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>
               <Col sm={3}>
-                <Nav variant="pills" className="flex-column tab--nav">
+                <Nav variant="pills" className="flex-row tab-nav">
                   {orderedItems.map((item, index) => (
                     <Nav.Item className="tab--item mb-2" key={index}>
-                      <Nav.Link className="tab--text" eventKey={index}>
+                      <Nav.Link className="tab--text d-flex " eventKey={index}>
                         {t(item.name)}
                       </Nav.Link>
                     </Nav.Item>

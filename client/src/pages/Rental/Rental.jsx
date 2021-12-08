@@ -53,7 +53,7 @@ const RentalPage = ({ fetchRentalsStart, checkUserSession, match }) => {
   // * CollectionsOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionsOverview))
   // * wrrapped the WithSpinner(CollectionOverview) into a Container
   return (
-    <div className="m-auto mb-5">
+    <div className="m-auto mb-5" style={{ maxWidth: "1400px" }}>
       <NavigationBar toggle={toggle} />
 
       <Switch>
