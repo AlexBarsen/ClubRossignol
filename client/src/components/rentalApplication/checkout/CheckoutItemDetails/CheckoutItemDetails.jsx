@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import "./CheckoutItemDetails.scss";
 
@@ -23,7 +23,28 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import { Image } from "react-bootstrap";
 
 const CheckoutItemDetails = ({ cartItem }) => {
+  useEffect(() => {
+    setHeadingHeight(ref.current.clientHeight);
+  }, []);
+
+  const updateDimensions = () => {
+    console.log(ref.current.clientWidth);
+    if (ref.current) setHeadingHeight(ref.current.clientHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    setHeadingHeight(ref.current.clientHeight);
+    return () => {
+      console.log("dismount");
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, []);
+
   const { t } = useTranslation();
+  const ref = useRef(null);
+  const [headingHeight, setHeadingHeight] = useState(null);
+
   const {
     type,
     images,
@@ -39,14 +60,16 @@ const CheckoutItemDetails = ({ cartItem }) => {
     price,
     startDate,
     endDate,
-    // timePeriod = null,
+    timePeriod = null,
   } = cartItem;
 
-  console.log("type", type);
+  console.log(
+    timePeriod ? timePeriod === "2h" : timePeriod === "4h" ? "4h" : "day"
+  );
 
   return (
     <div>
-      <div className="d-flex justify-content-between align-items-center px-3 h4 border-bottom">
+      <div className="d-flex justify-content-between align-items-center h4">
         <div className="d-flex align-items-center gap-4">
           <div style={{ height: "6rem" }} className="detail-image">
             <Image className="h-100 p-2" src={images[0]} />
@@ -64,17 +87,18 @@ const CheckoutItemDetails = ({ cartItem }) => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-center">
-        <div className="d-flex justify-content-around shadow  mt-2">
-          <List className="p-0 border-end border-secondary">
-            <ListItem
-              style={{ background: "#dedede" }}
-              className="border-bottom border-secondary"
-            >
+      <div className="d-flex justify-content-around border border-secondary mt-2 w-100">
+        {type !== "bike" ? (
+          <List className="p-0 border-end border-secondary w-50">
+            <ListItem className="border-bottom border-secondary list-item--heading">
               <ListItemIcon>
                 <PersonIcon />
               </ListItemIcon>
-              <ListItemText primary="Personal Details" />
+              <ListItemText
+                className="d-flex align-items-center"
+                primary="Personal Details"
+                style={{ height: headingHeight }}
+              />
             </ListItem>
 
             <ListItem>
@@ -120,46 +144,55 @@ const CheckoutItemDetails = ({ cartItem }) => {
               </ListItem>
             ) : null}
           </List>
+        ) : null}
 
-          <List className="p-0">
-            <ListItem
-              className="border-bottom border-secondary"
-              style={{ background: "#dedede" }}
-            >
-              <ListItemIcon>
-                <EventNoteIcon />
-              </ListItemIcon>
-              <ListItemText primary="Reservation Details" />
-            </ListItem>
+        <List className={type !== "bike" ? "p-0 w-50" : "p-0 w-100"}>
+          <ListItem className="border-bottom border-secondary list-item--heading">
+            <ListItemIcon>
+              <EventNoteIcon />
+            </ListItemIcon>
+            <ListItemText ref={ref} primary="Reservation Details" />
+          </ListItem>
 
-            <ListItem>
-              <ListItemIcon>
-                <PlayCircleFilledIcon />
-              </ListItemIcon>
-              <ListItemText primary={startDate} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <StopCircleIcon />
-              </ListItemIcon>
-              <ListItemText primary={endDate} />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <DateRangeIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary={`${days > 1 ? days + " days" : days + " day"}`}
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <MonetizationOnIcon />
-              </ListItemIcon>
-              <ListItemText primary={`${price} RON / day`} />
-            </ListItem>
-          </List>
-        </div>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleFilledIcon />
+            </ListItemIcon>
+            <ListItemText primary={startDate} />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <StopCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary={endDate} />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <DateRangeIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary={`${
+                timePeriod === "4h"
+                  ? "4h"
+                  : timePeriod === "2h"
+                  ? "2h"
+                  : days > 1
+                  ? days + " days"
+                  : days + " day"
+              }`}
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <MonetizationOnIcon />
+            </ListItemIcon>
+            <ListItemText
+              primary={`${price} RON / ${
+                timePeriod === "4h" ? "4h" : timePeriod === "2h" ? "2h" : "day"
+              }`}
+            />
+          </ListItem>
+        </List>
       </div>
     </div>
   );

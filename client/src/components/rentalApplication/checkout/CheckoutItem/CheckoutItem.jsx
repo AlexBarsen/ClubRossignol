@@ -32,7 +32,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
     setCardHeight(ref.current.clientHeight);
   }, []);
 
-  const { name, images } = cartItem;
+  const { name, type, images } = cartItem;
 
   const renderModal = () => {
     setModalTitle(name);
@@ -42,14 +42,11 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
 
   return (
     <div className="d-flex align-items-center mt-5 shadow checkout-item">
-      <div style={{ height: Cardheight }} className="shadow">
+      <div style={{ height: Cardheight }}>
         <Image className="p-3 checkout-item--image" src={images[0]} />
       </div>
-      <Card
-        className="checkout-item--card w-100"
-        style={{ borderRadius: "0", boxShadow: "none" }}
-      >
-        <CardContent ref={ref} className="border-start ">
+      <Card className="checkout-item--card w-100">
+        <CardContent ref={ref}>
           <div className="d-flex flex-column">
             <CheckoutItemsDetails cartItem={cartItem} />
 

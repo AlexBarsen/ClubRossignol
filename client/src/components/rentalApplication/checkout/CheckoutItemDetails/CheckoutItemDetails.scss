@@ -5,3 +5,9 @@
     display: block;
   }
 }
+
+.list-item {
+  &--heading {
+    background-color: #dedede;
+  }
+}
