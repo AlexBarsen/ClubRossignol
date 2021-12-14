@@ -1,10 +1,10 @@
 import React from "react";
 import "./Section.scss";
-
 import { Carousel, Container } from "react-bootstrap";
+import Button from "@mui/material/Button";
 
 const Section = ({ section }) => {
-  const { id, imgStart, headline, text, images } = section;
+  const { id, imgStart, headline, text, images, buttonText, link } = section;
 
   return (
     <Container
@@ -16,33 +16,36 @@ const Section = ({ section }) => {
       id={id}
     >
       <div>
-        <div className="h3 text-center" style={{ fontWeight: "bold" }}>
-          {headline}
-        </div>
-        <div className="mt-5 h6 text-center" style={{ lineHeight: "2.4" }}>
+        <p className="h3 text-center font-weight-bold">{headline}</p>
+        <p className="mt-5 h6 " style={{ lineHeight: "2.4" }}>
           {text}
+        </p>
+
+        <div
+          className={
+            imgStart
+              ? "d-flex justify-content-start"
+              : "d-flex justify-content-end"
+          }
+        >
+          <Button href={link} variant="contained">
+            {buttonText}
+          </Button>
         </div>
       </div>
 
       <div>
         <Carousel
-          className="shadow"
+          className="shadow carousel carousel-container"
           interval={null}
           fade={true}
-          style={{ width: "35rem", height: "30rem", borderRadius: ".75rem" }}
         >
           {images.map((image, index) => (
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="d-block w-100 carousel carousel-image"
                 src={image}
                 alt={"Slide " + index}
-                style={{
-                  objectFit: "cover",
-                  width: "35rem",
-                  height: "30rem",
-                  borderRadius: ".75rem",
-                }}
               />
             </Carousel.Item>
           ))}

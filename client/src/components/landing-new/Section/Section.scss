@@ -7,43 +7,14 @@
   }
 }
 
-.grid {
+.carousel {
+  width: 35rem;
+  height: 30rem;
+  border-radius: 0.75rem;
   &-container {
-    display: grid;
-    grid-template-columns: 300px 300px;
-    grid-template-areas:
-      "content1 content2"
-      "content3 content4";
-    // gap: 1rem;
-    align-items: center;
-  }
-
-  &-item {
-    border: 3px solid #d3d3d3;
-    &--1 {
-      grid-area: content1;
-    }
-
-    &--2 {
-      grid-area: content2;
-    }
-
-    &--3 {
-      grid-area: content3;
-    }
-
-    &--4 {
-      grid-area: content4;
-    }
   }
 
   &-image {
     object-fit: cover;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      transform: scale(1.7);
-    }
   }
 }

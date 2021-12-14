@@ -1,0 +1,25 @@
+.hero {
+  &-container {
+    height: 650px;
+    position: relative;
+  }
+
+  &-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-logo {
+    &--container {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &--image {
+      width: 45rem;
+    }
+  }
+}

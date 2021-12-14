@@ -1,14 +1,10 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
+import "./Navigation.scss";
 
 const Navigation = () => {
   return (
-    <Navbar
-      bg="light"
-      expand="lg"
-      className="w-100 p-0"
-      style={{ position: "absolute", top: "0", opacity: "0.5", zIndex: "2" }}
-    >
+    <Navbar expand="lg" className="navigation-bar">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

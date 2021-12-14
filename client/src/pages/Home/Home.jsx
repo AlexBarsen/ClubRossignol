@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import AboutUs from "../../components/landing-new/AboutUs/AboutUs";
 
 import Hero from "../../components/landing-new/Hero/Hero";
 import Navigation from "../../components/landing-new/Navigation/Navigation";
@@ -21,12 +20,8 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <Hero />
       <Navigation />
-
-      {/* <div data-aos="fade-up">
-        <AboutUs />
-      </div> */}
+      <Hero />
       <div data-aos="fade-up">
         <Section section={restaurant_section} />
       </div>
