@@ -1,0 +1,42 @@
+.section-container {
+  padding-top: 8rem;
+
+  &:last-child {
+    padding-bottom: 5rem;
+  }
+}
+
+.grid {
+  &-container {
+    display: grid;
+    grid-template-columns: 280px 280px;
+    grid-template-areas:
+      "content1 content2"
+      "content3 content4";
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &-item {
+    &--1 {
+      grid-area: content1;
+    }
+
+    &--2 {
+      grid-area: content2;
+    }
+
+    &--3 {
+      grid-area: content3;
+    }
+
+    &--4 {
+      grid-area: content4;
+    }
+  }
+
+  &-image {
+    object-fit: contain;
+    width: 100%;
+  }
+}

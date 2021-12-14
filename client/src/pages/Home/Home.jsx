@@ -1,34 +1,27 @@
 import React from "react";
+import AboutUs from "../../components/landing-new/AboutUs/AboutUs";
 
+import Hero from "../../components/landing-new/Hero/Hero";
+import Navigation from "../../components/landing-new/Navigation/Navigation";
+
+import Section from "../../components/landing-new/Section/Section";
 import {
-  restaurantSection,
-  rentalSection,
-  hotelSection,
-  shopSection,
-} from "../../components/landing/InfoCard/sections";
-
-import Footer from "../../components/landing/Footer/Footer";
-import Navigation from "../../components/landing/Navigation/Navigation";
-import HeroCarousel from "../../components/landing/HeroCarousel/HeroCarousel";
-
-import InfoCard from "../../components/landing/InfoCard/InfoCard";
-import Contact from "../../components/landing/Contact/Contact";
-import Features from "../../components/landing/Features/Features";
+  restaurant_section,
+  rental_section,
+  hotel_section,
+  shop_section,
+} from "../../components/landing-new/Section/data";
 
 const HomePage = () => {
   return (
     <>
-      <div>
-        <Navigation />
-        <HeroCarousel />
-        <Features />
-        <InfoCard section={restaurantSection} imgStart={false} />
-        <InfoCard section={rentalSection} imgStart={true} />
-        <InfoCard section={hotelSection} imgStart={false} />
-        <InfoCard section={shopSection} imgStart={true} />
-        <Contact />
-        <Footer />
-      </div>
+      <Navigation />
+      <Hero />
+      <AboutUs />
+      <Section section={restaurant_section} />
+      <Section section={rental_section} />
+      <Section section={hotel_section} />
+      <Section section={shop_section} />
     </>
   );
 };

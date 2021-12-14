@@ -5,10 +5,7 @@ import GoogleApiWrapper from "../GoogleMaps/index";
 const Contact = () => {
   return (
     <div className="d-flex justify-content-center my-5">
-      <Card
-        style={{ width: "70rem", border: "1px solid black" }}
-        className="shadow"
-      >
+      <Card style={{ width: "70rem" }} className="shadow">
         <Card.Body>
           <Card.Title>Contact</Card.Title>
           <div className="d-flex justify-content-between">

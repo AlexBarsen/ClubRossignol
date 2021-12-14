@@ -25,13 +25,13 @@ const InfoCard = ({ section, imgStart }) => {
         id={id}
         style={{
           width: "70rem",
-          border: "1px solid black",
+          // border: "1px solid black",
         }}
         className="shadow"
       >
         <Card.Header
           className="ps-3"
-          style={{ borderBottom: "2px solid #0000007e" }}
+          // style={{ borderBottom: "2px solid #0000007e" }}
           as="h4"
         >
           <strong>{t(topLine)}</strong>
@@ -49,7 +49,7 @@ const InfoCard = ({ section, imgStart }) => {
           </Card.Body>
           <Image
             src={image}
-            style={{ width: "20rem", border: "1px solid black" }}
+            style={{ width: "24rem" }}
             className="m-4 shadow"
           />
         </div>
