@@ -1,7 +1,8 @@
 import React from "react";
+import { Image } from "react-bootstrap";
 
 const Feature = ({ feature }) => {
-  const { title, Icon, text } = feature;
+  const { title, Icon, text, image } = feature;
 
   return (
     <div>
@@ -13,9 +14,6 @@ const Feature = ({ feature }) => {
 
         <div className="h2 m-0">{title}</div>
       </div>
-      {/* <div className="mt-3 text-center" style={{ lineHeight: "2" }}>
-        {text}
-      </div> */}
     </div>
   );
 };

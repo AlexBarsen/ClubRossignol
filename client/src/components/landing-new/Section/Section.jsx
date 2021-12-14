@@ -1,7 +1,7 @@
 import React from "react";
 import "./Section.scss";
 
-import { Container, Image } from "react-bootstrap";
+import { Carousel, Container } from "react-bootstrap";
 
 const Section = ({ section }) => {
   const { id, imgStart, headline, text, images } = section;
@@ -10,30 +10,43 @@ const Section = ({ section }) => {
     <Container
       className={
         imgStart
-          ? "d-flex align-items-center gap-5 section-container"
-          : "d-flex flex-row-reverse align-items-center gap-5 section-container"
+          ? "d-flex align-items-center gap-5 section-container my-0"
+          : "d-flex flex-row-reverse align-items-center gap-5 section-container my-0"
       }
       id={id}
     >
       <div>
-        <div className="h3 text-center">{headline}</div>
-        <div className="mt-5 h6" style={{ lineHeight: "2" }}>
+        <div className="h3 text-center" style={{ fontWeight: "bold" }}>
+          {headline}
+        </div>
+        <div className="mt-5 h6 text-center" style={{ lineHeight: "2.4" }}>
           {text}
         </div>
       </div>
-      <div className="grid-container">
-        <div className="grid-item grid-item--1">
-          <Image src={images[0]} className="grid-image" />
-        </div>
-        <div className="grid-item grid-item--2">
-          <Image src={images[1]} className="grid-image" />
-        </div>
-        <div className="grid-item grid-item--3">
-          <Image src={images[2]} className="grid-image" />
-        </div>
-        <div className="grid-item grid-item--4">
-          <Image src={images[3]} className="grid-image" />
-        </div>
+
+      <div>
+        <Carousel
+          className="shadow"
+          interval={null}
+          fade={true}
+          style={{ width: "35rem", height: "30rem", borderRadius: ".75rem" }}
+        >
+          {images.map((image, index) => (
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={image}
+                alt={"Slide " + index}
+                style={{
+                  objectFit: "cover",
+                  width: "35rem",
+                  height: "30rem",
+                  borderRadius: ".75rem",
+                }}
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
       </div>
     </Container>
   );

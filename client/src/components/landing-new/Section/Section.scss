@@ -1,23 +1,25 @@
 .section-container {
-  padding-top: 8rem;
+  // background-color: #dedede;
+  padding-top: 5rem;
 
   &:last-child {
-    padding-bottom: 5rem;
+    margin-bottom: 15rem;
   }
 }
 
 .grid {
   &-container {
     display: grid;
-    grid-template-columns: 280px 280px;
+    grid-template-columns: 300px 300px;
     grid-template-areas:
       "content1 content2"
       "content3 content4";
-    gap: 0.5rem;
+    // gap: 1rem;
     align-items: center;
   }
 
   &-item {
+    border: 3px solid #d3d3d3;
     &--1 {
       grid-area: content1;
     }
@@ -36,7 +38,12 @@
   }
 
   &-image {
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.7);
+    }
   }
 }

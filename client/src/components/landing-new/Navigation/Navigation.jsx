@@ -7,7 +7,7 @@ const Navigation = () => {
       bg="light"
       expand="lg"
       className="w-100 p-0"
-      style={{ position: "absolute", opacity: "0.5", zIndex: "2" }}
+      style={{ position: "absolute", top: "0", opacity: "0.5", zIndex: "2" }}
     >
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -16,16 +16,16 @@ const Navigation = () => {
             <Nav.Link className="h4" href="#home">
               Home
             </Nav.Link>
-            <Nav.Link className="h4" href="#link">
+            <Nav.Link className="h4" href="#hotel">
               Hotel
             </Nav.Link>
-            <Nav.Link className="h4" href="#link">
+            <Nav.Link className="h4" href="#restaurant">
               Restaurant
             </Nav.Link>
-            <Nav.Link className="h4" href="#link">
+            <Nav.Link className="h4" href="#rental">
               Rental
             </Nav.Link>
-            <Nav.Link className="h4" href="#link">
+            <Nav.Link className="h4" href="#shop">
               Shop
             </Nav.Link>
             <Nav.Link className="h4" href="#link">

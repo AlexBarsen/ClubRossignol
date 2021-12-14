@@ -14,6 +14,7 @@
     "@dicebear/pixel-art": "^4.9.1",
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.21.1",
+    "aos": "^3.0.0-beta.6",
     "bootstrap": "5.1.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
