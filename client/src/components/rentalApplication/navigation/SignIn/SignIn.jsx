@@ -55,14 +55,14 @@ const SignIn = ({ emailSignInStart }) => {
         />
       </Form.Group>
 
-      <div className="buttonContainer">
+      <div>
         <Button
           startIcon={<LoginIcon />}
           variant="contained"
           type="submit"
           className="custom-button--blue"
         >
-          Login
+          {t("sign_in")}
         </Button>
       </div>
     </Form>

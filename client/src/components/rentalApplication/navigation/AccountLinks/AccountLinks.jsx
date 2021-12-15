@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { useTranslation } from "react-i18next";
 import "./AcountLinks.scss";
 
 import {
@@ -25,6 +26,7 @@ const AccountLinks = ({
   toggleAccountModal,
   signOut,
 }) => {
+  const { t } = useTranslation();
   const [modalSize, setModalSize] = useState();
   const [modalTitle, setModalTitle] = useState(null);
   const [wrappedComponent, setWrappedComponent] = useState(null);
@@ -32,10 +34,10 @@ const AccountLinks = ({
   const renderModal = (component, size) => {
     setModalTitle(
       component.type.WrappedComponent.name === "SignIn"
-        ? "Sign In"
+        ? "sign_in"
         : component.type.WrappedComponent.name === "SignUp"
-        ? "Sign Up"
-        : "Password Reset"
+        ? "sign_up"
+        : "password_reset"
     );
     setWrappedComponent(component);
     setModalSize(size);
@@ -58,7 +60,7 @@ const AccountLinks = ({
             ) : (
               <NavDropdown.Item>
                 <LinkContainer to="/rental/dashboard">
-                  <Nav.Link>Dashboard</Nav.Link>
+                  <Nav.Link>User Dashboard</Nav.Link>
                 </LinkContainer>
               </NavDropdown.Item>
             )}
@@ -76,19 +78,19 @@ const AccountLinks = ({
             className="me-3 text-navy--dark"
             onClick={() => renderModal(<SignIn />, "sm")}
           >
-            Sign In
+            {t("sign_in")}
           </Nav.Link>
           <Nav.Link
             className="me-3 text-navy--dark"
             onClick={() => renderModal(<SignUp />, "md")}
           >
-            Sign Up
+            {t("sign_up")}
           </Nav.Link>
           <Nav.Link
             className="me-3 text-navy--dark"
             onClick={() => renderModal(<PasswordReset />, "sm")}
           >
-            Forgot password?
+            {t("forgot_password")}
           </Nav.Link>
         </>
       )}

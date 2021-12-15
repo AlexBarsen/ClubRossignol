@@ -63,7 +63,7 @@ const PasswordReset = ({ passwordResetStart }) => {
           variant="contained"
           type="submit"
         >
-          Submit
+          {t("reset_password")}
         </Button>
       </div>
     </Form>

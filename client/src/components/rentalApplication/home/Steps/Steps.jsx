@@ -11,6 +11,7 @@ import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
 import CustomPopover from "../CustomPopover/CustomPopover";
+import { useTranslation } from "react-i18next";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -97,14 +98,10 @@ ColorlibStepIcon.propTypes = {
   icon: PropTypes.node,
 };
 
-const steps = [
-  "Creazati cont",
-  "Alegeti echipamentul si completeaza forumuarul",
-  "Rezerva si plateste cu cardul",
-  "Ridica echipamentul a 2a zi de la centrul de inchirieri",
-];
-
 export default function Steps() {
+  const { t } = useTranslation();
+
+  const steps = [t("step_1"), t("step_2"), t("step_3"), t("step_4")];
   return (
     <Stepper
       className="mt-4"

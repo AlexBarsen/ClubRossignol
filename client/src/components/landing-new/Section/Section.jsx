@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Section.scss";
 import { Carousel, Container } from "react-bootstrap";
 import Button from "@mui/material/Button";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
 
 const Section = ({ section }) => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   const { id, imgStart, headline, text, images, buttonText, link } = section;
 
   return (
     <Container
+      data-aos="fade-up"
       className={
         imgStart
-          ? "d-flex align-items-center gap-5 section-container my-0"
-          : "d-flex flex-row-reverse align-items-center gap-5 section-container my-0"
+          ? "d-flex align-items-center gap-5 my-0 section-container"
+          : "d-flex flex-row-reverse align-items-center gap-5 my-0 section-container"
       }
       id={id}
     >

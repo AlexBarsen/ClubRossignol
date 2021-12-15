@@ -8,8 +8,10 @@ import {
   BikePricesTable,
 } from "../../components/rentalApplication/home/PricesTable/PricesTable";
 import { Image } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const RentalHomePage = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className="text-center my-5 d-flex flex-column align-items-center">
@@ -21,17 +23,17 @@ const RentalHomePage = () => {
         </div>
 
         <div className="h4 mt-3 hero-text">
-          <strong>Totul simplu si rapid in doar 4 pasi.</strong>
+          <strong>{t("simple")}</strong>
         </div>
       </div>
 
       <Steps />
 
       <div className="text-center mt-5 h2">
-        <strong>Lista preturi</strong>
+        <strong>{t("price_list")}</strong>
       </div>
 
-      <div className="d-flex justify-content-around mt-4 p-4 tables align-items-center">
+      <div className="d-flex justify-content-around mt-4 p-4 tables align-items-start">
         <div className="tables--container">
           <WinterPricesTable />
         </div>
@@ -43,7 +45,7 @@ const RentalHomePage = () => {
 
       <div className="my-5 px-5 mb-4 frequentlyAsked">
         <div className="h2 text-center">
-          <strong>Frequently asked questions</strong>
+          <strong>{t("frequenlty_asked")}</strong>
         </div>
 
         <ol>

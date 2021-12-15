@@ -1,11 +1,14 @@
 import React from "react";
 import i18next from "i18next";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useTranslation } from "react-i18next";
 
 const LangaugeDropdown = () => {
+  const { t } = useTranslation();
+
   return (
     <NavDropdown
-      title="Language"
+      title={t("language")}
       id="nav-dropdown--2"
       className="font-weight-normal"
     >

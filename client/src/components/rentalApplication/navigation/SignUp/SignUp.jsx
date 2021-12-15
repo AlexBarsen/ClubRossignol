@@ -91,18 +91,18 @@ const SignUp = ({ emailSignUpStart }) => {
         <Row>
           <Form.Group className="col">
             <Form.Control
-              name="firstName"
+              name="lastName"
               type="text"
-              placeholder={t("surname")}
+              placeholder={t("last_name")}
               onChange={handleChange}
             />
           </Form.Group>
 
           <Form.Group className="mb-3 col">
             <Form.Control
-              name="lastName"
+              name="firstName"
               type="text"
-              placeholder={t("name")}
+              placeholder={t("first_name")}
               onChange={handleChange}
             />
           </Form.Group>
@@ -159,12 +159,12 @@ const SignUp = ({ emailSignUpStart }) => {
           </Form.Group>
 
           <Form.Group className="col d-flex align-items-center justify-content-center">
-            <Form.Group className="mb-3">
+            {/* <Form.Group className="mb-3">
               <FormCheck required name="terms">
                 <FormCheck.Input type="checkbox" />
                 <FormCheck.Label>Accept Terms and Conditions.</FormCheck.Label>
               </FormCheck>
-            </Form.Group>
+            </Form.Group> */}
           </Form.Group>
         </Row>
       </div>
@@ -175,7 +175,7 @@ const SignUp = ({ emailSignUpStart }) => {
           variant="contained"
           type="submit"
         >
-          Sign Up
+          {t("sign_up")}
         </Button>
       </div>
     </Form>

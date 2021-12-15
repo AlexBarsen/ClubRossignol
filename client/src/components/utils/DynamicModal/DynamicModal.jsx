@@ -1,9 +1,10 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-const DynamicModal = ({ render, size, title, ...props }) => {
-  const WrappedComponent = render;
+import { useTranslation } from "react-i18next";
 
-  console.log("rendering");
+const DynamicModal = ({ render, size, title, ...props }) => {
+  const { t } = useTranslation();
+  const WrappedComponent = render;
 
   return (
     <Modal
@@ -14,7 +15,7 @@ const DynamicModal = ({ render, size, title, ...props }) => {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          <span className="h4">{title}</span>
+          <span className="h4">{t(title)}</span>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="d-flex justify-content-center">

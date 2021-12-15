@@ -2,10 +2,24 @@
   "back_to_website": "Back to Website",
   "sign_in": "Sign In",
   "sign_up": "Sign Up",
+  "password_reset": "Password Reset",
   "about": "About",
   "contact": "Contact",
 
   "message": "Message",
+
+  "step_1": "Create anccount.",
+  "step_2": "Pick your equipment and complete the form.",
+  "step_3": "Book and pay by credit card.",
+  "step_4": "Pick up the equipment the next day.",
+
+  "ski_snow_adult": "Skies / Snowboard Adult",
+  "ski_snow_boots_adult": "Ski / Snowboard Boots Adult",
+  "ski_snow_equipment": "Ski / Snowboard Equipment Adult",
+  "ski_snow_child": "Skies / Snowboard Child",
+  "ski_now_child": "Ski / Snowboard Boots Child",
+  "ski_snow_boots_child": "Ski / Snowboard Equipment Child",
+  "helmet": "Helmet",
 
   "hero_text": "In Poiana Brașov at the base of the slope from 1999.",
   "discover": "Discover the location",
@@ -58,6 +72,10 @@
   "agree": "I agree to the",
   "terms_and_conditions": "terms and conditions",
 
+  "rent_equipment": "Închirează echipament",
+  "all_categories": "All categories",
+  "language": "Language",
+
   "go_to_checkout": "GO TO CHECKOUT",
   "add_to_cart": "ADD TO CART",
 
@@ -78,6 +96,15 @@
   "ebike_child": "E-Bike Child",
   "bike_child": "Mountainbike Child",
   "price_bike": "Per day / per hour",
+  "bikes": "Bikes",
+  "winter_equipment": "Winter equipment",
+
+  "1_day": "1 day",
+  "7_days": "7 days",
+
+  "simple": "Everything is simple and fast in just 4 steps.",
+  "price_list": "Price List",
+  "frequenlty_asked": "Frequently Asked Questions",
 
   "choose": "CHOOSE",
 
@@ -128,8 +155,8 @@
   "last_name": "Last Name",
   "first_name": "First Name",
   "date_of_birth": "Date of birth",
-  "email": "E-Mail",
-  "email_verified": "E-Mail confirmed",
+  "email": "Email",
+  "email_verified": "Email confirmed",
   "email_verified_true": "confirmed",
   "email_verified_false": "not confirmed (please check your E-mail)",
   "phone": "Phone number",

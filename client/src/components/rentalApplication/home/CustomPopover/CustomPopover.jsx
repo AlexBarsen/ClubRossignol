@@ -22,6 +22,7 @@ const CustomPopover = ({ label, ColorlibStepIcon }) => {
         <span className="step-label">{label}</span>
       </StepLabel>
       <Popover
+        className="custom-popover"
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}

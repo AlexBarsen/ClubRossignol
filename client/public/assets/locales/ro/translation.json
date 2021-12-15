@@ -2,10 +2,24 @@
   "back_to_website": "Inapoi la site",
   "sign_in": "Conectare",
   "sign_up": "Inregistrează-te",
+  "password_reset": "Resetează-ți Parola",
   "about": "Despre",
   "contact": "Contact",
 
   "message": "Mesaj",
+
+  "step_1": "Creazății cont.",
+  "step_2": "Alegeți echipamentul si completează forumuarul.",
+  "step_3": "Rezervă și plătește cu cardul.",
+  "step_4": "Ridică echipamentul a 2a zi.",
+
+  "ski_snow_adult": "Skiuri / Snowboard Adult",
+  "ski_snow_boots_adult": "Bocanci / Booți Adult",
+  "ski_snow_equipment": "Echipament Ski / Snowboard Adult",
+  "ski_snow_child": "Skiuri / Snowboard Copil",
+  "ski_now_child": "Bocanci / Booți Copil",
+  "ski_snow_boots_child": "Echipament Ski / Snowboard Copil",
+  "helmet": "Cască",
 
   "hero_text": "În Poiana Brașov la baza părtiei din anul 1999.",
   "discover": "Descoperă locația",
@@ -58,6 +72,10 @@
   "agree": "Accept",
   "terms_and_conditions": "termenii si condițiile",
 
+  "rent_equipment": "Rent equipment",
+  "all_categories": "Toate categoriile",
+  "language": "Limbă",
+
   "go_to_checkout": "CĂTRE PLATĂ",
   "add_to_cart": "ADAUGĂ ÎN COȘ",
 
@@ -79,6 +97,15 @@
   "bike_child": "Mountainbike Copil",
   "ron_day": "RON / ZI",
   "price_bike": "Pe zi / pe ore",
+  "bikes": "Biciclete",
+  "winter_equipment": "Echipamente pentru iarnă",
+
+  "1_day": "1 zi",
+  "7_days": "7 zile",
+
+  "simple": "Totul simplu si rapid in doar 4 pași.",
+  "price_list": "Listă prețuri",
+  "frequenlty_asked": "Întrebari frecvente",
 
   "choose": "ALEGE",
 
@@ -128,8 +155,8 @@
   "last_name": "Nume",
   "first_name": "Prenume",
   "date_of_birth": "Data nasterii",
-  "email": "E-Mail",
-  "email_verified": "E-Mail confirmat",
+  "email": "Email",
+  "email_verified": "Email confirmat",
   "email_verified_true": "confirmat",
   "email_verified_false": "neconfirmat (vă rugăm sa vă verificațivă E-mailul)",
   "phone": "Număr telefon",

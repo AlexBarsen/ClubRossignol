@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { useTranslation } from "react-i18next";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -39,36 +40,32 @@ function createWinterData(equipment, priceDay, priceWeek) {
   return { equipment, priceDay, priceWeek };
 }
 
-const winterRows = [
-  createWinterData("Skiuri / Snowboard Adult", 45, 50),
-  createWinterData("Bocanci / Booti Adult", 25, 50),
-  createWinterData("Ecipament Ski / Snowboard Adult", 60, 50),
-  createWinterData("Skiuri / Snowboard Copil", 40, 50),
-  createWinterData("Bocanci / Booti Copil", 20, 50),
-  createWinterData("Ecipament Ski / Snowboard Copil", 50, 50),
-  createWinterData("Casca", 20, 50),
-];
-
 function bikeData(equipment, price2Hours, price4Hours, priceDay) {
   return { equipment, price2Hours, price4Hours, priceDay };
 }
 
-const bikeRows = [
-  bikeData("E-Bike Adult", 125, 175, 225),
-  bikeData("E-Bike Copil", 75, 125, 175),
-  bikeData("Mountainbike Adult", 30, 60, 90),
-  bikeData("Mountainbike Copil", 20, 40, 75),
-];
-
 export function WinterPricesTable() {
+  const { t } = useTranslation();
+
+  const winterRows = [
+    createWinterData(t("ski_snow_adult"), 45, 50),
+    createWinterData(t("ski_snow_boots_adult"), 25, 50),
+    createWinterData(t("ski_snow_equipment"), 60, 50),
+    createWinterData(t("ski_snow_child"), 40, 50),
+    createWinterData(t("ski_now_child"), 20, 50),
+    createWinterData(t("ski_snow_boots_child"), 50, 50),
+    createWinterData(t("helmet"), 20, 50),
+  ];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ maxWidth: 450 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="left">Echipament</StyledTableCell>
-            <StyledTableCell align="left">1 zi</StyledTableCell>
-            <StyledTableCell align="left">7 zile</StyledTableCell>
+            <StyledTableCell align="left">
+              {t("winter_equipment")}
+            </StyledTableCell>
+            <StyledTableCell align="left">{t("1_day")}</StyledTableCell>
+            <StyledTableCell align="left">{t("7_days")}</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody className="table-body">
@@ -88,15 +85,22 @@ export function WinterPricesTable() {
 }
 
 export function BikePricesTable() {
+  const { t } = useTranslation();
+  const bikeRows = [
+    bikeData(t("ebike_adult"), 125, 175, 225),
+    bikeData(t("ebike_child"), 75, 125, 175),
+    bikeData(t("bike_adult"), 30, 60, 90),
+    bikeData(t("bike_child"), 20, 40, 75),
+  ];
   return (
     <TableContainer component={Paper}>
       <Table sx={{ maxWidth: 450 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="left">Bike</StyledTableCell>
-            <StyledTableCell align="left">2 ore</StyledTableCell>
-            <StyledTableCell align="left">4 ore</StyledTableCell>
-            <StyledTableCell align="left">1 zi</StyledTableCell>
+            <StyledTableCell align="left">{t("bikes")}</StyledTableCell>
+            <StyledTableCell align="left">{t("2h")}</StyledTableCell>
+            <StyledTableCell align="left">{t("4h")}</StyledTableCell>
+            <StyledTableCell align="left">{t("per_day")}</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
