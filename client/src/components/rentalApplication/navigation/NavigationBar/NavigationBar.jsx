@@ -5,11 +5,12 @@ import { useTranslation } from "react-i18next";
 
 import { Navbar, Nav, Container } from "react-bootstrap";
 import OffCanvasCart from "../../cart/OffCanvasCart/OffCanvasCart";
-import LangaugeDropdown from "../LanguageDropdown/LangaugeDropdown";
+
 import AccountLinks from "../AccountLinks/AccountLinks";
 import Logo from "../../../../logos/logo-text-small.png";
 import { Link } from "react-router-dom";
 import CategoryLinks from "../CategoryLinks/CategoryLinks";
+import Languages from "../../../utils/Languages/Languages";
 
 const NavigationBar = () => {
   const { t } = useTranslation();
@@ -31,11 +32,11 @@ const NavigationBar = () => {
 
             <CategoryLinks />
 
-            <LangaugeDropdown />
-
             <div className="ms-2">
               <OffCanvasCart key={1} placement="end" />
             </div>
+
+            <Languages landing={false} />
           </Nav>
         </Navbar.Collapse>
       </Container>

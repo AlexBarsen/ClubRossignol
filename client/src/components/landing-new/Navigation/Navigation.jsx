@@ -2,6 +2,8 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import "./Navigation.scss";
 
+import Languages from "../../utils/Languages/Languages";
+
 const Navigation = () => {
   return (
     <Navbar expand="lg" className="navigation-bar">
@@ -28,6 +30,7 @@ const Navigation = () => {
               Contact
             </Nav.Link>
           </Nav>
+          <Languages landing={true} />
         </Navbar.Collapse>
       </Container>
     </Navbar>

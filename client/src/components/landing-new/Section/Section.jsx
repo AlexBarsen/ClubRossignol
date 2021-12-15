@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import "./Section.scss";
 import { Carousel, Container } from "react-bootstrap";
 import Button from "@mui/material/Button";
@@ -10,6 +11,7 @@ const Section = ({ section }) => {
     AOS.init({ duration: 2000 });
   }, []);
 
+  const { t } = useTranslation();
   const { id, imgStart, headline, text, images, buttonText, link } = section;
 
   return (
@@ -23,7 +25,7 @@ const Section = ({ section }) => {
       id={id}
     >
       <div>
-        <p className="h3 text-center font-weight-bold">{headline}</p>
+        <p className="h3 text-center font-weight-bold">{t(headline)}</p>
         <p className="mt-5 h6 " style={{ lineHeight: "2.4" }}>
           {text}
         </p>
@@ -36,7 +38,7 @@ const Section = ({ section }) => {
           }
         >
           <Button href={link} variant="contained">
-            {buttonText}
+            {t(buttonText)}
           </Button>
         </div>
       </div>
