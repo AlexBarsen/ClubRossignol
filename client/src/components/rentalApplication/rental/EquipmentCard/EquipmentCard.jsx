@@ -82,7 +82,7 @@ const EquipmentCard = ({ item }) => {
                 className="custom-button--blue"
                 onClick={() => renderModal()}
               >
-                Alege
+                {t("choose")}
               </Button>
             </div>
           </div>

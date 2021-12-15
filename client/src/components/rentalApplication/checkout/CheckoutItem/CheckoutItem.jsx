@@ -55,10 +55,10 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
                 <Button
                   variant="contained"
                   startIcon={<EditIcon />}
-                  className="custom-button custom-button--red"
+                  className="custom-button custom-button--yellow"
                   onClick={() => renderModal()}
                 >
-                  Edit
+                  {t("edit")}
                 </Button>
               </div>
 
@@ -69,7 +69,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart }) => {
                   className="custom-button custom-button--red"
                   onClick={() => clearItemFromCart(cartItem)}
                 >
-                  Remove
+                  {t("delete")}
                 </Button>
               </div>
             </div>

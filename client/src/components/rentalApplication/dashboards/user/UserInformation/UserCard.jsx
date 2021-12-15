@@ -26,7 +26,7 @@ const UserCard = ({ currentUser }) => {
     <Card className="shadow border-secondary">
       <Card.Body className="flex-grow-0">
         <Card.Title className="d-flex justify-content-center m-0">
-          Account Details
+          {t("account_details")}
         </Card.Title>
       </Card.Body>
       <List>

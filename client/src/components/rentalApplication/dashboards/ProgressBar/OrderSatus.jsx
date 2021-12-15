@@ -1,8 +1,10 @@
 import React from "react";
 import "./OrderStatus.scss";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { useTranslation } from "react-i18next";
 
 const OrderStatus = ({ status }) => {
+  const { t } = useTranslation();
   return (
     <ProgressBar
       style={{
@@ -12,14 +14,14 @@ const OrderStatus = ({ status }) => {
       }}
     >
       <ProgressBar
-        label="placed"
+        label={t("placed")}
         animated
         className="progress--placed"
         now={33}
         key={1}
       />
       <ProgressBar
-        label="prepared"
+        label={t("prepared")}
         style={{ borderLeft: "1px solid black" }}
         animated
         className={
@@ -33,7 +35,7 @@ const OrderStatus = ({ status }) => {
         key={2}
       />
       <ProgressBar
-        label="complete"
+        label={t("complete")}
         style={{ borderLeft: "1px solid black" }}
         animated
         className={

@@ -41,11 +41,11 @@ const AdminTable = ({ data }) => {
             accessor: "orderedAt",
           },
           {
-            Header: t("items_ordered"),
+            Header: t("number_equipments"),
             accessor: "numberOfItems",
           },
           {
-            Header: t("order_total"),
+            Header: t("Total"),
             accessor: (row) => row.total + " RON",
           },
           {

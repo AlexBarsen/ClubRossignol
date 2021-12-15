@@ -23,10 +23,10 @@ const CartItem = ({ item, clearItemFromCart }) => {
 
         <div>
           <ListGroupItem>
-            <strong>Person:</strong> {firstName} {lastName}
+            <strong>{t("person")}:</strong> {firstName} {lastName}
           </ListGroupItem>
           <ListGroupItem>
-            <strong>Duration:</strong> {days} days
+            <strong>{t("duration")}:</strong> {days} days
           </ListGroupItem>
           <ListGroupItem>
             <strong>Total:</strong> {price} * {days} day = {price * days} RON
@@ -49,7 +49,7 @@ const CartItem = ({ item, clearItemFromCart }) => {
               className="custom-button custom-button--red"
               onClick={() => clearItemFromCart(item)}
             >
-              Remove
+              {t("delete")}
             </Button>
           </div>
         </div>

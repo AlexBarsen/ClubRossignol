@@ -72,10 +72,11 @@
   "agree": "Accept",
   "terms_and_conditions": "termenii si condițiile",
 
-  "rent_equipment": "Rent equipment",
+  "rent_equipment": "Închirează echipament",
   "all_categories": "Toate categoriile",
   "language": "Limbă",
 
+  "equipment_in_cart": "Echipamente in coș pentru închiriat",
   "go_to_checkout": "CĂTRE PLATĂ",
   "add_to_cart": "ADAUGĂ ÎN COȘ",
 
@@ -129,6 +130,9 @@
 
   "equipment_type": "Tip echipament",
   "person": "Persoană",
+  "duration": "Durată",
+  "delete": "Șterge",
+  "edit": "Modifică",
   "details": "Detalii",
   "period": "Perioadă",
   "price": "Preț",
@@ -158,20 +162,25 @@
   "email": "Email",
   "email_verified": "Email confirmat",
   "email_verified_true": "confirmat",
-  "email_verified_false": "neconfirmat (vă rugăm sa vă verificațivă E-mailul)",
+  "email_verified_false": "neconfirmat (verificațivă Emailul)",
   "phone": "Număr telefon",
 
+  "number_equipments": "Nr. echipamente",
+  "date": "Dată",
+  "order_number": "Număr comanda",
   "order_history": "Istoric comenzi",
-  "order_id": "Numar comandă",
   "order_date": "Data comenzii",
-  "items_ordered": "Produs comandate",
-  "order_total": "Total comandă",
 
-  "received": "primită",
+  "personal_details": "Detalii personale",
+  "reservation_details": "Detalii rezervare",
+
+  "payment_simulation": "Pentru a simula o plată folosiți cardul de test.",
+
+  "placed": "plastată",
   "prepared": "pregatită",
   "complete": "predată",
 
-  "to_payment": "Finalizează comanda",
+  "to_payment": "Către plată",
   "payment_description": "De achitat",
   "pay": "Plătește acum",
 

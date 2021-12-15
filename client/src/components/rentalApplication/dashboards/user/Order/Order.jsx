@@ -24,12 +24,20 @@ const Order = ({ order, orderID }) => {
         <div style={{ width: "50rem" }}>
           <div className="d-flex justify-content-between align-items-center me-3">
             <div>
-              <div className="mb-2">Date: {orderDate}</div>
-              <div>Order: #{orderID}</div>
+              <div className="mb-2">
+                <strong>{t("date")}:</strong> {orderDate}
+              </div>
+              <div>
+                <strong>{t("order_number")}:</strong> #{orderID}
+              </div>
             </div>
             <div>
-              <div className="mb-2">No. items: {orderedItems.length}</div>
-              <div>Total: {order.total} RON</div>
+              <div className="mb-2">
+                <strong>{t("number_equipments")}</strong> {orderedItems.length}
+              </div>
+              <div>
+                <strong>Total:</strong> {order.total} RON
+              </div>
             </div>
 
             <div className="order-status--normal">

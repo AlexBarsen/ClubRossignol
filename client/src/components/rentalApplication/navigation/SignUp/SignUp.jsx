@@ -8,12 +8,10 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 
 import { emailSignUpStart } from "../../../../redux/user/user.actions";
 
-import { FormCheck, Form, Row } from "react-bootstrap";
+import { Form, Row } from "react-bootstrap";
 
 const SignUp = ({ emailSignUpStart }) => {
   const { t } = useTranslation();
-
-  // const [agree, setAgree] = useState(false);
 
   const [userCredentials, setCredentials] = useState({
     firstName: "",
@@ -158,14 +156,7 @@ const SignUp = ({ emailSignUpStart }) => {
             />
           </Form.Group>
 
-          <Form.Group className="col d-flex align-items-center justify-content-center">
-            {/* <Form.Group className="mb-3">
-              <FormCheck required name="terms">
-                <FormCheck.Input type="checkbox" />
-                <FormCheck.Label>Accept Terms and Conditions.</FormCheck.Label>
-              </FormCheck>
-            </Form.Group> */}
-          </Form.Group>
+          <Form.Group className="col d-flex align-items-center justify-content-center"></Form.Group>
         </Row>
       </div>
       <div className="d-flex justify-content-center">

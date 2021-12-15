@@ -109,7 +109,7 @@ const CheckoutForm = ({
                 total: cartTotal,
                 orderNumber: orderNumber,
                 userEmail: currentUser.email,
-                status: "received",
+                status: "placed",
                 orderedItems: cartItems,
                 orderedAt: new Date(),
               },

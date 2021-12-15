@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Button from "@mui/material/Button";
@@ -24,8 +24,8 @@ const stripePromise = loadStripe(
   "pk_test_51Ie0jqGu2kcl3ZIO43mlATVgl4kRVDjkclxzqHpH5oyTVDBS2UZbFpM32kSqlS7dsXzR6owuqFoXlXVjf6Yaq34000QJFmKJIr"
 );
 
-const CheckoutPage = ({ cartItems, currentUser }) => {
-  // const { t } = useTranslation();
+const CheckoutPage = ({ cartItems, currentUser, total }) => {
+  const { t } = useTranslation();
   const [clientSecret, setClientSecret] = useState("");
 
   const [modalShow, setModalShow] = useState(false);
@@ -52,8 +52,6 @@ const CheckoutPage = ({ cartItems, currentUser }) => {
       .then((data) => setClientSecret(data.clientSecret));
   }, [cartItems]);
 
-  console.log(currentUser, cartItems);
-
   const appearance = {
     theme: "stripe",
   };
@@ -79,18 +77,55 @@ const CheckoutPage = ({ cartItems, currentUser }) => {
           ))}
 
           {currentUser && cartItems.length ? (
-            <div
-              className="mt-4"
-              style={{ width: "fit-content", marginLeft: "auto" }}
-            >
-              <Button
-                startIcon={<PaymentsIcon />}
-                variant="contained"
-                className="custom-button--blue"
-                onClick={() => renderModal()}
+            <>
+              <div
+                className="mt-4"
+                style={{ width: "fit-content", marginLeft: "auto" }}
               >
-                Proceed to Payment
-              </Button>
+                <Button
+                  startIcon={<PaymentsIcon />}
+                  variant="contained"
+                  className="custom-button--blue"
+                  onClick={() => renderModal()}
+                >
+                  {t("to_payment")}
+                </Button>
+
+                <div className="h3 mt-3">
+                  <strong>Total:</strong> {total} RON
+                </div>
+              </div>
+
+              <div className="h4 mt-3" style={{ marginRight: "auto" }}>
+                <p>
+                  <strong>{t("payment_simulation")}</strong>
+                </p>
+                <p>
+                  <strong>Card Number:</strong> 4242 4242 4242 4242
+                </p>
+                <p>
+                  <strong>Exp. Date:</strong> 01/23
+                </p>
+                <p>
+                  <strong>CVC:</strong> 123
+                </p>
+              </div>
+            </>
+          ) : null}
+
+          {cartItems.length ? null : (
+            <div className="mt-5">
+              <p className="h4">
+                <strong>{t("cart_message")}</strong>
+              </p>
+            </div>
+          )}
+
+          {cartItems.length > 0 && currentUser === null ? (
+            <div className="mt-5">
+              <p className="h4">
+                <strong>{t("please_log_in")}</strong>
+              </p>
             </div>
           ) : null}
         </Container>

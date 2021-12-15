@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import CartItem from "../CartItem/CartItem";
 
@@ -16,6 +17,7 @@ import {
 } from "../../../../redux/cart/cart.selectors";
 
 const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
+  const { t } = useTranslation();
   const [showCanvas, setShowCanvas] = useState(false);
 
   const handleClose = () => setShowCanvas(false);
@@ -35,7 +37,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
         placement="end"
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Items in cart for Rental</Offcanvas.Title>
+          <Offcanvas.Title>{t("equipment_in_cart")}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           {cartItems.map((cartItem) => (
@@ -51,7 +53,7 @@ const OffCanvasCart = ({ cartItems, cartTotal, history }) => {
                 className="custom-button--blue"
                 onClick={() => goToCheckout()}
               >
-                Go To Checkout
+                {t("go_to_checkout")}
               </Button>
             </div>
           </div>

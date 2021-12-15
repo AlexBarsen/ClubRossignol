@@ -52,7 +52,7 @@ const TabItem = ({ item }) => {
               </ListItemIcon>
               <ListItemText
                 className="d-flex align-items-center"
-                primary="Personal Details"
+                primary={t("personal_details")}
               />
             </ListItem>
 
@@ -116,7 +116,7 @@ const TabItem = ({ item }) => {
             <ListItemIcon>
               <EventNoteIcon />
             </ListItemIcon>
-            <ListItemText primary="Reservation Details" />
+            <ListItemText primary={t("reservation_details")} />
           </ListItem>
 
           {type === "bike" ? (

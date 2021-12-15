@@ -30,7 +30,7 @@ const RowSubComponent = ({ row, updateOrderStatusStart }) => {
   console.log(orderedItems);
 
   const options = [
-    { value: "received", label: t("received") },
+    { value: "placed", label: t("placed") },
     { value: "prepared", label: t("prepared") },
     { value: "complete", label: t("complete") },
   ];

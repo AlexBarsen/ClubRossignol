@@ -20,6 +20,16 @@
   color: black !important;
 }
 
+.custom-button--yellow {
+  width: 100%;
+  background-color: $color-orange !important;
+  font-weight: bold !important;
+
+  &:hover {
+    background-color: $color-yellow--secondary !important;
+  }
+}
+
 .custom-button--blue {
   width: 100%;
   background-color: $color-blue--primary !important;

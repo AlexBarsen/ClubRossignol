@@ -17,7 +17,7 @@ const Orders = ({ userOrders }) => {
     <div>
       <div className="d-flex align-items-center justify-content-center mb-3 orders-heading">
         <HistoryIcon />
-        <span className="h5 ms-2 m-0">Order History</span>
+        <span className="h5 ms-2 m-0">{t("order_history")}</span>
       </div>
 
       {userOrders.map((order) => (

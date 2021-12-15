@@ -72,10 +72,11 @@
   "agree": "I agree to the",
   "terms_and_conditions": "terms and conditions",
 
-  "rent_equipment": "Închirează echipament",
+  "rent_equipment": "Rent equipment",
   "all_categories": "All categories",
   "language": "Language",
 
+  "equipment_in_cart": "Equipment in cart for rental",
   "go_to_checkout": "GO TO CHECKOUT",
   "add_to_cart": "ADD TO CART",
 
@@ -128,6 +129,9 @@
 
   "equipment_type": "Equipment type",
   "person": "Person",
+  "duration": "Duration",
+  "delete": "Delete",
+  "edit": "Edit",
   "details": "Details",
   "period": "Period",
   "price": "Price",
@@ -158,20 +162,25 @@
   "email": "Email",
   "email_verified": "Email confirmed",
   "email_verified_true": "confirmed",
-  "email_verified_false": "not confirmed (please check your E-mail)",
+  "email_verified_false": "not confirmed (please check your Email)",
   "phone": "Phone number",
 
-  "order_history": "Order history",
-  "order_id": "Order ID",
-  "order_date": "Order date",
-  "items_ordered": "Items ordered",
-  "order_total": "Order total",
+  "number_equipments": "No. equipments",
+  "date": "Date",
+  "order_number": "Order number",
+  "order_history": "Order History",
+  "order_date": "Order Date",
 
-  "received": "received",
+  "personal_details": "Personal Details",
+  "reservation_details": "Reservation Details",
+
+  "payment_simulation": "To simulate a payment use the following credit card.",
+
+  "placed": "placed",
   "prepared": "prepared",
   "complete": "complete",
 
-  "to_payment": "Go to payment",
+  "to_payment": "Proceed to payment",
   "payment_description": "To pay",
   "pay": "Pay now",
 
