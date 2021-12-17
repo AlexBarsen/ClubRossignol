@@ -4,13 +4,6 @@ Club Rossingol is a location sitauted at the base of the slope in Poiana Brasov,
 
 **Live Demo: https://clubrossignol.herokuapp.com/**
 
-### To run the project on your computer:
-
-- **clone this repo**
-- **npm / yarn install**
-- **yarn dev / npm run dev** => in the main project folder you will need to create a .env file containg your stripe api key (**example:** STRIPE_SECRET_KEY=your_key - **yes without " "**)
-- **yarn start** in /client to simply run the front-end of the application (you won't be able to place an order since there is no backend server)
-
 # Project Description
 
 The purpose of the project was to build a Landing Page together with a Rental Application through which winter equipment and bikes could be rented.
@@ -44,25 +37,12 @@ While the Landing Page serves just for the presentation of the location the Rent
     - change the **status** of the order:
       - **_received_ &#8594; _prepared_ &#8594; _completed_**
 
-- **Screenshots from the Application**:
-<p align="center">
-<img src="https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FProject%20Images%2FLandingPage.png?alt=media&token=4389aeed-924a-4f59-9d68-85163a412778" alt="Landing Page" width="600" height="500" />
-<img src="https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FProject%20Images%2FRentalApplication.png?alt=media&token=809925c4-8a09-480a-bec7-1c74ecd31ceb" alt="Rental Application" width="600" height="500" />
-</p>
-
-<p align="center">
-<img src="https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FProject%20Images%2FRentalModal.png?alt=media&token=0a4ef09a-db2e-4f69-ad14-d7a82cf48d04" alt="Rental Modal" width="600" />
-</p>
-
-<p align="center">
-<img src="https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FProject%20Images%2FUserDashboard.png?alt=media&token=bd99a704-2b9c-425a-923b-4c14081c7973" alt="User Dashboard" width="600" height="500" />
-<img src="https://firebasestorage.googleapis.com/v0/b/rental-clubrossignol.appspot.com/o/Images%2FProject%20Images%2FAdminDashboard.png?alt=media&token=5929bc09-d674-4d10-aed0-59475a3cc8a8" alt="Admin Dashboard" width="600" height="450" />
-</p>
-
 ## Built with:
 
 - [React.JS](https://reactjs.org/)
 - [Styled-components](https://styled-components.com/)
+- [React-Bootsrap](https://react-bootstrap.github.io/)
+- [Material-UI](https://mui.com/)
 - [Firebase + Firestore](https://firebase.google.com/) (**Firebase Storage** for storing images, **Firebase API** for user authentication and the **Firestore Database** for fetching/writing/creating/updating data used in the application)
 - [Redux](https://redux.js.org/)
   - [React Redux](https://react-redux.js.org/) (state management and the handling of actions/dispacthes in the application)
@@ -72,6 +52,8 @@ While the Landing Page serves just for the presentation of the location the Rent
 - [Stripe](https://stripe.com)
   - [React-Stripe](https://stripe.com/docs/stripe-js/react) (used for the implementation of the payment functionality)
 - [React Toastify](https://www.npmjs.com/package/react-toastify) (push notfications)
+- [NodeJS](https://nodejs.org/en/)
+- [ExpressJS](https://expressjs.com/) (processing the stripe payments)
 
 ## Future work and improvements:
 
