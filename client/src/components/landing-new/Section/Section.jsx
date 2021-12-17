@@ -37,9 +37,15 @@ const Section = ({ section }) => {
               : "d-flex justify-content-end"
           }
         >
-          <Button href={link} variant="contained">
-            {t(buttonText)}
-          </Button>
+          <div>
+            <Button
+              href={link}
+              variant="contained"
+              className="custom-button--blue"
+            >
+              {t(buttonText)}
+            </Button>
+          </div>
         </div>
       </div>
 

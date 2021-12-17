@@ -1,6 +1,4 @@
 @import "../src//scss/variables";
-// #2D2E49 navy
-// #BC112D red
 
 * {
   box-sizing: border-box;
@@ -33,9 +31,9 @@
 .custom-button--blue {
   width: 100%;
   background-color: $color-blue--primary !important;
-  font-weight: bold !important;
 
   &:hover {
+    color: #fff;
     background-color: $color-blue--secondary !important;
   }
 }
