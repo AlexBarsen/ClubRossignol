@@ -19,8 +19,8 @@ const Section = ({ section }) => {
       data-aos="fade-up"
       className={
         imgStart
-          ? "d-flex align-items-center gap-5 my-0 section-container"
-          : "d-flex flex-row-reverse align-items-center gap-5 my-0 section-container"
+          ? "d-flex  align-items-center gap-5 my-0 section-container"
+          : "d-flex flex-row-reverse justify-content-center align-items-center gap-5 my-0 section-container"
       }
       id={id}
     >

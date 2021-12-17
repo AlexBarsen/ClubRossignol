@@ -6,7 +6,7 @@ import Languages from "../../utils/Languages/Languages";
 
 const Navigation = () => {
   return (
-    <Navbar expand="lg" className="navigation-bar">
+    <Navbar expand="md" className="navigation-bar">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

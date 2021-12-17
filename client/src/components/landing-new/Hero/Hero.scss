@@ -16,10 +16,19 @@
       top: 40%;
       left: 50%;
       transform: translateX(-50%);
+      width: 50%;
+
+      @media screen and (max-width: 900px) {
+        width: 75%;
+      }
+
+      @media screen and (max-width: 768px) {
+        top: 60%;
+      }
     }
 
     &--image {
-      width: 45rem;
+      width: 100%;
     }
   }
 }
